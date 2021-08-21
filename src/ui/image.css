@@ -1,0 +1,45 @@
+@import './variable.css';
+
+.bk-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    &-inner {
+        width: 100%;
+        height: 100%;
+        vertical-align: top;
+
+        &-center {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block
+        }
+
+    }
+
+
+    &-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        background: $newGreyColor2;
+        color: $newGreyColor;
+        vertical-align: middle;
+        img{
+            width: 100%;
+        }
+    }
+
+    &-preview {
+        cursor: pointer
+    }
+}

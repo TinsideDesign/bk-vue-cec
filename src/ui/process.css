@@ -1,0 +1,136 @@
+@import './variable.css';
+@import "./loading.css";
+
+.bk-process {
+    display: flex;
+    position: relative;
+    .bk-icon {
+        font-size: $iconNormalSize;
+    }
+    .bk-process-toggle {
+        position: relative;
+        left: 15px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 50%;
+        text-align: center;
+        border: 1px solid $borderColor;
+        font-size: 12px;
+        color: $fnMainColor;
+        text-decoration: none;
+        &.active,
+        &:hover {
+            color: #fff;
+            background: $newMainColor;
+            border-color: $newMainColor;
+        }
+    }
+    > ul {
+        display: table;
+        width: 100%;
+        display: flex;
+        -ms-display: flex;
+        -moz-display: flex;
+        -webkit-display: flex;
+        margin: auto;
+        padding: 0;
+    }
+    li {
+        background-color: $newGreyColor2;
+        display: table-cell;
+        flex: 1;
+        -ms-flex: 1;
+        -moz-flex: 1;
+        -webkit-flex: 1;
+        text-align: center;
+        height: 24px;
+        line-height: 24px;
+        position: relative;
+        font-size: 12px;
+        color: $fnMainColor;
+        i {
+            display: none;
+        }
+        &:first-of-type {
+            border-radius: 13px 0 0 13px;
+        }
+        &:last-of-type {
+            border-radius:  0 13px 13px 0;
+            &::before {
+                display:none;
+            }
+            &::after {
+                display:none;
+            }
+        }
+        &::before {
+            content:"";
+            width: 0;
+            height: 0;
+            border: 12px solid;
+            border-color: transparent transparent transparent #fff;
+            position: absolute;
+            right: -25px;
+            top: 0;
+            z-index: 1;
+        }
+        &::after {
+            content:"";
+            width: 0;
+            height: 0;
+            border: 12px solid;
+            border-color: transparent transparent transparent $newGreyColor2;
+            position: absolute;
+            right: -23px;
+            top: 0;
+            z-index: 1;
+        }
+        .bk-process-step {
+            color: $fnMainColor;
+            font-size: 12px;
+            dd {
+                margin: 0;
+                line-height: 32px;
+            }
+            i {
+                display: none;
+            }
+            .success {
+                i {
+                    display: inline-block;
+                    color: $newGreenColor;
+                }
+            }
+            .steps-loading {
+                top: -2px;
+            }
+        }
+
+        &.success {
+            background: $newGreenColor;
+            color: #fff;
+            &::after {
+                border-color: transparent transparent transparent $newGreenColor;
+            }
+            & .bk-process-step {
+                i {
+                    color: $newGreenColor;
+                }
+            }
+            i {
+                display: inline-block;
+            }
+        }
+        &.current {
+            background: $newMainColor;
+            color: #fff;
+            &::after {
+                border-color: transparent transparent transparent $newMainColor;
+            }
+            >.bk-spin-loading {
+                vertical-align: -3px;
+            }
+        }
+    }
+}

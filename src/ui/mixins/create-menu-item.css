@@ -1,0 +1,80 @@
+/**
+ * @file create-menu-item mixin
+ *
+ * usage:
+ *      @mixin navigationItem;
+ *      @mixin navigationItem name;
+ *      @mixin navigationItem name, #fff;
+ *      @mixin navigationItem name, #fff, #fff;
+ */
+
+@define-mixin navigationItem $name: navigation-menu-item, $color: #C4C6CC, $nameColor: #C4C6CC  {
+    .$(name) {
+        display: flex;
+        flex: 0 0 38px;
+        align-items: center;
+        width: 100%;
+        min-width: 100%;
+        color: $color;
+        font-size: 14px;
+        height: 38px;
+        margin: 4px 0;
+        padding-right: 12px;
+        padding-left: 22px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-decoration: none;
+        &-icon.bk-icon {
+            font-size: 16px;
+            min-width: 38px;
+            text-align: left;
+        }
+        &-default {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            margin-right: 22px;
+            &-icon {
+                width: 3px;
+                height: 3px;
+                display: inline-block;
+                background: #63656e;
+                border-radius: 50%;
+            }
+        }
+        &-name {
+            color: $nameColor;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-right: 22px;
+        }
+        &[group] {
+            margin-bottom: 11px;
+            overflow: visible;
+            position: relative;
+            &:after {
+                content: " ";
+                height: 1px;
+                position: absolute;
+                bottom: -8px;
+                background: rgba(255, 255, 255, 0.06);
+                left: 15px;
+                right: 15px;
+                z-index: 100;
+            }
+            &.group-theme {
+                &:after{
+                    background: #F0F1F5;
+                }
+            }
+        }
+        &.is-disabled {
+            cursor: not-allowed;
+            opacity: .3;
+        }
+    }
+}

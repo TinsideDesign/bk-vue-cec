@@ -1,0 +1,17 @@
+.navigation-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 16px;
+    &:hover {
+        cursor: pointer;
+    }
+    .bk-navigation-menu-group {
+        &:first-child {
+            .group-name-wrap {
+                padding-top: 18px;
+            }
+        }
+    }
+}

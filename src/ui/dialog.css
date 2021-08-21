@@ -1,0 +1,360 @@
+@import './variable.css';
+
+.bk-dialog-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    z-index: 1000;
+
+    &.show-active {
+        display: block;
+        animation: mask-fading .4s;
+    }
+
+    &.hide-active {
+        display: none;
+        animation: mask-hidding .4s;
+    }
+}
+
+.bk-dialog-hidden {
+    display: none !important;
+}
+
+.bk-dialog-wrapper {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    &.bk-dialog-no-mask {
+        pointer-events: none;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    .bk-dialog {
+        width: auto;
+        margin: 0 auto;
+        position: relative;
+        outline: none;
+        /* flex: 1; */
+        top: 200px;
+
+        &.bk-dialog-fullscreen {
+            width: 100% !important;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            .bk-dialog-content {
+                width: 100%;
+                border-radius: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin-bottom: 0;
+            }
+            .bk-dialog-body {
+                width: 100%;
+                overflow: auto;
+                position: absolute;
+                top: 51px;
+                bottom: 61px;
+            }
+            .bk-dialog-footer {
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+            }
+            &.bk-dialog-fullscreen-no-header {
+                .bk-dialog-body {
+                    top: 0;
+                }
+            }
+            &.bk-dialog-fullscreen-no-footer {
+                .bk-dialog-body {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    .bk-dialog-tool {
+        min-height: 30px;
+        position: relative;
+        .bk-dialog-close {
+            z-index: 1;
+            cursor: pointer;
+            position: absolute;
+            color: $newBlackColor3;
+            top: 5px;
+            right: 5px;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: $iconNormalSize;
+            &:hover {
+                background-color: $newGreyColor2;
+            }
+        }
+    }
+
+    .bk-dialog-header {
+        padding: 3px 24px 24px 24px;
+        line-height: 1.1;
+        text-align: center;
+        p,
+        .bk-dialog-header-inner {
+            display: inline-block;
+            width: 100%;
+            font-size: 24px;
+            color: $newBlackColor1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin: 0;
+        }
+        .header-aside {
+            font-size: 20px;
+        }
+        p {
+            i,
+            span {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .header-on-left {
+        margin-top: -14px;
+        font-size: 20px;
+        p, div {
+            font-size: 20px;
+        }
+    }
+
+    .bk-dialog-body {
+        padding: 3px 24px 26px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: $newBlackColor2;
+    }
+
+    .bk-dialog-content {
+        position: relative;
+        background-color: $defaultColor;
+        border: 0;
+        border-radius: 2px;
+        background-clip: padding-box;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        &.bk-dialog-content-no-mask {
+            pointer-events: auto;
+        }
+        &.bk-dialog-content-drag {
+            position: absolute;
+            .bk-dialog-tool {
+                cursor: move;
+            }
+        }
+        &.bk-dialog-content-dragging {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    }
+
+    .bk-dialog-footer {
+        padding: 12px 24px 12px 24px;
+        background-color: $newGreyColor3;
+        border-top: 1px solid $newGreyColor1;
+        border-radius: 2px;
+        .footer-wrapper {
+            font-size: 0;
+            button {
+                min-width: 64px;
+            }
+            button + button {
+                margin-left: 8px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .bk-info-box {
+        .bk-dialog-header {
+            padding: 20px 30px 10px 30px;
+        }
+
+        .bk-dialog-sub-header {
+            padding: 5px 50px 21px 50px;
+            .bk-dialog-header-inner {
+                font-size: 14px;
+                color: $newBlackColor2;
+                line-height: 1.5;
+                text-align: center;
+                word-break: break-all;
+            }
+        }
+        .bk-dialog-body {
+            padding: 3px 24px 30px;
+        }
+        .bk-dialog-footer {
+            text-align: center;
+            padding: 0 65px 40px;
+            background-color: #fff;
+            border: none;
+            border-radius: 0;
+            button {
+                min-width: 88px;
+            }
+        }
+        .bk-dialog-loading {
+            width: 58px;
+            height: 58px;
+            line-height: 58px;
+            font-size: 30px;
+            border-radius: 50%;
+            animation: loading linear 1s infinite;
+        }
+
+        .bk-dialog-type-body {
+            padding: 8px 24px 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: $newBlackColor2;
+            text-align: center;
+            &.loading {
+                padding: 3px 24px 15px;
+            }
+        }
+
+        .bk-dialog-type-header {
+            padding: 3px 24px 32px 24px;
+            line-height: 1;
+            text-align: center;
+            &.loading,
+            &.has-sub-header {
+                padding: 3px 24px 10px 24px;
+            }
+            .header {
+                display: inline-block;
+                width: 100%;
+                font-size: 24px;
+                color: $newBlackColor1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: 1.5;
+                margin: 0;
+            }
+            .bk-dialog-header-loading-sub {
+                font-size: 14px;
+                margin-top: 5px;
+            }
+        }
+
+        .bk-dialog-type-sub-header {
+            padding: 3px 24px 32px 24px;
+            line-height: 1;
+            text-align: center;
+            &.loading {
+                padding: 3px 24px 32px 24px;
+            }
+            .header {
+                display: inline-block;
+                width: 100%;
+                font-size: 14px;
+                color: $newBlackColor1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: 1.5;
+                margin: 0;
+            }
+        }
+
+        .bk-dialog-mark {
+            display: block;
+            margin: 0 auto;
+            &.bk-dialog-warning,
+            &.bk-dialog-error,
+            &.bk-dialog-success {
+                width: 58px;
+                height: 58px;
+                line-height: 58px;
+                font-size: 30px;
+                color: #fff;
+                border-radius: 50%;
+            }
+            &.bk-dialog-warning {
+                background-color: $warningColor;
+            }
+            &.bk-dialog-error {
+                background-color: $dangerColor;
+            }
+            &.bk-dialog-success {
+                background-color: $successColor;
+            }
+        }
+    }
+}
+
+/* loading 的动画 */
+@keyframes loading {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes mask-fading {
+    0% {
+        display: block;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+@keyframes mask-hidding {
+    0% {
+        background-color: rgba(0, 0, 0, 0.6);
+        display: block;
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+        display: none;
+    }
+}
+
+/* loading 的动画 */
+@-webkit-keyframes loading {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .bk-dialog {
+        width: auto !important;
+        margin: 10px;
+    }
+}

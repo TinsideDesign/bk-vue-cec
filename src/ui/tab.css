@@ -1,0 +1,397 @@
+@import "./variable.css";
+
+$border: 1px solid $newGreyColor1;
+$headerBackgroundColor: $newGreyColor3;
+$headerColor: $newBlackColor2;
+
+.bk-tab {
+    border-radius: 2px;
+}
+.bk-tab.bk-tab-border-card {
+    .bk-tab-header {
+        height: 43px;
+        border: $border;
+        border-bottom: none;
+        background-color: $headerBackgroundColor;
+        border-radius: 2px 2px 0 0;
+    }
+    >.bk-tab-header>.bk-tab-label-wrapper>.bk-tab-label-list{
+        >.bk-tab-label-item.active {
+            background-color: #fff;
+        }
+    }
+}
+.bk-tab.bk-tab-card {
+    .bk-tab-label-wrapper {
+        &.has-add {
+            .bk-tab-label-list {
+                border-radius: 2px 0 0 0;
+            }
+        }
+        &.has-scroller {
+            .bk-tab-label-list {
+                border-radius: 0;
+            }
+        }
+    }
+    .bk-tab-label-list {
+        border-top: $border;
+        border-radius: 2px 2px 0 0;
+        .bk-tab-label-item.is-first {
+            border-left: $border;
+        }
+    }
+    .bk-tab-scroll-controller {
+        border-top: $border;
+        &.prev {
+            border-left: $border;
+            &.disabled {
+                border-right: none;
+            }
+        }
+    }
+    .bk-tab-add-controller {
+        border-top: $border;
+        background-color: #fff;
+    }
+    >.bk-tab-header>.bk-tab-label-wrapper>.bk-tab-label-list{
+        >.bk-tab-label-item.active {
+            background-color: #fff;
+        }
+    }
+}
+
+.bk-tab-label-list-has-bar {
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: var(--activeBarLeft);
+        height: var(--activeBarHeight);
+        width: var(--activeBarWidth);
+        transform: var(--activeBarTransform);
+        background: $newMainColor;
+        transition: transform .3s cubic-bezier(.645, .045, .355, 1);
+    }
+}
+
+.bk-tab.bk-tab-unborder-card {
+    .bk-tab-label-list {
+        border-top: none;
+    }
+    .bk-tab-label-wrapper {
+        &.has-scroller.has-add {
+            .bk-tab-add-controller {
+                border-left: none;
+            }
+        }
+        .bk-tab-add-controller,
+        .bk-tab-scroll-controller {
+            border: none;
+            border-bottom: $border;
+            background-color: #fff;
+        }
+        .bk-tab-label-list {
+            .bk-tab-label-item {
+                border: none!important;
+            }
+        }
+    }
+    .bk-tab-section {
+        border: none;
+    }
+}
+
+.position-left,.position-right {
+    display: flex;
+    align-items: stretch;
+    min-height: 225px;
+    &.position-right {
+        flex-direction: row-reverse;
+        .bk-tab-header {
+            border-right: none;
+            right: 0;
+            &:after, &:before {
+                left: 0;
+                right: calc(100% - 1px);
+            }
+        }
+        .bk-tab-label-wrapper {
+            &:after {
+                border-right: none;
+                border-left: $border;
+            }
+            .bk-tab-label-list .bk-tab-label-item {
+                text-align: left;
+                border-right: none;
+                border-left: $border;
+            }
+        }
+    }
+
+    .bk-tab-header {
+        height: auto;
+        background: #fff;
+        padding: 10px 0;
+        &:after, &:before {
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 1px;
+            right: 0;
+            top: 0;
+            background: $newGreyColor1;
+        }
+        &:after {
+            top: calc(100% - 10px);
+            bottom: 0;
+        }
+    }
+    .bk-tab-label-wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-y: overlay;
+        &:after {
+            content: '';
+            flex: 1;
+            border-right: $border;
+        }
+        &.has-scroller.has-add {
+            .bk-tab-add-controller {
+                border-left: none;
+            }
+        }
+
+        .bk-tab-label-list {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            .bk-tab-label-item {
+                border-right: $border;
+                padding: 0 12px;
+                margin: 0;
+                text-align: right;
+                position: relative;
+            }
+        }
+    }
+    .bk-tab-section {
+        border: none;
+        padding: 10px 20px;
+        flex: 1;
+        .bk-tab-content {
+            word-break: break-all;
+        }
+    }
+}
+
+.bk-tab-header {
+    position: relative;
+    height: 42px;
+    color: $headerColor;
+    background-image: linear-gradient(transparent 41px, $newGreyColor1 1px);
+}
+
+.bk-tab-label-wrapper {
+    position: relative;
+    height: 100%;
+    font-size: 0;
+    overflow: hidden;
+    &.has-add .bk-tab-label-list {
+        .bk-tab-label-item.has-close {
+            transition: color .3s cubic-bezier(.645,.045,.355,1),padding .3s cubic-bezier(.645,.045,.355,1);
+            &:hover {
+                padding: 0 11px;
+            }
+            .bk-tab-close-controller {
+                transition: all .3s cubic-bezier(.645,.045,.355,1);
+            }
+        }
+
+    }
+
+    &.has-scroller {
+        padding: 0 24px;
+        .bk-tab-label-list {
+            .bk-tab-label-item.is-last {
+                border-right: none;
+            }
+        }
+    }
+    &.has-scroller.has-add {
+        padding: 0 66px 0 24px;
+        .bk-tab-add-controller {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-bottom: $border;
+            border-left: $border;
+        }
+        .bk-tab-scroll-controller.next {
+            right: 42px;
+        }
+    }
+    .bk-tab-add-controller {
+        display: inline-block;
+        vertical-align: middle;
+        width: 42px;
+        height: 42px;
+        border-right: $border;
+        border-bottom: $border;
+        line-height: 41px;
+        text-align: center;
+        font-size: $iconNormalSize;
+        background-color: $headerBackgroundColor;
+        cursor: pointer;
+        z-index: 2;
+        &:hover {
+            color: $newMainColor;
+        }
+        &.left-border {
+            border-left: $border;
+        }
+    }
+    .bk-tab-scroll-controller {
+        position: absolute;
+        top: 0;
+        width: 24px;
+        height: 42px;
+        border-bottom: $border;
+        line-height: 41px;
+        text-align: center;
+        font-size: $iconNormalSize;
+        background-color: $headerBackgroundColor;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+        cursor: pointer;
+        z-index: 1;
+        &.prev {
+            left: 0;
+            border-right: $border;
+            border-radius: 2px 0 0 0;
+        }
+
+        &.next {
+            right: 0;
+            border-left: $border;
+        }
+
+        &.add {
+            width: 42px;
+            right: 24px;
+            box-shadow: none;
+            border-right: $border;
+            border-left: $border;
+        }
+        &:hover {
+            color: $newMainColor;
+        }
+
+        &.disabled {
+            box-shadow: none;
+            cursor: not-allowed;
+            color: $newGreyColor;
+        }
+    }
+    .bk-tab-label-list {
+        display: inline-block;
+        height: 42px;
+        vertical-align: middle;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        list-style: none;
+        white-space: nowrap;
+        transition: transform .3s;
+
+        .bk-tab-label-item {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            min-width: 100px;
+            padding: 0 18px;
+            border-right: $border;
+            text-align: center;
+            line-height: 42px;
+            cursor: pointer;
+            &:not(.is-disabled):hover {
+                color: $newMainColor;
+            }
+            &.active {
+                /* background-color: #fff; */
+                color: $newMainColor;
+                cursor: default;
+            }
+            &.is-disabled {
+                color: $newGreyColor;
+                cursor: not-allowed;
+            }
+            &.is-dragging{
+                cursor: move;
+                user-select: none;
+            }
+            &.is-dragenter{
+                background: $newGreyColor2;
+            }
+            &.is-unsortable{
+                cursor: not-allowed;
+                background: none;
+            }
+            &.has-close:hover {
+                padding: 0 10px;
+                .bk-tab-close-controller {
+                    margin: 0 0 0 6px;
+                    width: 14px;
+                }
+            }
+            .bk-tab-label {
+                font-size: 14px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .bk-tab-close-controller {
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                width: 0;
+                height: 14px;
+                border-radius: 50%;
+                background-color: $newGreyColor;
+                overflow: hidden;
+                cursor: pointer;
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 6px;
+                    left: 3px;
+                    width: 8px;
+                    height: 1px;
+                    background-color: #fff;
+                }
+                &:before {
+                    transform: translateY(0.5px) rotate(45deg);
+                }
+                &:after {
+                    transform: translateY(0.5px) rotate(-45deg);
+                }
+                &:hover {
+                    background-color: $newBlackColor3;
+                }
+            }
+        }
+    }
+}
+
+.bk-tab-header-setting {
+    float: right;
+    height: 42px;
+    line-height: 42px;
+}
+
+.bk-tab-section {
+    padding: 20px;
+    border: $border;
+    border-top: none;
+    border-radius: 0 0 2px 2px;
+}

@@ -1,0 +1,65 @@
+@import './mixins/create-menu-item.css';
+
+@mixin navigationItem;
+.navigation-sbmenu {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    white-space: nowrap;
+    width: 100%;
+    color: #c4c6cc;
+    font-size: 14px;
+    overflow: hidden;
+    &-title {
+        min-height: 38px;
+        margin: 4px 0;
+        position: relative;
+        padding-right: 17px;
+        padding-left: 22px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &-icon.bk-icon {
+            font-size: 16px;
+            min-width: 38px;
+            text-align: left;
+        }
+        &-content {
+            flex: 1 1 auto;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        &-arrow {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+        }
+    }
+    &-content {
+        width: 100%;
+        @mixin navigationItem navigation-menu-item, #63656e, #8f929b;
+    }
+    &[group] {
+        margin-bottom: 11px;
+        overflow: visible;
+        position: relative;
+        &:after {
+            content: " ";
+            height: 1px;
+            position: absolute;
+            bottom: -6px;
+            background: rgba(255, 255, 255, 0.05);
+            left: 18px;
+            right: 18px;
+            z-index: 100;
+        }
+    }
+    .collapse-transition {
+        transition: 0.3s height ease-in-out;
+    }
+}

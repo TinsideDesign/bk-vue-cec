@@ -1,0 +1,168 @@
+@import './mixins/scroller.css';
+@define-mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@define-mixin inlineBlock $align: middle {
+    display: inline-block;
+    vertical-align: $align;
+}
+.bk-big-tree {
+    overflow: auto;
+    @mixin scroller;
+    &.with-virtual-scroll {
+        .bk-big-tree-empty {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .bk-big-tree-empty {
+        text-align: center;
+        font-size: 14px;
+        color: #63656e;
+    }
+}
+.bk-big-tree-node {
+    position: relative;
+    height: 32px;
+    padding-left: calc(var(--level) * var(--padding));
+    line-height: 32px;
+    font-size: 0;
+    cursor: pointer;
+
+    &.has-link-line {
+        padding-left: 0;
+        margin-left: calc(var(--level) * var(--padding));
+        &:not(.is-root):before {
+            content: "";
+            position: absolute;
+            width: calc(var(--padding) - 8px);
+            height: 0;
+            border-bottom: 1px dashed #c3cdd7;
+            left: calc(8px - var(--padding));
+            top: 15px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        &:after {
+            position: absolute;
+            top: 24px;
+            left: 8px;
+            width: 0;
+            height: calc(var(--line) * 1px - 8px);
+            border-left: 1px dashed #c3cdd7;
+            content: "";
+            pointer-events: none;
+            z-index: 1;
+        }
+        &.is-leaf {
+            padding-left: 8px;
+            margin-left: calc(var(--level) * var(--padding) + 12px);
+            &:before {
+                width: calc(var(--padding));
+                left: calc(0px - var(--padding));
+            }
+        }
+    }
+    &:hover {
+        background-color: #f1f7ff;
+    }
+    &.is-selected {
+        background-color: #E6F0FF;
+        .node-icon {
+            color: #fff;
+            background-color: #006DFF;
+        }
+        .node-content {
+            color: #006DFF;
+        }
+    }
+    &.is-leaf {
+        padding-left: calc(var(--level) * var(--padding) + 20px);
+    }
+    &.is-disabled {
+        cursor: not-allowed;
+    }
+    .node-options {
+        height: 100%;
+        .node-loading {
+            @mixin inlineBlock;
+            width: 16px;
+            height: 16px;
+            margin: 0 4px 0 0;
+            background-image: url("./images/spinner.svg");
+            background-size: 100% 100%;
+        }
+        .node-folder-icon {
+            @mixin inlineBlock;
+            position: relative;
+            width: 16px;
+            height: 16px;
+            margin: 0 4px 0 0;
+            line-height: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #979ba5;
+            z-index: 2;
+            &:hover {
+                color: #63656e;
+            }
+        }
+        .node-checkbox {
+            @mixin inlineBlock;
+            position: relative;
+            width: 16px;
+            height: 16px;
+            margin: 0 6px 0 0;
+            border: 1px solid #979ba5;
+            border-radius: 2px;
+            &.is-checked {
+                border-color: #006DFF;
+                background-color: #006DFF;
+                background-clip: border-box;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 1px;
+                    left: 4px;
+                    width: 4px;
+                    height: 8px;
+                    border: 2px solid #fff;
+                    border-left: 0;
+                    border-top: 0;
+                    transform-origin: center;
+                    transform: rotate(45deg) scaleY(1);
+                }
+                &.is-disabled {
+                    background-color: #dcdee5;
+                }
+            }
+            &.is-disabled {
+                border-color: #dcdee5;
+                cursor: not-allowed;
+            }
+            &.is-indeterminate {
+                border-width: 7px 4px;
+                border-color: #006DFF;
+                background-color: #fff;
+                background-clip: content-box;
+                &:after {
+                    visibility: hidden;
+                }
+            }
+        }
+        .node-icon {
+            @mixin inlineBlock;
+            margin: 0 6px;
+            font-size: 18px;
+        }
+    }
+    .node-content {
+        @mixin ellipsis;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,212 @@
+@import './reset.css';
+@import './variable.css';
+@import './iconfont.css';
+@import './transition.css';
+@import './mixins/init-box.css';
+@import './mixins/scroller.css';
+
+@for $i from 10 to 40 {
+    .f$(i) {
+        font-size: $(i)px!important;
+    }
+}
+
+@mixin init-box .m, margin;
+@mixin init-box .mt, margin-top;
+@mixin init-box .mb, margin-bottom;
+@mixin init-box .ml, margin-left;
+@mixin init-box .mr, margin-right;
+@mixin init-box .p, padding;
+@mixin init-box .pt, padding-top;
+@mixin init-box .pb, padding-bottom;
+@mixin init-box .pl, padding-left;
+@mixin init-box .pr, padding-right;
+
+/* 基础背景色 */
+.bk-bg-default {
+    background-color: $newGreyColor3;
+}
+
+.bk-bg-primary {
+    background-color: $newMainColor;
+}
+
+.bk-bg-warning {
+    background-color: $newOrangeColor;
+}
+
+.bk-bg-danger {
+    background-color: $newRedColor;
+}
+
+.bk-bg-success {
+    background-color: $newGreenColor;
+}
+
+/* 基础字体色 */
+.bk-text-default {
+    color: $newBlackColor2;
+}
+
+.bk-text-primary {
+    color: $newMainColor;
+}
+
+.bk-text-warning {
+    color: $newOrangeColor;
+}
+
+.bk-text-danger {
+    color: $newRedColor;
+}
+
+.bk-text-success {
+    color: $newGreenColor;
+}
+
+.bk-text-main {
+    color: $newBlackColor1;
+}
+
+.bk-text-minor {
+    color: $newBlackColor3;
+}
+
+/* 基础字体 */
+.bk-text-yahei {
+    font-family: $newFontFamilyMac;
+}
+
+.fb {
+    font-weight: bold!important;
+}
+
+.fn {
+    font-weight: normal!important;
+}
+
+.lh150 {
+    line-height: 150%!important;
+}
+
+.lh180 {
+    line-height: 180%!important;
+}
+
+.lh200 {
+    line-height: 200%!important;
+}
+
+.unl {
+    text-decoration: underline!important;
+}
+
+.no_unl {
+    text-decoration: none!important;
+}
+
+.tl {
+    text-align: left!important;
+}
+
+.tc {
+    text-align: center!important;
+}
+
+.tr {
+    text-align: right!important;
+}
+
+.bc {
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.fl {
+    float: left!important;
+}
+
+.fr {
+    float: right!important;
+}
+
+.cb {
+    clear: both!important;
+}
+
+.cl {
+    clear: left!important;
+}
+
+.cr {
+    clear: right!important;
+}
+
+
+.vm {
+    vertical-align: middle!important;
+}
+
+.pr {
+    position: relative!important;
+}
+
+.pa {
+    position: absolute!important;
+}
+
+.abs-right {
+    position: absolute!important;
+}
+
+.zoom {
+    zoom: 1
+}
+
+.hidden {
+    visibility: hidden!important;
+}
+
+.none {
+    display: none!important;
+}
+
+.h50 {
+    height: 50px!important;
+}
+
+.h80 {
+    height: 80px!important;
+}
+
+.h100 {
+    height: 100px!important;
+}
+
+.h200 {
+    height: 200px!important;
+}
+
+.h {
+    height: 100%!important;
+}
+
+.bk-has-submenu {
+    position: relative;
+    &:hover {
+        .bk-submenu {
+            display: block;
+        }
+    }
+    .bk-submenu {
+        display: none;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        padding: 0;
+        & > li {
+            display: block;
+        }
+    }
+}

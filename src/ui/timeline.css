@@ -1,0 +1,164 @@
+@import './variable.css';
+
+$nodeSize: 11px;
+$largeNodeSize: 15px;
+
+@define-mixin gen-theme $theme, $color {
+    .bk-timeline-item-$(theme) {
+        border-left: 1px solid $color;
+        &::before,
+        .bk-timeline-icon {
+            color: $color;
+            border: 2px solid $color;
+        }
+    }
+}
+@define-mixin gen-color $name, $color {
+    .bk-timeline-item-$(name) {
+        &::before,
+        .bk-timeline-icon {
+            color: $color;
+            border-color: $color;
+        }
+        &.bk-timeline-item-filled {
+            &::before,
+            .bk-timeline-icon {
+                background: $color;
+            }
+        }
+    }
+}
+
+.bk-timeline {
+    list-style: none;
+    margin: 16px 0 0 0;
+    padding: 0;
+    text-align: left;
+    line-height: normal;
+    font-weight: 400;
+    font-style: normal;
+
+    .bk-timeline-dot {
+        position: relative;
+        border-left: 1px solid #d8d8d8;
+        padding-left: 16px;
+        padding-bottom: 24px;
+        font-size: 0;
+        /* spacing 1px */
+        margin-top: calc($nodeSize + 2px);
+        &::before {
+            content: '';
+            display: inline-block;
+            box-sizing: border-box;
+            width: $nodeSize;
+            height: $nodeSize;
+            background: #fff;
+            border: 2px solid #d8d8d8;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(($nodeSize + 1px) * -1);
+            left: -6px;
+        }
+        &:last-child {
+            /* 保留border使用间距保持一致 */
+            border-left: 1px solid transparent;
+            padding-bottom: 0;
+        }
+
+        .bk-timeline-title {
+            font-size: 14px;
+            color: #63656e;
+            padding-bottom: 10px;
+            display: inline-block;
+            margin-top: -3px;
+
+            &.has-event {
+                cursor: pointer;
+            }
+        }
+        .bk-timeline-content {
+            max-width: 300px;
+            word-break: break-all;
+            font-size: 14px;
+            color: #666;
+        }
+        .bk-timeline-icon {
+            .bk-timeline-icon-inner {
+                display: inline-block;
+                transform: scale(0.6) translate(-1px, -0.45px);
+                >:first-child {
+                    font-size: 12px !important;
+                }
+            }
+
+            display: inline-block;
+            box-sizing: border-box;
+            width: $largeNodeSize;
+            height: $largeNodeSize;
+            background: #fff;
+            border: 2px solid #d8d8d8;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(($largeNodeSize + 1px) * -1);
+            left: -8px;
+        }
+
+        .bk-timeline-section {
+            position: relative;
+            top: calc(($nodeSize + 2px) * -1);
+        }
+
+        &.bk-timeline-item-large {
+            margin-top: calc($largeNodeSize + 2px);
+            &::before {
+                width: 15px;
+                height: 15px;
+                top: calc(($largeNodeSize + 1px) * -1);
+                left: -8px;
+            }
+            > .bk-timeline-section {
+                top: calc(($largeNodeSize + 1px) * -1);
+            }
+        }
+
+        &.bk-timeline-item-custom-icon {
+            margin-top: calc($largeNodeSize + 2px);
+            &::before {
+                display: none;
+            }
+            > .bk-timeline-section {
+                top: calc(($largeNodeSize + 1px) * -1);
+            }
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    /* color */
+    @mixin gen-color blue, $newMainColor;
+    @mixin gen-color red, $newRedColor;
+    @mixin gen-color green, #40c024;
+    @mixin gen-color yellow, $newOrangeColor;
+    @mixin gen-color gray, #d8d8d8;
+
+    /* type */
+    @mixin gen-theme default, #999;
+    @mixin gen-theme primary, $newMainColor;
+    @mixin gen-theme warning, #ffb400;
+    @mixin gen-theme success, #30d878;
+    @mixin gen-theme danger, #F95F5BD9;
+
+    /* 嵌套 */
+    .bk-timeline {
+        margin-top: 24px;
+        .bk-timeline-dot {
+            border-left-style: dashed;
+            padding-bottom: 12px;
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

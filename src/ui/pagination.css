@@ -1,0 +1,302 @@
+@import './variable.css';
+@import './mixins/scroller';
+
+$hoverBackground: #eaf3ff;
+
+.bk-page {
+    overflow: hidden;
+    .icon-angle-right, .icon-angle-left {
+        line-height: 36px;
+        font-size: $iconNormalSize;
+    }
+    a {
+        text-decoration: none;
+    }
+    .bk-page-count {
+        font-size: 12px;
+        margin-top: 2px;
+        &-left {
+            float: left;
+        }
+        &-right {
+            float: right;
+            margin-left: 12px;
+        }
+        &-small {
+            line-height: 34px;
+            height: 34px;
+        }
+        > span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bk-select {
+            min-width: 60px;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+            margin: 0 4px;
+            .bk-selected {
+                padding: 0 22px 0 10px;
+            }
+        }
+        .bk-total-page {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .page-select-small {
+            border: 1px solid #f0f1f5;
+            background: #f0f1f5;
+            border-radius: 2px;
+            box-shadow: none;
+            &:hover {
+                background: #E6F0FF;
+            }
+        }
+    }
+    .bk-page-total-count {
+        font-size: 12px;
+        line-height: 36px;
+        color: #989dab;
+        &-right {
+            float: right;
+            margin-left: 12px;
+        }
+        &-left {
+            float: left;
+            margin-right: 12px;
+        }
+        .stress {
+            padding: 0 2px;
+            color: #3f4046;
+        }
+    }
+    .bk-page-total-small {
+        line-height: 26px;
+        margin-top: 2px;
+    }
+    .bk-page-selection-count {
+        font-size: 12px;
+        line-height: 36px;
+        &-right {
+            float: right;
+        }
+        &-left {
+            float: left;
+            margin-left: 12px;
+        }
+        .count {
+            padding: 0 2px;
+            font-weight: bold;
+        }
+    }
+    &.bk-page-align {
+        &-left {
+            text-align: left;
+        }
+        &-center {
+            text-align: center;
+        }
+        &-right {
+            text-align: right;
+        }
+    }
+    &.bk-page-small {
+        .bk-page-count {
+            margin-top: 0;
+        }
+        .page-item {
+            .page-button {
+                min-width: 32px;
+                height: 32px;
+                line-height: 30px;
+            }
+        }
+        .bk-page-total-count,
+        .bk-page-selection-count {
+            line-height: 32px;
+        }
+        .icon-angle-right, .icon-angle-left {
+            line-height: 30px;
+            font-size: $iconSmallSize;
+        }
+    }
+    &.bk-page-compact {
+        .page-item {
+            margin-right: -1px;
+            border-radius: 0;
+            &:hover {
+                position: relative;
+                z-index: 1;
+            }
+            &:first-child {
+                border-radius: 2px 0 0 2px;
+            }
+            &:last-child {
+                border-radius: 0 2px 2px 0;
+            }
+            &.cur-page {
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+    .bk-page-list {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-size: 0;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .page-item {
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        margin-right: 4px;
+        box-sizing: border-box;
+        border-radius: 2px;
+        overflow: hidden;
+        &.page-omit {
+            border: none;
+            min-width: auto;
+            > span {
+                display: inline-block;
+            }
+        }
+        .page-button {
+            display: block;
+            min-width: 36px;
+            height: 36px;
+            padding: 0 4px;
+            line-height: 34px;
+            border: 1px solid $newGreyColor;
+            color: $fnMainColor;
+            background: #fff;
+            cursor: pointer;
+            &:hover {
+                color: $newMainColor;
+                border-color: $newMainColor;
+            }
+        }
+
+        &.cur-page {
+            .page-button {
+                border-color: $newMainColor;
+                color: $newMainColor;
+            }
+        }
+        &.disabled {
+            .page-button {
+                border-color: $newGreyColor1;
+                cursor: not-allowed;
+                color: $newGreyColor;
+                background-color: $newGreyColor3;
+                &:hover {
+                    color: $newGreyColor;
+                }
+            }
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .bk-page-small-jump {
+        line-height: 34px;
+        display: inline-flex;
+        align-items: center;
+        color: #63656E;
+        .btn-pre,
+        .btn-next{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all .15s;
+            color: $newBlackColor3;
+            &:hover{
+                color: #006DFF;
+            }
+            &.disable{
+                color: #DCDEE5;
+                cursor: not-allowed;
+            }
+            .bk-icon{
+                line-height: 1;
+            }
+        }
+        .jump-input-wrapper {
+            display: flex;
+            align-items: center;
+            background-color: #f0f1f5;
+            padding: 0 8px;
+            border-radius: 2px;
+            cursor: pointer;
+            border: 1px solid #f0f1f5;
+            height: 24px;
+            &:hover {
+                background-color: #E6F0FF;
+            }
+            &.focus {
+                background-color: $defaultColor;
+                border: 1px solid $newMainColor;
+                box-shadow: 0px 0px 4px rgba(58, 132, 255, 0.4);
+            }
+        }
+        .jump-input{
+            min-width: 22px;
+            height: 16px;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            border: 0;
+            border-radius: 2px;
+            background-color: transparent;
+            transition: all .15s;
+            &:hover,
+            &:focus{
+                border-color: #006DFF;
+            }
+        }
+        .page-total{
+            min-width: 28px;
+            font-size: 14px;
+            vertical-align: top;
+            text-align: center;
+            line-height: 16px;
+            margin-left: 2px;
+            &.focus {
+                color: $newGreyColor;
+            }
+        }
+    }
+}
+
+.small-jump-options {
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  list-style: none;
+  padding: 6px 0;
+  max-height: 204px;
+  min-width: 68px;
+  @mixin scroller;
+
+  .small-jump-option {
+      padding: 0 16px;
+      line-height: 32px;
+      cursor: pointer;
+      &:hover {
+          background-color: $hoverBackground;
+          color: $newMainColor;
+      }
+      &.is-selected {
+          background-color: $hoverBackground;
+          color: $newMainColor;
+      }
+  }
+}

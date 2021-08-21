@@ -1,0 +1,30 @@
+.bk-zoom-image {
+    .bk-real-image {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    .bk-full-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+        .bk-full-image {
+            cursor: grab;
+            position: relative;
+        }
+        .bk-zoom-init {
+            max-width: 50vw;
+            max-height: 50vh;
+            height: auto!important;
+            width: auto!important;
+            top: 50%!important;
+            left: 50%!important;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

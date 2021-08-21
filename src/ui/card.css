@@ -1,0 +1,73 @@
+@import "./mixins/ellipsis";
+
+.bk-card {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #dcdee5;
+    border-radius: 2px;
+    position: relative;
+}
+.bk-card-border-none {
+    border: none;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
+}
+.bk-card:hover {
+    box-shadow: 0px 3px 6px 0px rgba(99, 83, 83, 0.2);
+    cursor: pointer;
+}
+.bk-card-head {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    position: relative;
+    .title {
+        @mixin ellipsis 90%, inline-block;
+    }
+}
+.bk-card-head .bk-card-head-icon {
+    margin-right: 4px;
+    color: #979ba5;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+}
+.bk-card .bk-card-head .card-edit {
+    display: inline-block;
+    overflow: hidden;
+}
+.bk-card .bk-card-head .card-edit i {
+    color: #c4c6cc;
+    margin-left: 2px;
+}
+.bk-card .bk-card-head-left {
+    padding-left: 30px;
+}
+.bk-card .bk-card-head-left .bk-card-head-icon {
+    left: 8px;
+}
+.bk-card .bk-card-head-right {
+    padding-right: 30px;
+}
+.bk-card .bk-card-head-right .bk-card-head-icon {
+    right: 8px;
+}
+.bk-card .collapse {
+    border-bottom: 1px solid #f0f2f5;
+}
+.bk-card .bk-card-input {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+}
+.bk-card-body {
+    width: 100%;
+    padding: 20px 20px;
+}
+.bk-card-foot {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #f0f2f5;
+}

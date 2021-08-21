@@ -1,0 +1,11 @@
+/**
+ * @file create-rotate mixin
+ *
+ * usage:
+ *      @mixin create-rotate 1s, 60deg;
+ */
+
+@define-mixin create-rotate $time, $deg {
+    animation-delay: $time;
+    transform: rotate($deg);
+}

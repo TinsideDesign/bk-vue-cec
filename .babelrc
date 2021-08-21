@@ -1,0 +1,28 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "modules": "commonjs",
+                "corejs": 2,
+                "spec": true,
+                "targets": {
+                    "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+                },
+                "useBuiltIns": "usage",
+                "debug": false
+            }
+        ],
+        ["@vue/babel-preset-jsx"]
+     ],
+    "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-transform-async-to-generator",
+        "@babel/plugin-transform-object-assign",
+        "@babel/plugin-syntax-dynamic-import",
+        "date-fns",
+        "@vue/babel-plugin-transform-vue-jsx",
+        "@babel/plugin-syntax-jsx"
+    ],
+    "comments": true
+}

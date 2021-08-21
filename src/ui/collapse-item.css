@@ -1,0 +1,62 @@
+@import './variable.css';
+
+$borderColor: #ded8d8;
+
+.bk-collapse-item {
+    .bk-collapse-item-header {
+        padding: 0px 10px;
+        height: 42px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 42px;
+        font-size: 14px;
+        .collapse-expand {
+            position: relative;
+            transform: rotate(90deg);
+        }
+        .bk-icon {
+            font-size: $iconSmallSize;
+        }
+        span {
+            transition: all linear 0.2s;
+        }
+        &.custom-trigger-layout {
+            display: flex;
+            position: relative;
+            .trigger-area {
+                flex: 1;
+            }
+            .custom-trigger-angle {
+                display: position;
+                right: 0;
+                &:hover {
+                    cursor: pointer;
+                    color: $newMainColor;
+                }
+            }
+
+        }
+    }
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .bk-collapse-item-hover:hover {
+        color: $newMainColor;
+    }
+    .bk-collapse-item-content {
+        padding: 0px 10px;
+    }
+    .bk-collapse-item-detail {
+        color: $newBlackColor3;
+    }
+    .collapse-transition {
+        transition: .2s height ease-in-out, .2s padding-top ease-in-out, .2s padding-bottom ease-in-out
+    }
+    &.is-disabled {
+        color: $newGreyColor;
+        cursor: not-allowed;
+        .bk-collapse-item-header {
+            pointer-events: none;
+        }
+    }
+}

@@ -1,0 +1,425 @@
+<!--
+ * Tencent is pleased to support the open source community by making
+ * 科技内在设计（T-inside） available.
+ *
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
+ *
+ * 科技内在设计（T-inside） is licensed under the MIT License.
+ *
+ * License for 科技内在设计（T-inside）:
+ *
+ *
+ * Terms of the MIT License:
+ * ---------------------------------------------------
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
+ * to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+ * the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * IN THE SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title> index </title>
+        <!-- 引入 bk-magic-vue 组件库样式 -->
+        <link rel="stylesheet" href="./dist/bk-magic-vue.css">
+        <style type="text/css">
+            #app {
+                margin: 100px;
+            }
+            .demo-btn {
+                margin: 20px;
+            }
+            .wrapper {
+                overflow: hidden;
+                border: 1px solid #ddd;
+                border-radius: 2px;
+                padding: 20px 0;
+            }
+            .example-item {
+                margin: 50px;
+            }
+            .wrapper.custom {
+                width: 180px;
+                height: 180px;
+            }
+            .wrapper.custom .content {
+                line-height: 23px;
+            }
+            .wrapper.custom .bk-grid-row + .bk-grid-row {
+                margin-top: 15px;
+            }
+            .content {
+                background-color: #E6F0FF;
+                height: 100%;
+                line-height: 60px;
+                border-radius: 2px;
+                font-size: 12px;
+            }
+
+            .bk-grid-row {
+                text-align: center;
+            }
+            .bk-grid-row + .bk-grid-row {
+                margin-top: 30px;
+            }
+            .bk-grid-row + .bk-grid-row .flex .bk-grid-row  {
+                margin-top: 10px;
+            }
+        </style>
+        <!-- 引入 Vue -->
+        <script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
+        <!-- 引入 bk-magic-vue 组件库 -->
+        <script src="./dist/bk-magic-vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="example-item">
+                <bk-color-picker v-model="color1" @change="change"></bk-color-picker>
+                <bk-color-picker v-model="color1" :show-value="false"></bk-color-picker>
+            </div>
+            <div class="example-item">
+                <bk-steps></bk-steps>
+            </div>
+            <div class="example-item">
+                <bk-big-tree ref="tree"
+                    show-checkbox
+                    :data="data"
+                    @check-change="handleCheckChange">
+                </bk-big-tree>
+            </div>
+            <div class="example-item">
+                <bk-tab :active.sync="active">
+                    <bk-tab-panel
+                        v-for="(panel, index) in panels"
+                        v-bind="panel"
+                        render-directive="if"
+                        :key="index">
+                        {{panel}}
+                    </bk-tab-panel>
+                </bk-tab>
+            </div>
+            <div class="example-item">
+                <bk-tab :active.sync="active">
+                    <bk-tab-panel
+                        v-for="(panel, index) in panels"
+                        v-bind="panel"
+                        :key="index">
+                    </bk-tab-panel>
+                </bk-tab>
+            </div>
+            <div class="example-item">
+                <bk-form form-type="inline">
+                    <bk-form-item label="名称">
+                        <bk-input placeholder="名称" v-model="formData.name"></bk-input>
+                    </bk-form-item>
+                    <bk-form-item label="日期">
+                        <bk-date-picker placeholder="日期" :timer="false" v-model="formData.date"></bk-date-picker>
+                    </bk-form-item>
+                    <bk-form-item>
+                        <bk-button theme="primary" title="提交">搜索</bk-button>
+                    </bk-form-item>
+                    <bk-form-item>
+                        <bk-radio-group v-model="demo1">
+                            <bk-radio :value="'value1'">未选择</bk-radio>
+                            <bk-radio :value="'value2'">已选择</bk-radio>
+                            <bk-radio :value="'value3'" :disabled="true">未选择禁用</bk-radio>
+                        </bk-radio-group>
+                    </bk-form-item>
+                    <bk-form-item>
+                        <bk-checkbox
+                            :checked="false"
+                            :true-value="'yes'"
+                            :false-value="'no'"
+                            v-model="demo3">
+                            是否启用白名单
+                        </bk-checkbox>
+                    </bk-form-item>
+                    <bk-form-item>
+                        <bk-select v-model="value" style="width: 250px;" searchable>
+                            <bk-option v-for="(option, index) in list"
+                                :key="index"
+                                :id="option.id"
+                                :name="option.name">
+                            </bk-option>
+                        </bk-select>
+                    </bk-form-item>
+                </bk-form>
+            </div>
+            <div class="example-item">
+                <bk-button class="demo-btn" :type="'primary'" @click="helloWorldCallback">Hello World</bk-button>
+            </div>
+            <div class="example-item">
+                <bk-date-picker class="mr15" v-model="initDateTime" :placeholder="'选择日期'"></bk-date-picker>
+            </div>
+            <div class="example-item">
+                <bk-diff :old-content="oldCode" :new-content="newCode"></bk-diff>
+            </div>
+            <div class="example-item">
+                <bk-button @click="handleClickButton" v-bk-clickoutside="handleClickoutside">clickoutside</bk-button>
+                <bk-button type="primary" @click="showLoading">显示全屏加载，3s后关闭</bk-button>
+                <span v-bk-tooltips="topStart" class="top-start">
+                    <i class="bk-icon icon-info-circle-shape"></i>
+                </span>
+                <bk-popover placement="bottom">
+                    <bk-button>超长</bk-button>
+                    <div slot="content" style="white-space: normal;">
+                        <div class="bk-text-primary pt10 pb5 pl10 pr10">
+                            今天天气不错今天天气不错今天天气不错今天天气不错今天天气不错
+                            今天天气不错今天天气不错今天天气不错今天天气不错今天天气不错
+                            今天天气不错今天天气不错今天天气不错今天天气不错今天天气不错
+                            今天天气不错今天天气不错今天天气不错今天天气不错今天天气不错
+                            今天天气不错今天天气不错今天天气不错今天天气不错今天天气不错
+                        </div>
+                    </div>
+                </bk-popover>
+            </div>
+            <div class="example-item">
+                <bk-pagination
+                    :current.sync="defaultPaging.current"
+                    :count="defaultPaging.count"
+                    :limit="defaultPaging.limit">
+                </bk-pagination>
+            </div>
+            <div class="example-item">
+                <div class="wrapper">
+                    <bk-container :gutter="15">
+                        <bk-row>
+                            <bk-col :span="8">
+                                <div class="content">8/24</div>
+                            </bk-col>
+                            <bk-col :span="16">
+                                <div class="content">16/24</div>
+                            </bk-col>
+                        </bk-row>
+                        <bk-row>
+                            <bk-col :span="6">
+                                <div class="content">6/24</div>
+                            </bk-col>
+                            <bk-col :span="6">
+                                <div class="content">6/24</div>
+                            </bk-col>
+                            <bk-col :span="6">
+                                <div class="content">6/24</div>
+                            </bk-col>
+                            <bk-col :span="6">
+                                <div class="content">6/24</div>
+                            </bk-col>
+                        </bk-row>
+                        <bk-row>
+                            <bk-col :span="12">
+                                <div class="content">12/24</div>
+                            </bk-col>
+                            <bk-col :span="6">
+                                <div class="content">6/24</div>
+                            </bk-col>
+                            <bk-col :span="4">
+                                <div class="content">4/24</div>
+                            </bk-col>
+                            <bk-col :span="2">
+                                <div class="content">2/24</div>
+                            </bk-col>
+                        </bk-row>
+                    </bk-container>
+                </div>
+            </div>
+            <div class="example-item">
+                <bk-select v-model="asyncRemoteValue" style="width: 250px;" searchable :remote-method="asyncRemoteMethod" @selected="asyncSelected">
+                    <bk-option v-for="(option, index) in options"
+                        :key="index"
+                        :id="option.id"
+                        :name="option.name">
+                    </bk-option>
+                </bk-select>
+            </div>
+        </div>
+        <script type="text/javascript">
+            const cn = {
+                testName: {
+                    word1: '单词1',
+                    word2: '{key1} 是 {key2}'
+                }
+            }
+
+            const en = {
+                testName: {
+                    word1: 'word1',
+                    word2: '{key1} is {key2}'
+                }
+            }
+
+            Object.assign(bkMagicVue.lang.zhCN, cn)
+            Object.assign(bkMagicVue.lang.enUS, en)
+
+            bkMagicVue.locale.use(bkMagicVue.lang['enUS'])
+
+
+            Vue.mixin(bkMagicVue.locale.mixin)
+
+            const remoteLen = 50
+            const remoteData = []
+            for (let i = 0; i < remoteLen; i++) {
+                remoteData.push({
+                    id: i,
+                    name: `remote${i}`
+                })
+            }
+            window.onload = function () {
+                new Vue({
+                    el: '#app',
+                    data () {
+                        return {
+                            color1: '',
+                            panels: [
+                                { name: 'mission', label: '任务报表', count: 10 },
+                                { name: 'config', label: '加速配置', count: 20 },
+                                { name: 'hisitory', label: '历史版本', count: 30 },
+                                { name: 'deleted', label: '已归档加速任务', count: 40 }
+                            ],
+                            active: 'mission',
+                            value: '',
+                            list: [
+                                { id: 1, name: '爬山' },
+                                { id: 2, name: '跑步' },
+                                { id: 3, name: '打球' },
+                                { id: 4, name: '跳舞' },
+                                { id: 5, name: '健身' },
+                                { id: 6, name: '骑车' },
+                                { id: 7, name: 'k8s' },
+                                { id: 8, name: 'K8S' },
+                                { id: 9, name: 'mesos' },
+                                { id: 10, name: 'MESOS' }
+                            ],
+                            demo1: 'value2',
+                            demo3: 'yes',
+                            formData: {
+                                name: '',
+                                date: ''
+                            },
+                            initDateTime: '2019-03-03 12:12:12',
+                            oldCode: 'Vue.component("app-exception", Exception)\n// Vue.component("app-auth", AuthComponent)',
+                            newCode: 'Vue.component("app-exception", Exception)',
+                            topStart: {
+                                content: '提示信息',
+                                showOnInit: true,
+                                placements: ['top-start']
+                            },
+                            defaultPaging: {
+                                current: 1,
+                                limit: 10,
+                                count: 300
+                            },
+                            rtxList: [],
+                            options: remoteData,
+                            remoteList: remoteData,
+                            asyncRemoteValue: '',
+                            filter: '',
+                            data: this.getNodes(null, 20, 2)
+                        }
+                    },
+                    methods: {
+                        /**
+                         * 异步远程搜索方法的回调
+                         *
+                         * @param {string} query 搜索的关键字
+                         */
+                        asyncRemoteMethod (query) {
+                            return new Promise((resolve, reject) => {
+                                setTimeout(() => {
+                                    // 更新 option 数据
+                                    this.options = this.remoteList.filter(item => {
+                                        return item.name.toLowerCase().indexOf(query.toLowerCase()) > -1
+                                    })
+                                    resolve(this.options)
+                                }, 1000)
+                            })
+                        },
+                        /**
+                         * 异步远程搜索，选中的回调函数
+                         *
+                         * @param {string} value 选中的 option 的 value
+                         * @param {Object} option 选中的 option 对象
+                         */
+                        asyncSelected (value, option) {
+                            console.warn(value, option)
+                        },
+                        helloWorldCallback () {
+                            alert('hello world')
+                        },
+                        pageChange (page) {
+                            console.warn(page)
+                        },
+                        handleClickButton () {
+                            console.log('点击了button')
+                        },
+                        handleClickoutside (e) {
+                            console.log(`你点击了 x:${e.x} y:${e.y}`)
+                        },
+                        showLoading () {
+                            const h = this.$createElement
+
+                            this.$bkLoading({
+                                title: h('span', {
+                                    style: {
+                                        color: 'red'
+                                    }
+                                }, '加载中'),
+                                afterLeave () {
+                                    console.log('全屏加载消失完毕')
+                                }
+                            })
+
+                            setTimeout(() => {
+                                this.$bkLoading.hide()
+                            }, 3000)
+                        },
+                        getNodes (parent, childCount, deep) {
+                            const nodes = []
+                            for (let i = 0; i < childCount; i++) {
+                                const node = {
+                                    id: parent ? `${parent.id}-${i}`: `${i}`,
+                                    level: parent ? parent.level + 1 : 0,
+                                    name: parent ? `${parent.name}-${i}` : `node-${i}`
+                                }
+                                if (node.level < deep) {
+                                    node.children = this.getNodes(node, 3, deep)
+                                }
+                                nodes.push(node)
+                            }
+                            return nodes
+                        },
+                        handleCheckChange (nodeId, checked) {
+                            const tree = this.$refs.tree
+                            const node = tree.getNodeById(nodeId)
+                            const descendants = node.descendants.map(descendant => descendant.id)
+                            tree.setChecked(descendants, {
+                                checked: node.checked
+                            })
+                            tree.setDisabled(descendants, {
+                                disabled: node.checked
+                            })
+                        },
+                        handleFilter () {
+                            const tree = this.$refs.tree
+                            const result = tree.filter(this.filter)
+                            console.log(result)
+                        },
+                        change (v) {
+                            console.log(v)
+                        }
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>

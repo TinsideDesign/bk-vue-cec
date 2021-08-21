@@ -1,0 +1,117 @@
+@import "./variable.css";
+@import "./mixins/scroller.css";
+
+.bk-search-list {
+    font-size: 12px;
+    position: relative;
+    max-height: 280px;
+    min-height: 32px;
+    min-width: 230px;
+    line-height: 32px;
+    color: #63656e;
+    margin: -0.3rem -0.6rem;
+    outline: none;
+    resize: none;
+    pointer-events: all;
+    border: 1px solid #dcdee5;
+    border-radius: 2px;
+    &-condition {
+        border-bottom: 1px solid #dcdee5;
+        padding: 0 10px 0 16px;
+        pointer-events: auto;
+        &:hover {
+            cursor: pointer;
+            color: #006DFF;
+            background-color: rgba(234, 243, 255, 0.7);
+        }
+    }
+    &-menu {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        pointer-events: all;
+        max-height: 200px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0;
+        @mixin scroller;
+        .is-group {
+            border-bottom: 1px solid #dcdee5;
+        }
+        &-item {
+            flex: 1 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            pointer-events: auto;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0 10px 0 16px;
+            &.is-disabled {
+                color: #c4c6cc;
+                cursor: not-allowed;
+            }
+            .item-name {
+                flex: 1;
+                line-height: 32px;
+                &-filter {
+                    color: #313238;
+                    display: inline-block;
+                }
+            }
+            .item-icon {
+                color: #006DFF;
+                font-size: $iconSmallerSize;
+                font-weight: bold;
+            }
+            &.is-hover, &:not(.is-disabled):hover {
+                cursor: pointer;
+                color: #006DFF;
+                background-color: rgba(234, 243, 255, 0.7);
+            }
+        }
+    }
+    &-loading {
+        padding: 0 16px;
+        text-align: center;
+        line-height: 32px;
+    }
+    &-error {
+        padding: 0 10px 0 16px;
+        line-height: 32px;
+        font-weight: bold;
+    }
+    &-footer {
+        display: flex;
+        line-height: 32px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        pointer-events: auto;
+        .footer-btn {
+            flex: 1;
+            text-align: center;
+            border-top: 1px solid #dcdee5;
+            pointer-events: auto;
+            &:hover {
+                cursor: pointer;
+                color: #006DFF;
+                background-color: rgba(234, 243, 255, 0.7);
+            }
+            &:first-child {
+                border-right: 1px solid #dcdee5;
+            }
+        }
+    }
+    .search-menu-wrap {
+        padding: 6px 0;
+    }
+}
+
+.tippy-tooltip {
+    &.bk-search-select-theme-theme {
+        box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .1);
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,74 @@
+@import './variable.css';
+
+.bk-form-radio {
+    font-size: 14px;
+    color: $newBlackColor2;
+    line-height: 18px;
+    min-height: 20px;
+    display: inline-block;
+    position: relative;
+
+    .bk-radio-text {
+        font-style: normal;
+        font-weight: normal;
+        cursor: pointer;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .icon-check {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        position: absolute;
+        left: 4px;
+        top: 50%;
+        margin-top: -4px;
+        display: block;
+        background: $newMainColor;
+    }
+
+    input[type=radio] {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        margin: 0 5px 0 0;
+        border: 1px solid $newBlackColor3;
+        border-radius: 50%;
+        background-color: #fff;
+        background-clip: content-box;
+        outline: none;
+        color: #fff;
+        visibility: visible;
+        cursor: pointer;
+        -webkit-appearance: none;
+
+        &.is-checked {
+            padding: 3px;
+            color: $newMainColor;
+            border-color: currentColor;
+            background-color: currentColor;
+            &[disabled] {
+                color: $newGreyColor;
+            }
+        }
+        &[disabled] {
+            cursor: not-allowed;
+            background-color: currentColor;
+            border-color: $newGreyColor1;
+            color: rgba(250, 251, 253, 1);
+            & + .bk-radio-text {
+                color: $newGreyColor;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    &:focus input[type=radio] {
+        box-shadow: 0 0 2px 2px $formBorderFocusColor;
+        border-color: $formBorderFocusColor;
+        outline: none;
+    }
+}

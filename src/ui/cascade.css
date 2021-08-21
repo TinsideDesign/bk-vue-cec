@@ -1,0 +1,358 @@
+@import "./variable.css";
+@import "./mixins/scroller.css";
+@import "./mixins/clearfix.css";
+@import "./mixins/ellipsis";
+
+$selectedBackground: #f4f6fa;
+$hoverBackground: #eaf3ff;
+$disabledBackground: #fff;
+$singleSelectedBackground: #eaf3ff;
+$disabledColor: #c4c6cc;
+$itemBackground: #F0F1F5;
+
+.bk-cascade {
+    position: relative;
+    border: 1px solid $newGreyColor;
+    border-radius: 2px;
+    line-height: 30px;
+    font-size: 12px;
+    color: $newBlackColor2;
+    cursor: pointer;
+    &.is-default-trigger.is-unselected:before {
+        position: absolute;
+        height: 100%;
+        content: attr(data-placeholder);
+        left: 11px;
+        top: 0;
+        color: $fnMinorColor;
+        pointer-events: none;
+    }
+    &.is-focus {
+        border-color: $newMainColor;
+        box-shadow:0px 0px 4px rgba(58, 132, 255, 0.4);
+        .bk-cascade-angle {
+            transform: rotate(-180deg);
+        }
+    }
+    &:focus {
+        border-color: $newMainColor;
+        box-shadow:0px 0px 4px rgba(58, 132, 255, 0.4);
+    }
+    &.is-disabled {
+        background-color: #fafafa;
+        color: #c4c6cc;
+        cursor: not-allowed;
+    }
+    &.is-readonly,
+    &.is-loading {
+        background-color: #fafafa;
+        cursor: default;
+    }
+    &:hover {
+        .bk-cascade-clear {
+            display: block;
+        }
+    }
+    .bk-cascade-loading {
+        position: absolute;
+        right: 9px;
+        top: 8px;
+        width: 18px;
+        height: 18px;
+    }
+    .bk-cascade-angle {
+        position: absolute;
+        right: 2px;
+        top: 4px;
+        color: #979ba5;
+        font-size: $iconNormalSize;
+        transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+    }
+    .bk-cascade-clear {
+        display: none;
+        position: absolute;
+        right: 6px;
+        top: 8px;
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        background-color: #c4c6cc;
+        border-radius: 50%;
+        text-align: center;
+        font-size: $iconSmallestSize;
+        color: #fff;
+        z-index: 100;
+        &:before {
+            display: block;
+            transform: scale(.7);
+        }
+        &:hover {
+            background-color: #979ba5;
+        }
+    }
+    .bk-cascade-name {
+        height: 30px;
+        padding: 0 36px 0 11px;
+        @mixin ellipsis 100%, block;
+    }
+    .bk-tooltip.bk-cascade-dropdown {
+        display: block;
+        & > .bk-tooltip-ref {
+            display: block;
+        }
+    }
+}
+.bk-cascade-dropdown-content {
+    border: 1px solid $newGreyColor1;
+    border-radius: 2px;
+    line-height: 32px;
+    background: #fff;
+    color: $fnMainColor;
+    overflow: hidden;
+}
+.bk-cascade-search-input {
+    width: 100%;
+    height: 32px;
+    /*padding: 0 10px;*/
+    border: none;
+    /*border-bottom: 1px solid $newGreyColor1;*/
+    font-size: 12px;
+    outline: 0;
+    cursor: text;
+    &::-webkit-input-placeholder {
+      color: $fnMinorColor;
+    }
+}
+.bk-cascade-options {
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+    @mixin scroller;
+    &.bk-options-single {
+        .bk-option {
+            &:hover,
+            &.is-highlight {
+                background-color: $hoverBackground;
+            }
+            &.is-selected {
+                background-color: $selectedBackground;
+            }
+        }
+    }
+    .bk-option-group {
+        .bk-option-group-name {
+            margin: 0 16px;
+            border-bottom: 1px solid $newGreyColor1;
+            color: $newBlackColor3;
+        }
+    }
+    .bk-group-options {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        .bk-option {
+            padding: 0 12px;
+        }
+    }
+    .bk-option {
+        position: relative;
+        cursor: pointer;
+        &:hover,
+        &.is-highlight {
+            color: $newMainColor;
+            background-color: $hoverBackground;
+        }
+        &.is-disabled {
+            color: #c4c6cc;
+            cursor: not-allowed;
+            background-color: $disabledBackground;
+        }
+        &.is-selected {
+            color: $newMainColor;
+            background-color: $selectedBackground;
+        }
+        &.is-selected.is-disabled {
+            background-color: $disabledBackground;
+            color: $disabledColor;
+            .bk-option-icon {
+                color: $disabledColor;
+            }
+        }
+    }
+    .bk-option-content {
+        position: relative;
+        padding: 0 16px;
+        .bk-option-content-default {
+            font-size: 0;
+        }
+        .bk-option-name {
+            @mixin ellipsis 100%, inline-block;
+            vertical-align: middle;
+            font-size: 12px;
+        }
+        .bk-option-icon {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            color: $newMainColor;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+}
+
+.bk-cascade-empty {
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.bk-cascade-extension {
+    font-size: 12px;
+    padding: 0 16px;
+    border-radius:0px 0px 1px 1px;
+    border-top: 1px solid $newGreyColor1;
+    background: $newGreyColor3;
+    &:hover {
+        background-color: #f0f1f5;
+    }
+}
+
+.tippy-tooltip.bk-cascade-dropdown-theme[data-size=small] {
+    padding: 0;
+    box-shadow: 0 3px 9px 0 rgba(0,0,0,.1);
+    .tippy-arrow {
+        display: none;
+    }
+}
+
+/* cascade其他样式 */
+.bk-cacade-search {
+	border: none;
+}
+.bk-cascade-panel {
+  height: 100%;
+  display: flex;
+	.bk-cascade-panel-ul {
+		float: left;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		overflow-y: auto;
+		@mixin scroller;
+	}
+	.bk-cascade-border {
+		border-right: 1px solid #DCDEE5;
+	}
+	.bk-option {
+		position: relative;
+		.bk-cascade-right {
+			position: absolute;
+			top: 6px;
+			right: 5px;
+            font-size: 20px;
+            color: #979BA5;
+		}
+	}
+	.is-multiple {
+		background-color: #fff!important;
+	}
+}
+.bk-option-none {
+    display: block;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+    color: #63656E;
+}
+.bk-cascade-search {
+	height: calc(100% - 36px);
+}
+.bk-option-content {
+	position: relative;
+	.bk-cascade-check {
+		position: absolute;
+		top: 0;
+		left: 16px;
+	}
+	.bk-margin-left {
+		margin-left: 26px;
+	}
+}
+.bk-cascade-tag-list {
+    padding: 5px 36px 0px 10px;
+    min-height: 30px;
+    @mixin clearfix;
+    .bk-cascade-tag-item {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        margin: 0 6px 5px 0;
+        border-radius: 2px;
+        float: left;
+        height: 22px;
+        line-height: 22px;
+        overflow: hidden;
+        background-color: $itemBackground;
+        &:hover {
+            background-color: #dcdee5;
+            .remove-key {
+                color: $fnMainColor;
+            }
+        }
+    }
+    .bk-cascade-item-name {
+        display: inline-block;
+        color: $fnMainColor;
+        font-size: 12px;
+        border: none;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow: hidden;
+        border-radius: 2px;
+        padding: 0 5px;
+        min-height: 21px;
+        line-height: 19px;
+        word-break: break-all;
+        max-width: 200px;
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .remove-key {
+        position: relative;
+        width: 18px;
+        height: 16px;
+        top: 3px;
+        right: 4px;
+        display: inline-block;
+        text-align: center;
+        .icon-close {
+            color: #979ba5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    }
+}
+.bk-button-icon-loading {
+    position: relative;
+    top: 2px;
+    color: #006DFF;
+    .loading {
+        width: 14px;
+        height: 14px;
+        border: 2px solid;
+        border-right-color: #ffffff;
+        border-radius: 50%;
+        animation: button-icon-loading 1s linear infinite;
+        margin: -7px auto 0;
+        display: inline-block;
+    }
+}

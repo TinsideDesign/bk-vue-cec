@@ -1,0 +1,216 @@
+@import './variable.css';
+
+@define-mixin linear-gradient $direction {
+    background-image: linear-gradient(to $direction, transparent, transparent 2px, $newMainColor 2px, $newMainColor 3px, transparent 3px, transparent);
+}
+
+.bk-resize-layout {
+    display: flex;
+    &-border {
+        border: 1px solid $newGreyColor1;
+    }
+    &-collapsed {
+        & > .bk-resize-layout-aside {
+            .bk-resize-layout-aside-content {
+                overflow: hidden;
+            }
+            .bk-resize-collapse:before {
+                display: inline-block;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &-left {
+        flex-direction: row;
+
+        & > .bk-resize-layout-aside {
+            border-right: 1px solid $newGreyColor1;
+            &:after {
+                right: 1px;
+                top: 50%;
+                transform: translate3d(0, -50%, 0);
+            }
+            .bk-resize-trigger {
+                top: 0;
+                left: 100%;
+                width: 5px;
+                height: 100%;
+                cursor: col-resize;
+                &:hover {
+                    @mixin linear-gradient left;
+                }
+            }
+            .bk-resize-collapse {
+                left: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &-right {
+        flex-direction: row-reverse;
+
+        & > .bk-resize-layout-aside {
+            border-left: 1px solid $newGreyColor1;
+            &:after {
+                left: 1px;
+                top: 50%;
+                transform: translate3d(0, -50%, 0);
+            }
+            .bk-resize-trigger {
+                top: 0;
+                right: 100%;
+                width: 5px;
+                height: 100%;
+                cursor: col-resize;
+
+                &:hover {
+                    @mixin linear-gradient right;
+                }
+            }
+            .bk-resize-collapse {
+                right: 100%;
+                top: 50%;
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+
+    &-top {
+        flex-direction: column;
+
+        & > .bk-resize-layout-aside {
+            border-bottom: 1px solid $newGreyColor1;
+            &:after {
+                bottom: 1px;
+                left: 50%;
+                transform: translate3d(-50%, 0, 0) rotate(90deg);
+            }
+            .bk-resize-trigger {
+                left: 0;
+                top: 100%;
+                width: 100%;
+                height: 5px;
+                cursor: row-resize;
+
+                &:hover {
+                    @mixin linear-gradient top;
+                }
+            }
+            .bk-resize-collapse {
+                top: 100%;
+                left: 50%;
+                margin-top: 8px;
+                transform: translate3d(-50%, -50%, 0) rotate(90deg);
+            }
+        }
+    }
+
+    &-bottom {
+        flex-direction: column-reverse;
+
+        & > .bk-resize-layout-aside {
+            border-top: 1px solid $newGreyColor1;
+            &:after {
+                top: 1px;
+                left: 50%;
+                transform: translate3d(-50%, 0, 0) rotate(90deg);
+            }
+            .bk-resize-trigger {
+                left: 0;
+                bottom: 100%;
+                width: 100%;
+                height: 5px;
+                cursor: row-resize;
+
+                &:hover {
+                    @mixin linear-gradient bottom;
+                }
+            }
+            .bk-resize-collapse {
+                bottom: 100%;
+                left: 50%;
+                margin-bottom: 8px;
+                transform: translate3d(50%, 50%, 0) rotate(-90deg);
+            }
+        }
+    }
+
+    & > .bk-resize-layout-aside {
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            color: #c4c6cc;
+            background: currentColor;
+            box-shadow: 0 4px 0 0 currentColor, 0 8px 0 0 currentColor, 0 -4px 0 0 currentColor, 0 -8px 0 0 currentColor;
+        }
+        .bk-resize-layout-aside-content {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .bk-resize-trigger {
+            position: absolute;
+            background-color: transparent;
+            z-index: 3;
+        }
+
+        .bk-resize-proxy {
+            visibility: hidden;
+            position: absolute;
+            pointer-events: none;
+            z-index: 9999;
+
+            &.left,
+            &.right {
+                top: 0;
+                height: 100%;
+                border-left: 1px dashed $newMainColor;
+            }
+
+            &.top,
+            &.bottom {
+                left: 0;
+                width: 100%;
+                border-top: 1px dashed $newMainColor;
+            }
+        }
+        .bk-resize-collapse {
+            position: absolute;
+            width: 16px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 0px 12px 12px 0px;
+            background: #dcdee5;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            text-indent: -2px;
+            z-index: 2;
+            &:hover {
+                background: $newMainColor;
+            }
+        }
+    }
+
+    & > .bk-resize-layout-main {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .bk-resize-mask {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 9999;
+    }
+}

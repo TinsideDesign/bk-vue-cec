@@ -1,0 +1,151 @@
+@import './variable.css';
+
+.bk-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .bk-slider-runway {
+        width: 100%;
+        height: 4px;
+        background: #dcdee5;
+        position: relative;
+        cursor: pointer;
+        vertical-align: middle;
+        opacity: 1;
+        border-radius: 2px;
+        .bk-slider-bar {
+            height: 4px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            position: absolute;
+            background: #006DFF;
+            &.vertical {
+                width: 4px;
+            }
+            &.horizontal {
+                height: 4px;
+            }
+        }
+        .disable {
+            background: #979ba5;
+        }
+        .bk-slider-labels {
+            position: relative;
+            &.vertical {
+                left: 18px;
+                height: 100%;
+                width: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            &.horizontal {
+                top: 10px;
+                width: 100%;
+                height: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .bk-slider-label {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
+                &.vertical {
+                    left: 10px;
+                    transform: translateY(50%);
+                }
+                &.horizontal {
+                    top: 10px;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+    .bk-slider-interval {
+        position: absolute;
+        height: 4px;
+        width: 4px;
+        border-radius: 100%;
+        background-color: #fff;
+        transform: translateX(-50%);
+        &.vertical {
+            left: 2px;
+        }
+    }
+    &-input {
+        margin: 0 0 0 28px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .input-item {
+            width: 56px;
+        }
+        .input-center {
+            margin: 0 7px;
+        }
+    }
+}
+.bk-slider-button {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    z-index: 1001;
+    background-color: transparent;
+    text-align: center;
+    user-select: none;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        cursor: grab;
+    }
+    &.grabbing {
+        cursor: grabbing;
+    }
+    &.vertical {
+        left: -10px;
+        transform: translateY(50%);
+    }
+    &.horizontal {
+        top: -10px;
+        transform: translateX(-50%);
+    }
+    .slider-button {
+        width: 12px;
+        height: 12px;
+        border: 2px solid $newMainColor;
+        border-radius: 50%;
+        background-color: #fff;
+        transition: .2s;
+        user-select: none;
+        &-disable {
+            border: 2px solid #979ba5;
+        }
+        &:hover {
+            box-shadow: 0px 0px 0px 4px rgba(58, 132, 255, 0.30);
+        }
+        &:focus {
+            box-shadow: 0px 0px 10px 0px rgba(58, 132, 255, 0.9);
+        }
+    }
+    .slider-button-label {
+        position: absolute;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.vertical {
+            left: 28px;
+        }
+        &.horizontal {
+            top: 20px;
+        }
+    }
+}

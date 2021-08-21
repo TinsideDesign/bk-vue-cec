@@ -1,0 +1,26 @@
+@import './variable.css';
+
+.bk-rate-stars {
+    margin: 0;
+    padding: 0;
+    .bk-is-edit {
+        cursor: pointer;
+    }
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    .bk-rate-star {
+        float: left;
+        margin-right: 3px;
+        enable-background: new 0 0 64 64;
+        fill: #c5c7d1;
+        &.bk-yellow {
+            fill: #FED677;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

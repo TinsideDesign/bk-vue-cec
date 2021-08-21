@@ -1,0 +1,261 @@
+@import './variable.css';
+
+.bk-color-picker {
+    position: relative;
+    display: inline-flex;
+    align-content: center;
+    height: 32px;
+    border-radius: 2px;
+    border: 1px solid $newGreyColor;
+    transition: border .2s, box-shadow .2s;
+    color: $newBlackColor2;
+    cursor: pointer;
+    outline: none;
+    &.bk-color-picker-show-value {
+        width: 150px;
+    }
+    &.bk-color-picker-large {
+        height: 36px;
+        &.bk-color-picker-show-value {
+            width: 170px;
+            .bk-color-picker-text {
+                width: calc(100% - 62px);
+                font-size: 16px;
+            }
+        }
+        .bk-color-picker-color .bk-color-picker-color-square {
+            width: 22px;
+            height: 22px;
+            font-size: 22px;
+        }
+    }
+    &.bk-color-picker-small {
+        height: 28px;
+        &.bk-color-picker-show-value {
+            width: 132px;
+            .bk-color-picker-text {
+                width: calc(100% - 56px);
+                font-size: 12px;
+            }
+        }
+        .bk-color-picker-color .bk-color-picker-color-square {
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+        }
+    }
+    &:hover, &:focus {
+        border-color: $newMainColor;
+        transition: border .2s;
+    }
+    &.bk-color-picker-show-dropdown {
+        border-color: $newMainColor;
+        box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+        transition: border .2s, box-shadow .2s;
+        .icon-angle-down {
+            transform: rotate(-180deg);
+            transition: transform .3s;
+        }
+    }
+    &.bk-color-picker-disabled {
+        border-color: $newGreyColor1;
+        background-color: $newGreyColor3;
+        cursor: not-allowed;
+        .bk-color-picker-text {
+            color: $newGreyColor;
+        }
+        .bk-color-picker-icon .icon-angle-down {
+            color: $newGreyColor;
+        }
+    }
+    .bk-color-picker-color {
+        display: flex;
+        align-items: center;
+        margin-left: 6px;
+        .bk-color-picker-color-square {
+            width: 18px;
+            height: 18px;
+            font-size: 18px;
+            color: $newGreyColor;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
+        }
+    }
+    .bk-color-picker-text {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 58px);
+        margin-left: 6px;
+        line-height: 20px;
+        font-size: 14px;
+        color: $newBlackColor2;
+        span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .bk-color-picker-icon {
+        display: flex;
+        align-items: center;
+        width: 20px;
+        margin: 0 4px;
+        .icon-angle-down {
+            position: absolute;
+            right: 4px;
+            font-size: 20px;
+            color: $newBlackColor3;
+            transition: transform .3s;
+        }
+    }
+}
+/*下拉面板*/
+.bk-color-picker-dropdown {
+    width: 272px;
+}
+.bk-color-picker-saturation {
+    margin: 6px;
+    position: relative;
+    height: 180px;
+    .bk-color-picker-saturation-white {
+        background: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));
+    }
+    .bk-color-picker-saturation-black {
+        background: linear-gradient(0deg, #000, transparent);
+    }
+    .bk-color-picker-saturation-white, .bk-color-picker-saturation-black {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+.bk-color-picker-hue {
+    margin: 0 6px 6px;
+    position: relative;
+    height: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, red 0, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, red);
+    .bk-color-picker-hue-pointer {
+        position: absolute;
+        top: 0;
+        .bk-color-picker-hue-rectangle {
+            width: 4px;
+            height: 8px;
+            margin-top: 1px;
+            border-radius: 1px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .6);
+            background: #fff;
+            cursor: pointer;
+            transform: translateX(-2px);
+        }
+    }
+}
+.bk-color-picker-input {
+    margin: 0 6px 1px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: $newBlackColor2;
+    .bk-color-picker-input-hex .bk-color-picker-input-part .bk-color-picker-input-value {
+        width: 70px;
+    }
+    .bk-color-picker-input-rgba {
+        display: flex;
+        justify-content: space-between;
+        width: 160px;
+    }
+    .bk-color-picker-input-part {
+        display: flex;
+        flex-flow: column;
+        .bk-color-picker-input-value {
+            width: 32px;
+            height: 22px;
+            border: 1px solid $newGreyColor;
+            border-radius: 2px;
+            padding: 0 4px;
+            line-height: 16px;
+            transition: border .2s;
+            outline: none;
+            &:focus {
+                border-color: $newMainColor;
+                transition: border .2s;
+            }
+            &.error {
+                border-color: $newRedColor;
+            }
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+        .bk-color-picker-input-text {
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+        }
+    }
+}
+.bk-color-picker-recommend-container {
+    padding: 6px;
+    border-top: 1px solid $newGreyColor2;
+    .bk-color-picker-recommend {
+        display: flex;
+        flex-wrap: wrap;
+        .bk-color-picker-recommend-color {
+            width: 20px;
+            height: 20px;
+            margin: 3px;
+            border-radius: 3px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
+            cursor: pointer;
+            &.bk-color-picker-recommend-selected-color {
+                box-shadow: 0 0 3px 2px $newMainColor;
+            }
+        }
+    }
+}
+.bk-color-picker-saturation, .bk-color-picker-hue, .bk-color-picker-recommend {
+    outline: none;
+    transition: box-shadow .2s;
+    &:focus {
+        box-shadow: 0 0 0 2px rgba(45, 140, 240, .5);
+        transition: box-shadow .2s;
+    }
+}
+/*饱和度和预设值共用样式*/
+.bk-color-picker-pointer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    cursor: pointer;
+    .bk-color-picker-circle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 4px;
+        box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);
+        border-radius: 50%;
+        transform: translate(-2px, -2px);
+        cursor: pointer;
+    }
+}
+.bk-color-picker-empty {
+    position: relative;
+    &::after {
+        position: absolute;
+        left: calc(50% - 1px);
+        top: 1px;
+        content: '';
+        width: 2px;
+        height: calc(100% - 2px);
+        border-radius: 1px;
+        background: #ea3536;
+        transform: rotate(45deg);
+    }
+}

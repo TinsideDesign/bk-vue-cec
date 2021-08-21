@@ -1,0 +1,98 @@
+@import "./mixins/ellipsis";
+
+$base-color: #ffffff;
+$default-color: #979ba5;
+$success-color: #14a568;
+$info-color: #006DFF;
+$warning-color: #fe9c00;
+$danger-color: #ea3536;
+$font-color: #63656e;
+$border-color: #dcdee5;
+
+@define-mixin theme-color $bgColor, $borderColor, $fontColor, $alpha, $borderAlpha {
+    background-color: color($bgColor a($alpha));
+    border-color: color($borderColor a($borderAlpha));
+    color: $fontColor;
+}
+
+.bk-tag {
+    @mixin theme-color $default-color, $border-color, $font-color, 10%, 60%;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    margin: 2px 0 2px 6px;
+    cursor: default;
+    box-sizing: border-box;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+.bk-tag-closable {
+    padding: 0 2px 0 10px;
+}
+.bk-tag-icon {
+    font-size: 14px;
+}
+.bk-tag-close {
+    font-size: 16px;
+    cursor: pointer;
+}
+.bk-tag-success {
+    @mixin theme-color $success-color, $success-color, $success-color, 10%, 30%;
+}
+.bk-tag-info {
+    @mixin theme-color $info-color, $info-color, $info-color, 10%, 30%;
+}
+.bk-tag-warning {
+    @mixin theme-color $warning-color, $warning-color, $warning-color, 10%, 30%;
+}
+.bk-tag-danger {
+    @mixin theme-color $danger-color, $danger-color, $danger-color, 10%, 30%;
+}
+/** 填充式 */
+.bk-tag-filled {
+    color: $base-color;
+    &.bk-tag {
+        background: $default-color;
+    }
+    &.bk-tag-success {
+        background: $success-color;
+    }
+    &.bk-tag-info {
+        background: $info-color;
+    }
+    &.bk-tag-warning {
+        background: $warning-color;
+    }
+    &.bk-tag-danger {
+        background: $danger-color;
+    }
+}
+/** 描边式 */
+.bk-tag-stroke {
+    border-width: 1px;
+    border-style: solid;
+    padding: 0 9px;
+    line-height: 20px;
+    &.bk-tag-closable {
+        padding: 0 2px 0 9px;
+    }
+}
+.bk-tag-checkable {
+    background: none;
+    cursor: pointer;
+    &:hover {
+        background: color($default-color a(15%));
+    }
+}
+.bk-tag-check {
+    background: $info-color;
+    color: $base-color;
+    &:hover {
+        color: $base-color;
+        opacity: 1;
+        background: $info-color;
+    }
+}

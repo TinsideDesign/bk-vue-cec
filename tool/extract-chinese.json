@@ -1,0 +1,351 @@
+{
+    "badge": {
+        "src/components/badge/badge.vue": [],
+        "src/components/badge/index.js": []
+    },
+    "button": {
+        "src/components/button/button.vue": [],
+        "src/components/button/index.js": []
+    },
+    "checkbox": {
+        "src/components/checkbox/checkbox-group.vue": [],
+        "src/components/checkbox/checkbox-name.js": [],
+        "src/components/checkbox/checkbox.vue": [],
+        "src/components/checkbox/index.js": []
+    },
+    "checkbox-group": {
+        "src/components/checkbox-group/index.js": []
+    },
+    "col": {
+        "src/components/col/col.vue": [],
+        "src/components/col/index.js": []
+    },
+    "collapse": {
+        "src/components/collapse/collapse.vue": [],
+        "src/components/collapse/index.js": [],
+        "src/components/collapse/transition.js": []
+    },
+    "collapse-item": {
+        "src/components/collapse-item/collapse-item.vue": [],
+        "src/components/collapse-item/index.js": []
+    },
+    "container": {
+        "src/components/container/container.vue": [],
+        "src/components/container/index.js": []
+    },
+    "base": {
+        "src/components/date-picker/base/confirm.vue": [],
+        "src/components/date-picker/base/date-picker-dropdown.vue": [],
+        "src/components/date-picker/base/date-table.vue": [],
+        "src/components/date-picker/base/mixin.js": [],
+        "src/components/date-picker/base/month-table.vue": [],
+        "src/components/date-picker/base/time-spinner.vue": [],
+        "src/components/date-picker/base/year-table.vue": []
+    },
+    "date-picker": {
+        "src/components/date-picker/date-picker.js": [],
+        "src/components/date-picker/index.js": [],
+        "src/components/date-picker/picker.vue": [],
+        "src/components/date-picker/time-mixins.js": [],
+        "src/components/date-picker/time-picker.js": []
+    },
+    "panel": {
+        "src/components/date-picker/panel/date-panel-label.vue": [],
+        "src/components/date-picker/panel/date-panel-mixin.js": [],
+        "src/components/date-picker/panel/date-range.vue": [],
+        "src/components/date-picker/panel/date.vue": [],
+        "src/components/date-picker/panel/panel-mixins.js": [],
+        "src/components/date-picker/panel/time-range.vue": [],
+        "src/components/date-picker/panel/time.vue": []
+    },
+    "dialog": {
+        "src/components/dialog/dialog.vue": [],
+        "src/components/dialog/index.js": []
+    },
+    "diff": {
+        "src/components/diff/diff.vue": [],
+        "src/components/diff/index.js": []
+    },
+    "dropdown-menu": {
+        "src/components/dropdown-menu/dropdown-menu.vue": [],
+        "src/components/dropdown-menu/index.js": []
+    },
+    "exception": {
+        "src/components/exception/exception.vue": [],
+        "src/components/exception/index.js": []
+    },
+    "form": {
+        "src/components/form/form-item.vue": [],
+        "src/components/form/form.vue": [],
+        "src/components/form/index.js": []
+    },
+    "form-item": {
+        "src/components/form-item/index.js": []
+    },
+    "info-box": {
+        "src/components/info-box/index.js": [],
+        "src/components/info-box/info-box.js": []
+    },
+    "input": {
+        "src/components/input/index.js": [],
+        "src/components/input/input.vue": []
+    },
+    "loading": {
+        "src/components/loading/directive.js": [],
+        "src/components/loading/index.js": [],
+        "src/components/loading/loading.js": [],
+        "src/components/loading/loading.vue": []
+    },
+    "message": {
+        "src/components/message/index.js": [],
+        "src/components/message/message.js": [],
+        "src/components/message/message.vue": []
+    },
+    "navigation": {
+        "src/components/navigation/index.js": [],
+        "src/components/navigation/navigation-menu-item.vue": [],
+        "src/components/navigation/navigation-menu.vue": [],
+        "src/components/navigation/navigation.vue": []
+    },
+    "navigation-menu": {
+        "src/components/navigation-menu/index.js": []
+    },
+    "navigation-menu-item": {
+        "src/components/navigation-menu-item/index.js": []
+    },
+    "notify": {
+        "src/components/notify/index.js": [],
+        "src/components/notify/notify.js": [],
+        "src/components/notify/notify.vue": []
+    },
+    "option": {
+        "src/components/option/index.js": []
+    },
+    "option-group": {
+        "src/components/option-group/index.js": []
+    },
+    "pagination": {
+        "src/components/pagination/index.js": [],
+        "src/components/pagination/pagination.vue": [
+            "每页",
+            "页数",
+            "条"
+        ]
+    },
+    "popover": {
+        "src/components/popover/index.js": [],
+        "src/components/popover/popover.vue": []
+    },
+    "process": {
+        "src/components/process/index.js": [],
+        "src/components/process/process.vue": []
+    },
+    "progress": {
+        "src/components/progress/index.js": [],
+        "src/components/progress/progress.vue": []
+    },
+    "radio": {
+        "src/components/radio/index.js": [],
+        "src/components/radio/radio-group.vue": [],
+        "src/components/radio/radio.vue": []
+    },
+    "radio-group": {
+        "src/components/radio-group/index.js": []
+    },
+    "round-progress": {
+        "src/components/round-progress/index.js": [],
+        "src/components/round-progress/round-progress.vue": []
+    },
+    "row": {
+        "src/components/row/index.js": [],
+        "src/components/row/row.vue": []
+    },
+    "search-select": {
+        "src/components/search-select/index.js": [],
+        "src/components/search-select/search-select-menu.vue": [
+            "确认",
+            "取消"
+        ],
+        "src/components/search-select/search-select.vue": []
+    },
+    "select": {
+        "src/components/select/index.js": [],
+        "src/components/select/option-all.vue": [],
+        "src/components/select/option-group.vue": [],
+        "src/components/select/option.vue": [],
+        "src/components/select/select.vue": []
+    },
+    "sideslider": {
+        "src/components/sideslider/index.js": [],
+        "src/components/sideslider/sideslider.vue": []
+    },
+    "slider": {
+        "src/components/slider/index.js": [],
+        "src/components/slider/slider.vue": []
+    },
+    "steps": {
+        "src/components/steps/index.js": [],
+        "src/components/steps/steps.vue": []
+    },
+    "switcher": {
+        "src/components/switcher/index.js": [],
+        "src/components/switcher/switcher.vue": []
+    },
+    "tab": {
+        "src/components/tab/bk-tab-label.js": [],
+        "src/components/tab/index.js": [],
+        "src/components/tab/tab-panel.vue": [],
+        "src/components/tab/tab.vue": []
+    },
+    "tab-panel": {
+        "src/components/tab-panel/index.js": []
+    },
+    "table": {
+        "src/components/table/filter-panel.vue": [],
+        "src/components/table/index.js": [],
+        "src/components/table/layout-observer.js": [],
+        "src/components/table/table-body.js": [],
+        "src/components/table/table-column.js": [],
+        "src/components/table/table-footer.js": [],
+        "src/components/table/table-header.js": [],
+        "src/components/table/table-layout.js": [],
+        "src/components/table/table-store.js": [],
+        "src/components/table/table.vue": [
+            "共计",
+            "条"
+        ],
+        "src/components/table/util.js": []
+    },
+    "table-column": {
+        "src/components/table-column/index.js": []
+    },
+    "tag-input": {
+        "src/components/tag-input/index.js": [],
+        "src/components/tag-input/render.js": [],
+        "src/components/tag-input/tag-input.vue": []
+    },
+    "time-picker": {
+        "src/components/time-picker/index.js": []
+    },
+    "timeline": {
+        "src/components/timeline/index.js": [],
+        "src/components/timeline/timeline.vue": []
+    },
+    "transfer": {
+        "src/components/transfer/index.js": [],
+        "src/components/transfer/transfer.vue": []
+    },
+    "tree": {
+        "src/components/tree/collapse-transition.js": [],
+        "src/components/tree/index.js": [],
+        "src/components/tree/render.js": [],
+        "src/components/tree/tree.vue": []
+    },
+    "upload": {
+        "src/components/upload/index.js": [],
+        "src/components/upload/upload.vue": []
+    },
+    "directives": {
+        "src/directives/click-outside-x.js": [],
+        "src/directives/clickoutside.js": [],
+        "src/directives/mousewheel.js": [],
+        "src/directives/tooltips.js": [],
+        "src/directives/transfer-dom.js": []
+    },
+    "src": {
+        "src/index.js": []
+    },
+    "locale": {
+        "src/locale/index.js": []
+    },
+    "lang": {
+        "src/locale/lang/en-US.js": [],
+        "src/locale/lang/index.js": [],
+        "src/locale/lang/zh-CN.js": [
+            "我们{vari}hello",
+            "选择日期",
+            "选择时间",
+            "清除",
+            "确定",
+            "日",
+            "一",
+            "二",
+            "三",
+            "四",
+            "五",
+            "六",
+            "时",
+            "分",
+            "秒",
+            "确定",
+            "取消",
+            "您的权限不足",
+            "页面找不到了！",
+            "服务维护中，请稍后...",
+            "功能正在建设中···",
+            "请配置合法的路径",
+            "请输入",
+            "查看更多",
+            "共计{total}页",
+            "全选",
+            "请选择",
+            "输入关键字搜索",
+            "暂无选项",
+            "无匹配选项",
+            "标题",
+            "请输入并按Enter结束",
+            "左侧列表",
+            "共{total}条）",
+            "全部添加",
+            "无数据",
+            "右侧列表",
+            "全部移除",
+            "未选择任何项",
+            "暂无数据",
+            "步骤1",
+            "步骤2",
+            "步骤3",
+            "拖拽到此处上传或",
+            "点击上传",
+            "上传完毕",
+            "文件不能超过",
+            "文件名不合法",
+            "只允许上传JPG|PNG|JPEG格式的图片",
+            "图片大小不能超过${imgSize}MB",
+            "栏目名称",
+            "请输入",
+            "包含键值得过滤查询必须有一个值",
+            "或",
+            "查询无数据",
+            "正在加载中..."
+        ]
+    },
+    "mixins": {
+        "src/mixins/emitter.js": [],
+        "src/mixins/locale.js": [],
+        "src/mixins/mixins-scrollbar.js": []
+    },
+    "utils": {
+        "src/utils/create-tippy.js": [
+            "没有找到${options.content}节点`)"
+        ],
+        "src/utils/date.js": [],
+        "src/utils/deepmerge.js": [],
+        "src/utils/dom.js": [],
+        "src/utils/fecha.js": [],
+        "src/utils/is-mergeable-object.js": [],
+        "src/utils/resize-events.js": [],
+        "src/utils/scrollbar-width.js": [],
+        "src/utils/transfer-queue.js": [],
+        "src/utils/util.js": []
+    },
+    "tippy": {
+        "src/utils/tippy/bindGlobalEventListeners.js": [],
+        "src/utils/tippy/createTippy.js": [],
+        "src/utils/tippy/defaults.js": [],
+        "src/utils/tippy/popper.js": [],
+        "src/utils/tippy/selectors.js": [],
+        "src/utils/tippy/tippy.js": [],
+        "src/utils/tippy/utils.js": []
+    }
+}

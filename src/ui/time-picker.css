@@ -1,0 +1,234 @@
+@import './variable.css';
+
+/* 生成 HH:mm:ss 中间的两个点 */
+@define-mixin dot $top: 55px, $left: 85px {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        padding-top: 2px;
+        background-color: $newMainColor;
+        top: $top;
+        left: $left;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        padding-top: 2px;
+        background-color: $newMainColor;
+        top: calc($top + 5px);
+        left: $left;
+        border-radius: 50%;
+        z-index: 1;
+    }
+}
+
+.bk-time-picker-cells {
+    /* min-width: 112px; */
+    &:after {
+        content: "";
+        /* top: 50%; */
+        position: absolute;
+        margin-top: 0;
+        height: 32px;
+        z-index: -1;
+        left: 0;
+        right: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding-top: 6px;
+        text-align: left;
+        /* border-top: 1px solid #e4e7ed; */
+        /* border-bottom: 1px solid #e4e7ed; */
+        background-color: #E6F0FF;
+        color: $newMainColor;
+    }
+}
+.bk-time-picker-cells-with-seconds {
+    /* min-width: 168px; */
+    .bk-time-picker-cells-title-wrapper {
+        .bk-time-picker-cells-title {
+            &:nth-of-type(1),
+            &:nth-of-type(2) {
+                @mixin dot 55px, 85px;
+            }
+        }
+    }
+}
+.bk-time-picker-cells-title-wrapper {
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    .bk-time-picker-cells-title {
+        float: left;
+        width: 33.33%;
+        text-align: center;
+        list-style: none;
+        color: $newBlackColor2;
+        font-weight: 700;
+        font-size: 14px;
+        position: relative;
+        &.active {
+            color: $newMainColor;
+        }
+        &:nth-of-type(1) {
+            @mixin dot 55px, 133px;
+        }
+    }
+}
+.bk-time-picker-cells-list {
+    /* width: 56px; */
+    width: 33.33%;
+    max-height: 192px;
+    float: left;
+    overflow: hidden;
+    /* border-left: 1px solid #e8eaec; */
+    position: relative;
+    &:hover {
+        overflow-y: auto;
+    }
+    &:first-child {
+        /* border-left: none; */
+        border-radius: 2px 0 0 2px;
+    }
+    &:last-child {
+        border-radius: 0 2px 2px 0;
+    }
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background-color: color(transparent lightness(80%));
+    }
+    &::-webkit-scrollbar-thumb {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+    }
+    .bk-time-picker-cells-ul {
+        width: 100%;
+        margin: 0;
+        /* padding: 0 0 120px 0; */
+        /* padding: 0 0 96px 0; */
+        padding: 0 0 160px 0;
+        list-style: none;
+        .bk-time-picker-cells-cell {
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            margin: 0;
+            /* padding: 0 0 0 16px; */
+            padding: 0;
+            box-sizing: content-box;
+            /* text-align: left; */
+            text-align: center;
+            user-select: none;
+            cursor: pointer;
+            list-style: none;
+            transition: background 0.2s ease-in-out;
+            color: $newBlackColor2;
+            font-size: 12px;
+            position: relative;
+            &:hover {
+                /* background-color: $newGreyColor2; */
+                color: $newMainColor;
+                /* font-weight: 700; */
+            }
+        }
+        .bk-time-picker-cells-cell-disabled {
+            color: $newGreyColor;
+            cursor: not-allowed;
+            &:hover {
+                color: $newGreyColor;
+                background-color: #fff;
+                cursor: not-allowed;
+            }
+        }
+
+        .bk-time-picker-cells-cell-selected,
+        .bk-time-picker-cells-cell-selected:hover {
+            /* background-color: $newMainColor3; */
+            color: $newMainColor;
+        }
+
+        .bk-time-picker-cells-cell-focused {
+            /* background-color: #f3f3f3; */
+        }
+    }
+}
+
+
+.bk-time-picker-header {
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    border-bottom: 1px solid $newGreyColor1;
+    font-size: 14px;
+    font-weight: 700;
+    color: $newBlackColor2;
+}
+.bk-time-picker-with-range .bk-picker-panel-body {
+    /* min-width: 228px; */
+}
+.bk-time-picker-with-range .bk-picker-panel-content {
+    float: left;
+    position: relative;
+}
+.bk-time-picker-with-range .bk-picker-panel-content:after {
+    content:'';
+    display: block;
+    /* width: 2px; */
+    width: 1px;
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    /* right: -2px; */
+    right: -1px;
+    background: #e8eaec;
+    z-index: 1;
+}
+.bk-time-picker-with-range .bk-picker-panel-content-right {
+    float: right;
+}
+.bk-time-picker-with-range .bk-picker-panel-content-right:after {
+    right: auto;
+    left: 0;
+}
+.bk-time-picker-with-range .bk-time-picker-cells-list:first-child {
+    border-radius: 0;
+}
+.bk-time-picker-with-range .bk-time-picker-cells-list:last-child {
+    border-radius: 0;
+}
+.bk-time-picker-with-range.bk-time-picker-with-seconds .bk-picker-panel-body {
+    /* min-width: 340px; */
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells {
+    min-width: 216px;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-with-seconds {
+    min-width: 216px;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-with-seconds .bk-time-picker-cells-list {
+    width: 72px;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-with-seconds .bk-time-picker-cells-list ul li {
+    /* padding: 0 0 0 28px; */
+    padding: 0;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-list {
+    width: 108px;
+    /* max-height: 216px; */
+    max-height: 200px;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-list:first-child {
+    border-radius: 0;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-list:last-child {
+    border-radius: 0;
+}
+.bk-picker-panel-content .bk-picker-panel-content .bk-time-picker-cells-list ul {
+    padding: 0 0 168px 0;
+}

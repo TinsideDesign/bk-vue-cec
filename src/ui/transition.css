@@ -1,0 +1,439 @@
+/* common transition effect */
+.transition-effect {
+    transition: all linear .2s;
+}
+
+/** fade-in */
+.bk-fade-in-linear-enter-active,
+.bk-fade-in-linear-leave-active{
+    transition: opacity linear .2s;
+}
+
+.bk-fade-in-linear-enter,
+.bk-fade-in-linear-leave-active {
+    opacity: 0;
+}
+
+
+.bk-fade-in-ease-enter-active,
+.bk-fade-in-ease-leave-active{
+    transition: opacity cubic-bezier(.55,0,.1,1) .2s;
+}
+
+.bk-fade-in-ease-enter,
+.bk-fade-in-ease-leave-active {
+    opacity: 0;
+}
+
+/** slide-in */
+.bk-slide-fade-right-enter-active,
+.bk-slide-fade-right-leave-active {
+    transition: transform linear .2s, opacity linear .2s;
+}
+
+.bk-slide-fade-right-enter {
+    opacity: 0;
+    transform: translate3d(20%, 0, 0);
+}
+
+.bk-slide-fade-right-leave-active {
+    opacity: 0;
+    transform: translate3d(-20%, 0, 0);
+}
+
+.bk-slide-fade-left-enter-active,
+.bk-slide-fade-left-leave-active {
+    transition: transform linear .2s, opacity linear .2s;
+}
+
+.bk-slide-fade-left-enter {
+    opacity: 0;
+    transform: translate3d(-20%, 0, 0%);
+}
+
+.bk-slide-fade-left-leave-active {
+    opacity: 0;
+    transform: translate3d(20%, 0, 0);
+}
+
+.bk-slide-fade-up-enter-active,
+.bk-slide-fade-up-leave-active {
+    transition: transform linear .2s, opacity linear .2s;
+}
+
+.bk-slide-fade-up-enter {
+    opacity: 0;
+    transform: translate3d(0, +20%, 0);
+}
+
+.bk-slide-fade-up-leave-active {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+}
+
+.bk-slide-fade-down-enter-active,
+.bk-slide-fade-down-leave-active {
+    transition: transform linear .2s, opacity linear .2s;
+}
+
+.bk-slide-fade-down-enter {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+}
+
+.bk-slide-fade-down-leave-active {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+}
+
+/** zoom */
+.bk-zoom-enter,
+.bk-zoom-leave-to {
+    transform: scale(0);
+}
+.bk-zoom-leave,
+.bk-zoom-enter-to {
+    transform: scale(1);
+}
+.bk-zoom-enter-active,
+.bk-zoom-leave-active {
+    transition: all .2s;
+}
+
+/** move-in */
+.bk-move-in-left-enter,
+.bk-move-in-left-leave-to {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+}
+.bk-move-in-left-leave,
+.bk-move-in-left-enter-to {
+    transform: translate3d(0, 0, 0);
+}
+.bk-move-in-left-enter-active,
+.bk-move-in-left-leave-active {
+    transition: all .2s;
+}
+
+.bk-move-in-right-enter,
+.bk-move-in-right-leave-to {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+}
+.bk-move-in-right-leave,
+.bk-move-in-right-enter-to {
+    transform: translate3d(0, 0, 0);
+}
+.bk-move-in-right-enter-active,
+.bk-move-in-right-leave-active {
+    transition: all .2s;
+}
+
+.bk-move-in-up-enter,
+.bk-move-in-up-leave-to {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+}
+.bk-move-in-up-leave,
+.bk-move-in-up-enter-to {
+    transform: translate3d(0, 0, 0);
+}
+.bk-move-in-up-enter-active,
+.bk-move-in-up-leave-active {
+    transition: all .2s;
+}
+
+.bk-move-in-down-enter,
+.bk-move-in-down-leave-to {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+}
+.bk-move-in-down-leave,
+.bk-move-in-down-enter-to {
+    transform: translate3d(0, 0, 0);
+}
+.bk-move-in-down-enter-active,
+.bk-move-in-down-leave-active {
+    transition: all .2s;
+}
+
+
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity linear .2s;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
+}
+
+/* fade */
+/* fade-show */
+.fade-show-enter-active,
+.fade-show-leave-active {
+    transition: opacity linear .2s, margin linear .2s;
+}
+
+.fade-show-enter,
+.fade-show-leave-active {
+    opacity: 0;
+    margin-top: -20px;
+}
+
+/* fade-show */
+/* info-box */
+.displacement-fade-show-enter-active,
+.displacement-fade-show-leave-active {
+    transition: opacity linear .2s, margin linear .2s;
+}
+
+.displacement-fade-show-enter,
+.displacement-fade-show-leave-active {
+    opacity: 0;
+    margin-top: -50px;
+}
+
+/* info-box */
+/* fade-center */
+.fade-center-enter-active,
+.fade-center-leave-active {
+    transition: opacity linear .2s, transform linear .2s;
+    transform-origin: center center;
+}
+
+.fade-center-enter,
+.fade-center-leave-active {
+    opacity: 0;
+    transform: translate(50%, -50%) scale(0, 0) !important;
+}
+
+/* fade-center */
+/* slide */
+.slide-enter-active,
+.slide-leave-active{
+    .bk-sideslider-wrapper {
+        transform: translateX(0);
+        transition: transform .25s;
+    }
+}
+.slide-enter-active{
+    animation: slider-fade-in .25s;
+}
+.slide-leave-active{
+    animation: slider-fade-in .25s reverse;
+}
+.slide-enter,
+.slide-leave-to {
+    .bk-sideslider-wrapper {
+        &.left {
+            transform: translateX(-100%);
+            transition: transform .25s;
+        }
+        &.right {
+            transform: translateX(100%);
+            transition: transform .25s;
+        }
+    }
+}
+@keyframes slider-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* slide */
+/* slide-fade */
+.slide-fade-enter-active,
+.fade-leave-active {
+    transition: transform linear .2s, opacity linear .2s;
+}
+
+.slide-fade-enter {
+    opacity: 0;
+    transform: translateX(20%);
+}
+
+.slide-fade-leave-active {
+    opacity: 0;
+    transform: translateX(-20%);
+}
+
+/* slide-fade */
+/* toggle-slide */
+.toggle-slide-enter-active,
+.toggle-slide-leave-active {
+    transition: transform .3s cubic-bezier(.23, 1, .23, 1), opacity .5s cubic-bezier(.23, 1, .23, 1);
+    transform-origin: center top;
+}
+
+.toggle-slide-enter,
+.toggle-slide-leave-active {
+    transform: translateZ(0) scaleY(0);
+    opacity: 0;
+}
+
+.toggle-slide2-enter-active,
+.toggle-slide2-leave-active {
+    transition: transform .3s cubic-bezier(.23, 1, .23, 1), opacity .5s cubic-bezier(.23, 1, .23, 1);
+    transform-origin: center bottom;
+}
+
+.toggle-slide2-enter,
+.toggle-slide2-leave-active {
+    transform: translateZ(0) scaleY(0);
+    opacity: 0;
+}
+
+
+.fade-enter-active,
+.fade-appear {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.fade-leave-active {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.fade-enter-active,
+.fade-appear {
+    animation-name: fadeIn;
+    animation-play-state: running;
+}
+.fade-leave-active {
+    animation-name: fadeOut;
+    animation-play-state: running;
+}
+.fade-enter-active,
+.fade-appear {
+    opacity: 0;
+    animation-timing-function: linear;
+}
+.fade-leave-active {
+    animation-timing-function: linear;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.ease-enter-active,
+.ease-appear {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.ease-leave-active {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.ease-enter-active,
+.ease-appear {
+    animation-name: easeIn;
+    animation-play-state: running;
+}
+.ease-leave-active {
+    animation-name: easeOut;
+    animation-play-state: running;
+}
+.ease-enter-active,
+.ease-appear {
+    opacity: 0;
+    animation-timing-function: linear;
+    animation-duration: .2s;
+}
+.ease-leave-active {
+    animation-timing-function: linear;
+    animation-duration: .2s;
+}
+@keyframes easeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes easeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+/* date-pincker */
+.transition-drop-enter-active,
+.transition-drop-appear {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.transition-drop-leave-active {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+.transition-drop-enter-active,
+.transition-drop-appear {
+    animation-name: transitionDropIn;
+    animation-play-state: running;
+}
+.transition-drop-leave-active {
+    animation-name: transitionDropOut;
+    animation-play-state: running;
+}
+.transition-drop-enter-active,
+.transition-drop-appear {
+    opacity: 0;
+    animation-timing-function: ease-in-out;
+}
+.transition-drop-leave-active {
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes transitionDropIn {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes transitionDropOut {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+}

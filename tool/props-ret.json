@@ -1,0 +1,2238 @@
+{
+    "badge": {
+        "badge/badge.vue": {
+            "theme": {
+                "type": "String",
+                "default": "() => ''",
+                "validator": "(value) => {\n                return ['', 'primary', 'info', 'warning', 'danger', 'success'].indexOf(value) > -1\n                    || value.indexOf('#') === 0\n            }"
+            },
+            "val": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "() => 1"
+            },
+            "icon": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "max": {
+                "type": "Number",
+                "default": "() => -1"
+            },
+            "dot": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "visible": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "position": {
+                "type": "String",
+                "default": "() => 'top-right'"
+            }
+        },
+        "badge/index.js": {}
+    },
+    "button": {
+        "button/button.vue": {
+            "theme": {
+                "type": "String",
+                "default": "() => 'default'",
+                "validator": "(value) => {\n                if (['default', 'primary', 'warning', 'success', 'danger'].indexOf(value) < 0) {\n                    console.error(`theme property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "hoverTheme": {
+                "type": "String",
+                "default": "() => ''",
+                "validator": "(value) => {\n                if (['', 'primary', 'warning', 'success', 'danger'].indexOf(value) < 0) {\n                    console.error(`hoverTheme property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "size": {
+                "type": "String",
+                "default": "() => 'normal'",
+                "validator": "(value) => {\n                if (['small', 'normal', 'large'].indexOf(value) < 0) {\n                    console.error(`size property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "title": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "icon": {
+                "type": "String"
+            },
+            "iconRight": {
+                "type": "String"
+            },
+            "disabled": {
+                "type": "Boolean"
+            },
+            "loading": {
+                "type": "Boolean"
+            },
+            "outline": {
+                "type": "Boolean"
+            },
+            "text": {
+                "type": "Boolean"
+            }
+        },
+        "button/index.js": {}
+    },
+    "checkbox": {
+        "checkbox/checkbox-group.vue": {
+            "value": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "name": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => {\n                return getGroupName()\n            }"
+            }
+        },
+        "checkbox/checkbox-name.js": {},
+        "checkbox/checkbox.vue": {
+            "value": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "undefined"
+            },
+            "checked": {
+                "type": "Boolean",
+                "default": "undefined"
+            },
+            "trueValue": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "() => true"
+            },
+            "falseValue": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "() => false"
+            },
+            "label": {
+                "type": [
+                    "String",
+                    "Number"
+                ]
+            },
+            "name": {
+                "type": "String",
+                "default": "() => {\n                return getCheckboxName()\n            }"
+            },
+            "disabled": {
+                "type": "Boolean"
+            },
+            "indeterminate": {
+                "type": "Boolean"
+            }
+        },
+        "checkbox/index.js": {}
+    },
+    "checkbox-group": {
+        "checkbox-group/index.js": {}
+    },
+    "col": {
+        "col/col.vue": {
+            "span": {
+                "type": "Number",
+                "default": "() => 1"
+            },
+            "offset": {
+                "type": "Number",
+                "default": "() => 0"
+            },
+            "pull": {
+                "type": "Number",
+                "default": "() => 0"
+            },
+            "push": {
+                "type": "Number",
+                "default": "() => 0"
+            }
+        },
+        "col/index.js": {}
+    },
+    "collapse": {
+        "collapse/collapse.vue": {
+            "accordion": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "value": {
+                "type": [
+                    "Array",
+                    "String"
+                ]
+            }
+        },
+        "collapse/index.js": {},
+        "collapse/transition.js": {}
+    },
+    "collapse-item": {
+        "collapse-item/collapse-item.vue": {
+            "name": {
+                "type": "String"
+            },
+            "hideArrow": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        },
+        "collapse-item/index.js": {}
+    },
+    "container": {
+        "container/container.vue": {
+            "col": {
+                "type": "Number",
+                "default": "() => 24",
+                "validator": "(value) => {\n                if (value <= 0) {\n                    console.error(`col property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "gutter": {
+                "type": "Number",
+                "default": "() => 20",
+                "validator": "(value) => {\n                if (value < 0) {\n                    console.error(`gutter property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "margin": {
+                "type": "Number",
+                "default": "() => 20",
+                "validator": "(value) => {\n                if (value < 0) {\n                    console.error(`margin property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "flex": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        },
+        "container/index.js": {}
+    },
+    "date-picker": {
+        "date-picker/base/confirm.vue": {
+            "showTime": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "isTime": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "timeDisabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "showClear": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        },
+        "date-picker/base/date-picker-dropdown.vue": {
+            "placement": {
+                "type": "String",
+                "default": "() => 'bottom-start'"
+            },
+            "className": {
+                "type": "String"
+            },
+            "transfer": {
+                "type": "Boolean"
+            }
+        },
+        "date-picker/base/date-table.vue": {},
+        "date-picker/base/mixin.js": {
+            "tableDate": {
+                "type": "Date",
+                "required": "() => true"
+            },
+            "disabledDate": {
+                "type": "Function"
+            },
+            "selectionMode": {
+                "type": "String",
+                "required": "() => true"
+            },
+            "value": {
+                "type": "Array",
+                "required": "() => true"
+            },
+            "rangeState": {
+                "type": "Object",
+                "default": "() => ({\n                from: null,\n                to: null,\n                selecting: false\n            })"
+            },
+            "focusedDate": {
+                "type": "Date",
+                "required": "() => true"
+            }
+        },
+        "date-picker/base/month-table.vue": {},
+        "date-picker/base/time-spinner.vue": {
+            "hours": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "NaN"
+            },
+            "minutes": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "NaN"
+            },
+            "seconds": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "NaN"
+            },
+            "showSeconds": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "steps": {
+                "type": "Array",
+                "default": "() => []"
+            }
+        },
+        "date-picker/base/year-table.vue": {},
+        "date-picker/date-picker.js": {
+            "type": {
+                "type": "String",
+                "default": "() => 'date'",
+                "validator": "(value) => {\n                if (['year', 'month', 'date', 'daterange', 'datetime', 'datetimerange'].indexOf(value) < 0) {\n                    console.error(`type property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            }
+        },
+        "date-picker/index.js": {},
+        "date-picker/panel/date-panel-label.vue": {
+            "datePanelLabel": {
+                "type": "Object"
+            },
+            "currentView": {
+                "type": "String"
+            }
+        },
+        "date-picker/panel/date-panel-mixin.js": {
+            "showTime": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "format": {
+                "type": "String",
+                "default": "() => 'yyyy-MM-dd'"
+            },
+            "selectionMode": {
+                "type": "String",
+                "default": "() => 'date'",
+                "validator": "(value) => {\n                if (['year', 'month', 'date', 'time'].indexOf(value) < 0) {\n                    console.error(`selectionMode property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "disabledDate": {
+                "type": "Function",
+                "default": "() => false"
+            },
+            "value": {
+                "type": "Array",
+                "default": "() => [initTime(), initTime()]"
+            },
+            "timePickerOptions": {
+                "default": "() => ({})",
+                "type": "Object"
+            },
+            "startDate": {
+                "type": "Date"
+            },
+            "pickerType": {
+                "type": "String",
+                "require": "() => true"
+            },
+            "focusedDate": {
+                "type": "Date",
+                "required": "() => true"
+            }
+        },
+        "date-picker/panel/date-range.vue": {
+            "splitPanels": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "shortcuts": {
+                "type": "Array",
+                "default": "() => []"
+            }
+        },
+        "date-picker/panel/date.vue": {
+            "multiple": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "shortcuts": {
+                "type": "Array",
+                "default": "() => []"
+            }
+        },
+        "date-picker/panel/panel-mixins.js": {
+            "confirm": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        },
+        "date-picker/panel/time-range.vue": {
+            "steps": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "format": {
+                "type": "String",
+                "default": "() => 'HH:mm:ss'"
+            },
+            "value": {
+                "type": "Array",
+                "required": "() => true"
+            }
+        },
+        "date-picker/panel/time.vue": {
+            "disabledDate": {
+                "type": "Function",
+                "default": "() => false"
+            },
+            "steps": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "format": {
+                "type": "String",
+                "default": "() => 'HH:mm:ss'"
+            },
+            "value": {
+                "type": "Array",
+                "required": "() => true"
+            }
+        },
+        "date-picker/picker.vue": {
+            "customCls": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "format": {
+                "type": "String"
+            },
+            "readonly": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "disabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "editable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "open": {
+                "type": "Boolean",
+                "default": "() => null"
+            },
+            "multiple": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "timePickerOptions": {
+                "type": "Object",
+                "default": "() => ({})"
+            },
+            "splitPanels": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "startDate": {
+                "type": "Date"
+            },
+            "placeholder": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "placement": {
+                "type": "String",
+                "default": "() => 'bottom-start'",
+                "validator": "(value) => {\n                const validList = [\n                    'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end',\n                    'left', 'left-start', 'left-end', 'right', 'right-start', 'right-end'\n                ]\n                if (validList.indexOf(value) < 0) {\n                    console.error(`placement property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "transfer": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "steps": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "shortcuts": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "value": {
+                "type": [
+                    "Date",
+                    "String",
+                    "Array"
+                ]
+            },
+            "options": {
+                "type": "Object",
+                "default": "() => ({})"
+            }
+        },
+        "date-picker/time-mixins.js": {
+            "disabledHours": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "disabledMinutes": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "disabledSeconds": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "hideDisabledOptions": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "width": {
+                "type": "Number",
+                "default": "() => 261"
+            },
+            "enterMode": {
+                "type": "Boolean",
+                "default": "() => true"
+            }
+        },
+        "date-picker/time-picker.js": {
+            "type": {
+                "type": "String",
+                "default": "() => 'time'",
+                "validator": "(value) => {\r\n                if (['time', 'timerange'].indexOf(value) < 0) {\r\n                    console.error(`type property is not valid: '${value}'`)\r\n                    return false\r\n                }\r\n                return true\r\n            }"
+            }
+        }
+    },
+    "dialog": {
+        "dialog/dialog.vue": {
+            "value": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "title": {
+                "type": "String"
+            },
+            "okText": {
+                "type": "String"
+            },
+            "cancelText": {
+                "type": "String"
+            },
+            "theme": {
+                "type": "String",
+                "default": "() => 'primary'",
+                "validator": "(value) => {\n                if (['primary', 'warning', 'success', 'danger'].indexOf(value) < 0) {\n                    console.error(`theme property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "position": {
+                "type": "Object"
+            },
+            "extCls": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "width": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "() => 400"
+            },
+            "showMask": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "maskClose": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "closeIcon": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "escClose": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "fullscreen": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "headerPosition": {
+                "type": "String",
+                "default": "() => 'center'",
+                "validator": "(value) => {\n                if (['left', 'center', 'right'].indexOf(value) < 0) {\n                    console.error(`headerPosition property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "showFooter": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "footerPosition": {
+                "type": "String",
+                "default": "() => 'right'",
+                "validator": "(value) => {\n                if (['left', 'center', 'right'].indexOf(value) < 0) {\n                    console.error(`footerPosition property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "draggable": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "scrollable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "loading": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "zIndex": {
+                "type": "Number",
+                "default": "() => 1000"
+            },
+            "onClose": {
+                "type": "Function",
+                "default": "() => {}"
+            },
+            "type": {
+                "type": "String",
+                "default": "() => ''",
+                "validator": "(value) => {\n                if (['', 'success', 'warning', 'danger', 'loading'].indexOf(value) < 0) {\n                    console.error(`type property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "subTitle": {
+                "type": "String"
+            },
+            "transfer": {
+                "type": "Boolean",
+                "default": "() => true"
+            }
+        },
+        "dialog/index.js": {}
+    },
+    "diff": {
+        "diff/diff.vue": {
+            "oldContent": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "newContent": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "context": {
+                "type": "Number",
+                "default": "() => 5"
+            },
+            "format": {
+                "type": "String",
+                "default": "() => 'line-by-line'"
+            }
+        },
+        "diff/index.js": {}
+    },
+    "dropdown-menu": {
+        "dropdown-menu/dropdown-menu.vue": {
+            "trigger": {
+                "type": "String",
+                "default": "() => 'mouseover'",
+                "validator": "(event) => {\n                return ['click', 'mouseover'].includes(event)\n            }"
+            },
+            "align": {
+                "type": "String",
+                "default": "() => 'left'"
+            },
+            "disabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        },
+        "dropdown-menu/index.js": {}
+    },
+    "exception": {
+        "exception/exception.vue": {
+            "type": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => 404",
+                "validator": "(value) => {\n                return [404, 403, 500, '404', '403', '500', 'building'].indexOf(value) > -1\n            }"
+            }
+        },
+        "exception/index.js": {}
+    },
+    "form": {
+        "form/form-item.vue": {
+            "label": {
+                "type": "String"
+            },
+            "labelWidth": {
+                "type": "Number"
+            },
+            "required": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "rules": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "iconOffset": {
+                "type": "Number",
+                "default": "() => 8"
+            },
+            "property": {
+                "type": "String",
+                "default": "() => ''"
+            }
+        },
+        "form/form.vue": {
+            "formType": {
+                "type": "String",
+                "default": "() => 'horizontal'",
+                "validator": "(val) => {\n                return ['vertical', 'inline', 'horizontal'].indexOf(val) > -1\n            }"
+            },
+            "rules": {
+                "type": "Object"
+            },
+            "labelWidth": {
+                "type": "Number",
+                "default": "() => 150"
+            },
+            "model": {
+                "type": "Object"
+            }
+        },
+        "form/index.js": {}
+    },
+    "form-item": {
+        "form-item/index.js": {}
+    },
+    "info-box": {
+        "info-box/index.js": {},
+        "info-box/info-box.js": {}
+    },
+    "input": {
+        "input/index.js": {},
+        "input/input.vue": {
+            "type": {
+                "type": "String",
+                "default": "() => 'text'",
+                "validator": "(value) => {\n                return ['text', 'textarea', 'password', 'number', 'email', 'url', 'date'].indexOf(value) > -1\n            }"
+            },
+            "value": {
+                "type": [
+                    "String",
+                    "Number"
+                ]
+            },
+            "placeholder": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "disabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "clearable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "readonly": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "name": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "maxlength": {
+                "type": "Number"
+            },
+            "minlength": {
+                "type": "Number"
+            },
+            "leftIcon": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "rightIcon": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "rows": {
+                "type": "Number"
+            },
+            "inputStyle": {
+                "type": "Object"
+            }
+        }
+    },
+    "loading": {
+        "loading/directive.js": {},
+        "loading/index.js": {},
+        "loading/loading.js": {},
+        "loading/loading.vue": {}
+    },
+    "message": {
+        "message/index.js": {},
+        "message/message.js": {},
+        "message/message.vue": {}
+    },
+    "navigation": {
+        "navigation/index.js": {},
+        "navigation/navigation-menu-item.vue": {
+            "id": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "required": "() => true"
+            },
+            "disabled": {
+                "type": "Boolean"
+            },
+            "icon": {
+                "type": [
+                    "String",
+                    "Object",
+                    "Array"
+                ],
+                "validator": "(v) => {\n                return v.length\n            }"
+            },
+            "hasChild": {
+                "type": "Boolean"
+            },
+            "group": {
+                "type": "Boolean"
+            }
+        },
+        "navigation/navigation-menu.vue": {
+            "defaultActive": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => ''"
+            },
+            "uniqueOpened": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "toggleActive": {
+                "type": "Boolean"
+            },
+            "itemHoverBgColor": {
+                "type": "String",
+                "default": "() => '#131a28'"
+            },
+            "itemHoverColor": {
+                "type": "String",
+                "default": "() => '#ffffff'"
+            },
+            "itemActiveBgColor": {
+                "type": "String",
+                "default": "() => '#006DFF'"
+            },
+            "itemActiveColor": {
+                "type": "String",
+                "default": "() => '#ffffff'"
+            },
+            "itemDefaultBgColor": {
+                "type": "String",
+                "default": "() => '#182132'"
+            },
+            "itemDefaultColor": {
+                "type": "String",
+                "default": "() => '#c4c6cc'"
+            },
+            "subMenuOpenBgColor": {
+                "type": "String",
+                "default": "() => '#131a28'"
+            }
+        },
+        "navigation/navigation.vue": {
+            "navWidth": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "() => 60"
+            },
+            "hoverWidth": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "() => 260"
+            },
+            "sideTitle": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "headerTitile": {
+                "type": "String",
+                "default": "() => {\n                return t('navigation.headerTitile')\n            }"
+            },
+            "hoverLeaveDelay": {
+                "type": [
+                    "Number",
+                    "String"
+                ],
+                "default": "() => 0"
+            },
+            "defaultOpen": {
+                "type": "Boolean"
+            },
+            "themeColor": {
+                "type": "String",
+                "default": "() => '#182132'"
+            }
+        }
+    },
+    "navigation-menu": {
+        "navigation-menu/index.js": {}
+    },
+    "navigation-menu-item": {
+        "navigation-menu-item/index.js": {}
+    },
+    "notify": {
+        "notify/index.js": {},
+        "notify/notify.js": {},
+        "notify/notify.vue": {}
+    },
+    "option": {
+        "option/index.js": {}
+    },
+    "option-group": {
+        "option-group/index.js": {}
+    },
+    "pagination": {
+        "pagination/index.js": {},
+        "pagination/pagination.vue": {
+            "type": {
+                "type": "String",
+                "default": "() => 'default'",
+                "validator": "(value) => {\n                return [\n                    'default',\n                    'compact'\n                ].indexOf(value) > -1\n            }"
+            },
+            "size": {
+                "type": "String",
+                "default": "() => 'default'",
+                "validator": "(value) => {\n                return ['default', 'small'].indexOf(value) > -1\n            }"
+            },
+            "current": {
+                "type": "Number",
+                "default": "() => 1",
+                "required": "() => true",
+                "validator": "(val) => {\n                const positiveInteger = /^[1-9]+[0-9]*]*$/\n                return positiveInteger.test(val)\n            }"
+            },
+            "limit": {
+                "type": "Number",
+                "required": "() => true"
+            },
+            "count": {
+                "type": "Number",
+                "default": "() => 0",
+                "required": "() => true"
+            },
+            "align": {
+                "type": "String",
+                "default": "() => 'left'",
+                "validator": "(val) => {\n                return ['left', 'center', 'right'].includes(val)\n            }"
+            },
+            "limitList": {
+                "type": "Array",
+                "default": "() => [10, 20, 50, 100]"
+            },
+            "showLimit": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "location": {
+                "type": "String",
+                "default": "() => 'right'",
+                "validator": "(val) => {\n                return ['left', 'right'].includes(val)\n            }"
+            }
+        }
+    },
+    "popover": {
+        "popover/index.js": {},
+        "popover/popover.vue": {
+            "placement": {
+                "type": "String",
+                "default": "() => 'top'"
+            },
+            "content": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "theme": {
+                "type": "String",
+                "default": "() => 'dark'"
+            },
+            "interactive": {
+                "type": [
+                    "Boolean",
+                    "String"
+                ],
+                "default": "() => true"
+            },
+            "arrow": {
+                "type": [
+                    "Boolean",
+                    "String"
+                ],
+                "default": "() => true"
+            },
+            "arrowType": {
+                "type": "String",
+                "default": "() => 'sharp'"
+            },
+            "showOnInit": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "arrowTransform": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "trigger": {
+                "type": "String",
+                "default": "() => 'mouseenter focus'"
+            },
+            "animation": {
+                "type": "String",
+                "default": "() => 'shift-away'"
+            },
+            "distance": {
+                "type": "Number",
+                "default": "() => 10"
+            },
+            "width": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => 'auto'"
+            },
+            "offset": {
+                "type": "Number",
+                "default": "() => 0"
+            },
+            "always": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "followCursor": {
+                "type": [
+                    "Boolean",
+                    "String"
+                ],
+                "default": "() => false"
+            },
+            "sticky": {
+                "type": [
+                    "Boolean",
+                    "String"
+                ],
+                "default": "() => false"
+            },
+            "delay": {
+                "type": "Number",
+                "default": "() => 100"
+            },
+            "size": {
+                "type": "String",
+                "default": "() => 'small'"
+            },
+            "onShow": {
+                "type": "Function",
+                "default": "() => {}"
+            },
+            "onHide": {
+                "type": "Function",
+                "default": "() => {}"
+            },
+            "tippyOptions": {
+                "type": "Object",
+                "default": "() => {\n                return {}\n            }"
+            }
+        }
+    },
+    "process": {
+        "process/index.js": {},
+        "process/process.vue": {
+            "list": {
+                "type": "Array",
+                "required": "() => true"
+            },
+            "controllable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "showSteps": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "curProcess": {
+                "type": "Number",
+                "default": "() => 0"
+            },
+            "displayKey": {
+                "type": "String",
+                "required": "() => true"
+            }
+        }
+    },
+    "progress": {
+        "progress/index.js": {},
+        "progress/progress.vue": {
+            "theme": {
+                "type": "String",
+                "default": "() => 'primary'",
+                "validator": "(value) => {\n                if (['primary', 'warning', 'success', 'danger'].indexOf(value) < 0) {\n                    console.error(`theme property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "percent": {
+                "type": "Number",
+                "default": "() => 0",
+                "validator": "val => val >= 0 && val <= 1"
+            },
+            "size": {
+                "type": "String",
+                "default": "() => 'normal'",
+                "validator": "(value) => {\n                if (['small', 'normal', 'large'].indexOf(value) < 0) {\n                    console.error(`size property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            },
+            "strokeWidth": {
+                "type": "Number"
+            },
+            "textInside": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "color": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "showText": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "titleStyle": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    fontSize: '16px',\n                    verticalAlign: `middle`\n                }\n            }"
+            }
+        }
+    },
+    "radio": {
+        "radio/index.js": {},
+        "radio/radio-group.vue": {
+            "value": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "() => ''"
+            },
+            "name": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => {\n                let seed = 0\n                const now = Date.now()\n                return `bk_radio_${now}_${seed++}`\n            }"
+            }
+        },
+        "radio/radio.vue": {
+            "name": {
+                "type": [
+                    "String"
+                ]
+            },
+            "value": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "undefined"
+            },
+            "trueValue": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "() => true"
+            },
+            "falseValue": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Boolean"
+                ],
+                "default": "() => false"
+            },
+            "label": {
+                "type": [
+                    "String",
+                    "Number"
+                ]
+            },
+            "checked": {
+                "type": "Boolean",
+                "default": "undefined"
+            },
+            "disabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        }
+    },
+    "radio-group": {
+        "radio-group/index.js": {}
+    },
+    "round-progress": {
+        "round-progress/index.js": {},
+        "round-progress/round-progress.vue": {
+            "config": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    strokeWidth: 5,\n                    bgColor: 'gray',\n                    activeColor: 'green',\n                    index: 0\n                }\n            }"
+            },
+            "percent": {
+                "type": "Number",
+                "default": "() => 0"
+            },
+            "title": {
+                "type": "String"
+            },
+            "titleStyle": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    fontSize: '16px'\n                }\n            }"
+            },
+            "numShow": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "numStyle": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    fontSize: '16px'\n                }\n            }"
+            },
+            "radius": {
+                "type": "String",
+                "default": "() => '100px'"
+            }
+        }
+    },
+    "row": {
+        "row/index.js": {},
+        "row/row.vue": {}
+    },
+    "search-select": {
+        "search-select/index.js": {},
+        "search-select/search-select-menu.vue": {
+            "list": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "isCondition": {
+                "type": "Boolean"
+            },
+            "condition": {
+                "type": "Object"
+            },
+            "displayKey": {
+                "type": "String",
+                "require": "() => true"
+            },
+            "filter": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "error": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "multiable": {
+                "type": "Boolean"
+            },
+            "child": {
+                "type": "Boolean"
+            },
+            "loading": {
+                "type": "Boolean"
+            },
+            "remoteEmptyText": {
+                "type": "String"
+            },
+            "remoteLoadingText": {
+                "type": "String"
+            },
+            "checked": {
+                "type": "Object",
+                "default": "() => {\n                return {}\n            }"
+            },
+            "primaryKey": {
+                "type": "String",
+                "require": "() => true"
+            },
+            "isChildCondition": {
+                "type": "Boolean"
+            }
+        },
+        "search-select/search-select.vue": {
+            "data": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "splitCode": {
+                "type": "String",
+                "default": "() => ' | '"
+            },
+            "explainCode": {
+                "type": "String",
+                "default": "() => '：'"
+            },
+            "placeholder": {
+                "type": "String",
+                "default": "() => {\n                return t('searchSelect.placeholder')\n            }"
+            },
+            "emptyText": {
+                "type": "String",
+                "default": "() => {\n                return t('searchSelect.emptyText')\n            }"
+            },
+            "maxHeight": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => 320"
+            },
+            "minHeight": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => 28"
+            },
+            "shrink": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "showDelay": {
+                "type": "Number",
+                "default": "() => 100"
+            },
+            "displayKey": {
+                "type": "String",
+                "default": "() => 'name'"
+            },
+            "primaryKey": {
+                "type": "String",
+                "default": "() => 'id'"
+            },
+            "condition": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    name: t('searchSelect.condition')\n                }\n            }"
+            },
+            "values": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "filter": {
+                "type": "Boolean"
+            },
+            "filterChildrenMethod": {
+                "type": "Function"
+            },
+            "filterMenuMethod": {
+                "type": "Function"
+            },
+            "remoteMethod": {
+                "type": "Function"
+            },
+            "remoteEmptyText": {
+                "type": "String",
+                "default": "() => {\n                return t('searchSelect.remoteEmptyText')\n            }"
+            },
+            "remoteLoadingText": {
+                "type": "String",
+                "default": "() => {\n                return t('searchSelect.remoteLoadingText')\n            }"
+            },
+            "multiable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "keyDelay": {
+                "type": "Number",
+                "default": "() => 300"
+            },
+            "showCondition": {
+                "type": "Boolean",
+                "default": "() => true"
+            }
+        }
+    },
+    "select": {
+        "select/index.js": {},
+        "select/option-all.vue": {},
+        "select/option-group.vue": {
+            "name": {
+                "type": "String",
+                "required": "() => true"
+            }
+        },
+        "select/option.vue": {
+            "id": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "required": "() => true"
+            },
+            "name": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "required": "() => true"
+            },
+            "disabled": {
+                "type": "Boolean"
+            }
+        },
+        "select/select.vue": {
+            "value": {
+                "type": [
+                    "String",
+                    "Number",
+                    "Array"
+                ],
+                "default": "() => ''"
+            },
+            "multiple": {
+                "type": "Boolean"
+            },
+            "showSelectAll": {
+                "type": "Boolean"
+            },
+            "scrollHeight": {
+                "type": "Number",
+                "default": "() => 216"
+            },
+            "popoverMinWidth": {
+                "type": "Number"
+            },
+            "placeholder": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "clearable": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "disabled": {
+                "type": "Boolean"
+            },
+            "readonly": {
+                "type": "Boolean"
+            },
+            "loading": {
+                "type": "Boolean"
+            },
+            "searchable": {
+                "type": "Boolean"
+            },
+            "searchIgnoreCase": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "remoteMethod": {
+                "type": "Function"
+            }
+        }
+    },
+    "sideslider": {
+        "sideslider/index.js": {},
+        "sideslider/sideslider.vue": {
+            "isShow": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "title": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "quickClose": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "width": {
+                "type": "Number",
+                "default": "() => 400"
+            },
+            "beforeClose": {
+                "type": "Function",
+                "default": "(res) => {\n                return true\n            }"
+            },
+            "direction": {
+                "type": "String",
+                "default": "() => 'right'",
+                "validator": "(value) => {\n                return [\n                    'left',\n                    'right'\n                ].indexOf(value) > -1\n            }"
+            }
+        }
+    },
+    "slider": {
+        "slider/index.js": {},
+        "slider/slider.vue": {
+            "disable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "range": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "value": {
+                "type": [
+                    "Number",
+                    "Array"
+                ],
+                "default": "() => 0"
+            },
+            "maxValue": {
+                "type": [
+                    "Number"
+                ],
+                "default": "() => 100"
+            },
+            "minValue": {
+                "type": [
+                    "Number"
+                ],
+                "default": "() => 0"
+            }
+        }
+    },
+    "steps": {
+        "steps/index.js": {},
+        "steps/steps.vue": {
+            "steps": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "curStep": {
+                "type": "Number",
+                "default": "() => 1"
+            },
+            "controllable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "theme": {
+                "type": "String",
+                "default": "() => 'primary'"
+            }
+        }
+    },
+    "switcher": {
+        "switcher/index.js": {},
+        "switcher/switcher.vue": {
+            "value": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "disabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "showText": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "selected": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "onText": {
+                "type": "String",
+                "default": "() => 'ON'"
+            },
+            "offText": {
+                "type": "String",
+                "default": "() => 'OFF'"
+            },
+            "isOutline": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "isSquare": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "size": {
+                "type": "String",
+                "default": "() => 'normal'",
+                "validator": "(value) => {\n                if (['normal', 'small'].indexOf(value) < 0) {\n                    console.error(`size property is not valid: '${value}'`)\n                    return false\n                }\n                return true\n            }"
+            }
+        }
+    },
+    "tab": {
+        "tab/bk-tab-label.js": {
+            "panel": {},
+            "index": {},
+            "closable": {}
+        },
+        "tab/index.js": {},
+        "tab/tab-panel.vue": {
+            "name": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "required": "() => true"
+            },
+            "label": {
+                "type": "String",
+                "required": "() => false"
+            },
+            "closable": {
+                "type": "Boolean",
+                "default": "undefined"
+            },
+            "renderDirective": {
+                "type": "String",
+                "default": "() => 'show'",
+                "validator": "(val) => {\n                return ['if', 'show'].includes(val)\n            }"
+            }
+        },
+        "tab/tab.vue": {
+            "active": {
+                "type": [
+                    "String",
+                    "Number"
+                ],
+                "default": "() => ''"
+            },
+            "type": {
+                "type": "String",
+                "default": "() => 'border-card'",
+                "validator": "(val) => {\n                return ['card', 'border-card', 'unborder-card'].includes(val)\n            }"
+            },
+            "scrollStep": {
+                "type": "Number",
+                "default": "() => 200"
+            },
+            "closable": {
+                "type": "Boolean"
+            },
+            "addable": {
+                "type": "Boolean"
+            },
+            "beforeToggle": {
+                "type": "Function"
+            }
+        }
+    },
+    "tab-panel": {
+        "tab-panel/index.js": {}
+    },
+    "table": {
+        "table/filter-panel.vue": {},
+        "table/index.js": {},
+        "table/layout-observer.js": {},
+        "table/table-body.js": {
+            "store": {
+                "required": "() => true"
+            },
+            "stripe": {
+                "type": "Boolean"
+            },
+            "context": {},
+            "rowClassName": {
+                "type": [
+                    "String",
+                    "Function"
+                ]
+            },
+            "rowStyle": {
+                "type": [
+                    "Object",
+                    "Function"
+                ]
+            },
+            "fixed": {
+                "type": "String"
+            },
+            "highlight": {
+                "type": "Boolean"
+            }
+        },
+        "table/table-column.js": {
+            "type": {
+                "type": "String",
+                "default": "() => 'default'"
+            },
+            "label": {
+                "type": "String"
+            },
+            "className": {
+                "type": "String"
+            },
+            "labelClassName": {
+                "type": "String"
+            },
+            "property": {
+                "type": "String"
+            },
+            "prop": {
+                "type": "String"
+            },
+            "width": {},
+            "minWidth": {},
+            "renderHeader": {
+                "type": "Function"
+            },
+            "sortable": {
+                "type": [
+                    "String",
+                    "Boolean"
+                ],
+                "default": "() => false"
+            },
+            "sortMethod": {
+                "type": "Function"
+            },
+            "sortBy": {
+                "type": [
+                    "String",
+                    "Function",
+                    "Array"
+                ]
+            },
+            "resizable": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "context": {},
+            "columnKey": {
+                "type": "String"
+            },
+            "align": {
+                "type": "String"
+            },
+            "headerAlign": {
+                "type": "String"
+            },
+            "showTooltipWhenOverflow": {
+                "type": "Boolean"
+            },
+            "showOverflowTooltip": {
+                "type": "Boolean"
+            },
+            "fixed": {
+                "type": [
+                    "Boolean",
+                    "String"
+                ]
+            },
+            "formatter": {
+                "type": "Function"
+            },
+            "selectable": {
+                "type": "Function"
+            },
+            "reserveSelection": {
+                "type": "Boolean"
+            },
+            "filterMethod": {
+                "type": "Function"
+            },
+            "filteredValue": {
+                "type": "Array"
+            },
+            "filters": {
+                "type": "Array"
+            },
+            "filterPlacement": {
+                "type": "String"
+            },
+            "filterMultiple": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "index": {
+                "type": [
+                    "Number",
+                    "Function"
+                ]
+            },
+            "sortOrders": {
+                "type": "Array",
+                "default": "() => {\n                return ['ascending', 'descending', null]\n            }",
+                "validator": "(val) => {\n                return val.every(order => ['ascending', 'descending', null].indexOf(order) > -1)\n            }"
+            }
+        },
+        "table/table-footer.js": {
+            "fixed": {
+                "type": "String"
+            },
+            "store": {
+                "required": "() => true"
+            },
+            "summaryMethod": {
+                "type": "Function"
+            },
+            "sumText": {
+                "type": "String"
+            },
+            "border": {
+                "type": "Boolean"
+            },
+            "defaultSort": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    prop: '',\n                    order: ''\n                }\n            }"
+            }
+        },
+        "table/table-header.js": {
+            "fixed": {
+                "type": "String"
+            },
+            "store": {
+                "required": "() => true"
+            },
+            "border": {
+                "type": "Boolean"
+            },
+            "defaultSort": {
+                "type": "Object",
+                "default": "() => {\n                return {\n                    prop: '',\n                    order: ''\n                }\n            }"
+            }
+        },
+        "table/table-layout.js": {},
+        "table/table-store.js": {},
+        "table/table.vue": {
+            "data": {
+                "type": "Array",
+                "default": "function () {\n                return []\n            }"
+            },
+            "size": {
+                "type": "String",
+                "default": "() => 'small'",
+                "validator": "(val) => {\n                return ['small', 'medium', 'large'].includes(val)\n            }"
+            },
+            "height": {
+                "type": [
+                    "String",
+                    "Number"
+                ]
+            },
+            "maxHeight": {
+                "type": [
+                    "String",
+                    "Number"
+                ]
+            },
+            "fit": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "stripe": {
+                "type": "Boolean"
+            },
+            "border": {
+                "type": "Boolean"
+            },
+            "outerBorder": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "rowBorder": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "colBorder": {
+                "type": "Boolean"
+            },
+            "rowKey": {
+                "type": [
+                    "String",
+                    "Function"
+                ]
+            },
+            "context": {
+                "type": "Object",
+                "default": "() => ({})"
+            },
+            "showHeader": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "showSummary": {
+                "type": "Boolean"
+            },
+            "sumText": {
+                "type": "String"
+            },
+            "summaryMethod": {
+                "type": "Function"
+            },
+            "rowClassName": {
+                "type": [
+                    "String",
+                    "Function"
+                ]
+            },
+            "rowStyle": {
+                "type": [
+                    "Object",
+                    "Function"
+                ]
+            },
+            "cellClassName": {
+                "type": [
+                    "String",
+                    "Function"
+                ]
+            },
+            "cellStyle": {
+                "type": [
+                    "Object",
+                    "Function"
+                ]
+            },
+            "headerBorder": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "headerRowClassName": {
+                "type": [
+                    "String",
+                    "Function"
+                ]
+            },
+            "headerRowStyle": {
+                "type": [
+                    "Object",
+                    "Function"
+                ]
+            },
+            "headerCellClassName": {
+                "type": [
+                    "String",
+                    "Function"
+                ]
+            },
+            "headerCellStyle": {
+                "type": [
+                    "Object",
+                    "Function"
+                ]
+            },
+            "highlightCurrentRow": {
+                "type": "Boolean"
+            },
+            "currentRowKey": {
+                "type": [
+                    "String",
+                    "Number"
+                ]
+            },
+            "emptyText": {
+                "type": "String"
+            },
+            "emptyBlockClassName": {
+                "type": "String"
+            },
+            "expandRowKeys": {
+                "type": "Array"
+            },
+            "defaultExpandAll": {
+                "type": "Boolean"
+            },
+            "defaultSort": {
+                "type": "Object"
+            },
+            "tooltipEffect": {
+                "type": "String"
+            },
+            "spanMethod": {
+                "type": "Function"
+            },
+            "selectOnIndeterminate": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "pagination": {
+                "type": "Object"
+            },
+            "showPaginationInfo": {
+                "type": "Boolean",
+                "default": "() => true"
+            }
+        },
+        "table/util.js": {}
+    },
+    "table-column": {
+        "table-column/index.js": {}
+    },
+    "tag-input": {
+        "tag-input/index.js": {},
+        "tag-input/render.js": {
+            "node": {
+                "type": "Object"
+            },
+            "displayKey": {
+                "type": "String"
+            },
+            "tpl": {
+                "type": "Function"
+            }
+        },
+        "tag-input/tag-input.vue": {
+            "placeholder": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "value": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "disabled": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "hasDeleteIcon": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "separator": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "maxData": {
+                "type": "Number",
+                "default": "() => -1"
+            },
+            "maxResult": {
+                "type": "Number",
+                "default": "() => 5"
+            },
+            "isBlurTrigger": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "saveKey": {
+                "type": "String",
+                "default": "() => 'id'"
+            },
+            "displayKey": {
+                "type": "String",
+                "default": "() => 'name'"
+            },
+            "searchKey": {
+                "type": "String",
+                "default": "() => 'name'"
+            },
+            "list": {
+                "type": "Array",
+                "default": []
+            },
+            "contentMaxHeight": {
+                "type": "Number",
+                "default": "() => 300"
+            },
+            "allowCreate": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "tpl": {
+                "type": "Function"
+            },
+            "pasteFn": {
+                "type": "Function"
+            }
+        }
+    },
+    "time-picker": {
+        "time-picker/index.js": {}
+    },
+    "timeline": {
+        "timeline/index.js": {},
+        "timeline/timeline.vue": {
+            "list": {
+                "type": "Array",
+                "required": "() => true"
+            },
+            "titleAble": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        }
+    },
+    "transfer": {
+        "transfer/index.js": {},
+        "transfer/transfer.vue": {
+            "title": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "emptyContent": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "displayKey": {
+                "type": "String",
+                "default": "() => 'value'"
+            },
+            "settingKey": {
+                "type": "String",
+                "default": "() => 'id'"
+            },
+            "sortKey": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "sourceList": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "targetList": {
+                "type": "Array",
+                "default": "() => {\n                return []\n            }"
+            },
+            "hasHeader": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "sortable": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        }
+    },
+    "tree": {
+        "tree/collapse-transition.js": {},
+        "tree/index.js": {},
+        "tree/render.js": {
+            "node": {
+                "type": "Object"
+            },
+            "tpl": {
+                "type": "Function"
+            }
+        },
+        "tree/tree.vue": {
+            "data": {
+                "type": "Array",
+                "default": "() => []"
+            },
+            "parent": {
+                "type": "Object",
+                "default": "() => null"
+            },
+            "multiple": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "nodeKey": {
+                "type": "String",
+                "default": "() => 'id'"
+            },
+            "draggable": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "hasBorder": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "dragAfterExpanded": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "isDeleteRoot": {
+                "type": "Boolean",
+                "default": "() => false"
+            },
+            "emptyText": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "tpl": {
+                "type": "Function"
+            }
+        }
+    },
+    "upload": {
+        "upload/index.js": {},
+        "upload/upload.vue": {
+            "name": {
+                "type": "String",
+                "default": "() => 'upload_file'"
+            },
+            "multiple": {
+                "type": "Boolean",
+                "default": "() => true"
+            },
+            "accept": {
+                "type": "String",
+                "default": "() => '*'"
+            },
+            "delayTime": {
+                "type": "Number",
+                "default": "() => 0"
+            },
+            "url": {
+                "required": "() => true",
+                "type": "String"
+            },
+            "size": {
+                "type": [
+                    "Number",
+                    "Object"
+                ],
+                "default": "function () {\n                return {\n                    maxFileSize: 5,\n                    maxImgSize: 1\n                }\n            }"
+            },
+            "handleResCode": {
+                "type": "Function",
+                "default": "function (res) {\n                if (res.code === 0) {\n                    return true\n                } else {\n                    return false\n                }\n            }"
+            },
+            "header": {
+                "type": [
+                    "Array",
+                    "Object"
+                ]
+            },
+            "tip": {
+                "type": "String",
+                "default": "() => ''"
+            },
+            "validateName": {
+                "type": "RegExp"
+            },
+            "withCredentials": {
+                "type": "Boolean",
+                "default": "() => false"
+            }
+        }
+    }
+}

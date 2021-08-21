@@ -1,0 +1,65 @@
+.bk-scroll-home {
+    position: relative;
+    height: 100%;
+    .bk-scroll-main {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .bk-scroll-index {
+        text-align: right;
+        user-select: none;
+        .bk-scroll-item {
+            width: 100%;
+            color: rgba(166, 166, 166, 1)
+        }
+    }
+    .bk-scroll {
+        position: absolute;
+        will-change: transform;
+        cursor: default;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        .bk-scroll-item {
+            position: absolute;
+            width: 100%;
+        }
+    }
+
+    .bk-min-nav {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: default;
+        user-select: none;
+        width: 8px;
+        &:hover + span {
+            background: rgba(121, 121, 121, 0.4);
+        }
+    }
+    .bk-min-nav-slide {
+        position: absolute;
+        transition: opacity .1s linear;
+        will-change: transform;
+        cursor: default;
+        user-select: none;
+        right: 0;
+        width: 8px;
+        &.bk-nav-show {
+            background: rgba(121, 121, 121, 0.4);
+        }
+        &:hover {
+            background: rgba(121, 121, 121, 0.5);
+        }
+        &:active {
+            background: rgba(121, 121, 121, 0.55);
+        }
+    }
+    .bk-bottom-scroll {
+        bottom: 0;
+        height: 8px;
+        background: rgba(121, 121, 121, 0.4);
+    }
+}

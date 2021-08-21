@@ -1,0 +1,32 @@
+.bk-exception {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    &-img {
+        width: 480px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.part-img {
+            width: 120px;
+            height: 100px;
+        }
+        .exception-image {
+            object-fit: contain;
+            display: block;
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+    &-text{
+        font-size: 24px;
+        color: #63656E;
+        text-align: center;
+        &.part-text {
+            font-size: 14px;
+        }
+    }
+}

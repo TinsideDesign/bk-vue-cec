@@ -1,0 +1,278 @@
+@import "./variable.css";
+@import "./mixins/scroller.css";
+
+.bk-tag-selector {
+    position: relative;
+    min-height: 32px;
+
+    .bk-tag-input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0 0 5px;
+        border: 1px solid #c4c6cc;
+        min-height: 32px;
+        border-radius: 2px;
+        font-size: 12px;
+        position: relative;
+        z-index: 1;
+        background: #fff;
+        cursor: pointer;
+        overflow: hidden;
+        &.disabled {
+            background: $defaultHoverColor;
+            cursor: not-allowed;
+            .tag-list {
+                >li {
+                    cursor: not-allowed;
+                }
+                .key-node {
+                    padding-right: 2px;
+                }
+            }
+        }
+        &.active {
+            border-color: $newMainColor;
+        }
+        .placeholder {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            position: absolute;
+            line-height: 30px;
+            top: 0;
+            left: 8px;
+            color: $newGreyColor;
+        }
+        .clear-icon {
+            margin-right: 5px;
+            cursor: pointer;
+            color: $newGreyColor;
+            font-size: $iconSmallestSize;
+            &:hover {
+                color: $newBlackColor3;
+            }
+        }
+        .input {
+            width: 10px;
+            height: 22px;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            outline: none;
+            max-width: 295px;
+            font-size: 12px;
+        }
+        .tag-list {
+            display: inline-block;
+            max-height: 135px;
+            overflow: auto;
+            float: left;
+            margin: 0;
+            padding: 0;
+            &.no-item {
+                padding: 0 0 0 5px;
+            }
+            >li {
+                display: inline-block;
+                cursor: pointer;
+                position: relative;
+                margin: 4px 5px 4px 0;
+                border-radius: 2px;
+                float: left;
+                height: 22px;
+                overflow: hidden;
+                font-size: 0;
+                line-height: 0;
+                &.key-node {
+                    border: solid 1px #F0F1F5;
+                }
+            }
+            .key-node {
+                background: #F0F1F5;
+                .remove-key {
+                    display: inline-block;
+                }
+            }
+            .remove-key {
+                position: relative;
+                width: 16px;
+                height: 16px;
+                line-height: 16px;
+                top: 2px;
+                right: 5px;
+                display: inline-block;
+                font-size: 18px;
+                text-align: center;
+                color: $fnMainColor;
+                display: none;
+                text-decoration: none;
+            }
+        }
+        .tag {
+            display: inline-block;
+            background-color: #F0F1F5;
+            color: $fnMainColor;
+            font-size: 12px;
+            border: none;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 2px;
+            padding: 0 5px;
+            height: 20px;
+            line-height: 20px;
+            word-break: break-all;
+            max-width: 190px;
+            overflow: hidden;
+            display: inline-block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            float: left;
+
+            .text {
+                height: 20px;
+                line-height: 20px;
+                display: block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+        .dropdown-actions {
+            width: 100%;
+            font-size: 0;
+            .bk-button {
+                width: 50%;
+                margin: 0;
+                border-radius: 0;
+                border-width: 0;
+                border-top-width: 1px;
+            }
+        }
+    }
+    .bk-tooltip.bk-select-dropdown {
+        display: block;
+        &>.bk-tooltip-ref {
+            display: block;
+        }
+    }
+    .bk-tag-popover-trigger {
+        height: 22px;
+        margin-top: -27px;
+        z-index: -1;
+    }
+    .highlight-text {
+        color: #006DFF;
+    }
+}
+
+.highlight-text {
+    color: #006DFF;
+}
+
+.bk-select-dropdown {
+    .bk-selector-list {
+        min-width: 100%;
+    }
+}
+
+.tippy-tooltip.bk-select-dropdown-theme[data-size=small] {
+    padding: 0;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .1);
+    .tippy-arrow {
+        display: none;
+    }
+}
+
+.bk-selector-list {
+    min-width: 150px;
+    .outside-ul {
+        @mixin scroller;
+        max-height: 160px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        overflow-y: auto;
+        padding: 6px 0;
+        border-radius: 2px;
+        background-color: #fff;
+        border: 1px solid #DCDEE5;
+    }
+    .bk-selector-group-item {
+        list-style: none;
+        .group-name {
+            font-size: 12px;
+            color: #979BA5;
+            line-height: 32px;
+            padding-left: 11px;
+        }
+    }
+
+    .bk-selector-group-list-item {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .bk-selector-list-item {
+        position: relative;
+        width: 100%;
+        border-left: $formBorderColor;
+        border-right: $formBorderColor;
+        background-color: #fff;
+        cursor: pointer;
+
+        &:first-child {
+            border-top: $formBorderColor;
+        }
+        &:last-child {
+            border-bottom: $formBorderColor;
+        }
+        &.bk-selector-selected {
+            background-color: #F4F6FA;
+
+            .selected-icon {
+                display: inline-block;
+            }
+        }
+        &.bk-selector-actived {
+            background-color: #F4F6FA;
+        }
+        &:hover {
+            background-color: #EAF3FF;
+        }
+        &.disabled {
+            background: $defaultColor;
+            cursor: not-allowed;
+            .text {
+                color: $newGreyColor;
+            }
+        }
+        .loading {
+            width: 100%;
+            height: 40px;
+            font-size: 14px;
+            position: relative;
+            cursor: default;
+        }
+        .text {
+            padding: 0 10px;
+            line-height: 32px;
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: $fnMainColor;
+        }
+        .bk-selector-tools {
+            position: absolute;
+            display: none;
+            top: 10px;
+            right: 0;
+            font-size: 12px;
+            .bk-selector-list-icon {
+                margin-right: 14px;
+            }
+        }
+    }
+}

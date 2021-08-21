@@ -1,0 +1,44 @@
+@import './variable.css';
+
+.bk-fixed-navbar-wrapper {
+    width: 52px;
+    opacity: 1;
+    background: #ffffff;
+    padding: 22px 14px;
+    border-radius: 26px;
+    z-index: 999;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+    position: fixed;
+    right: 10px;
+    &.middle {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &.bottom {
+        bottom: 10%;
+    }
+    &.top {
+        top: 10%;
+    }
+    .fixed-navbar-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: $newBlackColor3;
+        &:hover {
+            color: $newMainColor;
+            cursor: pointer;
+        }
+        &:not(:last-of-type) {
+            margin-bottom: 25px;
+        }
+        .bk-icon {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        .text {
+            font-size: 12px;
+        }
+    }
+}

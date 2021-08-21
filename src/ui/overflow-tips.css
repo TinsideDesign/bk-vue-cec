@@ -1,0 +1,5 @@
+@import './popover.css';
+.tippy-tooltip.bk-overflow-tips-theme {
+    font-size: 12px;
+    word-break: break-all;
+}

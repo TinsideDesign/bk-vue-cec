@@ -1,0 +1,183 @@
+@import './variable.css';
+.bk-navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    &-title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        padding: 0 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        height: 100%;
+        flex: 0 0 260px;
+        .title-icon {
+            flex: 0 0 28px;
+            font-size: 28px;
+            color: #768197;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title-desc {
+            font-size: 16px;
+            font-weight: bold;
+            color: #96A2B9;
+            display: inline-block;
+            margin-left: 16px;
+            line-height: 24px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+    &-header {
+        flex: 0 0 52px;
+        display: flex;
+        align-items: center;
+        padding-right: 24px;
+        overflow: hidden;
+        .header-right {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
+    &-wrapper {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        flex: 1;
+        .navigation-nav {
+            width: 60px;
+            display: flex;
+            flex: 0 1 auto;
+            flex-direction: column;
+            overflow: visible;
+            position: relative;
+            min-width: 0;
+            min-height: 0;
+            z-index: 101;
+            transition: width cubic-bezier(0.4, 0, 0.2, 1) .3s;
+            &:hover {
+                cursor: pointer;
+            }
+            .nav-slider {
+                width: 60px;
+                height: 100%;
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                transition: width cubic-bezier(0.4, 0, 0.2, 1) .3s;
+                &-list {
+                    flex: 1 1 auto;
+                    overflow: auto;
+                    padding: 12px 0 4px 0;
+                    margin: 0;
+                    max-height: calc(100vh - 100px);
+                    &::-webkit-scrollbar {
+                        width: 6px;
+                        height: 5px;
+                        display: none;
+                        &:hover {
+                            transition: opacity 340ms ease-out;
+                            transform: none;
+                        }
+                    }
+                }
+                &-footer {
+                    flex: 0 0 56px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding-left: 14px;
+                    .footer-icon {
+                        font-size: 14px;
+                        color: #63656E;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transform-origin: center center;
+                        &-svg {
+                            font-size: 16px;
+                            transition: transform cubic-bezier(0.4, 0, 0.2, 1) .3s;
+                            height: 16px;
+                            width: 16px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transform-origin: center center;
+                        }
+                        &.is-left {
+                            color: #96A2B9;
+                            &:hover {
+                                background: linear-gradient(270deg, rgba(37, 48, 71, 1) 0%, rgba(38, 50, 71, 1) 100%);
+                                color: #D3D9E4;
+                                cursor: pointer;
+                            }
+                        }
+                        &:hover {
+                            background: linear-gradient(270deg, rgba(222, 224, 234, 1) 0%, rgba(234, 236, 242, 1) 100%);
+                            color: #3A3C42;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        .navigation-container {
+            flex: 1 1 1px;
+            max-width: calc(100vw - 60px);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-width: 0;
+            min-height: 0;
+            .container-header {
+                background: #fff;
+                flex-basis: 60px;
+                height: 60px;
+                width: 100%;
+                z-index: 100;
+                box-shadow: 0px 3px 4px 0px rgba(64, 112, 203, 0.06);
+                border-bottom: 1px solid #dcdee5;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0 24px;
+                &-title {
+                    height: 21px;
+                    font-size: 16px;
+                    color: #313238;
+                    line-height: 21px;
+                }
+                &-sets {
+                    display: flex;
+                    flex: 1 1 auto;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+            }
+            .container-content {
+                background: #F5F7FA;
+                max-height: calc(100vh - 60px);
+                flex: 1;
+                overflow: auto;
+                padding: 20px 24px 0;
+            }
+            .container-footer {
+                flex: 0 0 auto;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

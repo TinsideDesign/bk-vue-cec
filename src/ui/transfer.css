@@ -1,0 +1,127 @@
+@import "./variable.css";
+
+.bk-transfer {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    font-size: 14px;
+    .transfer {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        background: url(./images/transfer.png) no-repeat center center;
+    }
+    .source-list,
+    .target-list {
+        flex: 1;
+        min-width: 200px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 2px;
+        border: 1px solid $borderInlineColor;
+        overflow: hidden;
+
+        .slot-header {
+            height: 43px;
+            line-height: 43px;
+            background-color: $newGreyColor3;
+            border-bottom: 1px solid $borderInlineColor;
+            padding: 0 20px;
+            position: relative;
+            .slot-content {
+                position: relative;
+            }
+        }
+        .header {
+            height: 43px;
+            line-height: 43px;
+            background-color: $newGreyColor3;
+            border-bottom: 1px solid $borderInlineColor;
+            padding: 0 20px;
+            position: relative;
+            span {
+                position: absolute;
+                right: 10px;
+                font-size: 12px;
+                color: $newMainColor;
+                cursor: pointer;
+                &.disabled {
+                    color: $newGreyColor;
+                    cursor: not-allowed;
+                }
+            }
+        }
+        .empty {
+            width: 100%;
+            position: relative;
+            top: 40%;
+            text-align: center;
+            color: $newGreyColor;
+            cursor: default;
+        }
+        .content {
+            max-height: 82%;
+            overflow-y: auto;
+            position: relative;
+            padding: 0;
+            margin: 6px 0;
+            li {
+                display: flex;
+                align-items: center;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 20px;
+                list-style: none;
+                cursor: pointer;
+                position: relative;
+                &:hover {
+                    background-color: #eef6fe;
+                    color: $newMainColor;
+                }
+                .content-text {
+                    flex: 1;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .icon-wrapper {
+                    flex: 22px 0 0;
+                    display: none;
+                    &.hover {
+                        display: inline-block;
+                    }
+                }
+            }
+            &::-webkit-scrollbar {
+                width: 4px;
+                background-color: color(transparent lightness(80%));
+            }
+            &::-webkit-scrollbar-thumb {
+                height: 5px;
+                border-radius: 2px;
+                background-color: #e6e9ea;
+            }
+            .bk-icon {
+                font-size: $iconNormalSize;
+            }
+        }
+    }
+    .target-list {
+        margin-left: 33px;
+    }
+
+    .transfer-search-input {
+        border-bottom: 1px solid #F0F1F5;
+
+        .bk-form-input {
+            height: 36px;
+            line-height: 34px;
+            border: none;
+        }
+    }
+}

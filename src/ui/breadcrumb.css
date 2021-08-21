@@ -1,0 +1,43 @@
+@import "./variable.css";
+.bk-breadcrumb {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: $newBlackColor3;
+  &::after {
+    clear: both
+  }
+
+  &-separator {
+    margin: 0 9px;
+    font-weight: bold;
+    &[class*=icon] {
+      margin: 0 6px;
+      font-weight: normal;
+    }
+  }
+  &-item {
+    &-inner {
+      &.is-link, & a {
+        text-decoration: none;
+        &:hover {
+          color: $primaryHoverColor;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &:last-child {
+      color: $fnMainColor;
+      .el-breadcrumb__inner,
+      .el-breadcrumb__inner a {
+        &, &:hover {
+          cursor: text;
+        }
+      }
+      .bk-breadcrumb-separator {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/**
+ * @file init-box mixin
+ *
+ * usage:
+ *      @mixin initBox .m, margin;
+ */
+
+@define-mixin init-box $selector, $opt {
+    @for $i from 0 to 50 by 5 {
+        $(selector)$(i) {
+            $(opt): $(i)px!important;
+        }
+    }
+}

@@ -1,0 +1,385 @@
+@import './variable.css';
+
+.bk-form {
+    &.bk-inline-form {
+        display: inline-block;
+
+        .bk-form-item {
+            display: inline-block;
+            margin-bottom: 0;
+            margin-left: 8px;
+            vertical-align: middle;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            +.bk-form-item {
+                margin-top: 0;
+            }
+
+            .bk-label {
+                width: auto !important;
+                float: left;
+            }
+
+            .bk-form-content {
+                margin-left: 0 !important;
+                float: left;
+            }
+        }
+
+        .bk-label {
+            width: auto;
+            line-height: 32px;
+            display: inline-block;
+            padding: 0 15px 0 0;
+        }
+
+        &.is-required {
+            >.bk-label {
+                &:after {
+                    right: 5px;
+                }
+            }
+        }
+
+        .bk-form-content {
+            display: inline-block;
+            margin-left: 0;
+        }
+
+    }
+
+    &.bk-form-vertical {
+        .bk-label {
+            width: auto;
+            text-align: left;
+        }
+
+        .bk-form-content {
+            clear: both;
+            margin-left: 0 !important;
+        }
+
+        .bk-form-item {
+            &+.bk-form-item {
+                margin-top: 8px;
+            }
+
+            &.bk-form-action {
+                margin-top: 20px;
+            }
+        }
+
+        .bk-form-tip {
+            padding: 0;
+            margin: 10px 0 0 0;
+            position: relative;
+            height: auto;
+            line-height: 1;
+            left: 0;
+
+            .bk-tip-text {
+                float: none;
+                vertical-align: middle;
+            }
+
+            .bk-badge {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .bk-label {
+        width: 150px;
+        min-height: 32px;
+        text-align: right;
+        vertical-align: middle;
+        line-height: 32px;
+        float: left;
+        font-size: 14px;
+        font-weight: normal;
+        color: #63656E;
+        box-sizing: border-box;
+        padding: 0 24px 0 0;
+
+        .bk-label-text {
+            display: inline-block;
+            line-height: 20px;
+
+            .bk-icon {
+                cursor: pointer;
+                color: #979BA5;
+                font-size: 16px;
+            }
+        }
+
+        &.has-desc > span {
+            border-bottom: 1px dashed #979BA5;
+            cursor: pointer;
+        }
+    }
+
+    .bk-form-content {
+        width: auto;
+        min-height: 32px;
+        margin-left: 150px;
+        position: relative;
+        outline: none;
+        line-height: 30px;
+
+        .form-error-tip {
+            font-size: 12px;
+            color: $newRedColor;
+            line-height: 18px;
+            margin: 2px 0 0 0;
+        }
+
+        .tooltips-icon {
+            position: absolute;
+            z-index: 10;
+            right: 8px;
+            top: 8px;
+            color: $newRedColor;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        >.bk-tip-text {
+            font-size: 14px;
+            color: $fnMainColor;
+            margin: 10px 0 0 0;
+        }
+
+        >.bk-form-tip {
+            padding: 0;
+            margin: 10px 0 0 0;
+            position: relative;
+            height: auto;
+            line-height: 1;
+            left: 0;
+
+            .bk-tip-text {
+                float: none;
+                vertical-align: middle;
+            }
+
+            .bk-badge {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    ::placeholder {
+        color: $fnMinorColor;
+    }
+
+    &::after,
+    .bk-form-item::before {
+        display: table;
+        content: "";
+        clear: both;
+        visibility: hidden;
+        font-size: 0;
+    }
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        background: #fff !important;
+    }
+}
+
+.bk-form-item {
+    position: relative;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    +.bk-form-item {
+        margin-top: 20px;
+    }
+
+    &.is-required {
+        .bk-label {
+            position: relative;
+
+            &:after {
+                height: 8px;
+                line-height: 1;
+                content: '*';
+                color: #EA3636;
+                font-size: 12px;
+                position: absolute;
+                display: inline-block;
+                vertical-align: middle;
+                top: 50%;
+                transform: translate(3px, -50%);
+            }
+        }
+    }
+
+    &.is-readonly {
+
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            background-color: #fafafa;
+        }
+    }
+
+    &.is-disabled {
+
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            background-color: #fafafa;
+        }
+    }
+
+    &.is-checking {
+        .bk-form-content {
+            position: relative;
+            ::after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 1000000;
+                cursor: not-allowed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+    }
+
+    &.is-danger,
+    &.is-error {
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        input[type="url"],
+        textarea,
+        select {
+            border-color: $dangerColor;
+            color: $dangerColor;
+
+            /*&::placeholder {
+                color: $dangerColor;
+            }*/
+        }
+
+        .bk-textarea-wrapper {
+            border-color: $dangerColor;
+        }
+
+        .bk-tag-selector .bk-tag-input {
+            border-color: $dangerColor;
+            /*.placeholder {
+                color: $dangerColor;
+            }*/
+        }
+
+        .bk-form-tip {
+            .bk-tip-text {
+                color: $dangerColor;
+            }
+        }
+
+        .bk-select {
+            border-color: $dangerColor;
+
+            /*&.is-default-trigger.is-unselected:before {
+                color: $dangerColor;
+            }*/
+        }
+    }
+
+    &.is-warning {
+
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            border-color: $warningColor;
+        }
+    }
+
+    &.is-success {
+
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            border-color: $successColor;
+        }
+    }
+
+    input.bk-success,
+    select.bk-success,
+    textarea.bk-success,
+    input.is-success,
+    select.is-success,
+    textarea.is-success {
+        +.bk-form-tip {
+            .bk-tip-text {
+                color: $successColor;
+            }
+        }
+    }
+
+    input.bk-error,
+    select.bk-error,
+    textarea.bk-error,
+    input.is-danger,
+    select.is-danger,
+    textarea.is-danger {
+        border-color: $dangerColor;
+        background-color: #fff4f4;
+        color: $dangerColor;
+
+        &::placeholder {
+            color: $dangerColor;
+        }
+
+        +.bk-form-tip {
+            .bk-tip-text {
+                color: $dangerColor;
+            }
+        }
+    }
+
+}
+
+.bk-form-tip {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px 0 35px;
+    position: relative;
+
+    .bk-badge {
+        vertical-align: middle;
+    }
+
+    .bk-tip-text {
+        float: left;
+        font-size: 14px;
+        color: $fnMainColor;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    position: absolute;
+    left: 100%;
+    top: 0;
+}

@@ -1,0 +1,93 @@
+$defaultColor: #63656e;
+$defaultHoverColor: #979ba5;
+$defaultDisabledColor: #dcdee5;
+
+$primaryColor: #006DFF;
+$primaryHoverColor: #006DFFD9;
+$primaryDisabledColor: #99C5FF;
+
+$successColor: #6FC77E;
+$successHoverColor: #8CD298;
+$successDisabledColor: #C5E9CB;
+
+$warningColor: #FECC55;
+$warningHoverColor: #FED677;
+$warningDisabledColor: #FFEBBB;
+
+$dangerColor: #F95F5B;
+$dangerHoverColor: #F95F5BD9;
+$dangerDisabledColor: #FDBFBD;
+
+.bk-link {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 20px;
+    .bk-link-icon {
+        font-size: 14px;
+        &.is-left {
+            margin-right: 4px;
+        }
+        &.is-right {
+            margin-left: 4px;
+        }
+    }
+    .bk-link-text {
+        font-size: 14px;
+    }
+    &.is-default {
+        color: $defaultColor;
+        &:hover {
+            color: $defaultHoverColor;
+        }
+        &.is-disabled {
+            color: $defaultDisabledColor;
+        }
+    }
+    &.is-primary {
+        color: $primaryColor;
+        &:hover {
+            color: $primaryHoverColor;
+        }
+        &.is-disabled {
+            color: $primaryDisabledColor;
+        }
+    }
+    &.is-success {
+        color: $successColor;
+        &:hover {
+            color: $successHoverColor;
+        }
+        &.is-disabled {
+            color: $successDisabledColor;
+        }
+    }
+    &.is-warning {
+        color: $warningColor;
+        &:hover {
+            color: $warningHoverColor;
+        }
+        &.is-disabled {
+            color: $warningDisabledColor;
+        }
+    }
+    &.is-danger {
+        color: $dangerColor;
+        &:hover {
+            color: $dangerHoverColor;
+        }
+        &.is-disabled {
+            color: $dangerDisabledColor;
+        }
+    }
+    &.is-disabled {
+        cursor: not-allowed;
+    }
+    &.has-underline {
+        text-decoration: underline;
+    }
+}

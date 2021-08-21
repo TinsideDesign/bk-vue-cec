@@ -1,0 +1,78 @@
+@import './variable.css';
+
+.bk-form-control {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 0;
+
+}
+.bk-form-radio-button {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    &:first-child {
+        .bk-radio-button-text {
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+    }
+    &:last-child {
+        .bk-radio-button-text {
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+    }
+    &:nth-child(n+2) {
+        margin-left: -1px;
+    }
+    &.disabled {
+        cursor: not-allowed;
+        margin-left: 0;
+    }
+    .bk-radio-button-input {
+        position: absolute;
+        opacity: 0;
+        &:checked+.bk-radio-button-text {
+            position: relative;
+            z-index: 1;
+            background: #E1ECFF;
+            color: $newMainColor;
+            border-color: currentColor;
+        }
+        &:disabled+.bk-radio-button-text {
+            position: relative;
+            color: $newGreyColor1;
+            background: rgba(250, 251, 253, 1);
+            border-color: currentColor;
+            border-left: none;
+        }
+    }
+    .bk-radio-button-text {
+        height: 32px;
+        line-height: 30px;
+        display: inline-block;
+        outline: none;
+        white-space: nowrap;
+        -webkit-appearance: none;
+        padding: 0 18px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 14px;
+        background-color: #fff;
+        border: 1px solid $newGreyColor;
+        border-radius: 0;
+        box-sizing: border-box;
+        color: #63656e;
+        text-decoration: none;
+        transition: background-color .3s ease;
+        min-width: 68px;
+    }
+    &:focus {
+        box-shadow: 0 0 2px 2px $formBorderFocusColor;
+        outline: none;
+        position:relative;
+        z-index:2;
+    }
+}

@@ -1,0 +1,35 @@
+/**
+ * @file create-square-button mixin
+ *
+ * usage:
+ *      @mixin create-square-button red, green, blue;
+ */
+
+@define-mixin create-square-button $color, $hover, $active {
+    background: #fafafa;
+    color: $color;
+    &:hover,
+    &.hover {
+        background-color: $hover;
+        border-color: $hover;
+        color: #fff;
+        opacity: 1;
+        .bk-text {
+            color: #fff;
+            background-color: color($hover lightness(7%));
+            border-color: color($hover lightness(7%));
+        }
+    }
+    &:active,
+    &.active {
+        background-color: $active;
+        border-color: $active;
+        color: #fff;
+        opacity: 1;
+        .bk-text {
+            color: #fff;
+            background-color: color($active lightness(10%));
+            border-color: color($active lightness(10%));
+        }
+    }
+}

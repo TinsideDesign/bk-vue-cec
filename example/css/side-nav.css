@@ -1,0 +1,117 @@
+@import './mixins/scroller.css';
+
+.side-nav {
+    .side-header {
+        padding: 20px 10px 10px 10px;
+        color: #333;
+        font-size: 18px;
+        height: 110px;
+        position: fixed;
+        background-color: #fff;
+        .title {
+            float: left;
+            padding-left: 8px;
+            margin-right: 10px;
+        }
+        .vue-logo {
+            width: 22px;
+            vertical-align: middle;
+            margin-right: 0;
+        }
+        .placeholder {
+            width: 87px;
+            height: 24px;
+            float: left;
+        }
+        .search-wrapper {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            .search-dropdown-list {
+                position: absolute;
+                top: calc(100% + 5px);
+                left: 0;
+                right: 0;
+                box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+                border-radius: 2px;
+                background-color: #fff;
+                z-index: 100;
+                overflow-y: hidden;
+                .outside-ul {
+                    @mixin scroller;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    overflow-y: auto;
+                    padding: 6px 0;
+                }
+                .search-dropdown-list-item {
+                    position: relative;
+                    width: 100%;
+                    border-left: #c4c6cc;
+                    border-right: #c4c6cc;
+                    background-color: #fff;
+                    cursor: pointer;
+                    height: 32px;
+                    line-height: 32px;
+                    padding: 0 10px;
+                    color: #63656E;
+                    font-size: 14px;
+                    .text {
+                        em {
+                            font-style: normal;
+                            color: #006DFF;
+                        }
+                    }
+                    &:first-child {
+                        border-top: #c4c6cc;
+                    }
+                    &:last-child {
+                        border-bottom: #c4c6cc;
+                    }
+                    &:hover,
+                    &.cur {
+                        background-color: #E6F0FF;
+                    }
+                }
+            }
+            .bk-tooltip.search-dropdown {
+                display: block;
+                &>.bk-tooltip-ref {
+                    display: block;
+                }
+            }
+        }
+    }
+    .nav-item-wrapper {
+        padding-top: 100px;
+    }
+    .nav-item {
+        width: 100%;
+        padding: 20px 0 20px 0;
+        border-bottom: 1px solid #dcdee5;
+        .nav-title {
+            padding-left: 20px;
+            font-size: 18px;
+            color: #333;
+            line-height: 24px;
+            margin-bottom: 5px;
+            &.no-groupid {
+                margin-top: -15px;
+            }
+        }
+        .nav-content {
+            padding-left: 20px;
+            font-size: 14px;
+            line-height: 40px;
+            cursor: pointer;
+            &:hover {
+                background-color: #f0f1f5;
+            }
+        }
+    }
+    .nav-active {
+        color: #2d8cf0;
+        background: #f0faff;
+    }
+}

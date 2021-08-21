@@ -1,0 +1,9 @@
+@import './mixins/clearfix.css';
+
+.bk-grid-row {
+    @mixin clearfix;
+
+    .bk-grid-col > .bk-grid-row {
+        margin: 0 auto;
+    }
+}

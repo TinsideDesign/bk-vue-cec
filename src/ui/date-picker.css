@@ -1,0 +1,321 @@
+@import './variable.css';
+
+.bk-date-picker-cells {
+    /* width: 196px; */
+    margin: 9px;
+    white-space: normal;
+    color: $newBlackColor2;
+    font-size: 12px;
+    /* text-align: center; */
+    span {
+        display: inline-block;
+        width: 34px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        em {
+            display: inline-block;
+            width: 34px;
+            height: 32px;
+            line-height: 32px;
+            /* margin: 3px; */
+            font-style: normal;
+            /* border-radius: 2px; */
+            cursor: pointer;
+        }
+    }
+    .bk-date-picker-cells-header {
+        text-align: center;
+        span {
+            cursor: default;
+            width: 28px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            margin: 3px;
+            color: $newBlackColor2;
+        }
+    }
+}
+
+.bk-date-picker-cells-cell:hover em {
+    /* background-color: $newMainColor3; */
+    background-color: $newGreyColor2;
+}
+.bk-date-picker-cells-focused em {
+    box-shadow: 0 0 0 1px $newMainColor2 inset;
+    color: $newMainColor;
+}
+.bk-date-picker-cells-cell-prev-month em,
+.bk-date-picker-cells-cell-next-month em {
+    color: $newGreyColor;
+}
+
+.bk-date-picker-cells-cell-prev-month:hover em,
+.bk-date-picker-cells-cell-next-month:hover em {
+    background: transparent;
+}
+
+span.bk-date-picker-cells-cell-week-label,
+span.bk-date-picker-cells-cell-week-label:hover,
+span.bk-date-picker-cells-cell-disabled,
+span.bk-date-picker-cells-cell-disabled:hover {
+    cursor: not-allowed;
+    color: $newGreyColor;
+}
+
+span.bk-date-picker-cells-cell-week-label em,
+span.bk-date-picker-cells-cell-week-label:hover em,
+span.bk-date-picker-cells-cell-disabled em,
+span.bk-date-picker-cells-cell-disabled:hover em {
+    color: inherit;
+    background: inherit;
+    cursor: not-allowed;
+}
+
+span.bk-date-picker-cells-cell-disabled,
+span.bk-date-picker-cells-cell-disabled:hover {
+    background-color: $newGreyColor2;
+}
+
+.bk-date-picker-cells-cell-today em {
+    position: relative;
+    box-shadow: 0 0 0 1px $newMainColor2 inset;
+    color: $newMainColor;
+}
+
+.bk-date-picker-cells-cell-range {
+    position: relative;
+    &:before {
+        content: '';
+        display: block;
+        background: $newMainColor3;
+        border-radius: 0;
+        border: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    em {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.bk-date-picker-cells-cell-selected em,
+.bk-date-picker-cells-cell-selected:hover em {
+    background-color: $newMainColor;
+    color: $defaultColor;
+    box-shadow: 0 0 0 1px $newMainColor inset;
+}
+span.bk-date-picker-cells-cell-disabled.bk-date-picker-cells-cell-selected em {
+    background: $newGreyColor;
+    color: #f7f7f7;
+}
+.bk-date-picker-cells-cell-today.bk-date-picker-cells-cell-selected em:after {
+    background: #fff;
+}
+
+.bk-date-picker-cells-cell-today.bk-date-picker-cells-cell-selected em,
+.bk-date-picker-cells-cell-today.bk-date-picker-cells-cell-selected em:hover {
+    box-shadow: 0 0 0 1px $newMainColor inset;
+}
+
+.bk-date-picker-cells-year,
+.bk-date-picker-cells-month {
+    margin-top: 7px;
+    span {
+        width: 36px;
+        height: 32px;
+        line-height: 32px;
+        margin: 10px 12px;
+        border-radius: 3px;
+        text-align: center;
+        em {
+            width: 36px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+        }
+    }
+}
+
+.bk-date-picker-header {
+    /* height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-bottom: 1px solid #e8eaec; */
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    border-bottom: 1px solid $newGreyColor1;
+    font-size: 14px;
+    font-weight: 700;
+    color: $newBlackColor2;
+    .bk-date-picker-header-label {
+        cursor: pointer;
+        &:hover {
+            color: $newMainColor;
+        }
+    }
+    .up-to-now {
+        font-weight: 400;
+        cursor: pointer;
+        margin-left: 3px;
+        &.disabled {
+            cursor: not-allowed;
+            color: #c4c6cc;
+        }
+    }
+}
+.bk-date-picker-prev-btn {
+    float: left;
+}
+.bk-date-picker-prev-btn-arrow-double {
+    margin-left: 10px;
+}
+.bk-date-picker-prev-btn-arrow-double i:after {
+    margin-left: -8px;
+}
+.bk-date-picker-next-btn {
+    float: right;
+}
+.bk-date-picker-next-btn-arrow-double {
+    margin-right: 10px;
+}
+.bk-date-picker-next-btn-arrow-double i:after {
+    margin-left: -8px;
+}
+.bk-date-picker-with-range .bk-picker-panel-body {
+    min-width: 532px;
+}
+.bk-date-picker-with-range .bk-picker-panel-content {
+    float: left;
+}
+.bk-date-picker-with-range .bk-picker-cells-show-week-numbers {
+    min-width: 492px;
+}
+.bk-date-picker-transfer {
+    z-index: 1060;
+    max-height: none;
+    /* width: auto; */
+}
+/* .bk-date-picker-focused input {
+    border-color: #57a3f3;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(45, 140, 240, 0.2);
+} */
+.bk-picker-panel-icon-btn {
+    display: inline-block;
+    width: 20px;
+    /* height: 24px;
+    line-height: 26px;
+    margin-top: 4px; */
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    cursor: pointer;
+    color: $newBlackColor3;
+    transition: color 0.2s ease-in-out;
+}
+.bk-picker-panel-icon-btn:hover {
+    color: #2d8cf0;
+}
+.bk-picker-panel-icon-btn i {
+    font-size: $iconSmallSize;
+}
+.bk-picker-panel-body-wrapper {
+    &.bk-picker-panel-with-sidebar {
+        padding-right: 140px;
+    }
+}
+.bk-picker-panel-sidebar {
+    /* width: 92px;
+    float: left;
+    margin-left: -92px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #f8f8f9;
+    border-right: 1px solid #e8eaec;
+    border-radius: border-radius-small 0 0 border-radius-small;
+    overflow: auto; */
+    width: 140px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: $newGreyColor3;
+    border-left: 1px solid $newGreyColor1;
+    overflow: auto;
+    right: 0;
+    color: $newMainColor;
+    font-size: 14px;
+    padding: 12px 0;
+    .bk-picker-panel-shortcut {
+        /* &:nth-of-type(1) {
+            padding-top: 18px;
+        }
+        &:last-child {
+            padding-bottom: 18px;
+        } */
+        padding: 6px 21px;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:hover {
+            background-color: $newMainColor3;
+        }
+    }
+}
+.bk-picker-panel-body {
+    float: left;
+
+    /* width: 100%; */
+}
+.bk-picker-confirm {
+    /* border-top: 1px solid #e8eaec;
+    text-align: right;
+    padding: 8px;
+    clear: both; */
+    border-top: 1px solid $newGreyColor1;
+    text-align: right;
+    clear: both;
+    background-color: $newGreyColor3;
+    height: 42px;
+    line-height: 41px;
+    font-size: 14px;
+    padding: 0 20px;
+    a {
+        color: $newBlackColor3;
+        &.confirm {
+            margin-left: 10px;
+            color: $newMainColor;
+        }
+        &[disabled] {
+            cursor: not-allowed;
+            color: $newGreyColor;
+        }
+    }
+    .bk-picker-confirm-time {
+        float: left;
+    }
+}
+
+/* .bk-picker-confirm > span {
+    color: #2D8cF0;
+    cursor: pointer;
+    user-select: none;
+    float: left;
+    padding: 2px 0;
+    transition: all 0.2s ease-in-out;
+}
+.bk-picker-confirm > span:hover {
+    color: #57a3f3;
+}
+.bk-picker-confirm > span:active {
+    color: #2b85e4;
+}
+ */

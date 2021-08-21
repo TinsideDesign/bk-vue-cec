@@ -1,0 +1,10 @@
+.bk-score-group {
+    position: relative;
+    .bk-score-real {
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        display: flex;
+    }
+}

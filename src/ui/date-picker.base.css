@@ -1,0 +1,145 @@
+@import './variable.css';
+
+:root {
+    --font-size: 12px;
+    --long-width: 342px;
+
+    .medium-font {
+        --font-size: 14px;
+    }
+
+    .medium-width {
+        --long-width: 362px;
+    }
+
+    .large-font {
+        --font-size: 16px;
+    }
+
+    .large-width {
+        --long-width: 402px;
+    }
+}
+
+.bk-date-picker {
+    display: inline-block;
+    line-height: normal;
+    width: 261px;
+    /* 写在样式里，方便 customCls 把它覆盖 */
+    &.long {
+        width: var(--long-width);
+    }
+}
+.bk-date-picker-rel {
+    position: relative;
+    .bk-date-picker-editor {
+        display: block;
+        width: 100%;
+        height: 32px;
+        line-height: 32px;
+        border: 1px solid $newGreyColor;
+        font-size: var(--font-size);
+        border-radius: 2px;
+        outline: none;
+        padding: 0 10px 0 30px;
+        color: $newBlackColor2;
+        cursor: pointer;
+        &.only-bottom-border {
+            border-color: transparent transparent $newGreyColor transparent;
+            &:focus {
+                border-color: transparent transparent $newMainColor transparent;
+                box-shadow: none;
+            }
+            &[disabled],
+            &.readonly {
+                border-color: transparent transparent $newGreyColor1 transparent;
+            }
+        }
+        &:focus {
+            border: 1px solid $newMainColor;
+        }
+        &::placeholder {
+            color: $newGreyColor;
+        }
+        &[disabled] {
+            color: $newGreyColor;
+            background-color: $newGreyColor3;
+            cursor: not-allowed;
+            border-color: $newGreyColor;
+        }
+        &.readonly {
+            background-color: $newGreyColor3;
+            border-color: $newGreyColor;
+        }
+    }
+    .clear-action {
+        position: absolute;
+        right: 10px;
+        transform: translateY(-50%);
+        top: 50%;
+        color: $newGreyColor;
+        font-size: $iconSmallestSize;
+        cursor: pointer;
+        &:hover {
+            color: $newBlackColor3;
+        }
+    }
+    .icon-wrapper {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: $newGreyColor;
+        background-color: transparent;
+        cursor: pointer;
+        &.disabled {
+            cursor: not-allowed;
+        }
+        i.icon-clock {
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            position: absolute;
+        }
+        .picker-icon {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+    }
+}
+
+.bk-date-picker-dropdown {
+    /* width: inherit; */
+    /* max-height: 200px; */
+    overflow: auto;
+    margin: 5px 0;
+    padding: 5px 0 0 0;
+    background-color: $defaultColor;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid $newGreyColor1;
+    position: absolute;
+    z-index: 900;
+}
+
+.bk-date-picker .bk-select-dropdown {
+    /* width: auto; */
+    padding: 0;
+    overflow: visible;
+    max-height: none;
+}
+
+.bk-date-picker-footer-wrapper {
+    border-top: 1px solid #dcdee5;
+    clear: both;
+    background-color: #fafbfd;
+    color: #979ba5;
+    font-size: 14px;
+}

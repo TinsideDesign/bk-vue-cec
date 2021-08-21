@@ -1,0 +1,133 @@
+@import './variable.css';
+
+/* usage: @mixin get-theme red; */
+@define-mixin get-theme $theme {
+    background-color: $theme;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+@define-mixin get-icon-theme $theme {
+    background-color: #fff;
+    border-color: #fff;
+    color: $theme;
+}
+
+.bk-badge-wrapper {
+    position: relative;
+    display: inline-block;
+    .bk-badge {
+        position: relative;
+        display: inline-block;
+        min-width: 18px;
+        height: 18px;
+        line-height: 16px;
+        padding: 0 2px;
+        border: 1px solid $borderColor;
+        border-radius: 18px;
+        background-color: #fff;
+        font-size: 12px;
+        text-align: center;
+
+        .bk-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: 0;
+            transform: translate(-50%, -50%);
+            display: block;
+            line-height: 18px;
+        }
+
+        &.pinned {
+            position: absolute;
+            &.top-right {
+                top: 0;
+                right: 0;
+                transform: translate(50%, -50%) scale(1, 1);
+                &.fade-center-enter,
+                &.fade-center-leave-active {
+                    opacity: 0;
+                    transform: translate(50%, -50%) scale(0, 0);
+                }
+            }
+            &.right {
+                top: 50%;
+                right: 0%;
+                transform: translate(100%, -50%) scale(1, 1);
+                &.fade-center-enter,
+                &.fade-center-leave-active {
+                    opacity: 0;
+                    transform: translate(50%, -50%) scale(0, 0);
+                }
+            }
+            &.bottom-right {
+                bottom: 0;
+                right: 0;
+                transform: translate(50%, 50%) scale(1, 1);
+                &.fade-center-enter,
+                &.fade-center-leave-active {
+                    opacity: 0;
+                    transform: translate(50%, 50%) scale(0, 0);
+                }
+            }
+            &.top-left {
+                top: 0;
+                left: 0;
+                transform: translate(-50%, -50%) scale(1, 1);
+                &.fade-center-enter,
+                &.fade-center-leave-active {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0, 0);
+                }
+            }
+            &.bottom-left {
+                bottom: 0;
+                left: 0;
+                transform: translate(-50%, 50%) scale(1, 1);
+                &.fade-center-enter,
+                &.fade-center-leave-active {
+                    opacity: 0;
+                    transform: translate(-50%, 50%) scale(0, 0);
+                }
+            }
+        }
+
+        &.dot {
+            width: 8px;
+            height: 8px;
+            min-width: 8px;
+        }
+
+        &.bk-danger {
+            @mixin get-theme $dangerColor;
+            &.is-icon {
+                @mixin get-icon-theme $dangerColor;
+            }
+        }
+        &.bk-warning {
+            @mixin get-theme $warningColor;
+            &.is-icon {
+                @mixin get-icon-theme $warningColor;
+            }
+        }
+        &.bk-success {
+            @mixin get-theme $successColor;
+            &.is-icon {
+                @mixin get-icon-theme $successColor;
+            }
+        }
+        &.bk-primary {
+            @mixin get-theme $primaryColor;
+            &.is-icon {
+                @mixin get-icon-theme $primaryColor;
+            }
+        }
+        &.bk-info {
+            @mixin get-theme $infoColor;
+            &.is-icon {
+                @mixin get-icon-theme $infoColor;
+            }
+        }
+    }
+}

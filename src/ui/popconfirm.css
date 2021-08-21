@@ -1,0 +1,71 @@
+
+.bk-popconfirm-content {
+    font-size: 12px;
+
+    .popconfirm-split {
+        display: inline-block;
+        position: absolute;
+        top: 13px;
+        background-color: #dcdee5;
+        width: 1px;
+        height: 12px;
+        margin-left: -2px;
+    }
+    &.popconfirm-more {
+        padding: 10px;
+        .popconfirm-content {
+            .title {
+                font-size: 16px;
+                color: #313238;
+                padding-bottom: 10px;
+            }
+            .content {
+                font-size: 12px;
+                line-height: 20px;
+                color: #63656e;
+                padding-bottom: 10px;
+            }
+            .is-simple.content {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+        .popconfirm-operate {
+            text-align: right;
+            margin-bottom: 2px;
+        }
+    }
+    .popconfirm-operate {
+        button {
+            background: transparent;
+            border: transparent;
+            color: #006DFF;
+            margin-left: 4px;
+
+            &:hover {
+                color: #006DFFD9;
+            }
+            &[type="button"] {
+                border-radius: 2px;
+                color: #63656e;
+                border: 1px solid #c4c6cc;
+                &:hover {
+                    border-color: #979ba5;
+                }
+                &.primary {
+                    color: #fff;
+                    background: #006DFF;
+                    border: #006DFF;
+                    &:hover {
+                        background-color: #006DFFD9;
+                        border-color: #006DFFD9;
+                    }
+                }
+            }
+        }
+        .default-operate-button {
+            height: 26px;
+            padding: 0 16px;
+        }
+    }
+}

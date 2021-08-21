@@ -1,0 +1,25 @@
+/**
+ * @file create-label mixin
+ *
+ * usage:
+ *      @mixin create-label red, green, blur, #fff;
+ */
+
+@define-mixin create-label $mainColor, $bgColor, $color, $fillColor {
+    & {
+        background-color: $bgColor;
+        border-color: $mainColor;
+        color: $color;
+
+        &.is-fill {
+            background-color: $mainColor;
+            color: $fillColor;
+        }
+
+        &.is-text {
+            border-color: #fff;
+            background-color: #fff;
+            color: $color;
+        }
+    }
+}
