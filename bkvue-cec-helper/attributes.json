@@ -1,0 +1,1366 @@
+{
+  "bk-alert/title": { "description": "标题" },
+  "bk-alert/closable": { "description": "是否可以关闭", "options": ["true", "false"], "default": "false" },
+  "bk-alert/close-text": { "description": "自定义关闭按钮" },
+  "bk-alert/show-icon": { "description": "是否显示按钮", "options": ["true", "false"], "default": "true" },
+  "bk-animate-number/digits": { "description": "数字的位数", "options": [], "default": "0" },
+  "bk-animate-number/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `span` 上" },
+  "bk-badge/val": { "description": "组件显示的值", "default": "1" },
+  "bk-badge/icon": {
+    "description": "组件显示图标；当设置 icon 时，将忽略设置的 value 值",
+    "options": ["参考 [ICON] 组件说明"]
+  },
+  "bk-badge/max": {
+    "description": "组件显示的最大值，当 value 超过 max，显示数字 +；仅当设置了 Number 类型的 value 值时生效"
+  },
+  "bk-badge/dot": { "description": "是否仅显示小圆点；当设置 dot 为 true 时，value, icon, max 均会被忽略" },
+  "bk-badge/visible": { "description": "是否显示组件" },
+  "bk-badge/position": {
+    "description": "组件相对于其兄弟组件的位置",
+    "options": ["top-right bottom-right bottom-left top-left"],
+    "default": "top-right"
+  },
+  "bk-badge/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-badge-wrapper` 上" },
+  "bk-badge/radius": { "description": "配置自定义弧度，以实现多种形状", "options": ["Number"] },
+  "bk-badge/valLength": {
+    "description": "配置val字符显示长度，最大值建议英文不超过3个字母，中文不超过2个汉字(一个汉字长度算作2)",
+    "default": "3"
+  },
+  "bk-tree-node/name": { "description": "说明" },
+  "bk-breadcrumb/separator": { "description": "分隔符", "options": [], "default": "斜杠/" },
+  "bk-breadcrumb/separator-class": { "description": "图标分隔符 class", "options": [] },
+  "bk-breadcrumb-item/to": { "description": "路由跳转对象，同 `vue-router` 的 `to`", "options": [], "default": "" },
+  "bk-breadcrumb-item/replace": {
+    "description": "在使用 to 进行路由跳转时，启用 replace 将不会向 history 添加新记录",
+    "options": [],
+    "default": "false"
+  },
+  "bk-button/hover-theme": {
+    "description": "mouseover 按钮类型，当设置了此属性时，`theme` 和 `text` 失效",
+    "options": ["可以用按钮样式【primary success warning danger】"]
+  },
+  "bk-button/size": { "description": "尺寸", "options": ["small normal large"], "default": "normal" },
+  "bk-button/title": { "description": "title 文案", "default": "" },
+  "bk-button/icon": {
+    "description": "左侧图标，设置为 loading 的时候，会显示转圈的 loading 效果。",
+    "options": ["参考 [ICON] 组件说明"]
+  },
+  "bk-button/icon-right": {
+    "description": "右侧图标，设置为 loading 的时候，会显示转圈的 loading 效果。",
+    "options": ["参考 [ICON] 组件说明"]
+  },
+  "bk-button/disabled": { "description": "是否禁用", "options": ["true false"], "default": "false" },
+  "bk-button/loading": { "description": "是否加载中", "options": ["true false"], "default": "false" },
+  "bk-button/outline": { "description": "是否显示反色按钮", "options": ["true false"], "default": "false" },
+  "bk-button/text": { "description": "是否是文字按钮", "options": ["true false"], "default": "false" },
+  "bk-button/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `button` 上" },
+  "bk-card/is-collapse": { "description": "是否支持展开&收起", "options": ["true", "false"], "default": "false" },
+  "bk-card/collapse-icons": {
+    "description": "支持自定义展开 & 收起的icon",
+    "default": "[icon-down-shape, icon-up-shape]"
+  },
+  "bk-card/collapse-status": { "description": "展开 & 收起状态", "options": ["true", "false"], "default": "true" },
+  "bk-card/position": { "description": "展开icon的显示位置", "options": ["left", "right"], "default": "left" },
+  "bk-card/showHead": { "description": "是否显示头部", "options": ["true", "false"], "default": "true" },
+  "bk-card/showFoot": { "description": "是否显示底部", "options": ["true", "false"], "default": "false" },
+  "bk-card/isEdit": { "description": "是否启用编辑标题功能", "options": ["true", "false"], "default": "false" },
+  "bk-card/border": { "description": "是否显示边框", "options": ["true", "false"], "default": "true" },
+  "bk-cascade/value": { "description": "当前被选中的值,支持`v-model`, 多选时配置一个二维数组", "default": "[]" },
+  "bk-cascade/multiple": { "description": "是否多选", "default": "false" },
+  "bk-cascade/list": { "description": "可选项数据源", "default": "[]" },
+  "bk-cascade/options": { "description": "配置项" },
+  "bk-cascade/scroll-height": { "description": "下拉列表滚动高度", "default": "216" },
+  "bk-cascade/scroll-width": { "description": "子版面的宽度", "default": "160" },
+  "bk-cascade/placeholder": { "description": "未选择数据时的占位", "default": "请选择" },
+  "bk-cascade/disabled": { "description": "是否禁用", "default": "false" },
+  "bk-cascade/clearable": { "description": "是否允许清空", "default": "false" },
+  "bk-cascade/check-any-level": { "description": "是否允许选择任意一级", "default": "false" },
+  "bk-cascade/filterable": { "description": "是否允许快捷搜索", "default": "false" },
+  "bk-cascade/show-complete-name": { "description": "输入框中是否显示选中值的完整路径", "default": "true" },
+  "bk-cascade/separator": { "description": "选项分隔符", "default": " / " },
+  "bk-cascade/trigger": { "description": "触发子菜单模式", "options": ["click, hover"], "default": "click" },
+  "bk-cascade/remote-method": { "description": "远程搜索方法，具体配置看样例使用" },
+  "bk-cascade/is-remote": { "description": "开启远程加载，搭配remote-method一起使用", "default": "false" },
+  "bk-cascade/popover-options": { "description": "透传至下拉列表所在的popover组件的tippyOptions选项" },
+  "bk-cascade/toggle": { "description": "切换下拉折叠状态时调用" },
+  "bk-cascade/change": { "description": "选项发生变化时调用" },
+  "bk-cascade/clear": { "description": "清空选项时调用" },
+  "bk-cascade/search": { "description": "搜索输入时调用" },
+  "bk-checkbox/name": { "description": "名称" },
+  "bk-checkbox/value": {
+    "description": "checkbox 的真值，与 checkbox-group 结合时通过配置 value",
+    "default": "undefined"
+  },
+  "bk-checkbox/true-value": { "description": "checkbox 的真值", "default": "true" },
+  "bk-checkbox/false-value": { "description": "checkbox 的假值", "default": "false" },
+  "bk-checkbox/disabled": { "description": "是否禁用", "options": ["true", "false"], "default": "false" },
+  "bk-checkbox/checked": {
+    "description": "初始化选中状态，如果 `v-model` 绑定的值也会相应改变，这个属性在 `check-group` 里无效",
+    "options": ["true", "false"],
+    "default": "undefined"
+  },
+  "bk-checkbox/indeterminate": { "description": "是否半选", "options": ["true", "false"], "default": "false" },
+  "bk-checkbox/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-form-checkbox` 上"
+  },
+  "bk-checkbox/before-change": { "description": "在选中状态发生变更前执行的函数，返回`false`将中断状态变更" },
+  "bk-checkbox-group/name": { "description": "名称" },
+  "bk-collapse/active-name": { "description": "当前激活面板的 name" },
+  "bk-collapse/accordion": { "description": "是否使用手风琴效果", "options": ["true, false"], "default": "false" },
+  "bk-collapse/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-collapse` 上" },
+  "bk-collapse-item/name": { "description": "唯一标识符，相当于 ID", "default": "默认为 index" },
+  "bk-collapse-item/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-collapse-item` 上"
+  },
+  "bk-collapse-item/content-hidden-type": {
+    "description": "配置内容隐藏方式，默认是 `none`，收起时，不渲染内容组件; `hidden` 模式渲染组件，通过设置 `display:none` 不显示在页面",
+    "options": ["none, hidden"],
+    "default": "none"
+  },
+  "bk-collapse-item/hide-arrow": { "description": "是否隐藏箭头", "options": ["true, false"], "default": "false" },
+  "bk-collapse-item/custom-trigger-area": {
+    "description": "是否自定义触发区域，开启后，hide-arrow将不再生效，仅文字区域内可触发hover和点击效果",
+    "options": ["true, false"],
+    "default": "false"
+  },
+  "bk-collapse-item/disabled": {
+    "description": "是否禁用当前面板，禁用后展开过的面板会自动折叠",
+    "options": ["true, false"],
+    "default": "false"
+  },
+  "bk-color-picker/size": {
+    "description": "有三种尺寸：大、默认（中）、小。",
+    "options": ["large, small"],
+    "default": ""
+  },
+  "bk-color-picker/show-value": {
+    "description": "是否显示当前选择的RGB颜色值",
+    "options": ["true, false"],
+    "default": "true"
+  },
+  "bk-color-picker/transfer": {
+    "description": "控制颜色面板是否出现在 body 内",
+    "options": ["true, false"],
+    "default": "false"
+  },
+  "bk-color-picker/disabled": { "description": "是否禁用", "options": ["true, false"], "default": "false" },
+  "bk-color-picker/readonly": { "description": "是否只读", "options": ["true, false"], "default": "false" },
+  "bk-color-picker/recommend": { "description": "是否显示预设值", "default": "true" },
+  "bk-color-picker/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-color-picker` 上"
+  },
+  "bk-compose-form-item/tail-background-color": { "description": "最后一个表单项的背景色", "options": ["颜色值"] },
+  "bk-date-picker/type": {
+    "description": "类型",
+    "options": ["date", "daterange", "datetime", "datetimerange", "month", "year"],
+    "default": "date"
+  },
+  "bk-date-picker/value": {
+    "description": "日历组件的值，可以是 Date 或字符串或数组，只有在 daterange 和 datetimerange 类型时才支持数组"
+  },
+  "bk-date-picker/editable": { "description": "设置文本框是否可编辑", "options": ["true", "false"], "default": "true" },
+  "bk-date-picker/format": {
+    "description": "格式",
+    "default": "date: yyyy-MM-dd <br/> month: yyyy-MM <br/> year: yyyy <br/> datetime: yyyy-MM-dd HH:mm:ss <br/> time: HH:mm:ss <br/> timerange: HH:mm:ss <br/> daterange: yyyy-MM-dd <br/> datetimerange: yyyy-MM-dd HH:mm:ss"
+  },
+  "bk-date-picker/readonly": { "description": "是否只读", "options": ["true", "false"], "default": "false" },
+  "bk-date-picker/disabled": { "description": "是否禁用", "options": ["true", "false"], "default": "false" },
+  "bk-date-picker/clearable": { "description": "是否可清空", "options": ["true", "false"], "default": "true" },
+  "bk-date-picker/open": {
+    "description": "控制日历面板的显示与隐藏",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-date-picker/multiple": {
+    "description": "是否允许选择多个日期，multiple 只支持 date 类型",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-date-picker/time-picker-options": {
+    "description": "支持 datetime 和 datetimerange 类型，在 DatePicker 中配置 [TimePicker 的属性](#/time-picker?anchor=shu-xing)",
+    "default": "{}"
+  },
+  "bk-date-picker/start-date": { "description": "设置日历面板默认显示的日期" },
+  "bk-date-picker/placeholder": { "description": "占位文案", "default": "" },
+  "bk-date-picker/placement": {
+    "description": "日历面板出现的位置",
+    "options": [
+      "top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end"
+    ],
+    "default": "bottom-start"
+  },
+  "bk-date-picker/transfer": {
+    "description": "控制日历面板是否出现在 body 内",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-date-picker/shortcuts": { "description": "配置快捷选择日期" },
+  "bk-date-picker/shortcut-close": {
+    "description": "配置点击 shortcuts 是否关闭弹层",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-date-picker/options": { "description": "额外配置，目前包括不可选日期的配置，具体如下", "default": "{}" },
+  "bk-date-picker/font-size": {
+    "description": "设置组件主体内容字体大小",
+    "options": ["normal（12px），medium（14px），large（16px）"],
+    "default": "normal"
+  },
+  "bk-date-picker/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-date-picker` 上"
+  },
+  "bk-date-picker/up-to-now": {
+    "description": "在日期范围选择器和日期时间范围选择器中（即 type 为 `daterange` 或者 `datetimerange`），设置 `up-to-now` 为 `true` 可使配置终止时间为“至今”",
+    "default": "false"
+  },
+  "bk-date-picker/use-shortcut-text": {
+    "description": "开启后，点击选中配置的快捷项时，输入框显示的内容为选中的快捷文案，且不可编辑",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-date-picker/shortcut-selected-index": { "description": "选中的快捷项index", "options": ["-1"] },
+  "bk-date-picker/footer-slot-cls": {
+    "description": "自定义 footer 的容器的样式，**只有存在自定义 footer 时才会生效**"
+  },
+  "bk-date-picker/behavior": {
+    "description": "风格设置(simplicity:简约 normal:正常)",
+    "options": ["normal", "simplicity"],
+    "default": "normal"
+  },
+  "bk-dialog/title": { "description": "弹框的标题，不设置 `title` 和 `slot header` 可配置出无 `header` 的弹框" },
+  "bk-dialog/render-directive": { "description": "弹框的渲染方式", "options": ["if", "show"], "default": "show" },
+  "bk-dialog/ok-text": { "description": "确定按钮的文字" },
+  "bk-dialog/cancel-text": { "description": "取消按钮的文字" },
+  "bk-dialog/theme": {
+    "description": "颜色 按钮类型",
+    "options": ["primary, success, warning, danger"],
+    "default": "primary"
+  },
+  "bk-dialog/position": { "description": "设置层的位置，接收 `top`, `left` 两个属性。" },
+  "bk-dialog/width": { "description": "弹框的宽度，支持数字和百分比", "default": "400" },
+  "bk-dialog/show-mask": { "description": "是否允许出现遮罩", "default": "true" },
+  "bk-dialog/mask-close": { "description": "是否允许点击遮罩关闭弹框", "default": "true" },
+  "bk-dialog/close-icon": {
+    "description": "是否显示右上角的关闭 icon，此属性为 false 时，`esc-close` 和 `mask-close` 会被强制设置为 `false`。",
+    "default": "true"
+  },
+  "bk-dialog/esc-close": { "description": "是否允许 `esc` 按键关闭弹框", "default": "true" },
+  "bk-dialog/fullscreen": { "description": "是否全屏弹框，当设置全屏弹框时，`draggable` 属性无效", "default": "false" },
+  "bk-dialog/header-position": {
+    "description": "显示 `header` 的位置",
+    "options": ["left, center"],
+    "default": "center"
+  },
+  "bk-dialog/show-footer": { "description": "是否显示 `footer`", "default": "true" },
+  "bk-dialog/footer-position": {
+    "description": "显示 `footer` 的位置",
+    "options": ["left, center, right"],
+    "default": "right"
+  },
+  "bk-dialog/draggable": {
+    "description": "是否允许弹框拖拽，当设置全屏弹框时，`draggable` 属性无效",
+    "default": "true"
+  },
+  "bk-dialog/scrollable": {
+    "description": "弹框出现时，是否允许页面滚动",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-dialog/transfer": {
+    "description": "控制弹框是否出现在 body 内",
+    "options": ["true", "false"],
+    "default": "true"
+  },
+  "bk-dialog/auto-close": {
+    "description": "点击确认时是否自动关闭弹窗",
+    "options": ["true", "false"],
+    "default": "true"
+  },
+  "bk-dialog/on-close": { "description": "点击取消时触发的回调方法，参数是`Dialog`的`this对象`" },
+  "bk-dialog/confirm-fn": { "description": "点击确认时触发的回调方法，参数是`Dialog`的`this对象`" },
+  "bk-dialog/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-dialog-wrapper`上" },
+  "bk-diff/new-content": { "description": "新内容" },
+  "bk-diff/context": { "description": "不同地方间隔多少行不隐藏" },
+  "bk-diff/theme": { "description": "主题风格", "options": ["light，dark"], "default": "light" },
+  "bk-diff/format": { "description": "展示方式", "options": ["line-by-line，side-by-side"], "default": "line-by-line" },
+  "bk-diff/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-diff` 上" },
+  "bk-divider/align": { "description": "分割线位置", "options": ["left , right , center"], "default": "center" },
+  "bk-divider/color": { "description": "分割线颜色", "default": "#dde4eb" },
+  "bk-divider/width": { "description": "分割线宽度", "default": "0" },
+  "bk-divider/type": { "description": "分割线类型，border-style类型", "options": ["solid，dash"], "default": "solid" },
+  "bk-dropdown-menu/trigger": { "description": "触发事件", "options": ["click、mouseover"], "default": "mouseover" },
+  "bk-dropdown-menu/font-size": {
+    "description": "设置下拉已选择及列表的字体大小",
+    "options": ["normal（12px），medium（14px），large（16px）"],
+    "default": "normal"
+  },
+  "bk-dropdown-menu/disabled": { "description": "禁用下拉菜单", "options": ["true、false"], "default": "false" },
+  "bk-dropdown-menu/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-dropdown-menu` 上"
+  },
+  "bk-exception/scene": { "description": "使用场景", "options": ["page（页面）、part（局部）"], "default": "page" },
+  "bk-exception/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-exception` 上" },
+  "bk-fixed-navbar/navItems": {
+    "description": "导航元素列表",
+    "options": ["传入一个数组，数组的每个元素都是一个对象，属性包括icon，text，tooltip和action， 详见示例"],
+    "default": "[]"
+  },
+  "bk-fixed-navbar/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-fixed-navbar-wrapper` 上"
+  },
+  "bk-form/form-type": {
+    "description": "表单类型, 水平布局（horizontal）和垂直布局（vertical）",
+    "options": ["horizontal,vertical, inline"],
+    "default": "horizontal"
+  },
+  "bk-form/label-width": { "description": "表单项 label 宽度", "default": "150" },
+  "bk-form/model": { "description": "数据" },
+  "bk-form/rules": { "description": "表单项验证规则" },
+  "bk-form/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-form` 上" },
+  "bk-form-item/property": {
+    "description": "必须结合 bk-form 的 model 属性来配置，用于从整个 model 获取值，通过此值再结合校验规则进行校验"
+  },
+  "bk-form-item/label": { "description": "表单项 label 显示的内容" },
+  "bk-form-item/label-width": {
+    "description": "表单项 label 宽度, 如果没有设置则使用 bk-form 的 `label-width`",
+    "default": "150"
+  },
+  "bk-form-item/error-display-type": {
+    "description": "表单项错误提示的方式，有tooltips和行展示效果",
+    "options": ["tooltips", "normal"],
+    "default": "tooltips"
+  },
+  "bk-form-item/desc": {
+    "description": "表单项 label描述信息, 具体用法和v-bk-tooltips指令一致，详情可参考[v-bk-tooltips参数](#/tooltips)"
+  },
+  "bk-form-item/desc-type": {
+    "description": "表单项 label描述信息展示方式，包括下划线和图标两种方式",
+    "options": ["border", "icon"],
+    "default": "border"
+  },
+  "bk-form-item/desc-icon": {
+    "description": "表单项 label描述信息展示为图标时配置，仅在desc-type为`icon`时生效",
+    "options": ["参考 [ICON] 组件说明"]
+  },
+  "bk-form-item/required": {
+    "description": "是否必填，在 label 会显示红色的*",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-form-item/rules": {
+    "description": "定义表单项的校验规则, 一条规则包含：触发方式 `trigger`，可选值有 'blur', 'change', 显示：message, 校验规则：required、min、max，也可以自定正则regex, 以及自定义方法validator，在自定义方法里可以实现异步验证，详情看表单验证例子"
+  },
+  "bk-form-item/icon-offset": {
+    "description": "当表单项校验错误时，会有一个红色感叹 icon 出现，此属性可定位 icon 的偏移位置",
+    "default": "8"
+  },
+  "bk-form-item/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-form-item` 上" },
+  "bk-form-item/auto-check": {
+    "description": "一旦渲染完成，自动启用检查一次",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-container/col": { "description": "栅格数", "default": "24" },
+  "bk-container/gutter": { "description": "栅格之间的间距", "default": "20" },
+  "bk-container/margin": { "description": "栅格容器的左右外边距", "default": "20" },
+  "bk-container/flex": { "description": "是否启用 `flex` 布局", "options": ["true", "false"], "default": "false" },
+  "bk-container/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-grid-container` 上"
+  },
+  "bk-col/span": {
+    "description": "栅格的占位格数，当设置为 0 时，则自动设置为 col 相当于 width: 100%",
+    "default": "1"
+  },
+  "bk-col/offset": { "description": "栅格的偏移", "default": "0" },
+  "bk-col/pull": { "description": "栅格向左移动格数", "default": "0" },
+  "bk-col/push": { "description": "栅格向右移动格数", "default": "0" },
+  "bk-icon/svg": { "description": "使用svg输出图标", "options": ["true", "false"], "default": "false" },
+  "bk-icon/width": { "description": "使用svg图标时有效", "default": "1em" },
+  "bk-icon/height": { "description": "使用svg图标时有效", "default": "1em" },
+  "bk-image/src": { "description": "图片源，同原生" },
+  "bk-image/fit": {
+    "description": "确定图片如何适应容器框，同原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)",
+    "options": ["fill", "contain", "cover", "none", "scale-down"]
+  },
+  "bk-image/alt": { "description": "原生 alt" },
+  "bk-image/referrer-policy": { "description": "原生 referrerPolicy" },
+  "bk-image/lazy": { "description": "是否开启懒加载", "default": "false" },
+  "bk-image/scroll-container": {
+    "description": "开启懒加载后，监听 scroll 事件的容器",
+    "options": [],
+    "default": "最近一个 overflow 值为 auto 或 scroll 的父元素"
+  },
+  "bk-image/fallback": { "description": "加载失败容错地址,会被 Slots error 覆盖" },
+  "bk-image/preview-src-list": { "description": "开启图片预览功能" },
+  "bk-image/z-index": { "description": "设置图片预览的 z-index", "default": "2000" },
+  "bk-image/isShowPreviewTitle": { "description": "预览图片图片时，是否显示头部信息" },
+  "bk-image-viewer/urlList": { "description": "预览图片地址集合", "default": "[]" },
+  "bk-image-viewer/isShowTitle": { "description": "预览图片地址集合", "default": "false" },
+  "bk-image-viewer/onSwitch": { "description": "切换图片" },
+  "bk-image-viewer/onClose": { "description": "关闭预览" },
+  "bk-image-viewer/initialIndex": { "description": "z-index", "default": "2000" },
+  "bk-info-box/width": { "description": "弹框的宽度，支持数字和百分比", "default": "400" },
+  "bk-info-box/type": {
+    "description": "消息框的类型，配置此属性后，可支持显示 icon 等",
+    "options": ["success, warning, error, loading"],
+    "default": ""
+  },
+  "bk-info-box/title": { "description": "消息框的标题" },
+  "bk-info-box/subHeader": {
+    "description": "消息框的二级标题（当 subHeader 与 subTitle 同时存在并且 subHeader 是 VNode 时，subHeader 的优先级高于 subTitle，否则 subTitle 优先级更高），可以用 vm.$createElement 函数生成模版"
+  },
+  "bk-info-box/subTitle": {
+    "description": "消息框的二级标题（当 subHeader 与 subTitle 同时存在并且 subHeader 是 VNode 时，subHeader 的优先级高于 subTitle，否则 subTitle 优先级更高）"
+  },
+  "bk-info-box/showFooter": { "description": "是否显示底部按钮", "default": "true" },
+  "bk-info-box/theme": {
+    "description": "消息框主按钮的颜色",
+    "options": ["primary, success, warning, danger"],
+    "default": "primary"
+  },
+  "bk-info-box/maskClose": { "description": "是否允许点击遮罩关闭弹框", "default": "false" },
+  "bk-info-box/escClose": { "description": "是否允许 `esc` 按键关闭弹框", "default": "false" },
+  "bk-info-box/closeIcon": {
+    "description": "是否显示右上角的关闭 icon，此属性为 false 时，`esc-close` 和 `mask-close` 会被强制设置为 `false`。",
+    "default": "true"
+  },
+  "bk-info-box/okText": { "description": "确定按钮的文字" },
+  "bk-info-box/cancelText": { "description": "取消按钮的文字" },
+  "bk-info-box/container": { "description": "控制弹框出现在什么容器内", "default": "document.body" },
+  "bk-info-box/icon": { "description": "消息框状态的图标，使用bk-vue-cec[ICON]组件", "options": ["参考 [ICON] 组件说明"] },
+  "bk-info-box/confirmLoading": { "description": "异步 confirmFn 确定按钮自动开启 loading", "default": "false" },
+  "bk-info-box/confirmFn": { "description": "确认按钮点击回调函数，支持异步函数，函数返回false可阻止弹窗关闭" },
+  "bk-info-box/cancelFn": { "description": "取消按钮点击回调函数" },
+  "bk-info-box/stateChangeFn": { "description": "弹框显示状态变化的回调函数" },
+  "bk-info-box/afterLeaveFn": { "description": "弹框消失的动画结束后触发的回调函数" },
+  "bk-link/href": { "description": "文字链接地址" },
+  "bk-link/disabled": { "description": "是否禁用", "default": "false" },
+  "bk-link/underline": { "description": "是否显示下划线", "default": "false" },
+  "bk-link/icon": { "description": "图标类名" },
+  "bk-link/icon-placement": { "description": "图标位置", "options": ["left right"], "default": "left" },
+  "bk-loading/mode": { "description": "loading 的显示形式，可选项: `normal`, `spin`", "default": "normal" },
+  "bk-loading/title": { "description": "组件显示时的文案，支持使用 `createElement` 函数生成的 VNode" },
+  "bk-loading/size": { "description": "组件显示大小配置", "options": ["large small mini"], "default": "large" },
+  "bk-loading/theme": {
+    "description": "组件显示主题配置",
+    "options": ["colorful default primary danger warning(spin模式下支持: default primary danger warning success)"],
+    "default": "colorful"
+  },
+  "bk-loading/delay": { "description": "组件消失推迟", "default": "0" },
+  "bk-loading/immediate": { "description": "组件在初始化完成后立即显示", "default": "false" },
+  "bk-loading/opacity": {
+    "description": "loading 遮罩的背景透明度 （注：如设置了 color 属性为 rgba 类型颜色则此属性将被覆盖）",
+    "options": ["0 - 1 之间的小数"],
+    "default": "0.9"
+  },
+  "bk-loading/color": { "description": "loading 遮罩的背景色 支持 rgb/hex/rgba", "default": "#ffffff" },
+  "bk-loading/zIndex": {
+    "description": "如果配置项有 zIndex 选项，遮罩层的层叠顺序使用配置项的 zIndex，否则使用层叠顺序管理器自动生成的 zIndex"
+  },
+  "bk-loading/afterLeave": { "description": "loading 消失完毕的回调函数" },
+  "bk-loading/extCls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-loading` 上" },
+  "bk-message/icon": { "description": "组件左侧图标", "options": ["参考 [ICON] 组件说明"], "default": "info" },
+  "bk-message/message": { "description": "组件显示的文字内容，支持字符串或用 `this.$createElement` 生成的 DOM 片段" },
+  "bk-message/delay": { "description": "组件延时关闭时间，值为 0 时需要手动关闭", "default": "3000" },
+  "bk-message/dismissable": { "description": "是否显示右侧关闭 icon", "default": "true" },
+  "bk-message/offsetY": { "description": "组件出现时距离视口顶部的偏移量", "default": "30" },
+  "bk-message/spacing": { "description": "多个组件之间的垂直距离", "default": "10" },
+  "bk-message/limit": { "description": "组件个数限制，默认不限制个数，设置为 0 时，清除所有实例" },
+  "bk-message/ellipsisLine": {
+    "description": "配置组件显示内容的行数，超过这个函数之后，内容就会被省略，默认值为 1，配置为 0 即表示显示全部内容",
+    "default": "1"
+  },
+  "bk-message/onClose": { "description": "关闭组件时的回调函数, 参数为组件实例" },
+  "bk-message/extCls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-message` 上" },
+  "bk-message/ellipsisCopy": { "description": "内容超出被截断时是否显示复制按钮", "default": "false" },
+  "bk-navigation/nav-width": { "description": "左侧导航栏缩小宽度", "default": "60" },
+  "bk-navigation/hover-width": { "description": "左侧导航栏固定、hover放大效果宽度", "default": "260" },
+  "bk-navigation/side-title": { "description": "左侧导航标题" },
+  "bk-navigation/header-title": { "description": "右侧内容栏头部标题", "default": "栏目名称" },
+  "bk-navigation/hover-leave-delay": { "description": "左侧导航栏hover离开缩回延迟时间", "default": "0" },
+  "bk-navigation/default-open": { "description": "是否默认展开左侧栏", "default": "false" },
+  "bk-navigation/theme-color": { "description": "左侧栏主题色", "default": "#182132" },
+  "bk-navigation/head-height": { "description": "导航上测栏的高度", "default": "52" },
+  "bk-navigation/navigation-type": {
+    "description": "导航布局结构类型",
+    "options": ["left-right", "top-bottom"],
+    "default": "left-right"
+  },
+  "bk-navigation/need-menu": { "description": "是否需要左侧导航条", "default": "true" },
+  "bk-navigation/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.navigation-bar` 上"
+  },
+  "bk-navigation-menu/default-active": { "description": "默认选中的菜单栏目ID" },
+  "bk-navigation-menu/unique-opened": { "description": "左侧导航栏是否只保持一个子菜单的展开", "default": "true" },
+  "bk-navigation-menu/toggle-active": {
+    "description": "左侧导航栏在伸缩时子级菜单是否一起展开和收回",
+    "default": "false"
+  },
+  "bk-navigation-menu/item-hover-bg-color": {
+    "description": "menu子项hover背景色",
+    "default": "linear-gradient(90deg,rgba(37,48,71,1) 0%,rgba(32,42,60,1) 100%)"
+  },
+  "bk-navigation-menu/item-hover-color": { "description": "menu子项hover字体颜色", "default": "#D3D9E4" },
+  "bk-navigation-menu/item-active-bg-color": {
+    "description": "menu子项选中背景色",
+    "default": "linear-gradient(90deg,rgba(63,135,255,1) 0%,rgba(58,132,255,1) 100%)"
+  },
+  "bk-navigation-menu/item-active-color": { "description": "menu子项选中字体色", "default": "#FFFFFF" },
+  "bk-navigation-menu/item-default-bg-color": { "description": "menu子项默认背景色", "default": "#182132" },
+  "bk-navigation-menu/item-default-color": { "description": "menu子项默认字体色", "default": "#96A2B9" },
+  "bk-navigation-menu/item-default-icon-color": { "description": "menu子项默认icon的颜色", "default": "#B0BDD5" },
+  "bk-navigation-menu/item-child-icon-default-color": {
+    "description": "menu子项的二级栏icon的颜色",
+    "default": "#63656E"
+  },
+  "bk-navigation-menu/item-child-icon-hover-color": {
+    "description": "menu子项的二级栏icon hover动作的颜色",
+    "default": "#D3D9E4"
+  },
+  "bk-navigation-menu/item-active-icon-color": { "description": "选中时menu子项icon颜色", "default": "#FFFFFF" },
+  "bk-navigation-menu/item-hover-icon-color": { "description": "menu子项icon hover颜色", "default": "#D3D9E4" },
+  "bk-navigation-menu/item-child-icon-active-color": { "description": "子级item选中时icon颜色", "default": "#FFFFFF" },
+  "bk-navigation-menu/sub-menu-open-bg-color": { "description": "父级menu展开后的背景色", "default": "#151D2C" },
+  "bk-navigation-menu/before-nav-change": {
+    "description": "手动点击 nav-item 子项之前触发判断是否改变 nav 导向，支持异步，返回 false 标识不改变",
+    "default": "true"
+  },
+  "bk-navigation-menu-item/id": { "description": "唯一标示ID", "options": ["必填项"] },
+  "bk-navigation-menu-item/disabled": { "description": "是否禁用", "default": "false" },
+  "bk-navigation-menu-item/icon": { "description": "图标" },
+  "bk-navigation-menu-item/has-child": { "description": "是否有子项", "default": "false" },
+  "bk-navigation-menu-item/group": { "description": "是否分组标示", "default": "false" },
+  "bk-navigation-menu-item/title": { "description": "是否标题标示", "default": "false" },
+  "bk-navigation-menu-group/groupName": { "description": "分组名称" },
+  "bk-notify/icon": { "description": "组件左侧图标", "options": ["参考 [ICON] 组件说明"], "default": "info" },
+  "bk-notify/title": { "description": "组件的标题" },
+  "bk-notify/message": { "description": "组件显示的文字内容，支持字符串或用 `this.$createElement` 生成的 DOM 片段" },
+  "bk-notify/position": {
+    "description": "组件出现的方向",
+    "options": ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"],
+    "default": "top-center"
+  },
+  "bk-notify/delay": { "description": "组件延时关闭时间，值为 0 时需要手动关闭", "default": "5000" },
+  "bk-notify/dismissable": { "description": "是否显示右侧关闭 icon", "default": "true" },
+  "bk-notify/limit": { "description": "组件个数限制，默认不限制个数，设置为 0 时，清除所有实例" },
+  "bk-notify/limitLine": { "description": "文字内容的最大行数，默认为两行，值为 0 时文字内容全部显示", "default": "2" },
+  "bk-notify/showViewMore": { "description": "是否显示`显示更多`按钮，配合`limitLine`使用", "default": "false" },
+  "bk-notify/offsetX": { "description": "组件出现时距离视口的水平偏移量", "default": "10" },
+  "bk-notify/offsetY": { "description": "组件出现时距离视口的垂直偏移量", "default": "30" },
+  "bk-notify/onViewMoreHandler": { "description": "`显示更多`按钮点击回调函数" },
+  "bk-notify/onClose": { "description": "关闭组件时的回调函数, 参数为组件实例" },
+  "bk-notify/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-notify` 上" },
+  "bk-pagination/current": { "description": "当前页码，正整数，支持`.sync`修饰符" },
+  "bk-pagination/limit": { "description": "每页显示条数(须存在于`limit-list`中) ，支持`.sync`修饰符" },
+  "bk-pagination/limit-list": { "description": "每页显示条数可选项列表", "default": "[10, 20, 50, 100]" },
+  "bk-pagination/show-limit": {
+    "description": "是否显示每页显示条数控件",
+    "options": ["false true"],
+    "default": "true"
+  },
+  "bk-pagination/location": { "description": "每页显示条数控件位置", "options": ["left", "right"], "default": "right" },
+  "bk-pagination/align": {
+    "description": "分页控件位置，优先级高于location",
+    "options": ["left", "center", "right"],
+    "default": "left"
+  },
+  "bk-pagination/type": { "description": "组件外观类型", "options": ["default compact"], "default": "default" },
+  "bk-pagination/size": { "description": "页码尺寸大小", "options": ["default small"], "default": "default" },
+  "bk-pagination/small": { "description": "小型分页", "options": ["false true"], "default": "false" },
+  "bk-pagination/show-total-count": { "description": "总计", "options": ["false true"], "default": "false" },
+  "bk-pagination/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-page` 上" },
+  "bk-popconfirm/content": { "description": "正文" },
+  "bk-popconfirm/trigger": {
+    "description": "触发方式，与`bk-popover`配置相同",
+    "options": [
+      "click,focusin,mouseenter 等，参照[tippy文档](https:",
+      "atomiks.github.io",
+      "tippyjs",
+      "v6",
+      "all-props",
+      "#trigger)"
+    ],
+    "default": "mouseenter focus"
+  },
+  "bk-popconfirm/confirm-text": { "description": "确认按钮文字", "options": [], "default": "" },
+  "bk-popconfirm/cancel-text": { "description": "取消按钮文字", "options": [], "default": "" },
+  "bk-popconfirm/ext-cls": {
+    "description": "配置 **pop 弹层**自定义样式类名，传入的类会被加在 pop 弹层的 DOM `.tippy-popper` 上"
+  },
+  "bk-popconfirm/ext-popover-cls": {
+    "description": "配置 **pop 弹层主内容区域**自定义样式类名，传入的类会被加在 pop 弹层主内容区域的 DOM `.bk-popconfirm-content` 上"
+  },
+  "bk-popover/delay": { "description": "延迟显示，单位毫秒", "default": "0" },
+  "bk-popover/width": { "description": "提示框的内容容器的宽度", "default": "auto" },
+  "bk-popover/max-width": { "description": "提示框的内容容器的最大宽度", "default": "auto" },
+  "bk-popover/always": { "description": "是否总是可见", "options": ["true, false"], "default": "false" },
+  "bk-popover/content": { "description": "显示的内容", "default": "" },
+  "bk-popover/disabled": { "description": "是否禁用提示框", "options": ["true, false"], "default": "false" },
+  "bk-popover/transfer": {
+    "description": "将弹层放置于 document.body 内，使其不受父级样式影响，方便布局",
+    "options": ["true, false"],
+    "default": "false"
+  },
+  "bk-popover/on-show": { "description": "显示提示框时触发", "default": "function () {}" },
+  "bk-popover/on-hide": { "description": "隐藏提示框时触发", "default": "function () {}" },
+  "bk-popover/tippy-options": {
+    "description": "更多的其他tippyjs参数参考[tippyjs参数](https://atomiks.github.io/tippyjs/v5/all-props/)",
+    "default": "{}"
+  },
+  "bk-popover/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.tippy-popper` 上" },
+  "bk-popover/z-index": { "description": "弹出层的 `z-index`", "default": "2500" },
+  "bk-process/display-key": { "description": "循环 list 时，显示字段的 key 值(必传)" },
+  "bk-process/controllable": {
+    "description": "步骤可否被控制前后跳转",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-process/show-steps": {
+    "description": "是否显示子步骤操作按钮",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-process/cur-process": { "description": "当前步骤的索引值（必传），支持 .sync 修饰符", "default": "0" },
+  "bk-process/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-process` 上" },
+  "bk-progress/percent": { "description": "进度百分比", "options": ["0 < percent < 1"] },
+  "bk-progress/size": { "description": "尺寸", "options": ["small", "normal", "large"], "default": "normal" },
+  "bk-progress/stroke-width": { "description": "进度条的宽度，单位 px" },
+  "bk-progress/text-inside": {
+    "description": "进度条显示文字内置在进度条内",
+    "options": ["true false"],
+    "default": "false"
+  },
+  "bk-progress/color": { "description": "进度条背景色" },
+  "bk-progress/show-text": { "description": "是否显示进度条文字内容", "options": ["true", "false"], "default": "true" },
+  "bk-progress/title-style": {
+    "description": "设置 title 的样式",
+    "default": "{ fontSize: 16px, verticalAlign: middle }"
+  },
+  "bk-progress/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-progress` 上" },
+  "bk-radio/name": { "description": "名称" },
+  "bk-radio/value": { "description": "radio的真值" },
+  "bk-radio/disabled": { "description": "是否禁用", "options": ["true", "false"], "default": "false" },
+  "bk-radio/checked": {
+    "description": "初始化选中状态，如果 `v-model` 绑定的值也会相应改变，这个属性在 `radio-group` 里无效",
+    "options": ["true", "false"],
+    "default": "undefined"
+  },
+  "bk-radio/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-form-radio` 上" },
+  "bk-radio-group/name": { "description": "名称" },
+  "bk-rate/tooltips": {
+    "description": "展示的文案，数组中的每一项对应每一颗星星的文案",
+    "options": [],
+    "default": ""
+  },
+  "bk-rate/edit": { "description": "是否可编辑", "options": [], "default": "true" },
+  "bk-rate/width": { "description": "星星的宽度", "options": [], "default": "15" },
+  "bk-rate/height": { "description": "星星的高度", "options": [], "default": "16" },
+  "bk-rate/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-score-group` 上",
+    "options": [],
+    "default": ""
+  },
+  "bk-resize-layout/initial-divide": { "description": "初始化分隔侧栏大小", "default": "20%" },
+  "bk-resize-layout/placement": {
+    "description": "侧栏在布局中的位置",
+    "options": ["left", "right", "top", "bottom"],
+    "default": "left"
+  },
+  "bk-resize-layout/min": { "description": "侧栏最小像素宽度", "default": "100" },
+  "bk-resize-layout/max": { "description": "侧栏最大像素宽度", "default": "Inifinity" },
+  "bk-resize-layout/disabled": { "description": "是否禁用", "options": ["true", "false"], "default": "false" },
+  "bk-resize-layout/immediate": { "description": "是否实时拉伸", "options": ["true", "false"], "default": "false" },
+  "bk-resize-layout/collapsible": {
+    "description": "是否开启折叠功能",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-resize-layout/auto-minimize": { "description": "是否自定最小化", "default": "false" },
+  "bk-resize-layout/border": { "description": "是否显示外边框", "options": ["true", "false"], "default": "true" },
+  "bk-resize-layout/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM .bk-resize-layout 上"
+  },
+  "bk-round-progress/width": { "description": "圆环的直径", "default": "100px" },
+  "bk-round-progress/num-unit": { "description": "值的单位", "default": "%" },
+  "bk-round-progress/content": {
+    "description": "设置的内容，当设置此属性时，进度条会直接显示此属性的内容，不会显示进度值"
+  },
+  "bk-round-progress/num-show": {
+    "description": "是否显示目前百分数值（默认显示）",
+    "options": ["true", "false"],
+    "default": "true"
+  },
+  "bk-round-progress/num-style": { "description": "设置显示百分数的样式", "default": "{fontSize: 16px}" },
+  "bk-round-progress/title": { "description": "是否显示标题（默认不显示）" },
+  "bk-round-progress/title-style": { "description": "设置 title 的样式", "default": "{fontSize: 16px}" },
+  "bk-round-progress/config": {
+    "description": "设置进度圆环的颜色 bgColor、宽度 strokeWidth、背景色 bgColor",
+    "default": "{strokeWidth: 5, bgColor: gray, activeColor: green}"
+  },
+  "bk-round-progress/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-round-progress` 上"
+  },
+  "bk-search-select/data": { "description": "显示的数据" },
+  "bk-search-select/values": { "description": "选择中查询条件 支持v-model" },
+  "bk-search-select/split-code": { "description": "查询条件分隔符", "default": "" },
+  "bk-search-select/explain-code": { "description": "查询条件解释符", "default": "空格" },
+  "bk-search-select/placeholder": { "description": "输入框空白提示", "default": "请输入" },
+  "bk-search-select/empty-text": {
+    "description": "包含键值得过滤查询查询时为空的提示",
+    "default": "包含键值得过滤查询必须有一个值"
+  },
+  "bk-search-select/max-height": { "description": "最大高度", "default": "120" },
+  "bk-search-select/min-height": { "description": "最小高度", "default": "32" },
+  "bk-search-select/strink": { "description": "当输入条件过多超出input最小值时是否伸缩input框", "default": "true" },
+  "bk-search-select/show-delay": { "description": "列表弹窗动画延时时间", "default": "100" },
+  "bk-search-select/display-key": { "description": "显示的字段名称", "default": "name" },
+  "bk-search-select/primary-key": { "description": "项目的唯一id字段名称", "default": "id" },
+  "bk-search-select/condition": { "description": "查询条件的其他关系值", "default": "{ name: 或}" },
+  "bk-search-select/filter": { "description": "是否过滤", "default": "false" },
+  "bk-search-select/filter-children-method": { "description": "自定义过滤子列表的方法" },
+  "bk-search-select/filter-menu-method": { "description": "自定义过滤父列表的方法" },
+  "bk-search-select/remote-method": {
+    "description": "自定义异步获取子列表的方法（必须有返回值，可返回 Promise 或者直接返回数据）"
+  },
+  "bk-search-select/remote-empty-text": { "description": "自定义异步获取子列表为空显示", "default": "暂无数据" },
+  "bk-search-select/remote-loading-text": {
+    "description": "自定义异步获取子列表时loading显示",
+    "default": "加载中。。。"
+  },
+  "bk-search-select/show-condition": { "description": "是否显示条件选择 （或）", "default": "true" },
+  "bk-search-select/key-delay": { "description": "监听输入和过滤的延时间隔", "default": "300" },
+  "bk-search-select/readonly": { "description": "是否只读", "default": "false" },
+  "bk-search-select/wrap-zindex": { "description": "设置组件的层级高度", "default": "9" },
+  "bk-search-select/popover-zindex": { "description": "设置下拉列表的层级高度", "default": "999" },
+  "bk-search-select/default-focus": { "description": "组件初始化时是否获取焦点", "default": "false" },
+  "bk-search-select/show-popover-tag-change": {
+    "description": "生成或者删除标签时是否显示一级子列表",
+    "default": "true"
+  },
+  "bk-search-select/input-type": { "description": "输入框类型", "options": ["text", "number"], "default": "text" },
+  "bk-search-select/clearable": { "description": "是否允许清空", "default": "false" },
+  "bk-search-select/validate-message": { "description": "校验提示文本", "default": "" },
+  "bk-search-select/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.search-select-wrap` 上"
+  },
+  "bk-select/value": { "description": "当前被选中的值，支持 `v-model`" },
+  "bk-select/multiple": { "description": "是否多选", "default": "false" },
+  "bk-select/display-tag": {
+    "description": "是否将选择的结果以标签的形式显示，仅当开启`multiple`时生效",
+    "default": "false"
+  },
+  "bk-select/is-tag-width-limit": { "description": "是否对标签进行宽度限制，超出显示`...`", "default": "true" },
+  "bk-select/collapse-tag": {
+    "description": "当以标签形式显示选择结果时，是否合并溢出的结果以数字显示",
+    "default": "true"
+  },
+  "bk-select/show-select-all": { "description": "是否显示全选选项，仅当开启`multiple`时生效", "default": "false" },
+  "bk-select/scroll-height": { "description": "下拉列表滚动高度", "default": "216" },
+  "bk-select/placeholder": { "description": "未选择数据时的占位", "default": "请选择" },
+  "bk-select/disabled": { "description": "是否禁用", "default": "false" },
+  "bk-select/readonly": { "description": "是否只读", "default": "false" },
+  "bk-select/size": { "description": "尺寸", "options": ["large small"] },
+  "bk-select/loading": { "description": "是否加载中", "default": "false" },
+  "bk-select/clearable": { "description": "是否允许清空", "default": "true" },
+  "bk-select/searchable": { "description": "是否显示搜索框", "default": "false" },
+  "bk-select/search-ignore-case": { "description": "搜索选项时是否忽略大小写", "default": "true" },
+  "bk-select/popover-min-width": { "description": "设置下拉列表的最小宽度, 默认的列表宽度跟组件保持一致" },
+  "bk-select/popover-width": { "description": "设置下拉列表的宽度, 默认的列表宽度跟组件保持一致" },
+  "bk-select/popover-options": { "description": "透传至下拉列表所在的popover组件的tippyOptions选项" },
+  "bk-select/remote-method": {
+    "description": "远程搜索方法（可返回 Promise 或者直接返回数据），函数的参数为搜索关键字"
+  },
+  "bk-select/font-size": {
+    "description": "设置下拉已选择及列表的字体大小",
+    "options": ["normal（12px），medium（14px），large（16px）"],
+    "default": "normal"
+  },
+  "bk-select/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-select` 上" },
+  "bk-select/ext-popover-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在下拉菜单的 DOM `.bk-select-dropdown-content` 上"
+  },
+  "bk-select/z-index": { "description": "弹出层的 `z-index`", "default": "2500" },
+  "bk-select/prefix-icon": { "description": "配置在下拉选框前面的icon类名" },
+  "bk-select/search-placeholder": { "description": "搜索框占位", "default": "输入关键字搜索" },
+  "bk-select/search-with-pinyin": { "description": "搜索的时候是否加入中文转换为拼音搜索", "default": "false" },
+  "bk-select/enable-virtual-scroll": { "description": "是否开启虚拟滚动", "default": "false" },
+  "bk-select/virtual-scroll-render": { "description": "虚拟滚动内容的render,参数分别为数据和 createElement 函数" },
+  "bk-select/list": { "description": "开启虚拟滚动的时候需要传入的数据列表" },
+  "bk-select/id-Key": { "description": "虚拟滚动数据，值的key值", "default": "id" },
+  "bk-select/display-key": { "description": "虚拟滚动数据，显示字段的key值", "default": "name" },
+  "bk-select/item-height": { "description": "虚拟滚动单行元素的高度", "default": "32" },
+  "bk-select/show-empty": { "description": "是否展示空数据的提示", "default": "true" },
+  "bk-select/show-on-init": { "description": "是否在初始化的时候展示下拉列表", "default": "false" },
+  "bk-select/behavior": {
+    "description": "风格设置(simplicity:简约 normal:正常)",
+    "options": ["normal", "simplicity"],
+    "default": "normal"
+  },
+  "bk-option/id": { "description": "当前选项的值，必填" },
+  "bk-option/name": { "description": "当前选项展示的文本，必填" },
+  "bk-option/disabled": { "description": "是否禁用当前选项", "default": "false" },
+  "bk-option-group/name": { "description": "当前分组名称，必填" },
+  "bk-option-group/show-count": { "description": "是否显示分组子选项总数", "default": "true" },
+  "bk-option-group/show-collapse": { "description": "是否显示分组收起\\展开", "default": "false" },
+  "bk-option-group/is-collapse": {
+    "description": "分组子选项是否收起，必须设置了`show-collapse`为`true`此配置项才生效，此配置项支持`sync`同步操作",
+    "default": "false"
+  },
+  "bk-option-group/readonly": {
+    "description": "分组展开收起功能是否只读，必须设置了`show-collapse`为`true`此配置项才生效",
+    "default": "false"
+  },
+  "bk-sideslider/title": { "description": "自定义组件标题" },
+  "bk-sideslider/quick-close": { "description": "是否支持点击遮罩关闭组件", "default": "false" },
+  "bk-sideslider/show-mask": { "description": "是否允许出现遮罩", "default": "true" },
+  "bk-sideslider/width": { "description": "组件的宽度", "default": "400" },
+  "bk-sideslider/direction": { "description": "组件滑出的方向", "options": ["left", "right"], "default": "right" },
+  "bk-sideslider/before-close": { "description": "关闭前钩子函数" },
+  "bk-sideslider/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-sideslider` 上"
+  },
+  "bk-sideslider/transfer": {
+    "description": "控制 sidslider 是否出现在 body 内",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-slider/range": { "description": "是否为范围选择", "options": ["true", "false"], "default": "false" },
+  "bk-slider/value": { "description": "使用v-model，将指定变量与slider的值进行绑定", "default": "0" },
+  "bk-slider/min-value": { "description": "最小值设置", "default": "0" },
+  "bk-slider/max-value": { "description": "最大值设置", "default": "100" },
+  "bk-slider/show-tip": { "description": "显示提示", "options": ["true", "false"], "default": "true" },
+  "bk-slider/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-slider` 上" },
+  "bk-slider/step": { "description": "滑块每一步移动的距离", "default": "1" },
+  "bk-slider/show-interval": { "description": "是否显示间断点", "options": ["true", "false"], "default": "false" },
+  "bk-slider/show-interval-label": {
+    "description": "是否显示间断点下的标签",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-slider/interval-label-unit": { "description": "标签单位" },
+  "bk-slider/show-button-label": {
+    "description": "滑块下是否显示value值",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-slider/button-label-unit": { "description": "滑块下是否显示单位" },
+  "bk-slider/show-between-label": { "description": "首尾标签", "options": ["true", "false"], "default": "false" },
+  "bk-slider/show-input": { "description": "带输入的选择", "options": ["true", "false"], "default": "false" },
+  "bk-slider/custom-content": { "description": "自定义内容" },
+  "bk-slider/show-custom-label": {
+    "description": "是否显示自定义标签",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-slider/show-custom-tip": { "description": "是否显示自定义tip", "options": ["true", "false"], "default": "false" },
+  "bk-slider/vertical": { "description": "是否为垂直模式", "options": ["true", "false"], "default": "false" },
+  "bk-slider/height": { "description": "垂直模式高度", "default": "200px" },
+  "bk-steps/cur-step": { "description": "当前步骤的索引值，从 1 开始；支持 .sync 修饰符", "default": "1" },
+  "bk-steps/direction": {
+    "description": "步骤条方向，支持水平（horizontal）和竖直（vertical）两种方向",
+    "options": ["horizontal, vertical"],
+    "default": "horizontal"
+  },
+  "bk-steps/size": { "description": "指定大小，目前支持普通（不设置）和小尺寸（small）", "options": ["small"] },
+  "bk-steps/status": {
+    "description": "指定当前步骤状态，不指定则为默认状态（是否完成）",
+    "options": ["error, loading"]
+  },
+  "bk-steps/controllable": { "description": "步骤可否被控制前后跳转", "default": "false" },
+  "bk-steps/theme": {
+    "description": "组件的主题色",
+    "options": ["primary, info, success, warning, danger"],
+    "default": "primary"
+  },
+  "bk-steps/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-steps` 上" },
+  "bk-steps/before-change": { "description": "步骤切换前的钩子函数，支持异步函数" },
+  "bk-swiper/list": { "description": "数据列表，传了list以list为主", "options": [], "default": "" },
+  "bk-swiper/is-loop": { "description": "是否开启图片轮播", "options": [], "default": "true" },
+  "bk-swiper/loop-time": { "description": "轮播间隔", "options": [], "default": "8000" },
+  "bk-swiper/height": { "description": "轮播容器高度", "default": "容器CSS高度" },
+  "bk-swiper/width": { "description": "轮播容器宽度", "default": "容器CSS宽度" },
+  "bk-swiper/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-swiper-home` 上" },
+  "bk-switcher/disabled": { "description": "是否禁用", "default": "false" },
+  "bk-switcher/show-text": { "description": "是否显示文本", "default": "false" },
+  "bk-switcher/on-text": {
+    "description": "打开状态显示的文本",
+    "options": ["建议 1 到 3 个字符，过长显示不全"],
+    "default": "ON"
+  },
+  "bk-switcher/off-text": {
+    "description": "关闭状态显示文本",
+    "options": ["建议 1 到 3 个字符，过长显示不全"],
+    "default": "OFF"
+  },
+  "bk-switcher/size": { "description": "尺寸，显示文本时此属性无效", "options": ["large small"], "default": "" },
+  "bk-switcher/theme": { "description": "主题", "options": ["primary success"], "default": "success" },
+  "bk-switcher/is-outline": { "description": "是否为描边效果", "default": "false" },
+  "bk-switcher/is-square": { "description": "是否为方形效果", "default": "false" },
+  "bk-switcher/true-value": { "description": "switcher的真值", "default": "true" },
+  "bk-switcher/false-value": { "description": "switcher的假值", "default": "false" },
+  "bk-switcher/pre-check": {
+    "description": "状态切换的前置检测接收操作后的状态（lastValue），返回true，false，Promise"
+  },
+  "bk-tab/active": { "description": "当前显示的选项卡名称，支持`sync`修饰符" },
+  "bk-tab/type": {
+    "description": "选项卡样式",
+    "options": ["card", "border-card", "unborder-card"],
+    "default": "border-card"
+  },
+  "bk-tab/tab-position": { "description": "选项卡位置", "options": ["left", "right", "top"], "default": "top" },
+  "bk-tab/closable": { "description": "是否可关闭选项卡", "options": ["true", "false"], "default": "false" },
+  "bk-tab/addable": { "description": "是否可新增选项卡", "options": ["true", "false"], "default": "false" },
+  "bk-tab/sortable": { "description": "标签是否可拖拽排序", "options": ["true", "false"], "default": "false" },
+  "bk-tab/sort-type": {
+    "description": "标签拖拽排序的方式",
+    "options": ["replace(交互位置)", "insert(插入)"],
+    "default": "replace"
+  },
+  "bk-tab/label-height": { "description": "选项卡label的高度", "default": "50" },
+  "bk-tab/scroll-step": { "description": "可滚动时，每次滚动的像素", "default": "200" },
+  "bk-tab/before-toggle": { "description": "切换选项卡前的钩子函数, 支持异步函数" },
+  "bk-tab/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-tab` 上" },
+  "bk-tab/validate-active": {
+    "description": "是否校验ActiveName，true：如果active匹配不到，默认激活第一个Tab，触发tab-change；false：active匹配不到不显示",
+    "options": ["true", "false"],
+    "default": "true"
+  },
+  "bk-tab/show-header": { "description": "是否显示选项卡头部", "options": ["true", "false"], "default": "true" },
+  "bk-tab/change-on-hover": {
+    "description": "鼠标悬停tab时进行切换",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-tab/change-on-hover-delay": { "description": "鼠标悬停切换tab的延时，单位为毫秒", "default": "1000" },
+  "bk-tab-panel/name": { "description": "选项卡唯一标识" },
+  "bk-tab-panel/label": { "description": "选项卡默认显示的文本" },
+  "bk-tab-panel/render-label": {
+    "description": "用于自定义选项卡label的内容的渲染函数，此配置优先级比`label`插槽更高"
+  },
+  "bk-tab-panel/closable": {
+    "description": "是否可关闭选项卡，设置此属性后，`bk-tab` 上的 `closable` 属性将不会作用于该 `bk-tab-panel`",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-tab-panel/visible": { "description": "是否显示选项卡", "options": ["true", "false"], "default": "true" },
+  "bk-tab-panel/disabled": { "description": "选项卡是否禁用", "options": ["true", "false"], "default": "false" },
+  "bk-tab-panel/sortable": {
+    "description": "选项卡标签是否可拖拽排序",
+    "options": ["true", "false"],
+    "default": "true"
+  },
+  "bk-tab-panel/render-directive": {
+    "description": "切换面板时的渲染方式",
+    "options": ["if", "show"],
+    "default": "show"
+  },
+  "bk-table/data": { "description": "显示的数据" },
+  "bk-table/height": {
+    "description": "Table 的高度，默认为自动高度。如果 height 为 Number 类型，单位 px；如果 height 为 String 类型，则这个高度会设置为 Table 的 style.height 的值，Table 的高度会受控于外部样式。"
+  },
+  "bk-table/max-height": { "description": "Table 的最大高度" },
+  "bk-table/stripe": { "description": "是否为斑马纹 Table", "default": "false" },
+  "bk-table/border": { "description": "是否带有边框", "default": "false" },
+  "bk-table/outer-border": { "description": "是否带有外边框", "default": "false" },
+  "bk-table/row-border": { "description": "是否带有横向边框, 当 border 为 true 时，此属性设置无效", "default": "true" },
+  "bk-table/col-border": {
+    "description": "是否带有纵向边框, 当 border 为 true 时，此属性设置无效",
+    "default": "false"
+  },
+  "bk-table/size": {
+    "description": "Table 的尺寸, 用于控制表格显示文本的最大行数",
+    "options": ["small(1行)", "medium(2行)", "large(3行)"],
+    "default": "small"
+  },
+  "bk-table/fit": { "description": "列的宽度是否自动撑开", "default": "true" },
+  "bk-table/show-header": { "description": "是否显示表头", "default": "true" },
+  "bk-table/highlight-current-row": { "description": "是否高亮当前行", "default": "false" },
+  "bk-table/row-class-name": {
+    "description": "行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className"
+  },
+  "bk-table/row-style": {
+    "description": "行的 style 的回调方法，也可以使用一个固定的 Object 为所有行设置一样的 Style"
+  },
+  "bk-table/cell-class-name": {
+    "description": "单元格的 className 的回调方法，也可以使用字符串为所有单元格设置一个固定的 className"
+  },
+  "bk-table/cell-style": {
+    "description": "单元格的 style 的回调方法，也可以使用一个固定的 Object 为所有单元格设置一样的 Style"
+  },
+  "bk-table/cell-attributes": { "description": "单元格的 DOM 原生属性" },
+  "bk-table/header-border": { "description": "表头是否带有边框分割", "default": "false" },
+  "bk-table/header-row-class-name": {
+    "description": "表头行的 className 的回调方法，也可以使用字符串为所有表头行设置一个固定的 className"
+  },
+  "bk-table/header-row-style": {
+    "description": "表头行的 style 的回调方法，也可以使用一个固定的 Object 为所有表头行设置一样的 Style"
+  },
+  "bk-table/header-cell-class-name": {
+    "description": "表头单元格的 className 的回调方法，也可以使用字符串为所有表头单元格设置一个固定的 className"
+  },
+  "bk-table/header-cell-style": {
+    "description": "表头单元格的 style 的回调方法，也可以使用一个固定的 Object 为所有表头单元格设置一样的 Style"
+  },
+  "bk-table/header-cell-attributes": { "description": "表头单元格的 DOM 原生属性" },
+  "bk-table/row-key": {
+    "description": "行数据的 Key，用来优化 Table 的渲染；在使用 reserve-selection 功能的情况下，该属性是必填的。类型为 String 时，支持多层访问：user.info.id，但不支持 user.info[0].id，此种情况请使用 Function"
+  },
+  "bk-table/empty-text": {
+    "description": "空数据时显示的文本内容，也可以通过 slot=\"empty\" 设置",
+    "default": "暂无数据"
+  },
+  "bk-table/default-expand-all": {
+    "description": "是否默认展开所有行，当 Table 中存在 type=\"expand\" 的 Column 的时候有效",
+    "default": "false"
+  },
+  "bk-table/expand-row-keys": {
+    "description": "可以通过该属性设置 Table 目前的展开行，需要设置 row-key 属性才能使用，该属性为展开行的 keys 数组"
+  },
+  "bk-table/default-sort": {
+    "description": "默认的排序列的 prop 和顺序。它的 prop 属性指定默认的排序的列，order指定默认排序的顺序",
+    "options": ["order:ascending,descending"],
+    "default": "如果只指定了 prop, 没有指定 order, 则默认顺序是 ascending"
+  },
+  "bk-table/show-summary": { "description": "是否在表尾显示合计行", "default": "false" },
+  "bk-table/sum-text": { "description": "合计行第一列的文本", "default": "合计" },
+  "bk-table/summary-method": { "description": "自定义的合计计算方法" },
+  "bk-table/span-method": { "description": "合并行或列的计算方法" },
+  "bk-table/select-on-indeterminate": {
+    "description": "在多选表格中，当仅有部分行被选中时，点击表头的多选框时的行为。若为 true，则选中所有行；若为 false，则取消选择所有行",
+    "default": "true"
+  },
+  "bk-table/pagination": { "description": "Table 的分页。`current` 属性表示当前页码,`count` 属性表示数据总量" },
+  "bk-table/auto-scroll-to-top": { "description": "Table 分页变化时，表格是否自动滚动到顶部", "default": "false" },
+  "bk-table/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-table` 上" },
+  "bk-table-column/type": {
+    "description": "对应列的类型。如果设置了 selection 则显示多选框；如果设置了 index 则显示该行的索引（从 1 开始计算）；如果设置了 expand 则显示为一个可展开的按钮",
+    "options": ["selection", "index", "expand", "setting"]
+  },
+  "bk-table-column/index": { "description": "如果设置了 type=index，可以通过传递 index 属性来自定义索引" },
+  "bk-table-column/column-key": {
+    "description": "column 的 key，如果需要使用 filter-change 事件，则需要此属性标识是哪个 column 的筛选条件"
+  },
+  "bk-table-column/label": { "description": "显示的标题" },
+  "bk-table-column/prop": { "description": "对应列内容的字段名，也可以使用 property 属性" },
+  "bk-table-column/width": { "description": "对应列的宽度" },
+  "bk-table-column/min-width": {
+    "description": "对应列的最小宽度，与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列"
+  },
+  "bk-table-column/fixed": {
+    "description": "列是否固定在左侧或者右侧，true 表示固定在左侧",
+    "options": ["true,left,right"]
+  },
+  "bk-table-column/render-header": { "description": "列标题 Label 区域渲染使用的 Function" },
+  "bk-table-column/sortable": {
+    "description": "对应列是否可以排序，如果设置为 'custom'，则代表用户希望远程排序，需要监听 Table 的 sort-change 事件",
+    "options": ["true, false, custom"],
+    "default": "false"
+  },
+  "bk-table-column/sort-method": {
+    "description": "对数据进行排序的时候使用的方法，仅当 sortable 设置为 true 的时候有效，需返回一个数字，和 Array.sort 表现一致"
+  },
+  "bk-table-column/sort-by": {
+    "description": "指定数据按照哪个属性进行排序，仅当 sortable 设置为 true 且没有设置 sort-method 的时候有效。如果 sort-by 为数组，则先按照第 1 个属性排序，如果第 1 个相等，再按照第 2 个排序，以此类推"
+  },
+  "bk-table-column/sort-orders": {
+    "description": "数据在排序时所使用排序策略的轮转顺序，仅当 sortable 为 true 时有效。需传入一个数组，随着用户点击表头，该列依次按照数组中元素的顺序进行排序",
+    "options": ["数组中的元素需为以下三者之一：ascending 表示升序，descending 表示降序，null 表示还原为原始顺序"],
+    "default": "[ascending, descending, null]"
+  },
+  "bk-table-column/resizable": {
+    "description": "对应列是否可以通过拖动改变宽度（需要在 bk-table 上设置 border 属性为真）",
+    "default": "true"
+  },
+  "bk-table-column/formatter": { "description": "用来格式化内容" },
+  "bk-table-column/show-overflow-tooltip": { "description": "当内容过长被隐藏时显示 tooltip", "default": "false" },
+  "bk-table-column/align": { "description": "对齐方式", "options": ["left", "center", "right"], "default": "left" },
+  "bk-table-column/header-align": {
+    "description": "表头对齐方式，若不设置该项，则使用表格的对齐方式",
+    "options": ["left", "center", "right"]
+  },
+  "bk-table-column/class-name": { "description": "列的 className" },
+  "bk-table-column/label-class-name": { "description": "当前列标题的自定义类名" },
+  "bk-table-column/selectable": {
+    "description": "仅对 type=selection 的列有效，类型为 Function，Function 的返回值用来决定这一行的 CheckBox 是否可以勾选"
+  },
+  "bk-table-column/reserve-selection": {
+    "description": "仅对 type=selection 的列有效，类型为 Boolean，为 true 则会在数据更新之后保留之前选中的数据（需指定 row-key）",
+    "default": "false"
+  },
+  "bk-table-column/filters": { "description": "数据过滤的选项，数组格式，数组中的元素需要有 text 和 value 属性。" },
+  "bk-table-column/filter-placement": {
+    "description": "过滤弹出框的定位",
+    "options": ["与 Tooltip 的 placement 属性相同"]
+  },
+  "bk-table-column/filter-multiple": { "description": "数据过滤的选项是否多选", "default": "true" },
+  "bk-table-column/filter-method": {
+    "description": "数据过滤使用的方法，如果是多选的筛选项，对每一条数据会执行多次，任意一次返回 true 就会显示"
+  },
+  "bk-table-column/filter-searchable": { "description": "数据过滤是否可以进行关键字搜索", "default": "false" },
+  "bk-table-column/filtered-value": {
+    "description": "选中的数据过滤项，如果需要自定义表头过滤的渲染方式，可能会需要此属性"
+  },
+  "bk-table-column/before-expand-change": {
+    "description": "行折叠状态发生变化前的回调函数，返回JavaScript中的falsy类型值时会阻止折叠状态变化"
+  },
+  "bk-table-column/before-select-change": {
+    "description": "状态发生变化前的回调函数，返回false时会阻止勾选状态的变化"
+  },
+  "bk-table-column/before-select-all-change": {
+    "description": "全选状态发生变化前的回调函数，返回false时会阻止全选状态的变化"
+  },
+  "bk-table-setting-content/fields": { "description": "可选的字段列表" },
+  "bk-table-setting-content/selected": { "description": "已选的字段列表" },
+  "bk-table-setting-content/value-key": { "description": "字段的value对应的键" },
+  "bk-table-setting-content/label-key": { "description": "字段的label对应的键" },
+  "bk-table-setting-content/size": { "description": "当前表格的尺寸" },
+  "bk-table-setting-content/limit": {
+    "description": "配置最多能选择多少个字段，配置该属性后，字段列表将不提供全选功能"
+  },
+  "bk-tag/icon": { "description": "设置图标" },
+  "bk-tag/theme": { "description": "主题", "options": ["success", "info", "warning", "danger"] },
+  "bk-tag/effect": { "description": "类型", "options": ["filled(填充式)", "stroke(描边式)"] },
+  "bk-tag/checkable": { "description": "是否点击选中", "options": ["true", "false"], "default": "false" },
+  "bk-tag/checked": {
+    "description": "设置标签的选中状态，跟 checkable 配合使用",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-tag/radius": { "description": "标签圆角设置", "default": "2px" },
+  "bk-tag/ext-cls": { "description": "配置自定义样式类名" },
+  "bk-tag-input/placeholder": { "description": "空数据时显示的提示文案", "default": "请输入并按 Enter 结束" },
+  "bk-tag-input/disabled": { "description": "是否禁用组件", "default": "false" },
+  "bk-tag-input/allow-next-focus": { "description": "多选时，是否允许选中后继续操作", "default": "true" },
+  "bk-tag-input/save-key": { "description": "循环 list 时，保存字段的 key 值", "default": "id" },
+  "bk-tag-input/search-key": { "description": "输入时，搜索的 key 值", "default": "name" },
+  "bk-tag-input/display-key": { "description": "循环 list 时，显示字段的 key 值", "default": "name" },
+  "bk-tag-input/has-delete-icon": { "description": "是否显示删除按钮", "default": "true" },
+  "bk-tag-input/clearable": { "description": "是否允许清空", "default": "true" },
+  "bk-tag-input/allow-create": { "description": "是否允许自定义标签输入", "default": "false" },
+  "bk-tag-input/max-data": { "description": "是否限制可选个数，-1为不限制", "default": "-1" },
+  "bk-tag-input/use-group": { "description": "是否显示分组", "default": "false" },
+  "bk-tag-input/max-result": { "description": "下拉列表搜索结果显示个数，默认为 10", "default": "10" },
+  "bk-tag-input/content-width": { "description": "自定义设置下拉弹框的宽度，单选会撑满因此失效", "default": "190" },
+  "bk-tag-input/content-max-height": { "description": "自定义设置下拉弹框的长度", "default": "300" },
+  "bk-tag-input/separator": { "description": "输入分隔符号，支持批量输入" },
+  "bk-tag-input/tpl": { "description": "自定义下拉列表模板" },
+  "bk-tag-input/tag-tpl": { "description": "自定义标签模板" },
+  "bk-tag-input/paste-fn": { "description": "批量粘贴处理文本返回格式" },
+  "bk-tag-input/left-space": { "description": "文字与左边框距离", "default": "0" },
+  "bk-tag-input/trigger": {
+    "description": "搜索列表触发展示方式，默认是输入关键字搜索时展示，也可以获取焦点是展示（用在数据量少的时候）",
+    "options": ["search", "focus"],
+    "default": "search"
+  },
+  "bk-tag-input/filter-callback": {
+    "description": "过滤函数，参数 `(filterVal, filterKey, data)`，分别表示当前过滤的文本、当前数据使用的 key、所有数据，方便使用者根据自己的逻辑来筛选数据"
+  },
+  "bk-tag-input/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-tag-selector` 上"
+  },
+  "bk-tag-input/tooltip-key": { "description": "让选中的标签在鼠标移上去时显示提示文案" },
+  "bk-tag-input/allow-auto-match": {
+    "description": "配置输入时失焦点后，如果完全匹配则自动选中，如果自定义则自动输入",
+    "default": "false"
+  },
+  "bk-tag-input/create-tag-validator": {
+    "description": "自定义标签校验函数，返回 boolean，参数`(tag)`，tag表示当前输入值，在自定义标签时，可以自定义添加标签的校验"
+  },
+  "bk-time-picker/type": { "description": "类型", "options": ["time", "timerange"], "default": "time" },
+  "bk-time-picker/allow-cross-day": {
+    "description": "是否允许时间段进行跨天选择, 即起始时间大于终止时间, 此属性只在type为timerange时生效",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-time-picker/value": {
+    "description": "时间选择器组件的值，可以是 Date 或字符串或数组，只有在 timerange 类型时才支持数组"
+  },
+  "bk-time-picker/editable": { "description": "设置文本框是否可编辑", "options": ["true", "false"], "default": "true" },
+  "bk-time-picker/format": { "description": "格式，不配置 ss 时即不显示秒", "default": "HH:mm:ss" },
+  "bk-time-picker/steps": {
+    "description": "面板的时间间隔，数组的三项分别对应小时、分钟、秒。例如设置为 [1, 15, 20] 时，面板中分钟的备选项为：00、15、30、45，秒的备选项为：00、20、40。",
+    "default": "[]"
+  },
+  "bk-time-picker/placement": {
+    "description": "面板出现的位置",
+    "options": [
+      "top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end"
+    ],
+    "default": "bottom-start"
+  },
+  "bk-time-picker/placeholder": { "description": "占位文案", "default": "" },
+  "bk-time-picker/open": { "description": "控制面板的显示与隐藏", "options": ["true", "false"], "default": "false" },
+  "bk-time-picker/disabled": { "description": "是否禁用", "options": ["true", "false"], "default": "false" },
+  "bk-time-picker/disabled-hours": { "description": "不可选小时数，数组中的小时数将为仅用状态", "default": "[]" },
+  "bk-time-picker/disabled-minutes": { "description": "不可选分钟数，数组中的分钟数将为仅用状态", "default": "[]" },
+  "bk-time-picker/disabled-seconds": { "description": "不可选分秒数，数组中的秒数将为仅用状态", "default": "[]" },
+  "bk-time-picker/hide-disabled-options": {
+    "description": "是否隐藏禁止选择的小时、分钟、秒",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-time-picker/font-size": {
+    "description": "设置组件主体内容字体大小",
+    "options": ["normal（12px），medium（14px），large（16px）"],
+    "default": "normal"
+  },
+  "bk-time-picker/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-date-picker` 上"
+  },
+  "bk-time-picker/behavior": {
+    "description": "风格设置(simplicity:简约 normal:正常)",
+    "options": ["normal", "simplicity"],
+    "default": "normal"
+  },
+  "bk-timeline/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-timeline` 上" },
+  "bk-tooltips/html": { "description": "提示信息内容，可配置 html 字符串，当此配置存在时，`content` 配置会失效" },
+  "bk-tooltips/showOnInit": {
+    "description": "是否在初始化时默认显示",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-tooltips/width": { "description": "设置 tip 的宽度", "default": "自适应" },
+  "bk-tooltips/theme": { "description": "主题颜色", "options": ["dark", "light"], "default": "dark" },
+  "bk-tooltips/placement": {
+    "description": "设置组件显示的位置",
+    "options": [
+      "auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start"
+    ],
+    "default": "top"
+  },
+  "bk-tooltips/placements": {
+    "description": "设置组件显示的位置，设置为数组，数组里的项表示组件显示位置的优先级，会结合页面的大小以及位置来自动计算",
+    "options": [
+      "auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start"
+    ],
+    "default": "[top]"
+  },
+  "bk-tooltips/trigger": {
+    "description": "触发方式",
+    "options": ["mouseenter, mouseover, click"],
+    "default": "mouseenter"
+  },
+  "bk-tooltips/delay": {
+    "description": "延迟的时间，毫秒。如果是数组，那么数组第一项表示出现的延迟时间，第二项表示消失的延迟时间；如果是数字，那么出现和消失都是这个延迟时间",
+    "default": "[0, 20]"
+  },
+  "bk-tooltips/duration": {
+    "description": "动画的时间，毫秒。延迟的时间，毫秒。如果是数组，那么数组第一项表示出现的动画的持续时间，第二项表示消失的动画持续时间；如果是数字，那么出现和消失的动画持续时间都是这个时间",
+    "default": "0"
+  },
+  "bk-tooltips/distance": { "description": "tip 出现于触发节点的距离，参照 `placement` 的方向", "default": "10" },
+  "bk-tooltips/appendTo": {
+    "description": "设置 tip 出现在哪个节点上，本参数要设置为 `Function`，返回要设置的 dom 节点",
+    "default": "() => document.body"
+  },
+  "bk-tooltips/zIndex": { "description": "设置 tip 的 z-index", "default": "9999" },
+  "bk-tooltips/onShow": { "description": "tip 显示时的回调函数" },
+  "bk-tooltips/onShown": { "description": "tip 显示完成的回调函数" },
+  "bk-tooltips/onHide / onClose": { "description": "tip 消失时的回调函数" },
+  "bk-tooltips/onHidden": { "description": "tip 消失完成的回调函数" },
+  "bk-tooltips/extCls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.tippy-popper` 上" },
+  "bk-tooltips/disabled": { "description": "是否禁用tooltips" },
+  "bk-tooltips/allowHtml": {
+    "description": "确定是否将内容字符串解析为HTML而不是文本",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-transfer/empty-content": { "description": "无数据时显示文案", "default": "[无数据, 未选择任何项]" },
+  "bk-transfer/display-key": { "description": "循环 list 时，显示字段的 key 值", "default": "name" },
+  "bk-transfer/setting-key": { "description": "具有唯一标识的 key 值", "default": "id" },
+  "bk-transfer/sort-key": { "description": "排序所依据的 key" },
+  "bk-transfer/searchable": { "description": "是否允许左侧搜索（以display-key来匹配）", "default": "false" },
+  "bk-transfer/sortable": { "description": "是否设置排序", "default": "false" },
+  "bk-transfer/source-list": { "description": "穿梭框数据源(必传)" },
+  "bk-transfer/target-list": { "description": "已选择的数据", "default": "[]" },
+  "bk-transfer/always-show-close": { "description": "是否一直显示关闭icon", "default": "true" },
+  "bk-transfer/show-overflow-tips": { "description": "文本溢出时，是否使用气泡显示全部内容", "default": "false" },
+  "bk-transfer/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-transfer` 上" },
+  "bk-transition/duration-time": { "description": "动画持续时间", "options": [".3s"] },
+  "bk-transition/duration-type": {
+    "description": "动画时间函数类型",
+    "options": ["linear"],
+    "default": "参考CSS属性transition-timing-function"
+  },
+  "bk-tree/node-key": { "description": "具有唯一标识的key值（必传）", "default": "id" },
+  "bk-tree/show-icon": { "description": "节点是否可配置icon", "options": ["true", "false"], "default": "true" },
+  "bk-tree/multiple": { "description": "单选/多选标识", "default": "false" },
+  "bk-tree/has-border": { "description": "是否显示边框", "default": "false" },
+  "bk-tree/draggable": { "description": "节点是否可拖拽", "options": ["true", "false"], "default": "false" },
+  "bk-tree/drag-sort": {
+    "description": "节点拖拽时可交换位置（开启拖拽可交换位置后将不支持改变层级）",
+    "options": ["true", "false"],
+    "default": "false"
+  },
+  "bk-tree/drag-after-expanded": { "description": "节点拖拽后是否展开", "options": ["Boolean"], "default": "true" },
+  "bk-tree/is-delete-root": { "description": "是否可删除根节点", "options": ["true", "false"], "default": "false" },
+  "bk-tree/opened-icon": {
+    "description": "父级节点展开全局icon(优先级低于源数据中配置的icon)",
+    "default": "icon-folder-open"
+  },
+  "bk-tree/closed-icon": {
+    "description": "父级节点收起全局icon(优先级低于源数据中配置的icon)",
+    "default": "icon-folder"
+  },
+  "bk-tree/node-icon": { "description": "子节点全局icon(优先级低于源数据中配置的icon)", "default": "icon-file" },
+  "bk-tree/tpl": { "description": "自定义模板" },
+  "bk-tree/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-tree` 上" },
+  "bk-upload/accept": {
+    "description": "可选的文件类型。theme为 picture时且accept没有配置时，可接受文件文类型为：'image/png,image/jpeg,image/jpg'。",
+    "options": [
+      "参考 [input 元素的 accept 属性](https:",
+      "developer.mozilla.org",
+      "en-US",
+      "docs",
+      "Web",
+      "HTML",
+      "Element",
+      "input",
+      "file#accept)，尽量使用文件扩展名"
+    ]
+  },
+  "bk-upload/url": { "description": "服务器地址（必传）", "default": "0" },
+  "bk-upload/header": { "description": "请求头 `{ name: \" \", value: \" \" }`" },
+  "bk-upload/handle-res-code": {
+    "description": "处理返回码的函数，默认参数 response，需要返回 true 或 false",
+    "default": "true"
+  },
+  "bk-upload/multiple": { "description": "是否支持多选", "options": ["true", "false"], "default": "true" },
+  "bk-upload/name": { "description": "后台读取文件的 key", "default": "upload_file" },
+  "bk-upload/size": { "description": "限制上传文件体积 `{ maxFileSize: 1, maxImgSize: 1 }`", "default": "5(MB)" },
+  "bk-upload/limit": { "description": "限制上传文件个数" },
+  "bk-upload/form-data-attributes": {
+    "description": "自定义上传属性",
+    "options": ["[{ name: attrName, value: Object }]"]
+  },
+  "bk-upload/with-credentials": { "description": "是否允许带上 cookie", "default": "false" },
+  "bk-upload/tip": { "description": "提示信息" },
+  "bk-upload/delay-time": { "description": "上传完毕后列表消失时间", "default": "0" },
+  "bk-upload/validate-name": { "description": "用来验证文件名是否合法的" },
+  "bk-upload/custom-request": { "description": "覆盖默认的上传行为，自定义上传的实现" },
+  "bk-upload/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-upload` 上" },
+  "bk-upload/files": { "description": "默认图片" },
+  "bk-version-detail/versionList": { "description": "版本列表", "default": "[]" },
+  "bk-version-detail/versionDetail": { "description": "选择的版本的明细", "default": "" },
+  "bk-version-detail/finished": {
+    "description": "版本列表是否已经加载完成，如果未加载完成组件将自动加载到可滚动窗口后停止加载",
+    "options": ["true", "false"],
+    "default": "true"
+  },
+  "bk-version-detail/getVersionList": { "description": "获取版本列表" },
+  "bk-version-detail/getVersionDetail": { "description": "获取当前选中的版本的版本明细" },
+  "bk-version-detail/currentVersion": { "description": "当前版本对应于数据’versionTitleName‘字段的值" },
+  "bk-version-detail/minLeftWidth": { "description": "左侧栏的最小宽度", "default": "180" },
+  "bk-version-detail/maxLeftWidth": { "description": "左侧栏的最大宽度", "default": "500" },
+  "bk-version-detail/versionTitleName": { "description": "左侧栏版本数据版本标题对应的字段名", "default": "title" },
+  "bk-version-detail/versionSubTitleName": { "description": "左侧栏版本数据版本副标题对应的字段名", "default": "date" },
+  "bk-virtual-scroll/show-index": { "description": "是否显示序号", "default": "false" },
+  "bk-virtual-scroll/list": {
+    "description": "数据集合，数据变化会调用setListData，如果数据量比较大，推荐调用方法添加数据",
+    "default": "[]"
+  },
+  "bk-virtual-scroll/ext-cls": {
+    "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-scroll-home` 上"
+  },
+  "bk-zoom-image/ext-cls": { "description": "配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-zoom-image` 上" }
+}

@@ -248,18 +248,38 @@
 
 ### 文字按钮 {page=#/button}
 
-:::demo 通过设置 `text` 属性来配置文字按钮。文字按钮同样提供 5 种主题，由 `theme` 属性来定义，可选的主题有 `default`,`primary`,`warning`,`success`,`danger`，默认为 `default`。另外可以使用 `disabled` 属性来定义按钮是否禁用，它接受一个 `Boolean` 值
+:::demo 通过设置 `text` 属性来配置文字按钮。文字按钮同样提供 5 种主题，由 `theme` 属性来定义，可选的主题有 `default`,`primary`,`warning`,`success`,`danger`，默认为 `default`。另外可以使用 `disabled` 属性来定义按钮是否禁用，它接受一个 `Boolean` 值，从设计角度而言，对于文字按钮，我们仅提倡使用 主要按钮 与 危险按钮 两种
 
 ```html
 <template>
     <div style="display: flex;">
         <div class="mr10" style="text-align: center;">
-            <bk-button :text="true" title="primary">
-                文字按钮
+            <bk-button :text="true" title="文字按钮" theme="default">
+                默认按钮
             </bk-button>
         </div>
         <div class="mr10" style="text-align: center;">
-            <bk-button title="primary" :text="true" :disabled="true">
+            <bk-button :text="true" title="文字按钮" theme="primary">
+                主要按钮
+            </bk-button>
+        </div>
+        <div class="mr10" style="text-align: center;">
+            <bk-button :text="true" title="文字按钮" theme="warning">
+                警告按钮
+            </bk-button>
+        </div>
+        <div class="mr10" style="text-align: center;">
+            <bk-button :text="true" title="文字按钮" theme="success">
+                成功按钮
+            </bk-button>
+        </div>
+        <div class="mr10" style="text-align: center;">
+            <bk-button :text="true" title="文字按钮" theme="danger">
+                危险按钮
+            </bk-button>
+        </div>
+        <div class="mr10" style="text-align: center;">
+            <bk-button title="文字按钮" :text="true" :disabled="true">
                 禁用状态
             </bk-button>
         </div>
@@ -285,11 +305,11 @@
 
 ```html
 <template>
-    <bk-button theme="default" title="主要按钮" :loading="true" class="mr10">主要按钮</bk-button>
-    <bk-button theme="primary" title="主要按钮" :loading="true" class="mr10">主要按钮</bk-button>
-    <bk-button theme="success" title="主要按钮" :loading="true" class="mr10">主要按钮</bk-button>
-    <bk-button theme="warning" title="主要按钮" :loading="true" class="mr10">主要按钮</bk-button>
-    <bk-button theme="danger" title="主要按钮" :loading="true" class="mr10">主要按钮</bk-button>
+    <bk-button theme="default" title="加载中按钮" :loading="true" class="mr10">主要按钮</bk-button>
+    <bk-button theme="primary" title="加载中按钮" :loading="true" class="mr10">主要按钮</bk-button>
+    <bk-button theme="success" title="加载中按钮" :loading="true" class="mr10">主要按钮</bk-button>
+    <bk-button theme="warning" title="加载中按钮" :loading="true" class="mr10">主要按钮</bk-button>
+    <bk-button theme="danger" title="加载中按钮" :loading="true" class="mr10">主要按钮</bk-button>
 </template>
 <script>
     import { bkButton } from '{{BASE_LIB_NAME}}'
@@ -305,12 +325,24 @@
 
 ### 反色按钮 {page=#/button}
 
-:::demo 通过配置 `outline` 属性来实现反色按钮的效果
+:::demo 通过配置 `outline` 属性来实现反色按钮的效果，其中主题为 `default` 的按钮（默认按钮）不会有反色效果
 
 ```html
 <template>
-    <bk-button theme="primary" title="反色按钮" :outline="true">
-        反色按钮
+    <bk-button theme="default" title="反色按钮" :outline="true" class="mr10">
+        默认按钮
+    </bk-button>
+    <bk-button theme="primary" title="反色按钮" :outline="true" class="mr10">
+        主要按钮
+    </bk-button>
+    <bk-button theme="success" title="反色按钮" :outline="true" class="mr10">
+        成功按钮
+    </bk-button>
+    <bk-button theme="warning" title="反色按钮" :outline="true" class="mr10">
+        警告按钮
+    </bk-button>
+    <bk-button theme="danger" title="反色按钮" :outline="true" class="mr10">
+        危险按钮
     </bk-button>
 </template>
 <script>

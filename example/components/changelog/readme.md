@@ -4,15 +4,27 @@
 
 <div class="changelog-wrapper">
 
+### 0.0.5 {page=#/changelog}
+###### 2021.8.21
+
+* **[add]**:
+    - 现在bk-vue-cec在安装后，将配合vetur，在开发人员编写代码时进行自动化组件提示了
+* **[fix]**:
+    - [Button 基础按钮](#/button) 为 文字按钮 增加其它主题
+
+---
+
 ### 0.0.4 {page=#/changelog}
 ###### 2021.8.18
 
-进一步优化了文档。
+进一步完善相关文档
+
+---
 
 ### 0.0.3 {page=#/changelog}
 ###### 2021.8.16
 
-`bk-vue-cec` 基于bk-magic-vue输出的更加符合运维场景的CEC组件库。
+`bk-vue-cec` 基于bk-magic-vue输出的更加符合运维场景的组件库
 
 </div>
 <script>

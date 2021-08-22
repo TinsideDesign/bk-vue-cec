@@ -1,11 +1,12 @@
 {
   "name": "bk-vue-cec",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "一个更加适合运维场景，符合CEC色彩标准的bk-magic-vue组件库，逐渐优化中",
   "main": "dist/bk-magic-vue.min.js",
   "files": [
     "lib",
-    "dist"
+    "dist",
+    "bkvue-cec-helper"
   ],
   "scripts": {
     "dll": "node build/build-dll.js",
@@ -189,5 +190,9 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "vetur": {
+    "tags": "./bkvue-cec-helper/tags.json",
+    "attributes": "./bkvue-cec-helper/attributes.json"
   }
 }

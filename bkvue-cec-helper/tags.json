@@ -1,0 +1,927 @@
+{
+  "bk-alert": {
+    "attributes": ["title", "closable", "close-text", "show-icon", "on-close"],
+    "subtags": [],
+    "description": "页面上面的提示信息"
+  },
+  "bk-animate-number": { "attributes": ["digits", "ext-cls"], "subtags": [], "description": "给数字加上动画效果" },
+  "bk-badge": {
+    "attributes": [
+      "val",
+      "icon",
+      "max",
+      "dot",
+      "visible",
+      "position",
+      "ext-cls",
+      "radius",
+      "valLength",
+      "on-hover",
+      "on-leave"
+    ],
+    "subtags": [],
+    "description": "可以出现在任意 DOM 节点角上的数字或状态标记"
+  },
+  "bk-tree-node": { "attributes": ["name"] },
+  "bk-big-tree": {
+    "attributes": ["on-select-change", "on-check-change", "on-expand-change", "on-disable-change"],
+    "subtags": [],
+    "description": "非递归渲染的树组件，适用于渲染大量树节点，更快的渲染速度，更少的内存使用，并且节点状态不污染原始数据"
+  },
+  "bk-breadcrumb": { "attributes": ["separator", "separator-class"] },
+  "bk-breadcrumb-item": { "attributes": ["to", "replace"] },
+  "bk-button": {
+    "attributes": [
+      "hover-theme",
+      "size",
+      "title",
+      "icon",
+      "icon-right",
+      "disabled",
+      "loading",
+      "outline",
+      "text",
+      "ext-cls",
+      "on-click"
+    ],
+    "subtags": [],
+    "description": "常用的操作按钮"
+  },
+  "bk-card": {
+    "attributes": [
+      "is-collapse",
+      "collapse-icons",
+      "collapse-status",
+      "position",
+      "showHead",
+      "showFoot",
+      "isEdit",
+      "border",
+      "on-edit"
+    ],
+    "subtags": ["header", "footer"],
+    "description": "卡片是一种容器，可以将信息聚合展示。"
+  },
+  "bk-cascade": {
+    "attributes": [
+      "value",
+      "multiple",
+      "list",
+      "options",
+      "scroll-height",
+      "scroll-width",
+      "placeholder",
+      "disabled",
+      "clearable",
+      "check-any-level",
+      "filterable",
+      "show-complete-name",
+      "separator",
+      "trigger",
+      "remote-method",
+      "is-remote",
+      "popover-options",
+      "toggle",
+      "change",
+      "clear",
+      "search"
+    ]
+  },
+  "bk-checkbox": {
+    "attributes": [
+      "name",
+      "value",
+      "true-value",
+      "false-value",
+      "disabled",
+      "checked",
+      "indeterminate",
+      "ext-cls",
+      "before-change"
+    ]
+  },
+  "bk-checkbox-group": { "attributes": ["name"] },
+  "bk-collapse": { "attributes": ["active-name", "accordion", "ext-cls"] },
+  "bk-collapse-item": {
+    "attributes": ["name", "ext-cls", "content-hidden-type", "hide-arrow", "custom-trigger-area", "disabled"]
+  },
+  "bk-color-picker": {
+    "attributes": ["size", "show-value", "transfer", "disabled", "readonly", "recommend", "ext-cls", "on-change"],
+    "subtags": [],
+    "description": "用于颜色选择，支持多种颜色格式，支持颜色预设。"
+  },
+  "bk-compose-form-item": {
+    "attributes": ["tail-background-color"],
+    "subtags": [],
+    "description": "多个表单项组合排版的布局风格"
+  },
+  "bk-date-picker": {
+    "attributes": [
+      "type",
+      "value",
+      "editable",
+      "format",
+      "readonly",
+      "disabled",
+      "clearable",
+      "open",
+      "multiple",
+      "time-picker-options",
+      "start-date",
+      "placeholder",
+      "placement",
+      "transfer",
+      "shortcuts",
+      "shortcut-close",
+      "options",
+      "font-size",
+      "ext-cls",
+      "up-to-now",
+      "use-shortcut-text",
+      "shortcut-selected-index",
+      "footer-slot-cls",
+      "behavior",
+      "on-change",
+      "on-clear",
+      "on-open-change",
+      "on-pick-success",
+      "on-shortcut-change"
+    ],
+    "subtags": ["trigger", "footer"],
+    "description": " DatePicker 日期选择器"
+  },
+  "bk-dialog": {
+    "attributes": [
+      "title",
+      "render-directive",
+      "ok-text",
+      "cancel-text",
+      "theme",
+      "position",
+      "width",
+      "show-mask",
+      "mask-close",
+      "close-icon",
+      "esc-close",
+      "fullscreen",
+      "header-position",
+      "show-footer",
+      "footer-position",
+      "draggable",
+      "scrollable",
+      "transfer",
+      "auto-close",
+      "on-close",
+      "confirm-fn",
+      "ext-cls",
+      "on-confirm",
+      "on-cancel",
+      "on-value-change",
+      "on-after-leave"
+    ],
+    "subtags": ["header", "footer", "tools"],
+    "description": "可完全定制内容的弹框"
+  },
+  "bk-diff": {
+    "attributes": ["new-content", "context", "theme", "format", "ext-cls"],
+    "subtags": [],
+    "description": " Diff 差异对比"
+  },
+  "bk-divider": {
+    "attributes": ["align", "color", "width", "type"],
+    "subtags": [],
+    "description": "区分内容 的 分割线"
+  },
+  "bk-dropdown-menu": {
+    "attributes": ["trigger", "font-size", "disabled", "ext-cls", "on-show", "on-hide"],
+    "subtags": ["dropdown-trigger", "dropdown-content"],
+    "description": " DropdownMenu 下拉菜单"
+  },
+  "bk-exception": { "attributes": ["scene", "ext-cls"], "subtags": [], "description": " Exception 异常提示" },
+  "bk-fixed-navbar": { "attributes": ["navItems", "ext-cls"], "subtags": [], "description": " FixedNavbar 悬浮导航" },
+  "bk-form": { "attributes": ["form-type", "label-width", "model", "rules", "ext-cls"] },
+  "bk-form-item": {
+    "attributes": [
+      "property",
+      "label",
+      "label-width",
+      "error-display-type",
+      "desc",
+      "desc-type",
+      "desc-icon",
+      "required",
+      "rules",
+      "icon-offset",
+      "ext-cls",
+      "auto-check"
+    ]
+  },
+  "bk-container": { "attributes": ["col", "gutter", "margin", "flex", "ext-cls"] },
+  "bk-col": { "attributes": ["span", "offset", "pull", "push"] },
+  "bk-icon": { "attributes": ["svg", "width", "height"], "subtags": [], "description": "`bk-vue-cec` 图标集" },
+  "bk-image": {
+    "attributes": [
+      "src",
+      "fit",
+      "alt",
+      "referrer-policy",
+      "lazy",
+      "scroll-container",
+      "fallback",
+      "preview-src-list",
+      "z-index",
+      "isShowPreviewTitle"
+    ]
+  },
+  "bk-image-viewer": { "attributes": ["urlList", "isShowTitle", "onSwitch", "onClose", "initialIndex"] },
+  "bk-info-box": {
+    "attributes": [
+      "width",
+      "type",
+      "title",
+      "subHeader",
+      "subTitle",
+      "showFooter",
+      "theme",
+      "maskClose",
+      "escClose",
+      "closeIcon",
+      "okText",
+      "cancelText",
+      "container",
+      "icon",
+      "confirmLoading",
+      "confirmFn",
+      "cancelFn",
+      "stateChangeFn",
+      "afterLeaveFn"
+    ],
+    "subtags": [],
+    "description": "模态对话框组件，可用于消息提示，成功提示，错误提示，后续操作询问等"
+  },
+  "bk-HTML": { "attributes": [] },
+  "bk-link": {
+    "attributes": ["href", "disabled", "underline", "icon", "icon-placement", "on-click"],
+    "subtags": [],
+    "description": "文字超链接"
+  },
+  "bk-loading": {
+    "attributes": [
+      "mode",
+      "title",
+      "size",
+      "theme",
+      "delay",
+      "immediate",
+      "opacity",
+      "color",
+      "zIndex",
+      "afterLeave",
+      "extCls"
+    ],
+    "subtags": [],
+    "description": "覆盖正在加载数据的组件一个 loading 层"
+  },
+  "bk-message": {
+    "attributes": [
+      "icon",
+      "message",
+      "delay",
+      "dismissable",
+      "offsetY",
+      "spacing",
+      "limit",
+      "ellipsisLine",
+      "onClose",
+      "extCls",
+      "ellipsisCopy"
+    ],
+    "subtags": [],
+    "description": "用户操作后的消息提示，用于成功、失败、警告等消息提醒。"
+  },
+  "bk-navigation": {
+    "attributes": [
+      "nav-width",
+      "hover-width",
+      "side-title",
+      "header-title",
+      "hover-leave-delay",
+      "default-open",
+      "theme-color",
+      "head-height",
+      "navigation-type",
+      "need-menu",
+      "ext-cls"
+    ]
+  },
+  "bk-navigation-menu": {
+    "attributes": [
+      "default-active",
+      "unique-opened",
+      "toggle-active",
+      "item-hover-bg-color",
+      "item-hover-color",
+      "item-active-bg-color",
+      "item-active-color",
+      "item-default-bg-color",
+      "item-default-color",
+      "item-default-icon-color",
+      "item-child-icon-default-color",
+      "item-child-icon-hover-color",
+      "item-active-icon-color",
+      "item-hover-icon-color",
+      "item-child-icon-active-color",
+      "sub-menu-open-bg-color",
+      "before-nav-change"
+    ]
+  },
+  "bk-navigation-menu-item": { "attributes": ["id", "disabled", "icon", "has-child", "group", "title"] },
+  "bk-navigation-menu-group": { "attributes": ["groupName"] },
+  "bk-notify": {
+    "attributes": [
+      "icon",
+      "title",
+      "message",
+      "position",
+      "delay",
+      "dismissable",
+      "limit",
+      "limitLine",
+      "showViewMore",
+      "offsetX",
+      "offsetY",
+      "onViewMoreHandler",
+      "onClose",
+      "ext-cls"
+    ],
+    "subtags": [],
+    "description": "用来给用户推送通知提示信息，通知可配置为从界面的四个角出现"
+  },
+  "bk-pagination": {
+    "attributes": [
+      "current",
+      "limit",
+      "limit-list",
+      "show-limit",
+      "location",
+      "align",
+      "type",
+      "size",
+      "small",
+      "show-total-count",
+      "ext-cls",
+      "on-change",
+      "on-limit-change"
+    ],
+    "subtags": [],
+    "description": "分页显示数据"
+  },
+  "bk-popconfirm": {
+    "attributes": [
+      "content",
+      "trigger",
+      "confirm-text",
+      "cancel-text",
+      "ext-cls",
+      "ext-popover-cls",
+      "on-confirm",
+      "on-cancel"
+    ],
+    "subtags": ["content"],
+    "description": "区别于使用模态的 Info 弹窗，弹出确认框是非模态的、符合就近原则的，尽量减少对流程的打断干扰"
+  },
+  "bk-popover": {
+    "attributes": [
+      "delay",
+      "width",
+      "max-width",
+      "always",
+      "content",
+      "disabled",
+      "transfer",
+      "on-show",
+      "on-hide",
+      "tippy-options",
+      "ext-cls",
+      "z-index"
+    ],
+    "subtags": [],
+    "description": "当鼠标指向页面元素时给出简单的提示"
+  },
+  "bk-process": {
+    "attributes": ["display-key", "controllable", "show-steps", "cur-process", "ext-cls", "on-process-changed"],
+    "subtags": [],
+    "description": " Process 步骤"
+  },
+  "bk-progress": {
+    "attributes": ["percent", "size", "stroke-width", "text-inside", "color", "show-text", "title-style", "ext-cls"],
+    "subtags": [],
+    "description": "进度条"
+  },
+  "bk-radio": { "attributes": ["name", "value", "disabled", "checked", "ext-cls"] },
+  "bk-radio-group": { "attributes": ["name"] },
+  "bk-rate": {
+    "attributes": ["tooltips", "edit", "width", "height", "ext-cls", "on-score"],
+    "subtags": [],
+    "description": "评分组件，支持展示分数和评分"
+  },
+  "bk-resize-layout": {
+    "attributes": [
+      "initial-divide",
+      "placement",
+      "min",
+      "max",
+      "disabled",
+      "immediate",
+      "collapsible",
+      "auto-minimize",
+      "border",
+      "ext-cls"
+    ]
+  },
+  "bk-round-progress": {
+    "attributes": [
+      "width",
+      "num-unit",
+      "content",
+      "num-show",
+      "num-style",
+      "title",
+      "title-style",
+      "config",
+      "ext-cls"
+    ],
+    "subtags": [],
+    "description": "环形进度条"
+  },
+  "bk-search-select": {
+    "attributes": [
+      "data",
+      "values",
+      "split-code",
+      "explain-code",
+      "placeholder",
+      "empty-text",
+      "max-height",
+      "min-height",
+      "strink",
+      "show-delay",
+      "display-key",
+      "primary-key",
+      "condition",
+      "filter",
+      "filter-children-method",
+      "filter-menu-method",
+      "remote-method",
+      "remote-empty-text",
+      "remote-loading-text",
+      "show-condition",
+      "key-delay",
+      "readonly",
+      "wrap-zindex",
+      "popover-zindex",
+      "default-focus",
+      "show-popover-tag-change",
+      "input-type",
+      "clearable",
+      "validate-message",
+      "ext-cls",
+      "on-show-menu",
+      "on-input-change",
+      "on-input-cut",
+      "on-input-click",
+      "on-input-focus",
+      "on-menu-select",
+      "on-menu-child-select",
+      "on-change",
+      "on-key-delete",
+      "on-key-enter",
+      "on-child-checked",
+      "on-clear",
+      "on-search"
+    ],
+    "subtags": ["prefix", "nextfix", "validate"],
+    "description": "功能组件，用于将搜索查询项集中在一个选择器中，搜索查询更加便捷、简单"
+  },
+  "bk-select": {
+    "attributes": [
+      "value",
+      "multiple",
+      "display-tag",
+      "is-tag-width-limit",
+      "collapse-tag",
+      "show-select-all",
+      "scroll-height",
+      "placeholder",
+      "disabled",
+      "readonly",
+      "size",
+      "loading",
+      "clearable",
+      "searchable",
+      "search-ignore-case",
+      "popover-min-width",
+      "popover-width",
+      "popover-options",
+      "remote-method",
+      "font-size",
+      "ext-cls",
+      "ext-popover-cls",
+      "z-index",
+      "prefix-icon",
+      "search-placeholder",
+      "search-with-pinyin",
+      "enable-virtual-scroll",
+      "virtual-scroll-render",
+      "list",
+      "id-Key",
+      "display-key",
+      "item-height",
+      "show-empty",
+      "show-on-init",
+      "behavior"
+    ]
+  },
+  "bk-option": { "attributes": ["id", "name", "disabled"] },
+  "bk-option-group": { "attributes": ["name", "show-count", "show-collapse", "is-collapse", "readonly"] },
+  "bk-sideslider": {
+    "attributes": [
+      "title",
+      "quick-close",
+      "show-mask",
+      "width",
+      "direction",
+      "before-close",
+      "ext-cls",
+      "transfer",
+      "on-shown",
+      "on-hidden",
+      "on-animation-end"
+    ],
+    "subtags": ["content", "footer"],
+    "description": "提供一个从两侧滑入的组件，供用户填写/查看更多信息"
+  },
+  "bk-slider": {
+    "attributes": [
+      "range",
+      "value",
+      "min-value",
+      "max-value",
+      "show-tip",
+      "ext-cls",
+      "step",
+      "show-interval",
+      "show-interval-label",
+      "interval-label-unit",
+      "show-button-label",
+      "button-label-unit",
+      "show-between-label",
+      "show-input",
+      "custom-content",
+      "show-custom-label",
+      "show-custom-tip",
+      "vertical",
+      "height",
+      "on-change"
+    ],
+    "subtags": [],
+    "description": "用于操作反馈的中间态(loading)、成功、失败等"
+  },
+  "bk-steps": {
+    "attributes": [
+      "cur-step",
+      "direction",
+      "size",
+      "status",
+      "controllable",
+      "theme",
+      "ext-cls",
+      "before-change",
+      "on-step-changed"
+    ],
+    "subtags": [],
+    "description": "引导用户按步骤完成流程的组件"
+  },
+  "bk-swiper": {
+    "attributes": ["list", "is-loop", "loop-time", "height", "width", "ext-cls", "on-index-change"],
+    "subtags": [],
+    "description": "轮播图组件，用于展示图片"
+  },
+  "bk-switcher": {
+    "attributes": [
+      "disabled",
+      "show-text",
+      "on-text",
+      "off-text",
+      "size",
+      "theme",
+      "is-outline",
+      "is-square",
+      "true-value",
+      "false-value",
+      "pre-check",
+      "on-change"
+    ],
+    "subtags": [],
+    "description": "在两种状态之间的切换"
+  },
+  "bk-tab": {
+    "attributes": [
+      "active",
+      "type",
+      "tab-position",
+      "closable",
+      "addable",
+      "sortable",
+      "sort-type",
+      "label-height",
+      "scroll-step",
+      "before-toggle",
+      "ext-cls",
+      "validate-active",
+      "show-header",
+      "change-on-hover",
+      "change-on-hover-delay"
+    ]
+  },
+  "bk-tab-panel": {
+    "attributes": ["name", "label", "render-label", "closable", "visible", "disabled", "sortable", "render-directive"]
+  },
+  "bk-table": {
+    "attributes": [
+      "data",
+      "height",
+      "max-height",
+      "stripe",
+      "border",
+      "outer-border",
+      "row-border",
+      "col-border",
+      "size",
+      "fit",
+      "show-header",
+      "highlight-current-row",
+      "row-class-name",
+      "row-style",
+      "cell-class-name",
+      "cell-style",
+      "cell-attributes",
+      "header-border",
+      "header-row-class-name",
+      "header-row-style",
+      "header-cell-class-name",
+      "header-cell-style",
+      "header-cell-attributes",
+      "row-key",
+      "empty-text",
+      "default-expand-all",
+      "expand-row-keys",
+      "default-sort",
+      "show-summary",
+      "sum-text",
+      "summary-method",
+      "span-method",
+      "select-on-indeterminate",
+      "pagination",
+      "auto-scroll-to-top",
+      "ext-cls"
+    ]
+  },
+  "bk-table-column": {
+    "attributes": [
+      "type",
+      "index",
+      "column-key",
+      "label",
+      "prop",
+      "width",
+      "min-width",
+      "fixed",
+      "render-header",
+      "sortable",
+      "sort-method",
+      "sort-by",
+      "sort-orders",
+      "resizable",
+      "formatter",
+      "show-overflow-tooltip",
+      "align",
+      "header-align",
+      "class-name",
+      "label-class-name",
+      "selectable",
+      "reserve-selection",
+      "filters",
+      "filter-placement",
+      "filter-multiple",
+      "filter-method",
+      "filter-searchable",
+      "filtered-value",
+      "before-expand-change",
+      "before-select-change",
+      "before-select-all-change"
+    ]
+  },
+  "bk-table-setting-content": { "attributes": ["fields", "selected", "value-key", "label-key", "size", "limit"] },
+  "bk-tag": {
+    "attributes": ["icon", "theme", "effect", "checkable", "checked", "radius", "ext-cls", "on-close", "on-change"],
+    "subtags": [],
+    "description": "用于标记事物的属性 & 维度和分类的小标签"
+  },
+  "bk-tag-input": {
+    "attributes": [
+      "placeholder",
+      "disabled",
+      "allow-next-focus",
+      "save-key",
+      "search-key",
+      "display-key",
+      "has-delete-icon",
+      "clearable",
+      "allow-create",
+      "max-data",
+      "use-group",
+      "max-result",
+      "content-width",
+      "content-max-height",
+      "separator",
+      "tpl",
+      "tag-tpl",
+      "paste-fn",
+      "left-space",
+      "trigger",
+      "filter-callback",
+      "ext-cls",
+      "tooltip-key",
+      "allow-auto-match",
+      "create-tag-validator",
+      "on-change",
+      "on-select",
+      "on-remove",
+      "on-removeAll",
+      "on-blur"
+    ],
+    "subtags": [],
+    "description": "常用于对标签列表的填写、关键字的输入"
+  },
+  "bk-time-picker": {
+    "attributes": [
+      "type",
+      "allow-cross-day",
+      "value",
+      "editable",
+      "format",
+      "steps",
+      "placement",
+      "placeholder",
+      "open",
+      "disabled",
+      "disabled-hours",
+      "disabled-minutes",
+      "disabled-seconds",
+      "hide-disabled-options",
+      "font-size",
+      "ext-cls",
+      "behavior",
+      "on-change",
+      "on-open-change"
+    ],
+    "subtags": [],
+    "description": " TimePicker 时间选择器"
+  },
+  "bk-timeline": {
+    "attributes": ["ext-cls", "on-select"],
+    "subtags": ["`title${index}`"],
+    "description": " Timeline 时间轴"
+  },
+  "bk-tooltips": {
+    "attributes": [
+      "html",
+      "showOnInit",
+      "width",
+      "theme",
+      "placement",
+      "placements",
+      "trigger",
+      "delay",
+      "duration",
+      "distance",
+      "appendTo",
+      "zIndex",
+      "onShow",
+      "onShown",
+      "onHide / onClose",
+      "onHidden",
+      "extCls",
+      "disabled",
+      "allowHtml"
+    ],
+    "subtags": [],
+    "description": "当鼠标指向页面元素时给出简单的提示"
+  },
+  "bk-transfer": {
+    "attributes": [
+      "empty-content",
+      "display-key",
+      "setting-key",
+      "sort-key",
+      "searchable",
+      "sortable",
+      "source-list",
+      "target-list",
+      "always-show-close",
+      "show-overflow-tips",
+      "ext-cls",
+      "on-change"
+    ],
+    "subtags": [
+      "left-header",
+      "right-header",
+      "left-empty-content",
+      "right-empty-content",
+      "source-option",
+      "target-option"
+    ],
+    "description": "穿梭框"
+  },
+  "bk-transition": {
+    "attributes": ["duration-time", "duration-type"],
+    "subtags": [],
+    "description": "Magicbox提供了一些通用动画，可配合`transition`直接使用"
+  },
+  "bk-tree": {
+    "attributes": [
+      "node-key",
+      "show-icon",
+      "multiple",
+      "has-border",
+      "draggable",
+      "drag-sort",
+      "drag-after-expanded",
+      "is-delete-root",
+      "opened-icon",
+      "closed-icon",
+      "node-icon",
+      "tpl",
+      "ext-cls",
+      "on-on-click",
+      "on-on-check",
+      "on-on-expanded",
+      "on-on-drag-node",
+      "on-async-load-nodes"
+    ],
+    "subtags": [],
+    "description": "用清晰的层级结构展示信息，可展开或折叠。"
+  },
+  "bk-upload": {
+    "attributes": [
+      "accept",
+      "url",
+      "header",
+      "handle-res-code",
+      "multiple",
+      "name",
+      "size",
+      "limit",
+      "form-data-attributes",
+      "with-credentials",
+      "tip",
+      "delay-time",
+      "validate-name",
+      "custom-request",
+      "ext-cls",
+      "files",
+      "on-on-done",
+      "on-on-progress",
+      "on-on-success",
+      "on-on-error",
+      "on-on-exceed",
+      "on-on-delete"
+    ],
+    "subtags": [],
+    "description": " Upload 文件上传"
+  },
+  "bk-version-detail": {
+    "attributes": [
+      "versionList",
+      "versionDetail",
+      "finished",
+      "getVersionList",
+      "getVersionDetail",
+      "currentVersion",
+      "minLeftWidth",
+      "maxLeftWidth",
+      "versionTitleName",
+      "versionSubTitleName",
+      "on-change"
+    ],
+    "subtags": ["item", "default"],
+    "description": " 版本更新明细显示组件"
+  },
+  "bk-virtual-scroll": {
+    "attributes": ["show-index", "list", "ext-cls", "on-change", "on-horizontal-scroll"],
+    "subtags": ["default", "index"],
+    "description": " VirtualScroll 虚拟滚动"
+  },
+  "bk-zoom-image": { "attributes": ["ext-cls"], "subtags": [], "description": "图片缩放组件，用于查看图片详情" }
+}
