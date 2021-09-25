@@ -716,11 +716,11 @@
                     this.tmpSelected = []
                     this.selectedList = []
                     this.updateSelected()
-                    this.$nextTick(() => {
+                    setTimeout(() => {
                         this.searchContent = this.selectedName
                         this.exposedId(this.currentList, oldVal)
                         this.tippyInstance()
-                    })
+                    }, 0)
                 }
             },
             // 多选删除数据

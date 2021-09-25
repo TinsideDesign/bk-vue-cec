@@ -31,6 +31,7 @@
         v-model="value"
         :list="list"
         clearable
+        filterable
         style="width: 250px;"
         @change="handleChange">
     </bk-cascade>
@@ -109,15 +110,15 @@
                                 ]
                             },
                             {
-                                id: null,
+                                id: '4',
                                 name: '临沧市'
                             },
                             {
-                                id: 0,
+                                id: '1',
                                 name: '大理'
                             },
                             {
-                                id: '',
+                                id: '2',
                                 name: '玉溪'
                             }
                         ]
