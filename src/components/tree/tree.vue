@@ -460,6 +460,7 @@
                 const gid = this.gid()
                 this.setDragNode(gid, node)
                 ev.dataTransfer.setData('gid', gid)
+                ev.dataTransfer.effectAllowed = 'move'
             },
 
             /**

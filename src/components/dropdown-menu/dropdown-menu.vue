@@ -27,7 +27,8 @@
 -->
 
 <template>
-    <div class="bk-dropdown-menu" :class="[disabled ? 'disabled' : '', fontSizeCls, extCls]"
+    <div class="bk-dropdown-menu"
+        :class="[disabled ? 'disabled' : '',positionFixed ? '' : 'bk-dropdown-full-width', fontSizeCls, extCls]"
         v-clickoutside="handleClickoutside"
         tabindex="0"
         @keydown.enter.prevent="handleMouseover"
@@ -75,6 +76,11 @@
                 type: Boolean,
                 default: false
             },
+            // 1.x为 positionFixed，2.x 为strategy
+            positionFixed: {
+                type: Boolean,
+                default: false
+            },
             // normal: 12px
             // medium: 14px
             // large: 16px
@@ -110,6 +116,10 @@
         mounted () {
             const placement = `bottom${this.getPlacementFix()}`
             this.popInstance = new Popper(this.$refs.refDropTrigger, this.$refs.refDropContent, { placement })
+            this.popInstance = new Popper(this.$refs.refDropTrigger, this.$refs.refDropContent, {
+                placement,
+                positionFixed: this.positionFixed
+            })
         },
         beforeDestroy () {
             if (this.popInstance) {

@@ -36,7 +36,6 @@
     }
 
     .bk-dropdown-content {
-        min-width: 100%;
         background: $defaultColor;
         padding: 5px 0;
         margin: 0;
@@ -68,7 +67,6 @@
 
     }
     .bk-dropdown-list {
-        width: 100%;
         max-height: 166px;
         list-style: none;
         padding: 0;
@@ -106,5 +104,13 @@
                 margin-right: 5px;
             }
         }
+    }
+}
+.bk-dropdown-full-width{
+    .bk-dropdown-content {
+        min-width: 100%;
+    }
+    .bk-dropdown-list {
+        width: 100%;
     }
 }

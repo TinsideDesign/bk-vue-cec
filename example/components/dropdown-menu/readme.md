@@ -386,6 +386,69 @@
 ```
 :::
 
+### position-fixed {page=#/dropdown-menu}
+
+:::demo 通过 `:position-fixed="true"`控制下拉框定位
+
+```html
+<template>
+    <div style="width: 200px;height: 50px;padding: 10px;;border: 1px solid #ccc;overflow: hidden;">
+        <bk-dropdown-menu :position-fixed="true" trigger="click" @show="dropdownShow" @hide="dropdownHide" ref="dropdown">
+            <div class="dropdown-trigger-btn " style="padding-left: 19px;" slot="dropdown-trigger">
+                <span>点击触发</span>
+                <i :class="['bk-icon icon-angle-down',{'icon-flip': isDropdownShow}]"></i>
+            </div>
+            <ul class="bk-dropdown-list" slot="dropdown-content">
+                <li><a href="javascript:;" @click="triggerHandler">生产环境</a></li>
+                <li><a href="javascript:;" @click="triggerHandler">预发布环境</a></li>
+                <li><a href="javascript:;" @click="triggerHandler">测试环境</a></li>
+                <li><a href="javascript:;" @click="triggerHandler">正式环境</a></li>
+            </ul>
+        </bk-dropdown-menu>
+    </div>
+</template>
+<script>
+    import { bkDropdownMenu } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkDropdownMenu
+        },
+        data () {
+            return {
+                isTextDropdownShow: false
+            }
+        },
+        methods: {
+            dropdownShow () {
+                this.isTextDropdownShow = true
+            },
+            dropdownHide () {
+                this.isTextDropdownShow = false
+            },
+            triggerHandler () {
+                this.$refs.dropdown.hide()
+            }
+        }
+    }
+</script>
+<style>
+.dropdown-trigger-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    min-width: 68px;
+    color: #3a84ff;
+    cursor: pointer;
+}
+.dropdown-trigger-text .bk-icon {
+    font-size: 22px;
+}
+</style>
+```
+
+:::
+
 ### 属性 {page=#/dropdown-menu}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
@@ -393,6 +456,7 @@
 | trigger | 触发事件 | String | `click`、`mouseover`| `mouseover` |
 | font-size | 设置下拉已选择及列表的字体大小 | String | `normal`（12px），`medium`（14px），`large`（16px） | normal |
 | disabled | 禁用下拉菜单 | Boolean | `true`、`false`| `false` |
+| position-fixed | 下拉框定位属性 | Boolean | `true`（使用position:fiexed来进行定位）、`false`（使用position:absoluted来进行定位）| `false` |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-dropdown-menu` 上 | String | —— | —— |
 
 ### 插槽(slot) {page=#/dropdown-menu}
