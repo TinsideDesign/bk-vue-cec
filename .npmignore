@@ -36,3 +36,4 @@ gulpfile.library.js
 postcss.config.js
 coverage
 src
+CONTRIBUTING.md

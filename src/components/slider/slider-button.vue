@@ -195,10 +195,11 @@
                             this.$parent.emitChange()
                         }
                     }, 0)
-                    this.$parent.on(window, 'mousemove', this.onDragging)
-                    this.$parent.on(window, 'touchmove', this.onDragging)
-                    this.$parent.on(window, 'mouseup', this.onDragEnd)
-                    this.$parent.on(window, 'touchend', this.onDragEnd)
+                    // 滑动选择器滑动结束，删除绑定的事件
+                    this.$parent.off(window, 'mousemove', this.onDragging)
+                    this.$parent.off(window, 'touchmove', this.onDragging)
+                    this.$parent.off(window, 'mouseup', this.onDragEnd)
+                    this.$parent.off(window, 'touchend', this.onDragEnd)
                 }
             }
         }
