@@ -4,6 +4,19 @@
 
 <div class="changelog-wrapper">
 
+### 0.0.6 {page=#/changelog}
+###### 2021.9.26
+
+* **[add]**:
+    - [DropdownMenu 下拉菜单](#/dropdown-menu) 增加position-fixed属性支持
+* **[fix]**:
+    - [Button 基础按钮](#/button) 为 文字按钮 增加其它主题支持的前提下，确保默认主题为“primary”以和bk-magic-vue兼容
+* **[update]**:
+    - [Slider 滑动选择器](#/slider) 增加position-fixed属性支持
+    - [Tree 树](#/tree) 拖拽时候，鼠标样式去掉绿色加号
+
+---
+
 ### 0.0.5 {page=#/changelog}
 ###### 2021.8.21
 
