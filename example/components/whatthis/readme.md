@@ -10,7 +10,15 @@
 
 大型央企、互联网头部企业、独角兽企业，均有使用
 
-### QQ交流 {page=#/what-this}
+### QQ群交流 {page=#/what-this}
 
 欢迎加入 QQ群 877291441 进行交流！
+
+### 开源 {page=#/what-this}
+
+我们秉承开源精神，社区共建，诚邀您加QQ群讨论，同时参与我们的开源
+
+现在贡献issue与PR，有巨额加密数字货币奖励相送！
+
+[点此前往GitHub地址](https://github.com/TinsideDesign/bk-vue-cec)
 

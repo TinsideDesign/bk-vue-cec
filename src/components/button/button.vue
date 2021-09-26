@@ -159,9 +159,9 @@
                 return iconRight
             },
             themeType () {
-                // if (this.text) {
-                //    return 'primary'
-                // }
+                if (this.text && this.theme === 'default') {
+                    return 'primary'
+                }
                 return this.theme
             },
             buttonCls () {

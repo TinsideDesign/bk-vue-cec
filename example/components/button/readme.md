@@ -101,7 +101,7 @@
 
 带图标的按钮可增强辨识度。
 
-:::demo 可以使用 `icon` 属性来定义按钮中文字左侧的图标，使用 `iconRight` 来定义按钮中文字右侧的图标。图标类名参照[TInside ICON](ICON_URL)（可省略类名中的 `icon-` 前缀）。***特别的，当 `icon` 或 `iconRight` 设置为 `loading` 的时候，会显示转圈的 loading 效果。***
+:::demo 可以使用 `icon` 属性来定义按钮中文字左侧的图标，使用 `iconRight` 来定义按钮中文字右侧的图标。图标类名参照[TInside ICON](ICON_URL)（可省略类名中的 `icon-` 前缀）。**特别的，当 `icon` 或 `iconRight` 设置为 `loading` 的时候，会显示转圈的 loading 效果。**
 
 ```html
 <template>
@@ -248,7 +248,7 @@
 
 ### 文字按钮 {page=#/button}
 
-:::demo 通过设置 `text` 属性来配置文字按钮。文字按钮同样提供 5 种主题，由 `theme` 属性来定义，可选的主题有 `default`,`primary`,`warning`,`success`,`danger`，默认为 `default`。另外可以使用 `disabled` 属性来定义按钮是否禁用，它接受一个 `Boolean` 值，从设计角度而言，对于文字按钮，我们仅提倡使用 主要按钮 与 危险按钮 两种
+:::demo 通过设置 `text` 属性来配置文字按钮。文字按钮同样提供 5 种主题，由 `theme` 属性来定义，从示例中可见，文字按钮的主题将**没有** `default`，可选的主题有 `primary`,`warning`,`success`,`danger`，默认为 `primary`。另外可以使用 `disabled` 属性来定义按钮是否禁用，它接受一个 `Boolean` 值，从设计角度而言，对于文字按钮，我们**仅提倡使用** 主要按钮 与 危险按钮 两种
 
 ```html
 <template>
