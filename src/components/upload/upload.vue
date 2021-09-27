@@ -141,6 +141,7 @@
      */
     import locale from 'bk-magic-vue/lib/locale'
     import defaultRequest from './request'
+    import { uuid } from '@/utils/util'
     import bkOverflowTips from '../../directives/overflow-tips'
 
     export default {
@@ -234,7 +235,7 @@
                 clickText: '',
                 showDialog: true,
                 labelText: '',
-                fileList: this.files || [],
+                fileList: [],
                 width: 0,
                 barEl: null,
                 fileIndex: null,
@@ -268,6 +269,18 @@
                     } else {
                         this.fileIndex++
                     }
+                }
+            },
+            'files': {
+                immediate: true,
+                deep: true,
+                handler (list) {
+                    this.fileList = list.map(item => {
+                        return Object.assign({
+                            status: 'done',
+                            name: `image.png${uuid()}`
+                        }, item)
+                    })
                 }
             }
         },
