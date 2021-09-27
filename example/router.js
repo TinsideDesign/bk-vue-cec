@@ -134,6 +134,7 @@ const Tag = () => import(/* webpackChunkName: 'tag' */'./components/tag/readme.m
 const ResizeLayout = () => import(/* webpackChunkName: 'resize' */'./components/resize-layout/readme.md')
 const FixedNavbar = () => import(/* webpackChunkName: 'fixed-narbar' */'./components/fixed-navbar/readme.md')
 const WhatThis = () => import(/* webpackChunkName: 'whatthis' */'./components/whatthis/readme.md')
+const Spin = () => import(/* webpackChunkName: 'spin' */'./components/spin/readme.md')
 
 const router = new VueRouter({
     // mode: 'history',
@@ -645,10 +646,16 @@ const router = new VueRouter({
             name: 'tags',
             path: '/tags',
             component: Tag
-        }, {
+        }, 
+        {
             name: 'resize-layout',
             path: '/resize-layout',
             component: ResizeLayout
+        },
+        {
+            name: 'spin',
+            path: '/spin',
+            component: Spin
         }
     ]
 })

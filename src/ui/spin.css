@@ -1,0 +1,282 @@
+@import './variable.css';
+
+.bk-spin {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    .bk-spin-rotation {
+        position: relative;
+        .rotate {
+            position: absolute;
+            top: 77%;
+            right: 43%;
+            width: 6px;
+            height: 8px;
+            transform-origin: 50% -10px;
+            border-radius: 8px;
+            transform: scale(0.4);
+            animation-name: fadePrimary;
+            animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+        &.bk-spin-rotation-primary {
+            .rotate {
+                animation-name: fadePrimary;
+            }
+        }
+        &.bk-spin-rotation-success {
+            .rotate {
+                animation-name: fadeSuccess;
+            }
+        }
+        &.bk-spin-rotation-danger {
+            .rotate {
+                animation-name: fadeDanger;
+            }
+        }
+        &.bk-spin-rotation-warning {
+            .rotate {
+                animation-name: fadeWarning;
+            }
+        }
+        &.bk-spin-rotation-info {
+            .rotate {
+                animation-name: fadeInfo;
+            }
+        }
+        &.bk-spin-rotation-primary-wait {
+            .rotate {
+                background-color: $primaryColor;
+            }
+        }
+        &.bk-spin-rotation-success-wait {
+            .rotate {
+                background-color: $successColor;
+            }
+        }
+        &.bk-spin-rotation-danger-wait {
+            .rotate {
+                background-color: $dangerColor;
+            }
+        }
+        &.bk-spin-rotation-warning-wait {
+            .rotate {
+                background-color: $warningColor;
+            }
+        }
+        &.bk-spin-rotation-info-wait {
+            .rotate {
+                background-color: #979ba5;
+            }
+        }
+        .rotate1 {
+            animation-delay: 0.45s;
+            transform: rotate(-90deg);
+        }
+        .rotate2 {
+            animation-delay: 0.6s;
+            transform: rotate(-45deg);
+        }
+        .rotate3 {
+            animation-delay: 0.75s;
+            transform: rotate(0deg);
+        }
+        .rotate4 {
+            animation-delay: 0.9s;
+            transform: rotate(45deg);
+        }
+        .rotate5 {
+            animation-delay: 1.05s;
+            transform: rotate(90deg);
+        }
+        .rotate6 {
+            animation-delay: 1.2s;
+            transform: rotate(135deg);
+        }
+        .rotate7 {
+            animation-delay: 1.35s;
+            transform: rotate(180deg);
+        }
+        .rotate8 {
+            animation-delay: 1.5s;
+            transform: rotate(-135deg);
+        }
+    }
+    .bk-spin-rotation-flex {
+        display: flex;
+        flex-shrink: 0;
+    }
+    .bk-spin-rotation-margin {
+        margin: 0 auto;
+    }
+    .bk-spin-rotation-large {
+        width: 69px;
+        height: 69px;
+        .rotate {
+            width: 10px;
+            height: 14px;
+            transform-origin: 50% -18px;
+        }
+    }
+    .bk-spin-rotation-normal {
+        width: 49px;
+        height: 49px;
+        .rotate {
+            width: 6px;
+            height: 9px;
+            transform-origin: 50% -13px;
+        }
+    }
+    .bk-spin-rotation-small {
+        width: 27px;
+        height: 27px;
+        .rotate {
+            width: 4px;
+            height: 5px;
+            transform-origin: 50% -7px;
+        }
+    }
+    .bk-spin-rotation-mini {
+        width: 16px;
+        height: 16px;
+        .rotate {
+            width: 2px;
+            height: 3px;
+            transform-origin: 50% -4px;
+        }
+    }
+    .bk-spin-icon {
+        color: $primaryColor;
+        font-size: 16px;
+        animation: icon-loading 1.2s linear infinite;
+        i {
+            vertical-align: middle
+        }
+    }
+    .bk-spin-icon-wait {
+        animation: none
+    }
+    .bk-spin-icon-primary {
+        color: $primaryColor
+    }
+    .bk-spin-icon-success {
+        color: $successColor
+    }
+    .bk-spin-icon-warning {
+        color: $warningColor
+    }
+    .bk-spin-icon-danger {
+        color: $dangerColor
+    }
+    .bk-spin-icon-large {
+        i {
+            font-size: 69px;
+        }
+    }
+    .bk-spin-icon-normal {
+        i {
+            font-size: 49px;
+        }
+    }
+    .bk-spin-icon-small {
+        i {
+            font-size: 27px;
+        }
+    }
+    .bk-spin-icon-nimi {
+        i {
+            font-size: 16px;
+        }
+    }
+    .bk-spin-title {
+        text-align: center;
+        font-size: 14px;
+        color: $fnMainColor;
+        line-height: initial;
+        max-width: 100%;
+    }
+    .bk-spin-title-right {
+        display: inline-block;
+        padding-left: 8px;
+    }
+    .bk-spin-title-bottom {
+        margin-top: 8px;
+    }
+    .bk-spin-title-large {
+        height: 69px;
+    }
+    .bk-spin-title-normal {
+        height: 49px;
+    }
+    .bk-spin-title-small {
+        height: 27px;
+    }
+    .bk-spin-title-mini {
+        height: 16px;
+    }
+    .bk-display-flex {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@keyframes fadePrimary {
+    0% {
+        background-color: $primaryColor;
+    }
+
+    100% {
+        background-color: none;
+    }
+}
+
+@keyframes fadeSuccess {
+    0% {
+        background-color: $successColor;
+    }
+
+    100% {
+        background-color: none;
+    }
+}
+
+@keyframes fadeDanger {
+    0% {
+        background-color: $dangerColor;
+    }
+
+    100% {
+        background-color: none;
+    }
+}
+
+@keyframes fadeWarning {
+    0% {
+        background-color: $warningColor;
+    }
+
+    100% {
+        background-color: none;
+    }
+}
+
+@keyframes fadeInfo {
+    0% {
+        background-color: #979ba5;
+    }
+
+    100% {
+        background-color: none;
+    }
+}
+
+@keyframes icon-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

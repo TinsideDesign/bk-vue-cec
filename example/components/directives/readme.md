@@ -1,14 +1,16 @@
 <script>
     import Vue from 'vue'
-    import { bkButton, bkClickoutside, bkOverflowTips } from '@'
+    import { bkButton, bkClickoutside, bkOverflowTips, bkInput, bkCopy } from '@'
 
     export default {
         components: {
-            bkButton
+            bkButton,
+            bkInput
         },
         directives: {
             bkClickoutside,
-            bkOverflowTips
+            bkOverflowTips,
+            bkCopy
         },
         data () {
             return {
@@ -32,6 +34,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+    .input-demo {
+        width: 500px;
+    }
+
+    .mt10 {
+        margin-top:20px
     }
 </style>
 
@@ -124,3 +133,52 @@
 | 事件名称 | 说明 | 回调参数 |
 |------|------|------|
 | click | 除绑定元素以外 click 回调 | mousedownEvent, mouseupEvent, el(绑定元素的dom) |
+
+### v-bk-copy {page=#/directives}
+
+:::demo 点击事件后，自动复制目标文本
+
+```html
+<template>
+    <div>
+        <div class="input-demo">
+            <bk-input v-model="copyText"></bk-input>
+            <bk-button :theme="'default'" class="mt20" v-bk-copy="copyText">
+                点击复制
+            </bk-button>
+        </div>
+    </div>
+</template>
+
+<script>
+    import { bkInput, bkCopy, bkButton } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkButton,
+            bkInput
+        },
+        directives: {
+            bkCopy
+        },
+        data () {
+            return {
+                copyText: ''
+            }
+        }
+    }
+</script>
+
+<style lang="postcss">
+    .input-demo {
+        width: 500px;
+    }
+    .mt20 {
+        margin-top: 20px
+    }
+</style>
+```
+:::
+### v-bk-copy参数配置 {page=#/directives}
+| 参数 | 说明 |
+|------|------|
+| copyText | 需要复制的文本 |

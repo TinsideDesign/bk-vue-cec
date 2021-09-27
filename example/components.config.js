@@ -341,6 +341,10 @@ export default {
                 {
                     id: 'card',
                     name: 'Card 卡片'
+                },
+                {
+                    id: 'spin',
+                    name: 'Spin 加载中'
                 }
             ]
         },

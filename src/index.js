@@ -107,6 +107,7 @@ import bkNavigationMenuGroup from './components/navigation-menu-group'
 import bkLink from './components/link'
 
 import bkOverflowTips from './directives/overflow-tips'
+import bkCopy from './directives/copy'
 
 import locale from './locale'
 import lang from './locale/lang'
@@ -124,6 +125,7 @@ import bkDivider from './components/divider'
 
 import bkTag from './components/tag'
 import bkResizeLayout from './components/resize-layout'
+import bkSpin from './components/spin'
 
 const components = {
     bkFixedNavbar,
@@ -198,14 +200,16 @@ const components = {
     bkBreadcrumbItem,
     bkDivider,
     bkTag,
-    bkResizeLayout
+    bkResizeLayout,
+    bkSpin
 }
 
 const directives = {
     bkClickoutside,
     bkTooltips,
     bkLoading,
-    bkOverflowTips
+    bkOverflowTips,
+    bkCopy
 }
 
 export function install (Vue, opts = {}) {
@@ -319,6 +323,7 @@ export {
     bkBigTree,
     bkLink,
     bkOverflowTips,
+    bkCopy,
     bkCascade,
     bkVersionDetail,
     bkCard,
@@ -328,5 +333,6 @@ export {
     bkBreadcrumbItem,
     bkDivider,
     bkTag,
-    bkResizeLayout
+    bkResizeLayout,
+    bkSpin
 }
