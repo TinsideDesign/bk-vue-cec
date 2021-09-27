@@ -20,6 +20,7 @@
     &-inner {
       &.is-link, & a {
         text-decoration: none;
+        color: $fnMainColor;
         &:hover {
           color: $primaryHoverColor;
           cursor: pointer;
@@ -28,7 +29,7 @@
     }
 
     &:last-child {
-      color: $fnMainColor;
+      color: $newBlackColor3;
       .el-breadcrumb__inner,
       .el-breadcrumb__inner a {
         &, &:hover {
