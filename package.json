@@ -1,7 +1,7 @@
 {
   "name": "bk-vue-cec",
-  "version": "0.0.5",
-  "description": "一个更加适合运维场景，符合CEC色彩标准的bk-magic-vue组件库，逐渐优化中",
+  "version": "0.0.6",
+  "description": "一个为运维场景而生，好看易用的社区化Vue组件库",
   "main": "dist/bk-magic-vue.min.js",
   "files": [
     "lib",

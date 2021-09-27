@@ -18,7 +18,6 @@
 
 我们秉承开源精神，社区共建，诚邀您加QQ群讨论，同时参与我们的开源
 
-现在贡献issue与PR，有巨额加密数字货币奖励相送！
+现在贡献issue与PR，有巨额加密数字货币奖励相送！详情进QQ群 877291441 了解
 
-[点此前往GitHub地址](https://github.com/TinsideDesign/bk-vue-cec)
-
+<a href="https://github.com/TinsideDesign/bk-vue-cec" target="_blank">点此前往GitHub地址</a>
