@@ -38,12 +38,14 @@ import bkOverflowTips from '@/directives/overflow-tips'
 import { getCell, getColumnByCell, getRowIdentity } from './util'
 import bkCheckbox from '../checkbox'
 import LayoutObserver from './layout-observer'
+import bkVirtualRender from '../virtual-render'
 
 export default {
     name: 'bk-table-body',
     mixins: [LayoutObserver],
     components: {
-        bkCheckbox
+        bkCheckbox,
+        bkVirtualRender
     },
     directives: {
         bkOverflowTips
@@ -65,87 +67,103 @@ export default {
      */
     render (h) {
         const columnsHidden = this.columns.map((column, index) => this.isColumnHidden(index))
-        return (
-            <table
-                class="bk-table-body"
-                cellspacing="0"
-                cellpadding="0"
-                border="0">
-                <colgroup>
-                    {
-                        this._l(this.columns, column => <col name={ column.id } />)
-                    }
-                </colgroup>
-                <tbody>
-                    {
-                        this._l(this.data, (row, $index) =>
-                            [<tr
-                                ref="row"
-                                refInFor={ true }
-                                style={ this.getRowStyle(row, $index) }
-                                key={ this.table.rowKey ? this.getKeyOfRow(row, $index) : $index }
-                                on-dblclick={ ($event) => this.handleDoubleClick($event, row) }
-                                on-click={ ($event) => this.handleClick($event, row) }
-                                on-contextmenu={ ($event) => this.handleContextMenu($event, row) }
-                                on-mouseenter={ ($event) => this.handleMouseEnter($index, $event, row) }
-                                on-mouseleave={ ($event) => this.handleMouseLeave($index, $event, row) }
-                                class={ [this.getRowClass(row, $index)] }
-                                attrs={ this.getRowAttributes(row, $index) }>
-                                {
-                                    this._l(this.columns, (column, cellIndex) => {
-                                        const { rowspan, colspan } = this.getSpan(row, column, $index, cellIndex)
-                                        if (!rowspan || !colspan || column.type === 'setting') {
-                                            return ''
-                                        } else {
-                                            return (
-                                                <td
-                                                    style={ this.getCellStyle($index, cellIndex, row, column) }
-                                                    class={ this.getCellClass($index, cellIndex, row, column) }
-                                                    rowspan={ rowspan }
-                                                    colspan={ colspan }
-                                                    on-mouseenter={ ($event) => this.handleCellMouseEnter($event, row) }
-                                                    on-mouseleave={ this.handleCellMouseLeave }
-                                                    domProps={ this.getCellAttributes($index, cellIndex, row, column) }>
-                                                    {
-                                                        this.isColumnInvisible(cellIndex)
-                                                            ? ''
-                                                            : column.renderCell.call(
-                                                                this._renderProxy,
-                                                                h,
-                                                                {
-                                                                    row,
-                                                                    column,
-                                                                    $index,
-                                                                    store: this.store,
-                                                                    _self: this.context || this.table.$vnode.context
-                                                                },
-                                                                columnsHidden[cellIndex]
-                                                            )
-                                                    }
-                                                </td>
-                                            )
-                                        }
-                                    })
-                                }
-                            </tr>,
-                            this.store.isRowExpanded(row)
-                                ? (<tr
-                                    ref="row"
-                                    refInFor={true}
-                                    attrs={ this.getExpandedRowAttributes(row, $index) }
-                                    style={ this.getExpandedRowStyle(row, $index) }
-                                    class={ this.getExpandedRowClass(row, $index) }>
-                                    <td colspan={ this.columns.length } class="bk-table-expanded-cell">
-                                        { (!this.fixed && this.table.renderExpanded)
-                                            ? this.table.renderExpanded(h, { row, $index, store: this.store })
-                                            : ''}
-                                    </td>
-                                </tr>)
-                                : ''
-                            ]
+        const renderRows = (row, $index) => {
+            return [
+                <tr
+                    ref="row"
+                    refInFor={true}
+                    style={this.getRowStyle(row, $index)}
+                    key={this.table.rowKey ? this.getKeyOfRow(row, $index) : $index}
+                    on-dblclick={($event) => this.handleDoubleClick($event, row)}
+                    on-click={($event) => this.handleClick($event, row)}
+                    on-contextmenu={($event) => this.handleContextMenu($event, row)}
+                    on-mouseenter={($event) => this.handleMouseEnter($index, $event, row)}
+                    on-mouseleave={($event) => this.handleMouseLeave($index, $event, row)}
+                    class={[this.getRowClass(row, $index)]}
+                    attrs={this.getRowAttributes(row, $index)}
+                >
+                    {this._l(this.columns, (column, cellIndex) => {
+                        const { rowspan, colspan } = this.getSpan(row, column, $index, cellIndex)
+                        if (!rowspan || !colspan || column.type === 'setting') {
+                            return ''
+                        } else {
+                            return (
+                                <td
+                                    style={this.getCellStyle($index, cellIndex, row, column)}
+                                    class={this.getCellClass($index, cellIndex, row, column)}
+                                    rowspan={rowspan}
+                                    colspan={colspan}
+                                    on-mouseenter={($event) => this.handleCellMouseEnter($event, row)}
+                                    on-mouseleave={this.handleCellMouseLeave}
+                                    domProps={this.getCellAttributes($index, cellIndex, row, column)}
+                                >
+                                    {this.isColumnInvisible(cellIndex)
+                                        ? ''
+                                        : column.renderCell.call(
+                                            this._renderProxy,
+                                            h,
+                                            {
+                                                row,
+                                                column,
+                                                $index,
+                                                store: this.store,
+                                                _self: this.context || this.table.$vnode.context
+                                            },
+                                            columnsHidden[cellIndex]
+                                        )}
+                                </td>
+                            )
+                        }
+                    })}
+                </tr>,
+                this.store.isRowExpanded(row) ? (
+                    <tr
+                        ref="row"
+                        refInFor={true}
+                        attrs={this.getExpandedRowAttributes(row, $index)}
+                        style={this.getExpandedRowStyle(row, $index)}
+                        class={this.getExpandedRowClass(row, $index)}
+                    >
+                        <td colspan={this.columns.length} class="bk-table-expanded-cell">
+                            {!this.fixed && this.table.renderExpanded
+                                ? this.table.renderExpanded(h, { row, $index, store: this.store })
+                                : ''}
+                        </td>
+                    </tr>
+                ) : (
+                    ''
+                )
+            ]
+        }
+        return this.virtualRender ? (
+            <bk-virtual-render
+                list={this.data}
+                width={this.virtualRenderOpt.width}
+                height={this.virtualRenderOpt.height}
+                lineHeight={this.virtualRenderOpt.lineHeight}
+                {...{
+                    scopedSlots: {
+                        default: (slot) => (
+                            <table class="bk-table-body" cellspacing="0" cellpadding="0" border="0">
+                                <colgroup>
+                                    {this._l(this.columns, (column) => (
+                                        <col name={column.id} />
+                                    ))}
+                                </colgroup>
+                                <tbody>{this._l(slot.data, renderRows)}</tbody>
+                            </table>
                         )
                     }
-                </tbody>
+                }}
+            ></bk-virtual-render>
+        ) : (
+            <table class="bk-table-body" cellspacing="0" cellpadding="0" border="0">
+                <colgroup>
+                    {this._l(this.columns, (column) => (
+                        <col name={column.id} />
+                    ))}
+                </colgroup>
+                <tbody>{this._l(this.data, renderRows)}</tbody>
             </table>
         )
     },
@@ -157,7 +175,7 @@ export default {
                 return
             }
             const tr = el.querySelector('tbody').children
-            const rows = [].filter.call(tr, row => hasClass(row, 'bk-table-row'))
+            const rows = [].filter.call(tr, (row) => hasClass(row, 'bk-table-row'))
             const oldRow = rows[oldVal]
             const newRow = rows[newVal]
             if (oldRow) {
@@ -177,13 +195,13 @@ export default {
             }
             const data = this.store.states.data
             const tr = el.querySelector('tbody').children
-            const rows = [].filter.call(tr, row => hasClass(row, 'bk-table-row'))
+            const rows = [].filter.call(tr, (row) => hasClass(row, 'bk-table-row'))
             const oldRow = rows[data.indexOf(oldVal)]
             const newRow = rows[data.indexOf(newVal)]
             if (oldRow) {
                 removeClass(oldRow, 'current-row')
             } else {
-                [].forEach.call(rows, row => removeClass(row, 'current-row'))
+                [].forEach.call(rows, (row) => removeClass(row, 'current-row'))
             }
             if (newRow) {
                 addClass(newRow, 'current-row')
@@ -222,6 +240,24 @@ export default {
 
         columns () {
             return this.store.states.columns
+        },
+
+        virtualRender () {
+            const prop = this.table.virtualRender
+            return typeof prop === 'boolean' ? prop : typeof prop === 'object' ? !prop.disabled : false
+        },
+
+        virtualRenderOpt () {
+            if (this.virtualRender) {
+                return {
+                    height: this.tableLayout.bodyHeight - 4,
+                    width: '100%',
+                    lineHeight: 42,
+                    ...(this.table.virtualRender || {})
+                }
+            }
+
+            return {}
         }
     },
 
@@ -232,7 +268,7 @@ export default {
     },
 
     created () {
-        this.activateTooltip = debounce(50, tooltip => tooltip.handleShowPopper())
+        this.activateTooltip = debounce(50, (tooltip) => tooltip.handleShowPopper())
     },
 
     updated () {
@@ -270,7 +306,7 @@ export default {
             } else if (this.fixed === 'right') {
                 return index < this.columnsCount - this.rightFixedLeafCount
             } else {
-                return (index < this.leftFixedLeafCount) || (index >= this.columnsCount - this.rightFixedLeafCount)
+                return index < this.leftFixedLeafCount || index >= this.columnsCount - this.rightFixedLeafCount
             }
         },
 
@@ -346,10 +382,12 @@ export default {
             if (typeof rowClassName === 'string') {
                 classes.push(rowClassName)
             } else if (typeof rowClassName === 'function') {
-                classes.push(rowClassName({
-                    row,
-                    rowIndex
-                }))
+                classes.push(
+                    rowClassName({
+                        row,
+                        rowIndex
+                    })
+                )
             }
 
             if (this.store.states.expandRows.indexOf(row) > -1) {
@@ -406,12 +444,14 @@ export default {
             if (typeof cellClassName === 'string') {
                 classes.push(cellClassName)
             } else if (typeof cellClassName === 'function') {
-                classes.push(cellClassName({
-                    rowIndex,
-                    columnIndex,
-                    row,
-                    column
-                }))
+                classes.push(
+                    cellClassName({
+                        rowIndex,
+                        columnIndex,
+                        row,
+                        column
+                    })
+                )
             }
 
             return classes.join(' ')
@@ -468,7 +508,7 @@ export default {
 
             if (cell) {
                 const column = getColumnByCell(table, cell)
-                const hoverState = table.hoverState = { cell, column, row }
+                const hoverState = (table.hoverState = { cell, column, row })
                 table.$emit('cell-mouse-enter', hoverState.row, hoverState.column, hoverState.cell, event)
             }
         },
@@ -557,6 +597,8 @@ export default {
             if (!this.fixed && (this.leftFixedCount || this.rightFixedCount)) {
                 this.tableLayout.debouncedSyncRowHeight()
             }
-        }
+        },
+
+        renderBodyRows () {}
     }
 }

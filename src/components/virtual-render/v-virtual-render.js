@@ -2,7 +2,7 @@
  * Tencent is pleased to support the open source community by making
  * 科技内在设计（T-inside） available.
  *
- * Copyright (C) 2021 TID Limited, a DAO.  All rights reserved.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
  *
  * 科技内在设计（T-inside） is licensed under the MIT License.
  *
@@ -22,16 +22,42 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
-*/
+ */
 
 /**
- * @file spin entry
+ * @file v-virtual-render
  *
  * Copyright © 2020-2021 T-inside Design. All Rights Reserved. T-inside 版权所有
  */
-import bkSpin from './spin.vue'
-import setInstaller from '@/utils/component-installer.js'
 
-setInstaller(bkSpin)
+import { throttle } from 'throttle-debounce'
 
-export default bkSpin
+function visibleRender (e, wrapper, binding) {
+    const { lineHeight = 30, callback } = binding.value
+    const { scrollTop, offsetHeight, startIndex, endIndex } = wrapper
+ 
+    const targetStartIndex = Math.floor(scrollTop / lineHeight)
+    const targetEndIndex = Math.ceil(offsetHeight / lineHeight) + targetStartIndex
+    if (startIndex !== targetStartIndex || endIndex !== targetEndIndex) {
+        typeof callback === 'function' && callback(e, targetStartIndex, targetEndIndex, scrollTop)
+    }
+}
+ 
+const throttledRender = throttle(60, (e, wrapper, binding) => visibleRender(e, wrapper, binding))
+ 
+export default {
+    inserted (el, binding) {
+        const wrapper = el.parentNode
+        wrapper.addEventListener('scroll', (e) => throttledRender(e, wrapper, binding))
+    },
+    componentUpdated (el, binding) {
+        const wrapper = el.parentNode
+        throttledRender(null, wrapper, binding)
+    },
+    unbind (el) {
+        if (el) {
+            const wrapper = el.parentNode
+            wrapper && wrapper.removeEventListener('scroll', throttledRender)
+        }
+    }
+}

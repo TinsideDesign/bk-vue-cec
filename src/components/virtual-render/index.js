@@ -2,7 +2,7 @@
  * Tencent is pleased to support the open source community by making
  * 科技内在设计（T-inside） available.
  *
- * Copyright (C) 2021 TID Limited, a DAO.  All rights reserved.
+ * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
  *
  * 科技内在设计（T-inside） is licensed under the MIT License.
  *
@@ -22,16 +22,17 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
-*/
+ */
 
 /**
- * @file spin entry
+ * @file virtual-render enter
  *
  * Copyright © 2020-2021 T-inside Design. All Rights Reserved. T-inside 版权所有
  */
-import bkSpin from './spin.vue'
+
+import Component from './virtual-render.js'
 import setInstaller from '@/utils/component-installer.js'
 
-setInstaller(bkSpin)
+setInstaller(Component)
 
-export default bkSpin
+export default Component

@@ -58,7 +58,7 @@ class TableLayout {
         this.viewportHeight = null // Table Height - Scroll Bar Height
         this.bodyHeight = null // Table Height - Table Header Height
         this.fixedBodyHeight = null // Table Height - Table Header Height - Scroll Bar Height
-        this.gutterWidth = scrollbarWidth()
+        this.gutterWidth = options.table.virtualRender ? 0 : scrollbarWidth()
         this.rowsHeight = {}
         this.debouncedSyncRowHeight = debounce(1000 / 60, this.syncRowHeight)
 
@@ -118,14 +118,18 @@ class TableLayout {
         this.paginationHeight = paginationWrapper ? paginationWrapper.offsetHeight : 0
 
         if (this.showHeader && !headerWrapper) return
-        const headerHeight = this.headerHeight = !this.showHeader ? 0 : headerWrapper.offsetHeight
-        if (this.showHeader && headerWrapper.offsetWidth > 0
-            && (this.table.columns || []).length > 0 && headerHeight < 2) {
+        const headerHeight = (this.headerHeight = !this.showHeader ? 0 : headerWrapper.offsetHeight)
+        if (
+            this.showHeader
+            && headerWrapper.offsetWidth > 0
+            && (this.table.columns || []).length > 0
+            && headerHeight < 2
+        ) {
             return Vue.nextTick(() => this.updateElsHeight())
         }
-        const tableHeight = this.tableHeight = this.table.$el.offsetHeight - this.paginationHeight
+        const tableHeight = (this.tableHeight = this.table.$el.offsetHeight - this.paginationHeight)
         if (this.height !== null && (!isNaN(this.height) || typeof this.height === 'string')) {
-            const footerHeight = this.footerHeight = footerWrapper ? footerWrapper.offsetHeight : 0
+            const footerHeight = (this.footerHeight = footerWrapper ? footerWrapper.offsetHeight : 0)
             this.bodyHeight = tableHeight - headerHeight - footerHeight + (footerWrapper ? 1 : 0)
         }
         this.fixedBodyHeight = this.scrollX ? this.bodyHeight - this.gutterWidth : this.bodyHeight
@@ -160,7 +164,8 @@ class TableLayout {
         const flattenColumns = this.getFlattenColumns()
         const flexColumns = flattenColumns.filter((column) => typeof column.width !== 'number')
 
-        flattenColumns.forEach((column) => { // Clean those columns whose width changed from flex to unflex
+        flattenColumns.forEach((column) => {
+            // Clean those columns whose width changed from flex to unflex
             if (typeof column.width === 'number' && column.realWidth) column.realWidth = null
         })
 
@@ -171,7 +176,8 @@ class TableLayout {
 
             const scrollYWidth = this.scrollY ? this.gutterWidth : 0
 
-            if (bodyMinWidth <= bodyWidth - scrollYWidth) { // DON'T HAVE SCROLL BAR
+            if (bodyMinWidth <= bodyWidth - scrollYWidth) {
+                // DON'T HAVE SCROLL BAR
                 this.scrollX = false
 
                 const totalFlexWidth = bodyWidth - scrollYWidth - bodyMinWidth
@@ -192,7 +198,8 @@ class TableLayout {
 
                     flexColumns[0].realWidth = (flexColumns[0].minWidth || 80) + totalFlexWidth - noneFirstWidth
                 }
-            } else { // HAVE HORIZONTAL SCROLL BAR
+            } else {
+                // HAVE HORIZONTAL SCROLL BAR
                 this.scrollX = true
                 flexColumns.forEach(function (column) {
                     column.realWidth = column.minWidth

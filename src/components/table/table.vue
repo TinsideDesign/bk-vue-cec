@@ -392,7 +392,11 @@
                 }
             },
             cellAttributes: [Function, Object],
-            headerCellAttributes: [Function, Object]
+            headerCellAttributes: [Function, Object],
+            virtualRender: {
+                type: [Object, Boolean],
+                default: false
+            }
         },
         data () {
             const store = new TableStore(this, {

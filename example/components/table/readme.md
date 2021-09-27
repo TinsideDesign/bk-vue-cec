@@ -100,6 +100,12 @@
                         ]
                     }
                 ],
+                longData: new Array(100).fill('').map((item, index) => ({
+                    ip: '192.168.0.1',
+                    source: 'QQ' + index,
+                    status: '创建中',
+                    create_time: '2018-05-25 15:02:24',
+                })),
                 pagination: {
                     current: 1,
                     count: 500,
@@ -956,6 +962,85 @@ export default {
 ```
 :::
 
+
+### 虚拟滚动渲染配置 {page=#/table}
+
+:::demo 通过配置`bk-table`的`virtual-render`属性开启内置虚拟滚动
+
+```html
+<template>
+    <div>
+        <bk-table style="margin-top: 15px;"
+            :data="longData"
+            :size="setting.size"
+            :virtual-render="true"
+            height="200px">
+            <bk-table-column
+                v-for="field in setting.selectedFields"
+                :key="field.id"
+                :label="field.label"
+                :prop="field.id">
+            </bk-table-column>
+            <bk-table-column type="setting">
+                <bk-table-setting-content
+                    :fields="setting.fields"
+                    :selected="setting.selectedFields"
+                    :max="setting.max"
+                    :size="setting.size"
+                    @setting-change="handleSettingChange">
+                </bk-table-setting-content>
+            </bk-table-column>
+        </bk-table>
+    </div>
+</template>
+<script>
+    import { bkTable, bkTableColumn, bkTableSettingContent } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkTable,
+            bkTableColumn,
+            bkTableSettingContent
+        },
+        data () {
+            const fields = [{
+                id: 'ip',
+                label: '名称/内网IP',
+                disabled: true
+            }, {
+                id: 'source',
+                label: '来源'
+            }, {
+                id: 'status',
+                label: '状态'
+            }, {
+                id: 'create_time',
+                label: '创建时间'
+            }]
+            return {
+                longData: new Array(100).fill('').map((item, index) => ({
+                    ip: '192.168.0.1',
+                    source: 'QQ' + index,
+                    status: '创建中',
+                    create_time: '2018-05-25 15:02:24',
+                })),
+                setting: {
+                    max: 3,
+                    fields: settingFields,
+                    selectedFields: settingFields.slice(0, 3),
+                    size: 'small'
+                }
+            }
+        },
+        methods: {
+            handleSettingChange ({ fields, size }) {
+                this.setting.size = size
+                this.setting.selectedFields = fields
+            }
+        }
+    }
+</script>
+```
+:::
 
 ### bk-table 属性 {page=#/table}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
