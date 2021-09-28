@@ -171,6 +171,10 @@ const directiveFileList = [
     {
         name: 'transfer-dom',
         path: './src/directives/transfer-dom.js'
+    },
+    {
+        name: 'copy',
+        path: './src/directives/copy.js'
     }
 ]
 

@@ -4,6 +4,22 @@
 
 <div class="changelog-wrapper">
 
+### 0.0.7 {page=#/changelog}
+###### 2021.09.28
+
+* **[add]**:
+    - [Spin 加载中](#/spin) 新增 Spin 组件
+    - [v-bk-copy 复制指令](#/directives?anchor=v-bk-copy) 新增复制指令
+    - [Table 表格](#/table) 新增虚拟滚动，解决单分页大批量数据渲染问题
+* **[fix]**:
+    - [Upload 文件上传](#/upload) 修复 upload 组件图片回填没有动态监听的问题
+    - [Tab 选项卡](#/tab) 修复 `type` 配置为 `unborder-card` 时，标识选中的边框样式位置不正确的问题；修复组件 tab 在部分场景下一开始下划线没有，点击后才出现的问题
+    - [Cascade 级联选框](#/cascade) 修复多选框不能选择的问题；cascade 级联选框 搜索选中第三层目录时，handleChange 回调方法里的 selectList 参数为空的问题
+    - [Table 表格](#/table) 修复调用 clearFilter 方法时会出现栈溢出的问题
+    - [Form 表单](#/form) 修复部分 form 组件的背景色没有设置的问题
+
+---
+
 ### 0.0.6 {page=#/changelog}
 ###### 2021.9.26
 

@@ -88,7 +88,7 @@
 ```
 :::
 
-### v-bk-clickoutside指令回调 {page=#/clickoutside}
+### v-bk-clickoutside 指令回调 {page=#/clickoutside}
 | 事件名称 | 说明 | 回调参数 |
 |------|------|------|
 | click | 除绑定元素以外 click 回调 | mousedownEvent, mouseupEvent, el(绑定元素的dom) |
@@ -129,7 +129,7 @@
 ```
 :::
 
-### v-bk-clickoutside参数配置 {page=#/clickoutside}
+### v-bk-clickoutside 参数配置 {page=#/clickoutside}
 | 事件名称 | 说明 | 回调参数 |
 |------|------|------|
 | click | 除绑定元素以外 click 回调 | mousedownEvent, mouseupEvent, el(绑定元素的dom) |
@@ -178,7 +178,7 @@
 </style>
 ```
 :::
-### v-bk-copy参数配置 {page=#/directives}
+### v-bk-copy 参数配置 {page=#/directives}
 | 参数 | 说明 |
 |------|------|
 | copyText | 需要复制的文本 |
