@@ -444,7 +444,9 @@
                 const { idKey, nameKey, childrenKey } = this.nodeOptions
                 // 默认赋值
                 list.forEach((item, index) => {
-                    item.id = item[idKey]
+                    // 修复数字类型 多选不展示问题：因为整个组件 基于  join 与split 方法，如：changeList 方法
+                    // item.id = item[idKey]
+                    item.id = this.multiple ? String(item[idKey]) : item[idKey]
                     item.name = item[nameKey] || ''
                     const children = item[childrenKey]
                     if (Array.isArray(children)) {
@@ -606,6 +608,9 @@
                                 delete item.id
                                 delete item.name
                             } else {
+                                if (!item.id.split) {
+                                    return false
+                                }
                                 selections.push({
                                     id: item.id.split(this.separator),
                                     name: item.name,
@@ -664,7 +669,7 @@
                 if (!this.checkAnyLevel) {
                     const valueList = []
                     currentValue.forEach(item => {
-                        valueList.push(item.length)
+                        Array.isArray(item) && valueList.push(item.length)
                     })
                     const value = Math.max(...valueList)
                     for (let i = 0; i <= value; i++) {
