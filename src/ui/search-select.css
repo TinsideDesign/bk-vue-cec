@@ -5,6 +5,7 @@
     overflow: inherit;
     z-index: 9;
     height: 32px;
+    background-color: #fff;
     .bk-search-select {
         display: flex;
         flex-direction: row;

@@ -154,6 +154,7 @@ $disabledColor: #c4c6cc;
     }
     .bk-tooltip.bk-select-dropdown {
         display: block;
+        background-color: #fff;
         & > .bk-tooltip-ref {
             display: block;
         }

@@ -11,8 +11,10 @@
     color: $newBlackColor2;
     cursor: pointer;
     outline: none;
+    background-color: #fff;
     &.bk-color-picker-show-value {
         width: 150px;
+        background-color: #fff;
     }
     &.bk-color-picker-large {
         height: 36px;
