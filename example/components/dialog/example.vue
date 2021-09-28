@@ -70,21 +70,51 @@
             </bk-dialog>
         </div>
 
-        <div class="dddd">
+        <div class="example-item">
             <bk-button type="default" @click="aaa">dddd</bk-button>
             <bk-dialog v-model="ddd" :render-directive="'if'">
                 sasddsadas
+            </bk-dialog>
+        </div>
+        
+        <div class="example-item">
+            <bk-button type="default" @click="ccc">ccc</bk-button>
+            <bk-dialog v-model="cccShow" width="500" @cancel="active = 'mission'">
+                <bk-tab :active.sync="active" type="unborder-card">
+                    <bk-tab-panel
+                        v-for="(panel, index) in panels2"
+                        v-bind="panel"
+                        :key="index">
+                        <div>{{panel.label}}-{{panel.count}}</div>
+                    </bk-tab-panel>
+                </bk-tab>
+            </bk-dialog>
+        </div>
+
+        <div class="example-item">
+            <bk-button type="default" @click="tabPosClick">tabPos</bk-button>
+            <bk-dialog v-model="tabPosShow" width="500" @cancel="active = 'mission'">
+                <bk-tab :active.sync="active" type="unborder-card" :tab-position="'left'">
+                    <bk-tab-panel
+                        v-for="(panel, index) in panels2"
+                        v-bind="panel"
+                        :key="index">
+                        <div>{{panel.label}}-{{panel.count}}</div>
+                    </bk-tab-panel>
+                </bk-tab>
             </bk-dialog>
         </div>
     </section>
 </template>
 
 <script>
-    import { bkButton, bkDialog } from '@'
+    import { bkButton, bkDialog, bkTab, bkTabPanel } from '@'
     export default {
         components: {
             bkButton,
-            bkDialog
+            bkDialog,
+            bkTab,
+            bkTabPanel
         },
         data () {
             return {
@@ -94,7 +124,16 @@
                 dialog2: false,
                 nestedDialog1: false,
                 nestedDialog2: false,
-                ddd: false
+                ddd: false,
+                cccShow: false,
+                tabPosShow: false,
+                panels2: [
+                    { name: 'mission', label: '任务报表任务报表任务报表任务报表', count: 10 },
+                    { name: 'config', label: '加速配置2', count: 20 },
+                    { name: 'hisitory', label: '历史版本2', count: 30 },
+                    { name: 'deleted', label: '已归档加速任务2', count: 40 }
+                ],
+                active: 'mission'
             }
         },
         methods: {
@@ -104,6 +143,12 @@
 
             aaa () {
                 this.ddd = true
+            },
+            ccc () {
+                this.cccShow = true
+            },
+            tabPosClick () {
+                this.tabPosShow = true
             }
         }
     }

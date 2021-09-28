@@ -473,13 +473,25 @@
                         const tabLabel = panel.$el
                         const tabLabelRect = tabLabel.getBoundingClientRect()
                         if (!this.isSidePosition) {
+                            // 说明 tab 的父容器是 display none 的，获取不到高宽
+                            if (tabLabelRect.width === 0 && tabLabelRect.height === 0) {
+                                tabLabel.classList.add('simulate-border-bottom')
+                            } else {
+                                tabLabel.classList.remove('simulate-border-bottom')
+                            }
+
                             this.activeBarStyle.width = `${tabLabelRect.width - 24}px`
                             this.activeBarStyle.height = '2px'
                             this.activeBarStyle.transform = `translateX(${tabLabel.offsetLeft + 12}px)`
                             this.activeBarStyle.left = 0
                         } else {
+                            if (tabLabelRect.width === 0 && tabLabelRect.height === 0) {
+                                tabLabel.classList.add('simulate-border-right')
+                            } else {
+                                tabLabel.classList.remove('simulate-border-right')
+                            }
                             this.activeBarStyle.width = '2px'
-                            this.activeBarStyle.height = `${tabLabelRect.height}px`
+                            this.activeBarStyle.height = `${tabLabelRect.height || 50}px`
                             this.activeBarStyle.transform = `translateY(${tabLabel.offsetTop}px)`
                             if (this.tabPosition === 'right') {
                                 this.activeBarStyle.left = 0

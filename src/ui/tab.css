@@ -317,6 +317,18 @@ $headerColor: $newBlackColor2;
             &:not(.is-disabled):hover {
                 color: $newMainColor;
             }
+            &.simulate-border-bottom {
+                padding: 0 10px;
+                .bk-tab-label {
+                    box-shadow: inset 0px -4px 0px -2px $newMainColor !important;
+                    padding: 0 8px;
+                }
+            }
+            &.simulate-border-right {
+                /* box-shadow: inset -4px 0px 0px -2px #3a84ff; */
+                border-right: 2px solid $newMainColor;
+                padding-right: 11px;
+            }
             &.active {
                 /* background-color: #fff; */
                 color: $newMainColor;
@@ -326,14 +338,14 @@ $headerColor: $newBlackColor2;
                 color: $newGreyColor;
                 cursor: not-allowed;
             }
-            &.is-dragging{
+            &.is-dragging {
                 cursor: move;
                 user-select: none;
             }
-            &.is-dragenter{
+            &.is-dragenter {
                 background: $newGreyColor2;
             }
-            &.is-unsortable{
+            &.is-unsortable {
                 cursor: not-allowed;
                 background: none;
             }
