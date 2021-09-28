@@ -249,11 +249,15 @@ export default {
 
         virtualRenderOpt () {
             if (this.virtualRender) {
+                const virtualCfg = Object.keys(this.table.virtualRender)
+                    .filter((key) => ['height', 'width', 'lineHeight'].includes(key))
+                    .reduce((pre, curr) => ({ ...pre, [curr]: this.table.virtualRender[curr] }), {})
+
                 return {
                     height: this.tableLayout.bodyHeight - 4,
                     width: '100%',
                     lineHeight: 42,
-                    ...(this.table.virtualRender || {})
+                    ...(virtualCfg || {})
                 }
             }
 

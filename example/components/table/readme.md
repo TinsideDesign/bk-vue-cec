@@ -1081,6 +1081,19 @@ export default {
 | pagination | Table 的分页。`current` 属性表示当前页码,`count` 属性表示数据总量 | Object | —— | —— |
 | auto-scroll-to-top | Table 分页变化时，表格是否自动滚动到顶部 | Boolean | —— | false |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-table` 上 | String | —— | —— |
+| virtual-render | 内置的虚拟滚动配置 | Boolean, Object | false / true / { virtual-render 配置 } | false |
+
+### virtual-render 配置 {page=#/table}
+`virtual-render`支持简单配置 `true / false` 直接启用 / 禁用，如果需要进一步配置更多，请参考下面配置说明
+
+`因为虚拟滚动需要根据lineHeight计算行高和渲染区域内的行数据，目前只支持每行行高固定的场景，所以针对内部折叠的Table目前无法支持虚拟滚动`
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+|------|------|------|------|------|
+| disabled | 是否禁用 | Boolean | true / false | undefined |
+| height | 虚拟滚动区域高度，如果 height 为 Number 类型，单位 px；如果 height 为 String 类型，则这个高度会设置为 style.height 的值 | String / Number | —— | table.body.height |
+| width | 虚拟滚动区域宽度，如果 width 为 Number 类型，单位 px；如果 width 为 String 类型，则这个高度会设置为 style.width 的值 | String / Number | —— | table.body.width |
+| lineHeight | 虚拟滚动区域每行高度，如果 lineHeight 为 Number 类型，单位 px；如果 lineHeight 为 String 类型，则这个高度会设置为 style.height 的值 | String / Number | —— | table.body.row.height |
 
 ### bk-table 事件 {page=#/table}
 | 事件名称 | 说明 | 回调参数 |

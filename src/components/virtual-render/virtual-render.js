@@ -109,7 +109,6 @@ export default {
     },
     data () {
         return {
-            currentPageUpdating: false,
             startIndex: 0,
             endIndex: 0,
             scrollTop: 1,
@@ -167,6 +166,7 @@ export default {
             this.endIndex = endIndex
             this.scrollTop = scrollTop
             this.$emit('content-scroll', event)
+            // 设置偏移量，避免行高较大时出现卡顿式的滚动
             this.translateY = scrollTop % this.lineHeight
         },
         scrollToIndex (index) {
