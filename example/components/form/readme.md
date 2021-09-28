@@ -879,7 +879,7 @@
 | error-display-type | 表单项错误提示的方式，有tooltips和行展示效果 | String | `tooltips` / `normal` | `tooltips` |
 | desc | 表单项 label描述信息, 具体用法和v-bk-tooltips指令一致，详情可参考[v-bk-tooltips参数](#/tooltips) | String, Object | —— | —— |
 | desc-type | 表单项 label描述信息展示方式，包括下划线和图标两种方式 | String | `border` / `icon` |`border` |
-| desc-icon | 表单项 label描述信息展示为图标时配置，仅在desc-type为`icon`时生效 | String | 参考[TInside ICON](ICON_URL) | -- |
+| desc-icon | 表单项 label描述信息展示为图标时配置，仅在desc-type为`icon`时生效 | String | 参考[ICON](#/icon) | -- |
 | required | 是否必填，在 label 会显示红色的* | Boolean | `true` / `false` | `false` |
 | rules | 定义表单项的校验规则, 一条规则包含：触发方式 `trigger`，可选值有 'blur', 'change', 显示：message, 校验规则：required、min、max，也可以自定正则regex, 以及自定义方法validator，在自定义方法里可以实现异步验证，详情看表单验证例子 | Array | —— | —— |
 | icon-offset | 当表单项校验错误时，会有一个红色感叹 icon 出现，此属性可定位 icon 的偏移位置 | Number | —— | `8` |

@@ -101,7 +101,7 @@
 
 带图标的按钮可增强辨识度。
 
-:::demo 可以使用 `icon` 属性来定义按钮中文字左侧的图标，使用 `iconRight` 来定义按钮中文字右侧的图标。图标类名参照[TInside ICON](ICON_URL)（可省略类名中的 `icon-` 前缀）。**特别的，当 `icon` 或 `iconRight` 设置为 `loading` 的时候，会显示转圈的 loading 效果。**
+:::demo 可以使用 `icon` 属性来定义按钮中文字左侧的图标，使用 `iconRight` 来定义按钮中文字右侧的图标。图标类名参照[ICON](#/icon)（可省略类名中的 `icon-` 前缀）。**特别的，当 `icon` 或 `iconRight` 设置为 `loading` 的时候，会显示转圈的 loading 效果。**
 
 ```html
 <template>
@@ -396,8 +396,8 @@
 | hover-theme | mouseover 按钮类型，当设置了此属性时，`theme` 和 `text` 失效 | String | 可以用按钮样式【`primary` `success` `warning` `danger`】 | —— |
 | size | 尺寸 | String |`small` `normal` `large` |`normal`|
 | title | title 文案 | String | —— |
-| icon | 左侧图标，设置为 loading 的时候，会显示转圈的 loading 效果。 | String | 参考[TInside ICON](ICON_URL)| —— |
-| icon-right | 右侧图标，设置为 loading 的时候，会显示转圈的 loading 效果。 | String |参考[TInside ICON](ICON_URL)| —— |
+| icon | 左侧图标，设置为 loading 的时候，会显示转圈的 loading 效果。 | String | 参考[ICON](#/icon)| —— |
+| icon-right | 右侧图标，设置为 loading 的时候，会显示转圈的 loading 效果。 | String |参考[ICON](#/icon)| —— |
 | disabled | 是否禁用 | Boolean | `true` `false` | `false` |
 | loading | 是否加载中 | Boolean | `true` `false` | `false` |
 | outline | 是否显示反色按钮 | Boolean | `true` `false` | `false` |

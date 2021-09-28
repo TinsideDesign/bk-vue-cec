@@ -549,7 +549,7 @@
 | okText | 确定按钮的文字 | String | —— | —— |
 | cancelText | 取消按钮的文字 | String | —— | —— |
 | container | 控制弹框出现在什么容器内 | HTMLElement / VNode / String | —— | document.body |
-| icon | 消息框状态的图标，使用TInsideicon | String | 参考[TInside ICON](ICON_URL) | —— |
+| icon | 消息框状态的图标，使用bk-vue-cec ICON | String | 参考[ICON](#/icon) | —— |
 | confirmLoading | 异步 confirmFn 确定按钮自动开启 loading | Boolean | —— | false |
 | confirmFn | 确认按钮点击回调函数，支持异步函数，函数返回false可阻止弹窗关闭 | Function | —— | —— |
 | cancelFn | 取消按钮点击回调函数 | Function | —— | —— |

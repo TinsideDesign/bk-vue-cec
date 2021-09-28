@@ -47,7 +47,7 @@ const markdownItHighlightjs = require('./md-highlight')
 
 const replaceLink = (link, env) => {
     if (link === 'ICON_URL') {
-        return '//magicbox.bk.tencent.com/#detail/show?id=bk_icon&isPro=1'
+        return '#/icon'
     }
     return link
 }

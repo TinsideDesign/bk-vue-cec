@@ -440,7 +440,7 @@
 ### 属性 {page=#/steps}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
-| steps | 组件步骤内容，数组中的元素可以是对象，可以是数字，可以是字符串，也可以是三者混合；<br>当元素是对象时，有四个可选的key：`title` `icon` `description` `status`；当元素是数字或字符串时，组件会将其解析成对象形式下的 `icon` 的值；当元素是字符串时，使用[TInside ICON](ICON_URL) | Array | —— | —— |
+| steps | 组件步骤内容，数组中的元素可以是对象，可以是数字，可以是字符串，也可以是三者混合；<br>当元素是对象时，有四个可选的key：`title` `icon` `description` `status`；当元素是数字或字符串时，组件会将其解析成对象形式下的 `icon` 的值；当元素是字符串时，使用[ICON](#/icon) | Array | —— | —— |
 | cur-step | 当前步骤的索引值，从 1 开始；支持 .sync 修饰符 | Number | —— | 1 |
 | direction | 步骤条方向，支持水平（horizontal）和竖直（vertical）两种方向 | String | horizontal, vertical | horizontal |
 | size | 指定大小，目前支持普通（不设置）和小尺寸（small） | String | small | —— |

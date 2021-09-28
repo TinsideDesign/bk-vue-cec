@@ -267,7 +267,7 @@
 |------|------|------|------|------|
 | theme | 组件的主题色 | String | `primary` `info` `warning` `danger` `success` 或16进制颜色值 | primary |
 | val | 组件显示的值 | Number / String | —— | 1 |
-| icon | 组件显示图标；当设置 icon 时，将忽略设置的 value 值 | String | 参考[TInside ICON](ICON_URL) | —— |
+| icon | 组件显示图标；当设置 icon 时，将忽略设置的 value 值 | String | 参考[ICON](#/icon) | —— |
 | max | 组件显示的最大值，当 value 超过 max，显示数字 +；仅当设置了 Number 类型的 value 值时生效 | Number | —— | —— |
 | dot | 是否仅显示小圆点；当设置 dot 为 true 时，value, icon, max 均会被忽略 | Boolean | —— | —— |
 | visible | 是否显示组件 | Boolean | —— | —— |

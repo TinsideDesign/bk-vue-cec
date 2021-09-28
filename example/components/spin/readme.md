@@ -171,7 +171,7 @@
 |------|------|------|------|------|
 | theme | 加载类型 | String | `primary` `success` `warning` `danger` | `primary` |
 | size | 尺寸 | String |`large` `normal` `small` `mini`|`small`|
-| icon | 自定义的加载图标 | String | 参考[蓝鲸 ICON](#/icon)| —— |
+| icon | 自定义的加载图标 | String | 参考[ICON](#/icon)| —— |
 | spinning | 是否为加载中状态 | Boolean | true/false | true |
 | placement | 插槽的位置 | String | `right` `bottom` | bottom |
 

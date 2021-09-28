@@ -391,7 +391,7 @@
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
 | theme | 组件主题色 | String | primary / success / warning / error | primary |
-| icon | 组件左侧图标 | String | 参考[TInside ICON](ICON_URL) | info |
+| icon | 组件左侧图标 | String | 参考[ICON](#/icon) | info |
 | message | 组件显示的文字内容，支持字符串或用 `this.$createElement` 生成的 DOM 片段 | String / DOM Element | —— | —— |
 | delay | 组件延时关闭时间，值为 0 时需要手动关闭 | Number | —— | 3000 |
 | dismissable | 是否显示右侧关闭 icon | Boolean | —— | true |

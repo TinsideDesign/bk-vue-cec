@@ -620,7 +620,7 @@
 | list[].type | 节点样式 | String | default / primary / warning / success / danger | primary |
 | list[].size | 节点大小 | String | large | —— |
 | list[].color | 节点颜色 | String | blue / red / green / yellow / gray | gray |
-| list[].icon | 节点图标，可使用[TInside ICON](ICON_URL)或者传入VNode自定义图标 | String/VNode | true / false | —— |
+| list[].icon | 节点图标，可使用[ICON](#/icon)或者传入VNode自定义图标 | String/VNode | true / false | —— |
 | list[].filled | 是否填充节点(实心) | Boolean | true / false | —— |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-timeline` 上 | String | —— | —— |
 

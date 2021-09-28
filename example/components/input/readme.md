@@ -651,7 +651,7 @@
 | precision | 保留小数位 | Number | [0-16] | undefined |
 | show-controls | type为number时，是否显示右侧控制箭头 | Boolean | Boolean | true |
 | font-size | 设置输入框内容字体大小 | String | `normal`（12px），`medium`（14px），`large`（16px） | normal |
-| password-icon | 设置密码框切换显示密码的 icon | Array | —— | `['icon-eye-slash', 'icon-eye']`。图标参考[TInside ICON](ICON_URL)  |
+| password-icon | 设置密码框切换显示密码的 icon | Array | —— | `['icon-eye-slash', 'icon-eye']`。图标参考[ICON](#/icon)  |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-form-control` 上 | String | —— | —— |
 | native-attributes | Html input标签原生属性设置 | Object | —— | —— |
 | show-word-limit | 是否显示输入字数统计，只在 `type = "text"` 或 `type = "textarea"` 时有效 | Boolean | true / false | —— |
