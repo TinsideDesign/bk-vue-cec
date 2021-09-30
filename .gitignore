@@ -27,3 +27,4 @@ dist.zip
 package-lock.json
 coverage
 yarn.lock
+.history

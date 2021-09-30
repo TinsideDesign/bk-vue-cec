@@ -100,10 +100,39 @@
                 this.$emit('submit', this.formItems)
                 e.preventDefault()
             },
+            clearFieldError (field) {
+                if (!field) {
+                    return
+                }
+                for (const formItem of this.formItems) {
+                    if (field === formItem.property) {
+                        formItem.clearError()
+                    }
+                }
+            },
             clearError () {
                 for (const field of this.formItems) {
                     field.clearError()
                 }
+            },
+            validateField (field) {
+                if (!field) {
+                    return Promise.reject(new Error('field 不能为空'))
+                }
+                for (const formItem of this.formItems) {
+                    if (field === formItem.property) {
+                        return new Promise((resolve, reject) => {
+                            formItem.validate('', validator => {
+                                if (validator && validator.state === 'error') {
+                                    reject(validator)
+                                } else {
+                                    resolve()
+                                }
+                            })
+                        })
+                    }
+                }
+                return Promise.reject(new Error('filed 不存在'))
             },
             validate (callback) {
                 return new Promise((resolve, reject) => {
