@@ -43,7 +43,7 @@
                         ]" ref="content" :style="[contentStyles]" @click="contentClickHandler">
                             <div class="bk-dialog-tool" @mousedown.left="moveStartHandler">
                                 <slot name="tools"></slot>
-                                <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="close"></i>
+                                <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                             </div>
                             <template v-if="type">
                                 <div class="bk-dialog-type-body" :class="type === 'loading' ? 'loading' : ''">
@@ -119,7 +119,7 @@
                         ]" ref="content" :style="[contentStyles]" @click="contentClickHandler">
                             <div class="bk-dialog-tool" @mousedown.left="moveStartHandler">
                                 <slot name="tools"></slot>
-                                <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="close"></i>
+                                <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                             </div>
                             <div :class="{ 'bk-dialog-header': true, 'header-on-left': headerPosition === 'left' }" v-if="showHead" :style="{ textAlign: headerPosition }">
                                 <slot name="header"><div :class="{ 'bk-dialog-header-inner': true, 'header-aside': headerPosition !== 'center' }">{{title}}</div></slot>
@@ -247,7 +247,10 @@
             position: {
                 type: Object
             },
-
+            beforeClose: {
+                type: Function,
+                default: () => true
+            },
             // 外部设置的 class name
             extCls: {
                 type: String,
@@ -804,12 +807,18 @@
             /**
              *  关闭弹框
              */
-            close () {
-                this.visible = false
-                typeof this.onClose === 'function' && this.onClose()
-                this.$emit('input', false)
-                this.$emit('cancel')
-                typeof this.cancelFn === 'function' && this.cancelFn(this)
+            async close () {
+                let shouldClose = true
+                if (typeof this.beforeClose === 'function') {
+                    shouldClose = await this.beforeClose()
+                }
+                if (shouldClose) {
+                    this.visible = false
+                    typeof this.onClose === 'function' && this.onClose()
+                    this.$emit('input', false)
+                    this.$emit('cancel')
+                    typeof this.cancelFn === 'function' && this.cancelFn(this)
+                }
             },
 
             /**
