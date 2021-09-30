@@ -109,18 +109,27 @@
         </div>
         <div class="example-item">
             <div class="inner">
-                <p><span class="bk-text-minor">steps</span></p>
-                <bk-time-picker :steps="[1, 15, 20]" @change="change"></bk-time-picker>
-            </div>
-            <div class="inner">
                 <p><span class="bk-text-minor">不可选</span></p>
                 <bk-time-picker :disabled-hours="[1, 5, 10]" :disabled-minutes="[0, 10, 20]"></bk-time-picker>
+            </div>
+            <div class="inner">
+                <p><span class="bk-text-minor">不可选隐藏</span></p>
+                <bk-time-picker
+                    :disabled-hours="[1,2,3,4, 5, 10]"
+                    :disabled-minutes="[0,1,2,3,4,5,6,7, 10, 20]"
+                    :disabled-seconds="[0, 30, 40]"></bk-time-picker>
             </div>
         </div>
         <div class="example-item">
             <div class="inner">
                 <p><span class="bk-text-minor">不可选隐藏</span></p>
                 <bk-time-picker :disabled-hours="[1, 5, 10]" :disabled-minutes="[0, 10, 20]" :disabled-seconds="[0, 30, 40]" hide-disabled-options></bk-time-picker>
+            </div>
+        </div>
+        <div class="example-item">
+            <div class="inner">
+                <p><span class="bk-text-minor">steps</span></p>
+                <bk-time-picker :steps="[1, 15, 20]" @change="change"></bk-time-picker>
             </div>
         </div>
         <div class="example-item">

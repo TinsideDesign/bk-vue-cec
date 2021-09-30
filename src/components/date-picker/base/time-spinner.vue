@@ -271,6 +271,11 @@
                     Math.round((this.$refs[type].scrollTop - (this.scrollBarHeight(type) * 0.5 - 10) / this.typeItemHeight(type) + 3) / this.typeItemHeight(type)),
                     (type === 'hours' ? 23 : 59)
                 )
+                const list = this[`${type}List`]
+                const item = list.find(data => data.text === value)
+                if (item.disabled) {
+                    return false
+                }
                 this.$nextTick(() => {
                     this.emitChange({ [type]: value })
                 })

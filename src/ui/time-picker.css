@@ -34,7 +34,7 @@
         position: absolute;
         margin-top: 0;
         height: 32px;
-        z-index: -1;
+        z-index: 1;
         left: 0;
         right: 0;
         -webkit-box-sizing: border-box;
@@ -44,7 +44,10 @@
         /* border-top: 1px solid #e4e7ed; */
         /* border-bottom: 1px solid #e4e7ed; */
         background-color: #E6F0FF;
+        //background-color: rgba(58,132,255,.16);
+        mix-blend-mode: multiply;
         color: $newMainColor;
+        pointer-events: none;
     }
 }
 .bk-time-picker-cells-with-seconds {

@@ -21,7 +21,7 @@
 
 ## TimePicker 时间选择器
 
-<!-- :::exampleLink [更多示例](#/time-picker/example) -->
+:::exampleLink [更多示例](#/time-picker/example)
 
 ### 基础用法 {page=#/time-picker}
 
