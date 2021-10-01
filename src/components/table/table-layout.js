@@ -167,6 +167,9 @@ class TableLayout {
         let bodyMinWidth = 0
 
         const flattenColumns = this.getFlattenColumns()
+        if (flattenColumns.length < 1) {
+            return
+        }
         const flexColumns = flattenColumns.filter((column) => typeof column.width !== 'number')
 
         // todo 初始化的时候有设置 realWidth 的默认值，这个地方又重置掉逻辑（暂时没理解先注释掉）
@@ -242,23 +245,25 @@ class TableLayout {
             if (!this.scrollX && flattenColumns.length) {
                 // 在所有列均被指定了宽度后，如果此时写死的列宽总和小于表格宽度，则将宽度差值分配给最右一列
                 const deltaWidth = bodyWidth - bodyMinWidth
-                const lastColumn = findLastColumnWithNotSetting(flattenColumns)
+                const lastColumn = flattenColumns[flattenColumns.length - 1]
                 lastColumn.realWidth = lastColumn.realWidth + deltaWidth
                 this.bodyWidth = bodyWidth
             } else {
-                // 当所有列均被指定了宽度后，如果列宽总和大于表格宽度修正最后一列的宽度
-                const lastColumn = findLastColumnWithNotSetting(flattenColumns)
+                // 当所有列均被指定了宽度后，如果列宽总和大于表格宽度修正最后一列(非setting类型)的宽度
                 // 最后一列的实际宽度
-                const lastRealWidth = typeof lastColumn.width !== 'number' ? lastColumn.minWidth : lastColumn.width
+                const lastColumn = findLastColumnWithNotSetting(flattenColumns)
+                if (lastColumn) {
+                    const lastRealWidth = typeof lastColumn.width !== 'number' ? lastColumn.minWidth : lastColumn.width
 
-                const preLastColumnBodyMinWidth = bodyMinWidth - lastColumn.realWidth
+                    const preLastColumnBodyMinWidth = bodyMinWidth - lastColumn.realWidth
 
-                if (preLastColumnBodyMinWidth + lastRealWidth > bodyWidth) {
-                    lastColumn.realWidth = lastRealWidth
-                    bodyMinWidth = preLastColumnBodyMinWidth + lastRealWidth
-                } else {
-                    lastColumn.realWidth = bodyWidth - preLastColumnBodyMinWidth
-                    bodyMinWidth = preLastColumnBodyMinWidth + lastColumn.realWidth
+                    if (preLastColumnBodyMinWidth + lastRealWidth > bodyWidth) {
+                        lastColumn.realWidth = lastRealWidth
+                        bodyMinWidth = preLastColumnBodyMinWidth + lastRealWidth
+                    } else {
+                        lastColumn.realWidth = bodyWidth - preLastColumnBodyMinWidth
+                        bodyMinWidth = preLastColumnBodyMinWidth + lastColumn.realWidth
+                    }
                 }
 
                 this.scrollX = bodyMinWidth > bodyWidth
