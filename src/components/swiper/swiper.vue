@@ -148,14 +148,26 @@
             },
 
             height (val) {
-                const ele = this.$refs.swiper || {}
+                const ele = this.$refs.swiper || { style: { width: 0, height: 0 }, offsetWidth: 0 }
                 if (+val > 0) ele.style.height = val + 'px'
             },
 
             width (val) {
-                const ele = this.$refs.swiper || {}
+                const ele = this.$refs.swiper || { style: { width: 0, height: 0 }, offsetWidth: 0 }
                 this.realWidth = +val > 0 ? +val : ele.offsetWidth
                 ele.style.width = this.realWidth + 'px'
+            },
+
+            list () {
+                this.$nextTick(() => {
+                    this.calcSize()
+                })
+            },
+            
+            pics () {
+                this.$nextTick(() => {
+                    this.calcSize()
+                })
             }
         },
 
@@ -168,15 +180,18 @@
         },
 
         methods: {
-            initStatus () {
-                const ele = this.$refs.swiper || {}
+            calcSize () {
+                const ele = this.$refs.swiper || { style: { width: 0, height: 0 }, offsetWidth: 0 }
                 if (+this.height > 0) ele.style.height = this.height + 'px'
 
                 this.realWidth = +this.width > 0 ? +this.width : ele.offsetWidth
                 ele.style.width = this.realWidth + 'px'
                 this.swiperMainWith = this.realWidth * this.dataList.length
+            },
+            
+            initStatus () {
+                this.calcSize()
                 this.startLoop()
-
                 document.addEventListener('visibilitychange', this.visChange)
             },
 
