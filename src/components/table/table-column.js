@@ -70,6 +70,7 @@ const defaults = {
     },
     setting: {
         width: 42,
+        maxWidth: 42,
         minWidth: 42,
         realWidth: 42,
         headerAlign: 'is-center',
@@ -183,8 +184,8 @@ const getDefaultColumn = function (type, options) {
     if (!column.minWidth) {
         column.minWidth = 80
     }
-
-    column.realWidth = column.width === undefined ? column.minWidth : column.width
+    // 没有设置 width，取最小值 minWidth
+    column.realWidth = typeof column.width !== 'number' ? column.minWidth : column.width
     return column
 }
 
@@ -213,19 +214,6 @@ const parseWidth = (width) => {
     return width
 }
 
-/**
- * 解析最小宽度
- */
-const parseMinWidth = (minWidth) => {
-    if (minWidth !== undefined) {
-        minWidth = parseInt(minWidth, 10)
-        if (isNaN(minWidth)) {
-            minWidth = 80
-        }
-    }
-    return minWidth
-}
-
 export default {
     name: 'bk-table-column',
     props: {
@@ -240,6 +228,7 @@ export default {
         prop: String,
         width: {},
         minWidth: {},
+        maxWidth: {},
         renderHeader: Function,
         sortable: {
             type: [String, Boolean],
@@ -334,7 +323,8 @@ export default {
         const type = this.type
 
         const width = parseWidth(this.width)
-        const minWidth = parseMinWidth(this.minWidth)
+        const minWidth = parseWidth(this.minWidth)
+        const maxWidth = parseWidth(this.maxWidth)
 
         const isColumnGroup = false
 
@@ -348,8 +338,9 @@ export default {
             type,
             renderCell: null,
             renderHeader: this.renderHeader,
-            minWidth,
             width,
+            minWidth,
+            maxWidth,
             isColumnGroup,
             context: this.context,
             align: this.align ? 'is-' + this.align : undefined,
@@ -497,7 +488,7 @@ export default {
 
         minWidth (newVal) {
             if (this.columnConfig) {
-                this.columnConfig.minWidth = parseMinWidth(newVal)
+                this.columnConfig.minWidth = parseWidth(newVal)
                 this.owner.store.scheduleLayout()
             }
         },

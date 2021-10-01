@@ -528,10 +528,11 @@ export default {
                             startLeft
                         } = this.dragState
                         const finalLeft = parseInt(resizeProxy.style.left, 10)
+
                         const columnWidth = finalLeft - startColumnLeft
                         column.width = column.realWidth = columnWidth
                         table.$emit('header-dragend', column.width, startLeft - startColumnLeft, column, event)
-
+                        this.store.isDraging = true
                         this.store.scheduleLayout()
 
                         document.body.style.cursor = ''

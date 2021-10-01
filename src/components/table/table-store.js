@@ -141,6 +141,8 @@ class TableStore {
         }
         this.table = table
 
+        this.isDraging = false
+        
         this.states = {
             rowKey: null,
             _columns: [],
