@@ -81,8 +81,13 @@ class TableLayout {
         if (typeof height !== 'string' && typeof height !== 'number') return
         const bodyWrapper = this.table.bodyWrapper
         if (this.table.$el && bodyWrapper) {
-            const body = bodyWrapper.querySelector('.bk-table-body')
-            this.scrollY = body.offsetHeight > this.bodyHeight
+            if (this.table.isVirtualRender) {
+                const body = bodyWrapper.querySelector('.bk-virtual-render')
+                this.scrollY = body.offsetHeight > this.bodyHeight
+            } else {
+                const body = bodyWrapper.querySelector('.bk-table-body')
+                this.scrollY = body.offsetHeight > this.bodyHeight
+            }
         }
     }
 
@@ -177,13 +182,12 @@ class TableLayout {
             })
 
             const scrollYWidth = this.scrollY ? this.gutterWidth : 0
-
             if (bodyMinWidth <= bodyWidth - scrollYWidth) {
                 // 所有 column 的宽度和小于 table 的宽度
                 // 取消水平滚动条
                 this.scrollX = false
-
-                const totalFlexWidth = bodyWidth - scrollYWidth - bodyMinWidth
+                const virtualScrollWidth = this.table.isVirtualRender && this.scrollY ? 10 : 0
+                const totalFlexWidth = bodyWidth - scrollYWidth - bodyMinWidth - virtualScrollWidth
 
                 if (flexColumns.length === 1) {
                     flexColumns[0].realWidth = flexColumns[0].minWidth + totalFlexWidth
@@ -221,7 +225,7 @@ class TableLayout {
             flattenColumns.forEach((column) => {
                 bodyMinWidth += column.realWidth
             })
-            
+
             this.scrollX = bodyMinWidth > bodyWidth
 
             // 找到最后非 setting 类型的 column

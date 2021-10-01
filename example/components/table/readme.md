@@ -27,6 +27,9 @@
             }, {
                 id: 'create_time',
                 label: '创建时间'
+            }, {
+                id: 'desc',
+                label: '描述'
             }]
             return {
                 size: 'small',
@@ -105,6 +108,7 @@
                     source: 'QQ' + index,
                     status: '创建中',
                     create_time: '2018-05-25 15:02:24',
+                    desc: 'Table 的高度，默认为自动高度。如果 height 为 Number 类型，单位 px；如果 height 为 String 类型，则这个高度会设置为 Table 的 style.height 的值，Table 的高度会受控于外部样式。'
                 })),
                 pagination: {
                     current: 1,
@@ -114,7 +118,7 @@
                 setting: {
                     max: 3,
                     fields: settingFields,
-                    selectedFields: settingFields.slice(0, 3),
+                    selectedFields: settingFields.slice(0, 4),
                     size: 'small'
                 }
             }
@@ -808,7 +812,7 @@
                 setting: {
                     max: 3,
                     fields: settingFields,
-                    selectedFields: settingFields.slice(0, 3),
+                    selectedFields: settingFields.slice(0, 4),
                     size: 'small'
                 }
             }
@@ -972,23 +976,13 @@ export default {
     <div>
         <bk-table style="margin-top: 15px;"
             :data="longData"
-            :size="setting.size"
             :virtual-render="true"
             height="200px">
             <bk-table-column
-                v-for="field in setting.selectedFields"
+                v-for="field in setting.fields"
                 :key="field.id"
                 :label="field.label"
                 :prop="field.id">
-            </bk-table-column>
-            <bk-table-column type="setting">
-                <bk-table-setting-content
-                    :fields="setting.fields"
-                    :selected="setting.selectedFields"
-                    :max="setting.max"
-                    :size="setting.size"
-                    @setting-change="handleSettingChange">
-                </bk-table-setting-content>
             </bk-table-column>
         </bk-table>
     </div>
@@ -1002,39 +996,37 @@ export default {
             bkTableSettingContent
         },
         data () {
-            const fields = [{
-                id: 'ip',
-                label: '名称/内网IP',
-                disabled: true
-            }, {
-                id: 'source',
-                label: '来源'
-            }, {
-                id: 'status',
-                label: '状态'
-            }, {
-                id: 'create_time',
-                label: '创建时间'
-            }]
             return {
                 longData: new Array(100).fill('').map((item, index) => ({
                     ip: '192.168.0.1',
                     source: 'QQ' + index,
                     status: '创建中',
                     create_time: '2018-05-25 15:02:24',
+                    desc: 'Table 的高度，默认为自动高度。如果 height 为 Number 类型，单位 px；如果 height 为 String 类型，则这个高度会设置为 Table 的 style.height 的值，Table 的高度会受控于外部样式。'
                 })),
                 setting: {
                     max: 3,
                     fields: settingFields,
                     selectedFields: settingFields.slice(0, 3),
                     size: 'small'
+                    fields: [{
+                                id: 'ip',
+                                label: '名称/内网IP',
+                                disabled: true
+                            }, {
+                                id: 'source',
+                                label: '来源'
+                            }, {
+                                id: 'status',
+                                label: '状态'
+                            }, {
+                                id: 'create_time',
+                                label: '创建时间'
+                            }, {
+                                id: 'desc',
+                                label: '描述'
+                            }]
                 }
-            }
-        },
-        methods: {
-            handleSettingChange ({ fields, size }) {
-                this.setting.size = size
-                this.setting.selectedFields = fields
             }
         }
     }
