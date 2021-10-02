@@ -307,7 +307,7 @@
 ```
 :::
 
-### hover时才显示clear按钮 {page=#/tag}
+### hover 时才显示 clear 按钮 {page=#/tag}
 
 :::demo 设置 `showClearOnlyHover` 为`true`，则其clear按钮在hover时才会显示。 可以比较与上一例子交互的不同之处
 
@@ -1222,7 +1222,7 @@
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-tag-selector` 上 | String | —— | —— |
 | tooltip-key | 让选中的标签在鼠标移上去时显示提示文案 | String | —— | —— |
 | allow-auto-match | 配置输入时失焦点后，如果完全匹配则自动选中，如果自定义则自动输入 | Boolean | —— | false |
-| create-tag-validator | 自定义标签校验函数，返回 boolean，参数`(tag)`，tag表示当前输入值，在自定义标签时，可以自定义添加标签的校验 | 
+| create-tag-validator | 自定义标签校验函数，返回 boolean，参数`(tag)`，tag表示当前输入值，在自定义标签时，可以自定义添加标签的校验 |
 | show-clear-only-hover | 是否在只有hover的时候才显示clear清除按钮 | Boolean | —— | false |
 | function | —— | —— | —— |
 

@@ -365,7 +365,6 @@
         },
         methods: {
             mouseEnterHandler () {
-                console.log(123)
                 this.hover = true
             },
             handlerClear () {

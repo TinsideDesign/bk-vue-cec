@@ -142,7 +142,7 @@ class TableStore {
         this.table = table
 
         this.isDraging = false
-        
+
         this.states = {
             rowKey: null,
             _columns: [],
@@ -370,7 +370,6 @@ class TableStore {
                     states.selectable = column.selectable
                     states.reserveSelection = column.reserveSelection
                 }
-
                 if (this.table.$ready) {
                     this.updateColumns() // hack for dynamics insert column
                     this.scheduleLayout()
