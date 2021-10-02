@@ -60,4 +60,4 @@
 | align   | 分割线位置 | String | left , right , center | center |
 | color   | 分割线颜色 | String | - | #dde4eb |
 | width   | 分割线宽度 | Number | - | 0 |
-| type   | 分割线类型，border-style类型 | String | solid，dash | solid |
+| type   | 分割线类型，border-style类型 | String | solid, dashed | solid |
