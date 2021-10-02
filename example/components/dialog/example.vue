@@ -55,7 +55,7 @@
             <bk-dialog v-model="dialog1">
                 <bk-button @click="dialog2 = true">innerShowDialog2</bk-button>
             </bk-dialog>
-            <bk-dialog v-model="dialog2">
+            <bk-dialog v-model="dialog2" :render-directive="'if'">
                 dialog2
             </bk-dialog>
         </div>

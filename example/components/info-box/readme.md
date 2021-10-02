@@ -80,6 +80,7 @@
                 this.$bkInfo({
                     type: 'success',
                     title: '添加用户成功',
+                    subTitle: '重置SecureKey，需要自行修改templates中的callback地址字段！',
                     showFooter: false,
                     extCls: 'sdasa',
                     subHeader: h('a', {

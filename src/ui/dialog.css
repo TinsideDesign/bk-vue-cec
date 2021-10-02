@@ -113,21 +113,21 @@
 
     .bk-dialog-header {
         padding: 3px 24px 24px 24px;
-        line-height: 1.1;
+        line-height: 1.2;
         text-align: center;
         p,
         .bk-dialog-header-inner {
             display: inline-block;
             width: 100%;
-            font-size: 24px;
-            color: $newBlackColor1;
+            font-size: 20px;
+            color: $newBlackColor2;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             margin: 0;
         }
-        .header-aside {
-            font-size: 20px;
+        .header-center {
+            font-size: 24px;
         }
         p {
             i,
@@ -194,11 +194,14 @@
 
     .bk-info-box {
         .bk-dialog-header {
-            padding: 20px 30px 10px 30px;
+            padding: 15px 30px 10px 30px;
         }
 
         .bk-dialog-sub-header {
-            padding: 5px 50px 21px 50px;
+            padding: 5px 50px 6px 50px;
+            &.has-sub {
+                padding-bottom: 21px;
+            }
             .bk-dialog-header-inner {
                 font-size: 14px;
                 color: $newBlackColor2;
@@ -212,7 +215,7 @@
         }
         .bk-dialog-footer {
             text-align: center;
-            padding: 0 65px 40px;
+            padding: 0 65px 33px;
             background-color: #fff;
             border: none;
             border-radius: 0;
@@ -241,7 +244,7 @@
         }
 
         .bk-dialog-type-header {
-            padding: 3px 24px 32px 24px;
+            padding: 3px 24px 22px 24px;
             line-height: 1;
             text-align: center;
             &.loading,
@@ -251,7 +254,7 @@
             .header {
                 display: inline-block;
                 width: 100%;
-                font-size: 24px;
+                font-size: 20px;
                 color: $newBlackColor1;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -276,12 +279,11 @@
                 display: inline-block;
                 width: 100%;
                 font-size: 14px;
-                color: $newBlackColor1;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                color: $newBlackColor2;
                 line-height: 1.5;
                 margin: 0;
+                text-align: center;
+                word-break: break-all;
             }
         }
 
@@ -291,21 +293,25 @@
             &.bk-dialog-warning,
             &.bk-dialog-error,
             &.bk-dialog-success {
-                width: 58px;
-                height: 58px;
-                line-height: 58px;
-                font-size: 30px;
+                width: 42px;
+                height: 42px;
+                line-height: 42px;
+                font-size: 36px;
                 color: #fff;
                 border-radius: 50%;
             }
             &.bk-dialog-warning {
-                background-color: $warningColor;
+                background-color: $newOrangeColor3;
+                color: $newOrangeColor;
+                font-size: 26px;
             }
             &.bk-dialog-error {
-                background-color: $dangerColor;
+                background-color: $newRedColor3;
+                color: $newRedColor;
             }
             &.bk-dialog-success {
-                background-color: $successColor;
+                background-color: #e5f6ea;
+                color: #3fc06d;
             }
         }
     }

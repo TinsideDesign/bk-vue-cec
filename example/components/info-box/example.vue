@@ -73,7 +73,7 @@
                 this.$bkInfo({
                     title: 'mount in parentNode',
                     // container: document.querySelectorAll('.example-item')[1]
-                    container: this.$refs.vvv
+                    container: this.$refs.vvv.$el.parentNode
                 })
             },
             test () {

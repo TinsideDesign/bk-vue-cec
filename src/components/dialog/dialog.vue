@@ -84,7 +84,7 @@
                                 <div class="bk-dialog-header" v-if="showHead">
                                     <slot name="header"><div class="bk-dialog-header-inner">{{title}}</div></slot>
                                 </div>
-                                <div class="bk-dialog-sub-header">
+                                <div class="bk-dialog-sub-header" :class="(subTitle || $slots['sub-header']) ? 'has-sub' : ''">
                                     <slot name="sub-header"><div class="bk-dialog-header-inner">{{subTitle}}</div></slot>
                                 </div>
                                 <div class="bk-dialog-footer" v-if="showFooter">
@@ -122,7 +122,7 @@
                                 <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                             </div>
                             <div :class="{ 'bk-dialog-header': true, 'header-on-left': headerPosition === 'left' }" v-if="showHead" :style="{ textAlign: headerPosition }">
-                                <slot name="header"><div :class="{ 'bk-dialog-header-inner': true, 'header-aside': headerPosition !== 'center' }">{{title}}</div></slot>
+                                <slot name="header"><div :class="{ 'bk-dialog-header-inner': true, 'header-center': headerPosition === 'center' }">{{title}}</div></slot>
                             </div>
                             <div class="bk-dialog-body"><slot></slot></div>
                             <div class="bk-dialog-footer" :style="{ textAlign: footerPosition }" v-if="showFooter">
