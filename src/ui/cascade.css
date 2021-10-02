@@ -98,7 +98,6 @@ $itemBackground: #F0F1F5;
     }
     .bk-tooltip.bk-cascade-dropdown {
         display: block;
-        background-color: #fff;
         & > .bk-tooltip-ref {
             display: block;
         }

@@ -273,7 +273,6 @@
 .bk-textarea-wrapper {
     border: 1px solid $newGreyColor;
     border-radius: 2px;
-    background-color: #fff;
     .bk-form-textarea {
         border: none;
         height: auto;
