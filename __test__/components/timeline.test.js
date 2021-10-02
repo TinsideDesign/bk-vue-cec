@@ -40,7 +40,7 @@ describe('Timeline', () => {
         propsData: {
             list: [
                 { tag: '十月一日', content: '下雨了' },
-                { tag: '十月二日', content: '<div style="color: #F95F5BD9;"><strong>天晴了</strong></div>', type: 'success' },
+                { tag: '十月二日', content: '<div style="color: #FF5656;"><strong>天晴了</strong></div>', type: 'success' },
                 {
                     tag: '十月三日',
                     content:
@@ -57,7 +57,7 @@ describe('Timeline', () => {
     it('render the correct content', () => {
         expect(wrapper.name()).toBe('bk-timeline')
         expect(wrapper.html()).toContain('<div class="bk-timeline-time">十月一日</div>')
-        expect(wrapper.html()).toContain('<div style="color: #F95F5BD9;"><strong>天晴了</strong></div>')
+        expect(wrapper.html()).toContain('<div style="color: #FF5656;"><strong>天晴了</strong></div>')
         expect(wrapper.html()).toContain('<p style="color: red;">今天天气很好</p>')
     })
 

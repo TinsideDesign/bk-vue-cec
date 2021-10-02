@@ -43,7 +43,7 @@
         margin: 30px 50px;
     }
     .demo2 .bk-slider-label:last-child {
-        color: #F95F5B
+        color: #EA3636
     }
     .slot {
         margin: 30px 30px;
@@ -416,7 +416,7 @@
 </script>
 <style>
 .demo2 .bk-slider-label:last-child {
-    color: #F95F5B
+    color: #EA3636
 }
 </style>
 ```

@@ -28,7 +28,7 @@
         color: #63656e;
         padding-bottom: 10px;
         .content-icon {
-            color: #F95F5B;
+            color: #EA3636;
             position: absolute;
             top: 20px;
         }
@@ -137,7 +137,7 @@
         color: #63656e;
         padding-bottom: 10px;
         .content-icon {
-            color: #F95F5B;
+            color: #EA3636;
             position: absolute;
             top: 20px;
         }

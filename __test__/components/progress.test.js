@@ -48,7 +48,7 @@ describe('Progress', () => {
         const wrapper = mountComponent(Progress, {
             propsData: {
                 percent: 0.5,
-                color: '#6FC77E'
+                color: '#2DCB56'
             }
         })
         const progressInnerEle = wrapper.find('div.progress-inner.bk-primary').element

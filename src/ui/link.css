@@ -6,17 +6,17 @@ $primaryColor: #006DFF;
 $primaryHoverColor: #006DFFD9;
 $primaryDisabledColor: #99C5FF;
 
-$successColor: #6FC77E;
-$successHoverColor: #8CD298;
-$successDisabledColor: #C5E9CB;
+$successColor: #2DCB56;
+$successHoverColor: #45E35F;
+$successDisabledColor: #94F5A4;
 
-$warningColor: #FECC55;
-$warningHoverColor: #FED677;
-$warningDisabledColor: #FFEBBB;
+$warningColor: #FF9C01;
+$warningHoverColor: #FFB848;
+$warningDisabledColor: #FFD695;
 
-$dangerColor: #F95F5B;
-$dangerHoverColor: #F95F5BD9;
-$dangerDisabledColor: #FDBFBD;
+$dangerColor: #EA3636;
+$dangerHoverColor: #FF5656;
+$dangerDisabledColor: #FD9C9C;
 
 .bk-link {
     display: inline-flex;

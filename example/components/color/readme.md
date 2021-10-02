@@ -11,7 +11,6 @@
     <div class="color-item">
         <div class="main-color" style="background-color: #006DFF;color: #aecdff;"><span>#006DFF</span></div>
         <div class="other-color">
-            <div style="background-color: #1768ef; color: #f5f7fa;"><span>#1768EF</span></div>
             <div style="background-color: #006DFFD9; color: #f5f7fa;"><span>#006DFFD9</span></div>
             <div style="background-color: #99C5FF; color: #63656e;"><span>#99C5FF</span></div>
             <div style="background-color: #E6F0FF; color: #979ba5;"><span>#E6F0FF</span></div>
@@ -25,29 +24,29 @@
 
 <div class="color-wrapper">
     <div class="color-item">
-        <div class="main-color" style="background-color: #F95F5B; color: #ffa7ab;"><span>#F95F5B</span></div>
+        <div class="main-color" style="background-color: #EA3636; color: #ffa7ab;"><span>#EA3636</span></div>
         <div class="other-color">
-            <div style="background-color: #F95F5BD9;"><span>#F95F5BD9</span></div>
-            <div style="background-color: #FDBFBD;"><span>#FDBFBD</span></div>
-            <div style="background-color: #FEEFEF; color: #979ba5;"><span>#FEEFEF</span></div>
+            <div style="background-color: #FF5656;"><span>#FF5656</span></div>
+            <div style="background-color: #FD9C9C;"><span>#FD9C9C</span></div>
+            <div style="background-color: #FFDDDD; color: #979ba5;"><span>#FFDDDD</span></div>
         </div>
         <div class="color-tips">危险、致命</div>
     </div>
     <div class="color-item">
-        <div class="main-color" style="background-color: #FECC55; color: #ffebbb;"><span>#FECC55</span></div>
+        <div class="main-color" style="background-color: #FF9C01; color: #ffebbb;"><span>#FF9C01</span></div>
         <div class="other-color">
-            <div style="background-color: #FED677;"><span>#FED677</span></div>
-            <div style="background-color: #FFEBBB;"><span>#FFEBBB</span></div>
-            <div style="background-color: #FFFAEE; color: #979ba5;"><span>#FFFAEE</span></div>
+            <div style="background-color: #FFB848;"><span>#FFB848</span></div>
+            <div style="background-color: #FFD695;"><span>#FFD695</span></div>
+            <div style="background-color: #FFE8C3; color: #979ba5;"><span>#FFE8C3</span></div>
         </div>
         <div class="color-tips">预警、提醒</div>
     </div>
     <div class="color-item">
-        <div class="main-color" style="background-color: #6FC77E; color: #7ee5c2;"><span>#6FC77E</span></div>
+        <div class="main-color" style="background-color: #2DCB56; color: #7ee5c2;"><span>#2DCB56</span></div>
         <div class="other-color">
-            <div style="background-color: #8CD298;"><span>#8CD298</span></div>
-            <div style="background-color: #C5E9CB;"><span>#C5E9CB</span></div>
-            <div style="background-color: #F1F9F2; color: #979ba5;"><span>#F1F9F2</span></div>
+            <div style="background-color: #45E35F;"><span>#45E35F</span></div>
+            <div style="background-color: #94F5A4;"><span>#94F5A4</span></div>
+            <div style="background-color: #DCFFE2; color: #979ba5;"><span>#DCFFE2</span></div>
         </div>
         <div class="color-tips">健康、正常、完成</div>
     </div>

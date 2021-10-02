@@ -19,34 +19,34 @@ $newMainColor6: #e1e8f4;
 
 /********************** 辅助色 **********************/
 /* 退出、删除、错误、严重警告等否定类标识 */
-$newRedColor: #F95F5B;
-$newRedColor1: #F95F5BD9;
+$newRedColor: #EA3636;
+$newRedColor1: #FF5656;
 /* 描边使用 */
-$newRedColor2: #FDBFBD;
+$newRedColor2: #FD9C9C;
 /* 背景色 */
-$newRedColor3: #FEEFEF;
+$newRedColor3: #FFDDDD;
 $newRedColor4: #db2626;
 $newRedColor5: #ffeded;
 $newRedColor6: #f6dada;
 
 /* 警示灯引起注意类标识 */
-$newOrangeColor: #FECC55;
-$newOrangeColor1: #FED677;
+$newOrangeColor: #FF9C01;
+$newOrangeColor1: #FFB848;
 /* 描边使用 */
-$newOrangeColor2: #FFEBBB;
+$newOrangeColor2: #FFD695;
 /* 背景色 */
-$newOrangeColor3: #FFFAEE;
+$newOrangeColor3: #FFE8C3;
 $newOrangeColor4: #eb9000;
 $newOrangeColor5: #fff4e2;
 $newOrangeColor6: #ede6db;
 
 /* 成功、完成、进行等肯定类标识 */
-$newGreenColor: #6FC77E;
-$newGreenColor1: #8CD298;
+$newGreenColor: #2DCB56;
+$newGreenColor1: #45E35F;
 /* 描边使用 */
-$newGreenColor2: #C5E9CB;
+$newGreenColor2: #94F5A4;
 /* 背景色 */
-$newGreenColor3: #F1F9F2;
+$newGreenColor3: #DCFFE2;
 $newGreenColor4: #1ab943;
 $newGreenColor5: #eaffed;
 $newGreenColor6: #cef0d7;
@@ -79,11 +79,11 @@ $primaryColor: #3c96ff;
 /* 信息 */
 $infoColor: #88c3ff;
 /* 成功 */
-$successColor: #6FC77E;
+$successColor: #2DCB56;
 /* 警告 */
-$warningColor: #FED677;
+$warningColor: #FFB848;
 /* 危险 */
-$dangerColor: #F95F5BD9;
+$dangerColor: #FF5656;
 
 /********************** 基础颜色-鼠标移上 **********************/
 /* 默认 */

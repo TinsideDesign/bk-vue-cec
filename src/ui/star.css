@@ -17,7 +17,7 @@
         enable-background: new 0 0 64 64;
         fill: #c5c7d1;
         &.bk-yellow {
-            fill: #FED677;
+            fill: #FFB848;
         }
         &:last-child {
             margin-right: 0;

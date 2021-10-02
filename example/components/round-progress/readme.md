@@ -22,7 +22,7 @@
                 config: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#6FC77E'
+                    activeColor: '#2DCB56'
                 },
                 config1: {
                     strokeWidth: 10,
@@ -32,7 +32,7 @@
                 config2: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#F95F5B'
+                    activeColor: '#EA3636'
                 }
             }
         },
@@ -76,7 +76,7 @@
                 config: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#6FC77E'
+                    activeColor: '#2DCB56'
                 }
             }
         }
@@ -111,7 +111,7 @@
                 config: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#6FC77E'
+                    activeColor: '#2DCB56'
                 },
                 config1: {
                     strokeWidth: 10,
@@ -121,7 +121,7 @@
                 config2: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#F95F5B'
+                    activeColor: '#EA3636'
                 }
             }
         }
@@ -162,7 +162,7 @@
                 config: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#6FC77E'
+                    activeColor: '#2DCB56'
                 }
             }
         }
@@ -198,7 +198,7 @@
                 config: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#6FC77E'
+                    activeColor: '#2DCB56'
                 }
             }
         },
@@ -245,7 +245,7 @@
                 config: {
                     strokeWidth: 10,
                     bgColor: '#f0f1f5',
-                    activeColor: '#6FC77E'
+                    activeColor: '#2DCB56'
                 }
             }
         }

@@ -262,7 +262,7 @@
 
 .bk-spin-loading.bk-spin-loading-danger .rotate,
 .bk-loading2.bk-spin-loading-danger .rotate {
-    background: #F95F5BD9\9\0;
+    background: #FF5656\9\0;
     animation-name: fadeDanger;
 }
 
@@ -423,7 +423,7 @@
     }
     &.bk-spin-loading-danger {
         .rotate {
-            background:  #F95F5BD9\9\0;
+            background:  #FF5656\9\0;
             animation-name: fadeDanger;
         }
     }
@@ -681,7 +681,7 @@
 
 @keyframes fadeDanger {
     0% {
-        background-color: #F95F5BD9;
+        background-color: #FF5656;
     }
 
     100% {

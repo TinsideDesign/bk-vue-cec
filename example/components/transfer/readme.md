@@ -98,7 +98,7 @@
         font-size: 12px;
     }
     .remove-all span {
-        color: #F95F5B;
+        color: #EA3636;
     }
     .empty-content {
         position: relative;
@@ -367,7 +367,7 @@
         font-size: 12px;
     }
     .remove-all span {
-        color: #F95F5B;
+        color: #EA3636;
     }
     .empty-content {
         position: relative;
@@ -552,7 +552,7 @@
         font-size: 12px;
     }
     .remove-all span {
-        color: #F95F5B;
+        color: #EA3636;
     }
     .empty-content {
         position: relative;

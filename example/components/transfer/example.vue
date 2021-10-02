@@ -135,7 +135,7 @@
             cursor: pointer;
             font-size: 14px;
             span {
-                color: #F95F5BD9;
+                color: #FF5656;
                 &.disabled {
                     cursor: not-allowed;
                     opacity: 0.5;

@@ -148,7 +148,7 @@ $largeNodeSize: 15px;
     @mixin gen-theme primary, $newMainColor;
     @mixin gen-theme warning, #ffb400;
     @mixin gen-theme success, #30d878;
-    @mixin gen-theme danger, #F95F5BD9;
+    @mixin gen-theme danger, #FF5656;
 
     /* 嵌套 */
     .bk-timeline {

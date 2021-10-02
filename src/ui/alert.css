@@ -20,10 +20,10 @@
   padding: 8px 10px;
 }
 .bk-alert-success {
-  border-color: #C5E9CB;
+  border-color: #94F5A4;
   background-color: #f2fff4;
   .icon-info {
-    color: #6FC77E;
+    color: #2DCB56;
   }
 }
 .bk-alert-info {
@@ -37,14 +37,14 @@
   border-color: #ffdfac;
   background-color: #fff4e2;
   .icon-info {
-    color: #FECC55;
+    color: #FF9C01;
   }
 }
 .bk-alert-error {
   border-color: #ffd2d2;
   background-color: #ffeded;
   .icon-info {
-    color: #F95F5B;
+    color: #EA3636;
   }
 }
 .bk-alert-content {

@@ -31,14 +31,14 @@
                     { tag: '16:59', content: '<div style="color: red;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
                     { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
-                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #F95F5BD9">生产环境</p>并发布至<strong>应用市场</strong>' }
+                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' }
                 ],
                 timelineList: [
                     { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场' },
-                    { tag: '16:59', content: '<div style="color: #F95F5BD9;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
+                    { tag: '16:59', content: '<div style="color: #FF5656;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
                     { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
-                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #F95F5BD9">生产环境</p>并发布至<strong>应用市场</strong>' },
+                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' },
                     {
                         tag: '10:56',
                         content: this.$createElement('p', {
@@ -126,7 +126,7 @@
                         tag: '18:57',
                         content: this.getInputContent()
                     },
-                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #F95F5BD9">生产环境</p>并发布至<strong>应用市场</strong>' }
+                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' }
                 ]
             }
         },
@@ -430,7 +430,7 @@
                     { tag: '16:59', content: '<div style="color: red;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
                     { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
-                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #F95F5BD9">生产环境</p>并发布至<strong>应用市场</strong>' }
+                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' }
                 ]
             }
         },
@@ -464,10 +464,10 @@
             return {
                 timelineList: [
                     { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场' },
-                    { tag: '16:59', content: '<div style="color: #F95F5BD9;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
+                    { tag: '16:59', content: '<div style="color: #FF5656;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
                     { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
-                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #F95F5BD9">生产环境</p>并发布至<strong>应用市场</strong>' },
+                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' },
                     {
                         tag: '10:56',
                         content: this.$createElement('p', {
@@ -541,7 +541,7 @@
                         tag: '18:57',
                         content: this.getInputContent()
                     },
-                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #F95F5BD9">生产环境</p>并发布至<strong>应用市场</strong>' }
+                    { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' }
                 ]
             }
         },

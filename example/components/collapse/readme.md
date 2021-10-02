@@ -37,7 +37,7 @@
             font-style: italic;
             color: #979ba5;
             &:hover {
-                color: #F95F5B;
+                color: #EA3636;
             }
         }
     }
