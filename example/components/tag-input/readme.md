@@ -307,6 +307,48 @@
 ```
 :::
 
+### hover时才显示clear按钮 {page=#/tag}
+
+:::demo 设置 `showClearOnlyHover` 为`true`，则其clear按钮在hover时才会显示。 可以比较与上一例子交互的不同之处
+
+```html
+<template>
+    <bk-tag-input
+        :placeholder="placeholder"
+        show-clear-only-hover
+        v-model="tags"
+        :list="list">
+    </bk-tag-input>
+    <p>请输入<code>州</code>来体验下搜索效果</p>
+</template>
+<script>
+    import { bkTagInput } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkTagInput
+        },
+        data () {
+            return {
+                placeholder: '请输入城市',
+                tags: ['shenzhen'],
+                list: [
+                    { id: 'shenzhen', name: '深圳' },
+                    { id: 'guangzhou', name: '广州' },
+                    { id: 'beijing', name: '北京' },
+                    { id: 'shanghai', name: '上海' },
+                    { id: 'hangzhou', name: '杭州' },
+                    { id: 'nanjing', name: '南京' },
+                    { id: 'chognqing', name: '重庆' },
+                    { id: 'taibei', name: '台北' },
+                    { id: 'haikou', name: '海口' }
+                ]
+            }
+        }
+    }
+</script>
+```
+:::
+
 ### 多个字段搜索 {page=#/tag}
 
 :::demo 可以通过设置 `search-key` 为数组，搜索时匹配多个字段
@@ -1180,7 +1222,9 @@
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-tag-selector` 上 | String | —— | —— |
 | tooltip-key | 让选中的标签在鼠标移上去时显示提示文案 | String | —— | —— |
 | allow-auto-match | 配置输入时失焦点后，如果完全匹配则自动选中，如果自定义则自动输入 | Boolean | —— | false |
-| create-tag-validator | 自定义标签校验函数，返回 boolean，参数`(tag)`，tag表示当前输入值，在自定义标签时，可以自定义添加标签的校验 | Function | —— | —— |
+| create-tag-validator | 自定义标签校验函数，返回 boolean，参数`(tag)`，tag表示当前输入值，在自定义标签时，可以自定义添加标签的校验 | 
+| show-clear-only-hover | 是否在只有hover的时候才显示clear清除按钮 | Boolean | —— | false |
+| function | —— | —— | —— |
 
 ### 事件 {page=#/tag}
 | 事件名称 | 说明 | 回调参数 |

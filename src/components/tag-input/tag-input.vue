@@ -27,7 +27,7 @@
 -->
 
 <template>
-    <div class="bk-tag-selector" :class="extCls" @click="focusInputer($event)" ref="bkTagSelector">
+    <div class="bk-tag-selector" :class="extCls" @click="focusInputer($event)" ref="bkTagSelector" @mouseenter="mouseEnterHandler" @mouseleave="hover = false">
         <div :class="['bk-tag-input', { 'active': isEdit, 'disabled': disabled }]">
             <ul class="tag-list" :class="!localTagList.length ? 'no-item' : ''" ref="tagList" :style="{ 'margin-left': `${leftSpace}px` }">
                 <li
@@ -126,6 +126,10 @@
         },
         mixins: [locale.mixin, emitter],
         props: {
+            showClearOnlyHover: {
+                type: Boolean,
+                default: false
+            },
             placeholder: {
                 type: String,
                 default: ''
@@ -277,12 +281,20 @@
                 popoverInstance: null,
                 isSingleSelect: false,
                 INPUT_MIN_WIDTH: 12,
-                popoverWidth: 190
+                popoverWidth: 190,
+                hover: false
             }
         },
         computed: {
             isShowClear () {
-                return this.clearable && !this.disabled && this.localTagList.length !== 0
+                /**
+                 * 下列情况下不显示清空按钮：
+                 * 1. 设置不可清除
+                 * 2. 禁用时
+                 * 3. tag标签为空时
+                 * 4. 设置了showClearOnlyHover，且没有hover的时候
+                 */
+                return this.clearable && !this.disabled && this.localTagList.length !== 0 && (this.showClearOnlyHover ? this.hover : true)
             },
             resultList () {
                 if (this.useGroup) {
@@ -352,6 +364,10 @@
             clearTimeout(this.timer)
         },
         methods: {
+            mouseEnterHandler () {
+                console.log(123)
+                this.hover = true
+            },
             handlerClear () {
                 this.tagList = []
                 this.localTagList = []
