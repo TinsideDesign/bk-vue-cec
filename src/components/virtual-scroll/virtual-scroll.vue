@@ -29,24 +29,72 @@
 <template>
     <section class="bk-scroll-home" :class="extCls" @mousewheel="handleWheel" @DOMMouseScroll="handleWheel" ref="scrollHome">
         <main class="bk-scroll-main">
-            <ul class="bk-scroll-index bk-scroll" :style="`height: ${ulHeight}px; top: ${-totalScrollHeight}px; width: ${indexWidth}px`" v-if="showIndex">
-                <li class="bk-scroll-item" :style="`height: ${itemHeight}px; top: ${item.top}px`" v-for="(item, index) in indexList" :key="index"><slot :data="item.value" name="index">{{item.value}}</slot></li>
+            <ul
+                class="bk-scroll-index bk-scroll"
+                :style="{
+                    height: `${ulHeight}px`,
+                    top: `${-totalScrollHeight}px`,
+                    width: `${indexWidth}px`
+                }"
+                v-if="showIndex"
+            >
+                <li
+                    class="bk-scroll-item"
+                    v-for="(item, index) in indexList"
+                    :key="index"
+                    :style="{
+                        height: `${itemHeight}px`,
+                        top: `${item.top}px`
+                    }"
+                >
+                    <slot :data="item.value" name="index">
+                        {{item.value}}
+                    </slot>
+                </li>
             </ul>
-            <ul class="bk-scroll" ref="scrollMain" :style="`height: ${ulHeight}px; top: ${-totalScrollHeight}px;width: ${mainWidth}px; left: ${mainLeft}px`">
-                <li class="bk-scroll-item" :style="`height: ${itemHeight}px; top: ${item.top}px; left: ${-bottomScrollDis * (itemWidth - mainWidth) / (mainWidth - bottomScrollWidth) }px;`" v-for="item in listData" :key="item.top"><slot :data="item.value"></slot></li>
+            <ul
+                class="bk-scroll"
+                ref="scrollMain"
+                :style="{
+                    height: `${ulHeight}px`,
+                    top: `${-totalScrollHeight}px`,
+                    width: `${mainWidth}px`,
+                    left: `${mainLeft}px`
+                }"
+            >
+                <li
+                    class="bk-scroll-item"
+                    v-for="item in listData"
+                    :key="item.top"
+                    :style="{
+                        height: `${itemHeight}px`,
+                        top: `${item.top}px`,
+                        left: `${-bottomScrollDis * (itemWidth - mainWidth) / (mainWidth - bottomScrollWidth)}px`
+                    }"
+                >
+                    <slot :data="item.value"></slot>
+                </li>
             </ul>
         </main>
         <canvas class="bk-min-nav" :style="`height: ${visHeight}px;`" ref="minNav"></canvas>
-        <span class="bk-min-nav-slide bk-nav-show"
-            :style="`height: ${navHeight}px; top: ${minNavTop}px`"
+        <span
             ref="scrollNav"
+            class="bk-min-nav-slide bk-nav-show"
             v-if="navHeight < visHeight"
+            :style="{
+                height: `${navHeight}px`,
+                top: `${minNavTop}px`
+            }"
             @mousedown="startNavMove(visHeight - navHeight)"
         >
         </span>
-        <span class="bk-min-nav-slide bk-bottom-scroll"
-            :style="`left: ${indexWidth + bottomScrollDis}px; width: ${bottomScrollWidth}px`"
+        <span
+            class="bk-min-nav-slide bk-bottom-scroll"
             v-if="bottomScrollWidth < mainWidth"
+            :style="{
+                left: `${indexWidth + bottomScrollDis}px`,
+                width: `${bottomScrollWidth}px`
+            }"
             @mousedown="startBottomMove"
         >
         </span>
@@ -305,7 +353,6 @@
 
             setListData (list) {
                 this.allListData = list
-                this.totalNumber = list.length
                 this.freshDataNoScroll(list.length)
                 this.resize()
             },
@@ -330,7 +377,7 @@
 
             // 通过计算数据变化后，维持当前数据不被刷新
             getNumberChangeList ({ oldNumber, oldItemNumber, oldMapHeight, oldVisHeight }) {
-                let minMapTop = this.minMapTop * (oldNumber - oldItemNumber) / ((oldMapHeight - oldVisHeight / 8) || 1) / ((this.totalNumber - this.itemNumber) || 1) * (this.mapHeight - this.visHeight / 8)
+                let minMapTop = this.minMapTop * (oldNumber - oldItemNumber) / ((this.totalNumber - this.itemNumber) || 1) * ((this.mapHeight - this.visHeight / 8) / ((oldMapHeight - oldVisHeight / 8) || 1))
                 let totalScrollHeight = minMapTop / ((this.mapHeight - this.visHeight / 8) || 1) * (this.totalHeight - this.visHeight)
                 if (minMapTop <= 0 || this.navHeight >= this.visHeight) {
                     minMapTop = 0
@@ -340,7 +387,7 @@
                     totalScrollHeight = this.totalHeight - this.visHeight
                 }
                 this.minMapTop = minMapTop
-                this.minNavTop = this.minMapTop * (this.visHeight - this.navHeight) / ((this.mapHeight - this.visHeight / 8) || 1)
+                this.minNavTop = this.minMapTop / ((this.mapHeight - this.visHeight / 8) || 1) * (this.visHeight - this.navHeight)
                 this.getListData(totalScrollHeight)
             },
 
