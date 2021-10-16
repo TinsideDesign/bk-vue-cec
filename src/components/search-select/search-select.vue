@@ -76,19 +76,21 @@
 </template>
 
 <script>
-    import { debounce } from 'throttle-debounce'
-    import Tippy from '@/utils/tippy'
-    import SearchInputMenu from './search-select-menu'
-    import clickoutside from '@/directives/clickoutside.js'
-    import locale from 'bk-magic-vue/lib/locale'
     import Vue from 'vue'
+    import { debounce } from 'throttle-debounce'
+
+    import locale from 'bk-magic-vue/lib/locale'
+    import Tippy from '@/utils/tippy'
+    import emitter from '@/mixins/emitter'
+    import clickoutside from '@/directives/clickoutside.js'
+    import SearchInputMenu from './search-select-menu'
 
     export default {
         name: 'bk-search-select',
         directives: {
             clickoutside
         },
-        mixins: [locale.mixin],
+        mixins: [emitter, locale.mixin],
         model: {
             prop: 'values',
             event: 'change'
@@ -693,6 +695,7 @@
                     })
                     this.$emit('change', this.chip.list)
                     this.$emit('key-delete', item)
+                    this.dispatch('bk-form-item', 'form-change')
                 } else {
                     if (!this.input.value.includes(this.curItem[this.displayKey] + this.explainCode)) {
                         this.menu.active = -1
@@ -811,6 +814,7 @@
                     this.$refs.input.focus()
                 }
                 this.$emit('change', this.chip.list)
+                this.dispatch('bk-form-item', 'form-change')
             },
             handleClear (index, item) {
                 const name = this.chip.list.splice(index, 1)
@@ -819,6 +823,7 @@
                     !this.input.value.length && this.showMenu()
                     this.$emit('change', this.chip.list)
                     this.$emit('chip-del', name)
+                    this.dispatch('bk-form-item', 'form-change')
                 }, 0)
             },
             handleSelectConditon (item) {

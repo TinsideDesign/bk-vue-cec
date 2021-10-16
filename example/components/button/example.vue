@@ -129,7 +129,7 @@
 
 <script>
     import { bkButton } from '@'
-
+    
     export default {
         components: {
             bkButton

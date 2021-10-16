@@ -400,6 +400,7 @@
                 }
                 this.$emit('input', value)
                 this.$emit('change', value, oldValue)
+                this.dispatch('bk-form-item', 'form-change')
             },
             list: {
                 handler (val) {

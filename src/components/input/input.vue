@@ -517,6 +517,7 @@
                     this.setCurValue(newVal)
                     this.$emit('input', newVal, event)
                     this.$emit('change', newVal, event)
+                    this.dispatch('bk-form-item', 'form-change')
                 }
             },
             handleNumberAdd (event) {
@@ -530,6 +531,7 @@
                     this.setCurValue(newVal)
                     this.$emit('input', newVal, event)
                     this.$emit('change', newVal, event)
+                    this.dispatch('bk-form-item', 'form-change')
                 }
             },
             handlerEnter (event) {
@@ -586,6 +588,7 @@
                 const value = event.target.value
                 this.$emit('paste', value, event)
                 this.$emit('change', value, event)
+                this.dispatch('bk-form-item', 'form-change')
             },
             getCurrentNumberValue (val = null) {
                 val = val === null ? this.curValue : val
@@ -604,12 +607,14 @@
                 this.setCurValue(value)
                 this.$emit('input', value, event)
                 this.$emit('change', value, event)
+                this.dispatch('bk-form-item', 'form-change')
             },
             handlerClear (event) {
                 this.curValue = ''
                 this.$emit('input', this.curValue, event)
                 this.$emit('change', this.curValue, event)
                 this.$emit('clear', this.curValue, event)
+                this.dispatch('bk-form-item', 'form-change')
             },
             handlerLeftIcon (event) {
                 this.$emit('left-icon-click', this.curValue, event)
