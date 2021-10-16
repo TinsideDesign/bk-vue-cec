@@ -8,7 +8,7 @@ $headerColor: $newBlackColor2;
     border-radius: 2px;
 }
 .bk-tab.bk-tab-border-card {
-    .bk-tab-header {
+    >.bk-tab-header {
         height: 43px;
         border: $border;
         border-bottom: none;
