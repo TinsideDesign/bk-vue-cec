@@ -20,7 +20,15 @@
                 tabPositions: ['left', 'right', 'top'],
                 currentPosition: 'left',
                 currentType: 'card',
-                sortType: 'replace'
+                sortType: 'replace',
+                activeBar1: {
+                    position: 'top',
+                    height: '6px'
+                },
+                activeBar2: {
+                    position: 'bottom',
+                    height: '2px'
+                }
             }
         },
         methods: {
@@ -120,6 +128,61 @@
                     { name: 'deleted', label: '已归档加速任务', count: 40 }
                 ],
                 active: 'mission'
+            }
+        }
+    }
+</script>
+```
+:::
+
+### ActiveBar样式 {page=#/tab}
+
+:::demo 通过配置 `activeBar` 属性，设置当前选中样式
+
+```html
+<template>
+    <div>
+        <bk-tab :active.sync="active" type="unborder-card" :active-bar="activeBar2">
+            <bk-tab-panel
+                v-for="(panel, index) in panels"
+                v-bind="panel"
+                :key="index">
+            </bk-tab-panel>
+        </bk-tab>
+        <bk-tab :active.sync="active" type="unborder-card" :active-bar="activeBar1">
+            <bk-tab-panel
+                v-for="(panel, index) in panels"
+                v-bind="panel"
+                :key="index">
+            </bk-tab-panel>
+        </bk-tab>
+    </div>
+
+</template>
+<script>
+    import { bkTab, bkTabPanel } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkTab,
+            bkTabPanel
+        },
+        data () {
+            return {
+                panels: [
+                    { name: 'mission', label: '任务报表', count: 10 },
+                    { name: 'config', label: '加速配置', count: 20 },
+                    { name: 'hisitory', label: '历史版本', count: 30 },
+                    { name: 'deleted', label: '已归档加速任务', count: 40 }
+                ],
+                active: 'mission',
+                activeBar1: {
+                    position: 'top',
+                    height: '6px'
+                },
+                activeBar2: {
+                    position: 'bottom',
+                    height: '2px'
+                }
             }
         }
     }
@@ -544,6 +607,7 @@ export default {
 | show-header | 是否显示选项卡头部 | Boolean | `true` / `false` | `true` |
 | change-on-hover | 鼠标悬停tab时进行切换 | Boolean | `true` / `false` | `false` |
 | change-on-hover-delay | 鼠标悬停切换tab的延时，单位为毫秒 | Number | —— | `1000` |
+| active-bar | 当前选中激活样式，暂时只支持横排样式 | Object | —— | `{ position: 'bottom', height: '2px' }` |
 
 ### bk-tab 选项卡事件 {page=#/tab}
 | 事件名称 | 说明 | 回调参数 |

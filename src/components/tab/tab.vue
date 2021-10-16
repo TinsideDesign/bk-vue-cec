@@ -192,6 +192,13 @@
                     }
                     return true
                 }
+            },
+            activeBar: {
+                type: Object,
+                default: () => ({
+                    position: 'bottom',
+                    height: '2px'
+                })
             }
         },
         data () {
@@ -223,7 +230,9 @@
                     left: 0,
                     width: 0,
                     height: 0,
-                    transform: ''
+                    transform: '',
+                    top: '',
+                    bottom: ''
                 }
             }
         },
@@ -273,6 +282,8 @@
                     return {
                         transform: `translateX(${this.scrollState.offset}px)`,
                         height: `${this.labelHeight}px`,
+                        '--activeBarTop': this.activeBarStyle.top,
+                        '--activeBarBottom': this.activeBarStyle.bottom,
                         '--activeBarLeft': this.activeBarStyle.left,
                         '--activeBarWidth': this.activeBarStyle.width,
                         '--activeBarHeight': this.activeBarStyle.height,
@@ -481,9 +492,16 @@
                             }
 
                             this.activeBarStyle.width = `${tabLabelRect.width - 24}px`
-                            this.activeBarStyle.height = '2px'
+                            this.activeBarStyle.height = this.activeBar.height
                             this.activeBarStyle.transform = `translateX(${tabLabel.offsetLeft + 12}px)`
                             this.activeBarStyle.left = 0
+                            if (this.activeBar.position === 'top') {
+                                this.activeBarStyle.top = '0px'
+                                this.activeBarStyle.bottom = 'auto'
+                            } else {
+                                this.activeBarStyle.top = 'auto'
+                                this.activeBarStyle.bottom = '0px'
+                            }
                         } else {
                             if (tabLabelRect.width === 0 && tabLabelRect.height === 0) {
                                 tabLabel.classList.add('simulate-border-right')

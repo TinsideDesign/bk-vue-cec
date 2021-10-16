@@ -65,7 +65,8 @@ $headerColor: $newBlackColor2;
     &::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: var(--activeBarBottom);
+        top: var(----activeBarTop);
         left: var(--activeBarLeft);
         height: var(--activeBarHeight);
         width: var(--activeBarWidth);
