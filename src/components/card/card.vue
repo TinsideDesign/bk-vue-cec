@@ -28,7 +28,7 @@
 
 <template>
     <section :class="['bk-card', { 'bk-card-border-none': !border }]">
-        <div :class="[collapseClass, { 'collapse': collapseActive }]" v-if="showHead" @click="handleCollapse">
+        <div :class="[collapseClass, { 'collapse': collapseActive }, { 'no-line-height': disableHeaderStyle }]" v-if="showHead" @click="handleCollapse">
             <i :class="`bk-icon bk-card-head-icon ${collapseIcon}`" v-if="isCollapse"></i>
             <slot name="header">
                 <template v-if="showInput">
@@ -107,6 +107,11 @@
             collapseStatus: {
                 type: Boolean,
                 default: true
+            },
+            /** 是否禁用card-header默认line-height样式 */
+            disableHeaderStyle: {
+                type: Boolean,
+                default: false
             }
         },
         data () {

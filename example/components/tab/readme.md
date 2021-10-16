@@ -135,7 +135,7 @@
 ```
 :::
 
-### ActiveBar样式 {page=#/tab}
+### ActiveBar 样式配置 {page=#/tab}
 
 :::demo 通过配置 `activeBar` 属性，设置当前选中样式
 

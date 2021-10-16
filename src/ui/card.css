@@ -24,6 +24,9 @@
     .title {
         @mixin ellipsis 90%, inline-block;
     }
+    &.no-line-height {
+        line-height: unset;
+    }
 }
 .bk-card-head .bk-card-head-icon {
     margin-right: 4px;

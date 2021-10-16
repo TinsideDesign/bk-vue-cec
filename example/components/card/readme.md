@@ -304,6 +304,7 @@
 | showFoot | 是否显示底部 | Boolean | true/false | false |
 | isEdit | 是否启用编辑标题功能 | Boolean | true/false | false |
 | border | 是否显示边框 | Boolean | true/false | true |
+| disable-header-style | 是否禁用Header的line-height默认样式 | Boolean | true/false | false |
 
 ### 插槽 {page=#/card}
 | name | 说明 |
