@@ -91,14 +91,13 @@ const bkLoading = {
             }
         }
 
-        options.type = 'directive'
+        options.delay = 3000
+        options.type = 'absolute'
         options.opacity = options.opacity || 0.9
         options.color = options.color || '#ffffff'
-        // 如果配置项有 zIndex 选项，遮罩层的层叠顺序使用配置项的 zIndex，否则使用层叠顺序管理器自动生成的 zIndex
-        options.hasZIndexOption = typeof options.zIndex === 'number' && !Number.isNaN(options.zIndex)
 
         el.viewmodel = new Model({
-            data: options
+            propsData: options
         })
 
         // 在第一次渲染时，immediate为true立即显示

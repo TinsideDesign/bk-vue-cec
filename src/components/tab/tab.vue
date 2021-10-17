@@ -477,7 +477,9 @@
                     // const index = this.visiblePanels.findIndex(item => item.name === active)
                     const panel = this.$refs.tabLabel.find(item => {
                         if (item && item.$el) {
-                            return item.$el.dataset.name === active
+                            // number类型数据添加到dom会转成字符串
+                            const newActive = Object.prototype.toString.call(active) === '[object Number]' ? active + '' : active
+                            return item.$el.dataset.name === newActive
                         }
                     })
                     if (panel) {

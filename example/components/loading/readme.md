@@ -2,7 +2,8 @@
     import { bkButton, bkLoading } from '@'
     export default {
         components: {
-            bkButton
+            bkButton,
+            bkLoading
         },
         directives: {
             bkloading: bkLoading.directive
@@ -63,6 +64,37 @@
     <div class="test-dom" v-bkloading="{ isLoading: basicLoading, zIndex: 10 }">
         内容
     </div>
+</template>
+
+<script>
+    export default {
+        data () {
+            return {
+                basicLoading: true
+            }
+        }
+    }
+</script>
+<style lang="postcss">
+    .test-dom {
+        height: 300px;
+        line-height: 300px;
+        border: 1px solid #eee;
+        text-align: center;
+    }
+</style>
+```
+:::
+
+### 标签用法 {page=#/loading}
+:::demo 除指令用法外，组件还提供标签用法
+```html
+<template>
+    <bk-loading :is-loading="basicLoading" :title="'数据加载中'">
+        <div class="test-dom">
+            内容
+        </div>
+    </bk-loading>
 </template>
 
 <script>

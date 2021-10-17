@@ -27,10 +27,47 @@
 -->
 
 <template>
-    <transition name="fade" :duration="{ enter: duration }" @after-leave="animationFinish">
+    <div class="bk-loading bk-default-loading" :class="extCls" v-if="type === 'default'"
+        :style="{
+            position: 'relative'
+        }">
+        <div class="bk-loading-body">
+            <slot></slot>
+        </div>
+        <transition name="fade" :duration="{ enter: duration }" @after-leave="animationFinish">
+            <div class="bk-loading-wrapper" v-show="isShow"
+                :style="{
+                    zIndex,
+                    backgroundColor: bgColor
+                }">
+                <div :class="computedClass">
+                    <template v-if="isSpin">
+                        <div class="rotate rotate1"></div>
+                        <div class="rotate rotate2"></div>
+                        <div class="rotate rotate3"></div>
+                        <div class="rotate rotate4"></div>
+                        <div class="rotate rotate5"></div>
+                        <div class="rotate rotate6"></div>
+                        <div class="rotate rotate7"></div>
+                        <div class="rotate rotate8"></div>
+                    </template>
+                    <template v-else>
+                        <div class="point point1"></div>
+                        <div class="point point2"></div>
+                        <div class="point point3"></div>
+                        <div class="point point4"></div>
+                    </template>
+                </div>
+                <div class="bk-loading-title">
+                    <slot name="title">{{title}}</slot>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <transition name="fade" :duration="{ enter: duration }" @after-leave="animationFinish" v-else>
         <div class="bk-loading" :class="extCls" v-show="isShow"
             :style="{
-                position: type === 'directive' ? 'absolute' : 'fixed',
+                position: type,
                 zIndex,
                 backgroundColor: bgColor
             }">
@@ -54,11 +91,12 @@
                     </template>
                 </div>
                 <div class="bk-loading-title">
-                    <slot>{{title}}</slot>
+                    <slot name="title">{{title}}</slot>
                 </div>
             </div>
         </div>
     </transition>
+
 </template>
 <script>
     /**
@@ -77,23 +115,78 @@
 
     export default {
         name: 'bk-loading',
+        props: {
+            /** 是否显示 loading */
+            isLoading: {
+                type: Boolean,
+                default: false
+            },
+            /** loading 标题 */
+            title: {
+                type: [String, Object],
+                default: ''
+            },
+            /** loading 显示形式 */
+            mode: {
+                type: String,
+                default: 'normal'
+            },
+            /** 大小 */
+            size: {
+                type: String,
+                default: 'large'
+            },
+            /** 主题 */
+            theme: {
+                type: String,
+                default: 'colorful'
+            },
+            /** 延迟消失 */
+            delay: {
+                type: Number,
+                default: 0
+            },
+            /** 初始化后立即显现 */
+            immediate: {
+                type: Boolean,
+                default: false
+            },
+            /** 背景透明度 */
+            opacity: {
+                type: Number,
+                default: 0.9
+            },
+            /** 背景色 */
+            color: {
+                type: String,
+                default: '#ffffff'
+            },
+            /** 堆叠顺序 */
+            zIndex: {
+                type: Number,
+                default: 0
+            },
+            /** 消失完毕回调函数 */
+            afterLeave: {
+                type: Function
+            },
+            /** 是否显示头部 */
+            extCls: {
+                type: String,
+                default: ''
+            },
+            /** 外部设置的 class name */
+            type: {
+                type: String,
+                default: 'default'
+            }
+        },
         data () {
             return {
                 timer: 0,
-                opacity: -1,
-                color: '#ffffff',
-                isShow: false,
                 hide: false,
-                title: '',
-                type: 'full',
-                size: 'large',
-                theme: 'colorful',
-                delay: 0,
-                zIndex: 0,
-                hasZIndexOption: false,
-                extCls: '',
-                mode: 'normal',
-                duration: 500
+                duration: 500,
+                isShow: false
             }
         },
         computed: {
@@ -118,6 +211,13 @@
                 return this.isSpin
                     ? `bk-spin-loading bk-spin-loading-${this.size} bk-spin-loading-${this.theme}`
                     : `bk-loading1 bk-${this.theme} bk-size-${this.size}`
+            },
+            hasZIndexOption () {
+                // 如果配置项有 zIndex 选项，遮罩层的层叠顺序使用配置项的 zIndex，否则使用层叠顺序管理器自动生成的 zIndex
+                if (this.type === 'fixed') {
+                    return
+                }
+                return typeof this.zIndex === 'number' && !Number.isNaN(this.zIndex)
             }
         },
         watch: {
@@ -138,6 +238,18 @@
                 if (newVal && !this.hasZIndexOption) {
                     this.zIndex = zIndexManager.nextZIndex()
                 }
+            },
+            isLoading: {
+                handler (newVal) {
+                    if (this.type === 'default') {
+                        if (newVal) {
+                            this.isShow = newVal
+                        } else {
+                            this.hide = true
+                        }
+                    }
+                },
+                immediate: true
             }
         },
         mounted () {

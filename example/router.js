@@ -33,6 +33,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const Affix = () => import(/* webpackChunkName: 'affix' */'./components/affix/readme.md')
 const Install = () => import(/* webpackChunkName: 'install' */'./components/install/readme.md')
 const Start = () => import(/* webpackChunkName: 'start' */'./components/start/readme.md')
 const Config = () => import(/* webpackChunkName: 'config' */'./components/config/readme.md')
@@ -139,6 +140,11 @@ const Spin = () => import(/* webpackChunkName: 'spin' */'./components/spin/readm
 const router = new VueRouter({
     // mode: 'history',
     routes: [
+        {
+            name: 'affix',
+            path: '/affix',
+            component: Affix
+        },
         {
             name: 'install',
             path: '/install',

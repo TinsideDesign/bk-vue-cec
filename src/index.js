@@ -32,6 +32,7 @@
 
 import './ui/common.css'
 
+import bkAffix from './components/affix'
 import bkFixedNavbar from './components/fixed-navbar'
 import bkTransition from './components/transition'
 import bkAlert from './components/alert'
@@ -130,6 +131,7 @@ import bkSpin from './components/spin'
 import bkVirtualRender from './components/virtual-render'
 
 const components = {
+    bkAffix,
     bkFixedNavbar,
     bkTransition,
     bkAlert,
@@ -254,6 +256,7 @@ export default bkMagic
 
 // 组件单独抛出，方便 import { bkBadge } from 'bk-magic-vue' 这样引用
 export {
+    bkAffix,
     bkFixedNavbar,
     bkTransition,
     bkAlert,

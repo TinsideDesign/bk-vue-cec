@@ -718,3 +718,26 @@
         transform: scale(.3)
     }
 }
+
+.bk-default-loading {
+    display: inline-block;
+    .bk-loading-wrapper {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: unset;
+        top: 0;
+        transform: unset;
+        -webkit-transform: unset;
+        background: inherit;
+        padding: 0 25%;
+
+        & :nth-child(1) {
+            margin: unset;
+          }
+    }
+}
