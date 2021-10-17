@@ -4,6 +4,23 @@
 
 <div class="changelog-wrapper">
 
+### 0.0.9 {page=#/changelog}
+###### 2021.10.17
+
+* **[add]**:
+    - [Affix 图钉](#/affix) 新增 Affix 图钉组件
+    - [Loading 加载](#/loading) 新增[标签用法](#/loading?anchor=biao-qian-yong-fa)
+    - [Card 卡片](#/card) header-slot 支持传入 disable-header-style 禁用行高
+    - [Tab 选项卡](#/tab) 新增 [ActiveBar 样式配置](#/tab?anchor=activebar-yang-shi)
+* **[fix]**:
+    - [Select 下拉选框](#/select) 修复 select 开启虚拟滚动时鼠标拖动滚动条到最后，select自动关闭的问题
+    - [Tab 选项卡](#/tab) 修复 border-card 嵌入 unborder-card 样式问题
+    - [Tree 树](#/tree) 修复 Tree 异步加载时 loading 图标靠下的问题
+    - 修复表单内 SearchSelect 查询选择器、Select 下拉选框、Checkbox 多选框、Radio 单选框无法正常校验的问题
+* **[update]**:
+    - [Tree 树](#/tree) 节点边距优化
+    - [VirtualScroll 虚拟滚动](#/virtual-scroll) 优化虚拟滚动折叠展开逻辑
+
 ### 0.0.8 {page=#/changelog}
 ###### 2021.10.2
 
