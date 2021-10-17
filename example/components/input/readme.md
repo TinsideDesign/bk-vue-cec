@@ -132,12 +132,12 @@
 
 ### 数字输入框 {page=#/input}
 
-::: demo 通过配置 `type` 属性为 `number` 来设置数字类型输入，通过设置 `max`，`min` 设置最大最小值, 设置 `precision` 保留小数位(初始值会被四舍五入，例如：numberInputValue=4.5，precision=0时，值会被四舍五入为5)
+::: demo 通过配置 `type` 属性为 `number` 来设置数字类型输入，通过设置 `max`，`min` 设置最大最小值, 设置 `precision` 保留小数位(初始值会被四舍五入，例如：numberInputValue=4.5，precision=0时，值会被四舍五入为5)。**数字输入框时，`clearable` 配置不生效。**
 
 ``` html
 <template>
     <div class="input-demo">
-        <bk-input :clearable="true" type="number" :max="1000"  :min="-1000" :precision="precision" v-model="numberInputValue"></bk-input>
+        <bk-input type="number" :max="1000" :min="-1000" :precision="precision" v-model="numberInputValue"></bk-input>
     </div>
 </template>
 <script>
@@ -641,7 +641,7 @@
 | placeholder | 空白提示 | String | ——  | —— |
 | disabled | 是否禁用 | Boolean | true / false | false |
 | readonly | 是否只读 | Boolean | true / false | false |
-| clearable | 是否可清除 | Boolean | true / false | false |
+| clearable | 是否可清除。**数字输入框时，此配置不生效** | Boolean | true / false | false |
 | maxlength | 最大输入长度 | Number | —— | —— |
 | minlength | 最小输入长度 | Number | —— | —— |
 | size | 输入框尺寸，只在 type!="textarea" 时有效，字号可通过 font-size 属性覆盖 | String | `large`（38px 14号字）<br>`small`（26px 12字号） | —— |

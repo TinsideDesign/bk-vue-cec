@@ -36,8 +36,7 @@
                     top: `${-totalScrollHeight}px`,
                     width: `${indexWidth}px`
                 }"
-                v-if="showIndex"
-            >
+                v-if="showIndex">
                 <li
                     class="bk-scroll-item"
                     v-for="(item, index) in indexList"
@@ -45,8 +44,7 @@
                     :style="{
                         height: `${itemHeight}px`,
                         top: `${item.top}px`
-                    }"
-                >
+                    }">
                     <slot :data="item.value" name="index">
                         {{item.value}}
                     </slot>
@@ -60,8 +58,7 @@
                     top: `${-totalScrollHeight}px`,
                     width: `${mainWidth}px`,
                     left: `${mainLeft}px`
-                }"
-            >
+                }">
                 <li
                     class="bk-scroll-item"
                     v-for="item in listData"
@@ -70,8 +67,7 @@
                         height: `${itemHeight}px`,
                         top: `${item.top}px`,
                         left: `${-bottomScrollDis * (itemWidth - mainWidth) / (mainWidth - bottomScrollWidth)}px`
-                    }"
-                >
+                    }">
                     <slot :data="item.value"></slot>
                 </li>
             </ul>
@@ -85,8 +81,7 @@
                 height: `${navHeight}px`,
                 top: `${minNavTop}px`
             }"
-            @mousedown="startNavMove(visHeight - navHeight)"
-        >
+            @mousedown="startNavMove(visHeight - navHeight)">
         </span>
         <span
             class="bk-min-nav-slide bk-bottom-scroll"
@@ -95,8 +90,7 @@
                 left: `${indexWidth + bottomScrollDis}px`,
                 width: `${bottomScrollWidth}px`
             }"
-            @mousedown="startBottomMove"
-        >
+            @mousedown="startBottomMove">
         </span>
     </section>
 </template>
@@ -414,10 +408,25 @@
                 this.isBottomMove = true
             },
 
+            /**
+             * 虚拟滚动条的 mousedown 事件
+             * 滚动条是虚拟的，不是真正的滚动条点击时会触发 document 的 click 事件，因此这里做一些特殊处理，来解决select开启虚拟滚动后鼠标拖动滚动条到最后，select自动关闭的问题
+             */
             startNavMove (rate) {
                 this.moveRate = rate
                 this.tempVal = event.screenY
                 this.startMinMapMove = true
+                
+                // 触发 virtual-scroll-scroll-bar-mouse 事件
+                this.$emit('virtual-scroll-scroll-bar-mouse', 'down')
+                document.addEventListener('click', this.docClickHandler)
+            },
+
+            docClickHandler () {
+                document.removeEventListener('click', this.docClickHandler)
+                setTimeout(() => {
+                    this.$emit('virtual-scroll-scroll-bar-mouse', 'up')
+                }, 0)
             },
 
             minNavMove () {

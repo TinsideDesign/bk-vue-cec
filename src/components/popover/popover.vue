@@ -156,6 +156,9 @@
                 if (this.instance) {
                     disabled ? this.instance.disable() : this.instance.enable()
                 }
+            },
+            tippyOptions (v) {
+                this.instance && this.instance.set(v)
             }
         },
         mounted () {
