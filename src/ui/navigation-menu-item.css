@@ -13,8 +13,8 @@
     font-size: 14px;
     overflow: hidden;
     &-title {
-        min-height: 38px;
-        margin: 4px 0;
+        min-height: 40px;
+        margin: 2px 0;
         position: relative;
         padding-right: 17px;
         padding-left: 22px;
@@ -52,7 +52,7 @@
             content: " ";
             height: 1px;
             position: absolute;
-            bottom: -6px;
+            bottom: -8px;
             background: rgba(255, 255, 255, 0.05);
             left: 18px;
             right: 18px;

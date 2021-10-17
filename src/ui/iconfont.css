@@ -782,3 +782,12 @@
 .icon-normalized:before {
 	content: "\e205";
 }
+.icon-chinese:before {
+	content: "\e206";
+}
+.icon-english:before {
+	content: "\e207";
+}
+.icon-japanese:before {
+	content: "\e208";
+}
