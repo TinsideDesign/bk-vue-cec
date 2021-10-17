@@ -166,7 +166,7 @@
             },
             padding: {
                 type: Number,
-                default: 30
+                default: 16
             }
         },
         data () {

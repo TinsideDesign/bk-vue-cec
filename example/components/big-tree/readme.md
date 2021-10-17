@@ -98,8 +98,7 @@
             :data="data"
             :show-link-line="isShowLinkLine"
             :default-expanded-nodes="[0,'0-2']"
-            node-icon="bk-icon icon-text-file"
-            :padding="30">
+            node-icon="bk-icon icon-text-file">
         </bk-big-tree>
     </section>
 </template>
@@ -155,8 +154,7 @@
             :show-checkbox="isShowCheckbox"
             :data="data"
             :show-link-line="isShowLinkLine"
-            node-icon="bk-icon icon-text-file"
-            :padding="30">
+            node-icon="bk-icon icon-text-file">
             <div slot-scope="{node,data}">层级：{{node.level+1}}，名称： {{data.name}}</div>
         </bk-big-tree>
     </section>
@@ -215,8 +213,7 @@
             :data="tree"
             :default-expanded-nodes="[]"
             :show-link-line="isShowLinkLine2"
-            node-icon="bk-icon icon-text-file"
-            :padding="30">
+            node-icon="bk-icon icon-text-file">
         </bk-big-tree>
     </section>
 </template>
@@ -294,8 +291,7 @@
             :show-checkbox="isShowCheckbox"
             :data="data"
             :show-link-line="isShowLinkLine2"
-            node-icon="bk-icon icon-text-file"
-            :padding="30">
+            node-icon="bk-icon icon-text-file">
         </bk-big-tree>
     </section>
 </template>
@@ -397,7 +393,7 @@
 | height | 容器高度，设置此属性可开启虚拟滚动，支持渲染大量数据 | Number | —— | —— |
 | node-height | 单个节点的高度，用于虚拟滚动的数据计算， | Number | —— | `32` |
 | configurable | 仅作为数据展示用时，可将此属性配置为`false`，从而节省渲染开销，但会导致数据失去响应式的能力 | Boolean | —— | `true` |
-| padding | 节点左侧缩进的距离，默认为 30 | Number | —— | 30 |
+| padding | 节点左侧缩进的距离，默认为 16 | Number | —— | 16 |
 
 ### 事件 {page=#/big-tree}
 | 事件名称 | 说明 | 参数 |

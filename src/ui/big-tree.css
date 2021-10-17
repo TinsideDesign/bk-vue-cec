@@ -26,6 +26,15 @@
         color: #63656e;
     }
 }
+
+/* 树伸缩触发器 icon */
+$triggerWidth: 20px; 
+$triggerHeight: 20px; 
+$triggerMarginRight: 2px;
+
+/* 节点 icon/checkbox */
+$nodeIconMarginRight: 8px;
+
 .bk-big-tree-node {
     position: relative;
     height: 32px;
@@ -43,7 +52,7 @@
             width: calc(var(--padding) - 8px);
             height: 0;
             border-bottom: 1px dashed #c3cdd7;
-            left: calc(8px - var(--padding));
+            left: calc(($triggerWidth/2) - var(--padding));
             top: 15px;
             z-index: 1;
             pointer-events: none;
@@ -51,7 +60,7 @@
         &:after {
             position: absolute;
             top: 24px;
-            left: 8px;
+            left: calc($triggerWidth / 2);
             width: 0;
             height: calc(var(--line) * 1px - 8px);
             border-left: 1px dashed #c3cdd7;
@@ -61,10 +70,10 @@
         }
         &.is-leaf {
             padding-left: 8px;
-            margin-left: calc(var(--level) * var(--padding) + 12px);
+            margin-left: calc(var(--level) * var(--padding) + ($triggerWidth - 4px));
             &:before {
-                width: calc(var(--padding));
-                left: calc(0px - var(--padding));
+                width: calc(var(--padding) + ($triggerWidth/2 - 4px));
+                left: calc(0px - var(--padding) - ($triggerWidth/2 - 4px));
             }
         }
     }
@@ -82,7 +91,7 @@
         }
     }
     &.is-leaf {
-        padding-left: calc(var(--level) * var(--padding) + 20px);
+        padding-left: calc(var(--level) * var(--padding) + $triggerWidth + $triggerMarginRight);
     }
     &.is-disabled {
         cursor: not-allowed;
@@ -91,19 +100,19 @@
         height: 100%;
         .node-loading {
             @mixin inlineBlock;
-            width: 16px;
-            height: 16px;
-            margin: 0 4px 0 0;
+            width: $triggerWidth;
+            height: $triggerHeight;
+            margin: 0 $triggerMarginRight 0 0;
             background-image: url("./images/spinner.svg");
             background-size: 100% 100%;
         }
         .node-folder-icon {
             @mixin inlineBlock;
             position: relative;
-            width: 16px;
-            height: 16px;
-            margin: 0 4px 0 0;
-            line-height: 16px;
+            width: $triggerWidth;
+            height: $triggerHeight;
+            margin: 0 $triggerMarginRight 0 0;
+            line-height: $triggerHeight;
             text-align: center;
             font-size: 12px;
             color: #979ba5;
@@ -117,7 +126,7 @@
             position: relative;
             width: 16px;
             height: 16px;
-            margin: 0 6px 0 0;
+            margin: 0 $nodeIconMarginRight 0 0;
             border: 1px solid #979ba5;
             border-radius: 2px;
             &.is-checked {
@@ -157,7 +166,7 @@
         }
         .node-icon {
             @mixin inlineBlock;
-            margin: 0 6px;
+            margin: 0 $nodeIconMarginRight 0 0;
             font-size: 18px;
         }
     }
