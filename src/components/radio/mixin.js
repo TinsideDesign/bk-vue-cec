@@ -24,7 +24,10 @@
  * IN THE SOFTWARE.
 */
 
+import emitter from '@/mixins/emitter'
+
 export default {
+    mixins: [emitter],
     data () {
         return {
             current: '',
@@ -89,6 +92,7 @@ export default {
             const value = selected ? this.localTrueValue : this.falseValue
             this.$emit('input', value)
             this.$emit('change', value)
+            this.dispatch('bk-form-item', 'form-change')
 
             if (this.parent) {
                 this.parent.change({

@@ -33,6 +33,8 @@
 </template>
 
 <script>
+    import emitter from '@/mixins/emitter'
+
     /**
      * bk-radio-group
      * @module components/radio
@@ -46,6 +48,7 @@
      */
     export default {
         name: 'bk-radio-group',
+        mixins: [emitter],
         props: {
             value: {
                 type: [String, Number, Boolean],
@@ -103,6 +106,7 @@
                 this.updateValue()
                 this.$emit('input', data.value)
                 this.$emit('change', data.value)
+                this.dispatch('bk-form-item', 'form-change')
             }
         }
     }

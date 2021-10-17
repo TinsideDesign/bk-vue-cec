@@ -47,6 +47,7 @@
 
 <script>
     import mixin from './mixin'
+
     /**
     * bk-radio
     * @module components/radio
@@ -121,6 +122,7 @@
                         this.current = this.checked ? this.localTrueValue : this.falseValue
                         this.$emit('input', this.current)
                         this.$emit('change', this.current)
+                        this.dispatch('bk-form-item', 'form-change')
                     } else {
                         this.current = this.value
                     }

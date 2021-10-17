@@ -203,6 +203,7 @@
                 this.localValue = newValue
                 this.$emit('input', newValue, this.localTrueValue)
                 this.$emit('change', newValue, oldValue, this.localTrueValue)
+                this.dispatch('bk-form-item', 'form-change')
 
                 if (this.parent) {
                     const groupValue = this.localTrueValue === undefined ? newValue : this.localTrueValue
