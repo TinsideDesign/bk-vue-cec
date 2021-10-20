@@ -47,6 +47,10 @@
             extCls: {
                 type: String,
                 default: ''
+            },
+            speed: {
+                type: String,
+                default: 2
             }
         },
 
@@ -87,7 +91,7 @@
                 const ticDis = Math.ceil((dis / 30) * (10 ** this.digits)) / (10 ** this.digits)
                 const ticTimes = Math.ceil(dis / ticDis)
                 // 算出每次计算需要间隔的时间，保证动画的流畅
-                const gapTime = 25 / ticTimes
+                const gapTime = this.speed ? this.speed : 25 / ticTimes
                 let tickGap = 1
 
                 const animate = () => {

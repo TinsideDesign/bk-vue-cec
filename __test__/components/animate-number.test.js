@@ -38,7 +38,7 @@ describe('rate', () => {
     it('render the correct props', async (done) => {
         const wrapper = mount(
             createTestComp(
-                `<bk-animate-number :value="num" :digits="digits"></bk-animate-number>`,
+                `<bk-animate-number :value="num" :digits="digits" :speed="speed"></bk-animate-number>`,
                 {
                     components: {
                         bkAnimateNumber: animateNumber
@@ -46,7 +46,8 @@ describe('rate', () => {
                     data () {
                         return {
                             num: 50,
-                            digits: 2
+                            digits: 2,
+                            speed: 5
                         }
                     }
                 }
