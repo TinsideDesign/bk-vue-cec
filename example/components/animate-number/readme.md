@@ -9,7 +9,8 @@
         data () {
             return {
                 value: 20,
-                digits: 2
+                digits: 2,
+                speed: 5
             }
         },
         methods: {
