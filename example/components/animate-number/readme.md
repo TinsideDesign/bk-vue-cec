@@ -83,7 +83,7 @@
 ```html
 <template>
     <bk-button @click="addValue" class="mr10">加10</bk-button>
-    <bk-animate-number :value="value" :digits="digits"></bk-animate-number>
+    <bk-animate-number :value="value" :digits="digits" :speed="speed"></bk-animate-number>
 </template>
 <script>
     import { bkAnimateNumber, bkButton } from '{{BASE_LIB_NAME}}'
@@ -95,7 +95,8 @@
         data () {
             return {
                 value: 20,
-                digits: 2
+                digits: 2,
+                speed: 5
             }
         },
         methods: {
@@ -114,3 +115,4 @@
 | value | 显示的数字 | Number | — | — |
 | digits | 数字的位数 | Number | — | 0 |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `span` 上 | String | —— | —— |
+| speed |显示速度 | Number | — | 2 |
