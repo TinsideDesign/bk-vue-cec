@@ -79,7 +79,39 @@
 
 ### 触发动画效果 {page=#/animate-number}
 
-:::demo 数字每次变化，都会触发动画效果
+:::demo 数字每次变化，都会触发动画效果,
+
+```html
+<template>
+    <bk-button @click="addValue" class="mr10">加10</bk-button>
+    <bk-animate-number :value="value" :digits="digits"></bk-animate-number>
+</template>
+<script>
+    import { bkAnimateNumber, bkButton } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkAnimateNumber,
+            bkButton
+        },
+        data () {
+            return {
+                value: 20,
+                digits: 2
+            }
+        },
+        methods: {
+            addValue () {
+                this.value += 10
+            }
+        }
+    }
+</script>
+```
+:::
+
+### 动画速度
+
+:::demo 动画速度可以控制
 
 ```html
 <template>
@@ -115,5 +147,5 @@
 |------|------|------|------|------|
 | value | 显示的数字 | Number | — | — |
 | digits | 数字的位数 | Number | — | 0 |
-| ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `span` 上 | String | —— | —— |
 | speed |显示速度 | Number | — | 2 |
+| ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `span` 上 | String | —— | —— |
