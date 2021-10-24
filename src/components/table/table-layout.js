@@ -172,8 +172,8 @@ class TableLayout {
         }
         const flexColumns = flattenColumns.filter((column) => typeof column.width !== 'number')
 
-        // columns 从 flex 变成 unflex
-        // 新增 column
+        // 处理 column 变化
+        // column 从 flex 变成 unflex
         if (!this.store.isDraging) {
             flattenColumns.forEach((column) => {
                 if (typeof column.width === 'number') {
@@ -181,7 +181,6 @@ class TableLayout {
                 }
             })
         }
-
         // 用户拖动列导致的宽度变化，只重新计算操作列的宽度
         if (!this.store.isDraging && flexColumns.length > 0 && fit) {
             flattenColumns.forEach((column) => {
@@ -204,7 +203,6 @@ class TableLayout {
 
                     flexColumns.forEach((column, index) => {
                         if (index === 0) return
-
                         let flexWidth = column.minWidth + flexWidthPerPixel
                         // flex 宽度平分后超过 maxWidth
                         if (column.maxWidth && column.maxWidth < flexWidth) {
@@ -249,32 +247,34 @@ class TableLayout {
                 return null
             }
 
-            if (!this.scrollX && flattenColumns.length) {
-                // 在所有列均被指定了宽度后，如果此时写死的列宽总和小于表格宽度，则将宽度差值分配给最右一列
-                const deltaWidth = bodyWidth - bodyMinWidth
-                const lastColumn = flattenColumns[flattenColumns.length - 1]
-                lastColumn.realWidth = lastColumn.realWidth + deltaWidth
-                this.bodyWidth = bodyWidth
-            } else {
-                // 当所有列均被指定了宽度后，如果列宽总和大于表格宽度修正最后一列(非setting类型)的宽度
-                // 最后一列的实际宽度
-                const lastColumn = findLastColumnWithNotSetting(flattenColumns)
-                if (lastColumn) {
-                    const lastRealWidth = typeof lastColumn.width !== 'number' ? lastColumn.minWidth : lastColumn.width
+            const lastColumn = findLastColumnWithNotSetting(flattenColumns)
+            if (lastColumn) {
+                if (!this.scrollX && flattenColumns.length) {
+                    // 当所有列均被指定了宽度后，如果列宽总和小于表格宽度，则将宽度差值分配给最右一列(非setting类型)
+                    const deltaWidth = bodyWidth - bodyMinWidth
+                    console.log('from print table last column < ', lastColumn)
+                    lastColumn.realWidth = lastColumn.realWidth + deltaWidth
+                    this.bodyWidth = bodyWidth
+                } else {
+                    // 当所有列均被指定了宽度后，如果列宽总和大于表格宽度修正最后一列(非setting类型)的宽度
+                    console.log('from print table last column > ', lastColumn)
+                    if (lastColumn) {
+                        const lastRealWidth = typeof lastColumn.width !== 'number' ? lastColumn.minWidth : lastColumn.width
 
-                    const preLastColumnBodyMinWidth = bodyMinWidth - lastColumn.realWidth
+                        const preLastColumnBodyMinWidth = bodyMinWidth - lastColumn.realWidth
 
-                    if (preLastColumnBodyMinWidth + lastRealWidth > bodyWidth) {
-                        lastColumn.realWidth = lastRealWidth
-                        bodyMinWidth = preLastColumnBodyMinWidth + lastRealWidth
-                    } else {
-                        lastColumn.realWidth = bodyWidth - preLastColumnBodyMinWidth
-                        bodyMinWidth = preLastColumnBodyMinWidth + lastColumn.realWidth
+                        if (preLastColumnBodyMinWidth + lastRealWidth > bodyWidth) {
+                            lastColumn.realWidth = lastRealWidth
+                            bodyMinWidth = preLastColumnBodyMinWidth + lastRealWidth
+                        } else {
+                            lastColumn.realWidth = bodyWidth - preLastColumnBodyMinWidth
+                            bodyMinWidth = preLastColumnBodyMinWidth + lastColumn.realWidth
+                        }
                     }
+                    
+                    this.scrollX = bodyMinWidth > bodyWidth
+                    this.bodyWidth = bodyMinWidth
                 }
-
-                this.scrollX = bodyMinWidth > bodyWidth
-                this.bodyWidth = bodyMinWidth
             }
         }
 
