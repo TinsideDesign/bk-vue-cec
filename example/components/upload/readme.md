@@ -15,6 +15,12 @@
                         status: 'done',
                         url: './example/static/images/preview/2.png'
                     }
+                ],
+                file2: [
+                    {
+                        name: 'r_project_page.csv',
+                        url: 'https://power-backend-1252002024.cos.ap-guangzhou.myqcloud.com/20211018101752r_project_page.csv'
+                    }
                 ]
             }
         },
@@ -267,6 +273,7 @@
         :theme="'button'"
         :tip="'最大上传5(Mb)的文件'"
         :with-credentials="true"
+        :files="file2"
         :handle-res-code="handleRes"
         :url="'https://jsonplaceholder.typicode.com/posts/'"
         :size="5"
@@ -278,6 +285,16 @@
     export default {
         components: {
             bkUpload
+        },
+        data () {
+            return {
+                file2: [
+                    {
+                        name: 'r_project_page.csv',
+                        url: 'https://power-backend-1252002024.cos.ap-guangzhou.myqcloud.com/20211018101752r_project_page.csv'
+                    }
+                ]
+            }
         },
         methods: {
             handleRes (response) {

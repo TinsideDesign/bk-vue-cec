@@ -295,6 +295,7 @@
                     display: inline-block;
                     font-size: 12px;
                     max-width: 250px;
+                    line-height: 16px;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;

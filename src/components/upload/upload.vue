@@ -96,7 +96,7 @@
             <div v-for="(file, index) in fileList" :key="index">
                 <div :class="{ 'file-item-fail': file.errorMsg }" class="file-item">
                     <div class="file-icon">
-                        <img v-if="file.url" :src="file.url">
+                        <img v-if="isImageType(file.type)" :src="file.url">
                         <i v-else :class="getIcon(file)"></i>
                     </div>
                     <!-- <i v-if="!file.done" class="bk-icon icon-close close-upload" @click="deleteFile(index, file)"></i> -->
@@ -276,8 +276,11 @@
                 deep: true,
                 handler (list) {
                     this.fileList = list.map(item => {
+                        this.fileIndex++
                         return Object.assign({
                             status: 'done',
+                            done: true,
+                            progress: '100%',
                             name: `image.png${uuid()}`
                         }, item)
                     })
@@ -305,6 +308,9 @@
             }
         },
         methods: {
+            isImageType (fileType) {
+                return fileType ? fileType.split('/').includes('image') : false
+            },
             getValidTypeFiles (files) {
                 return files.filter(file => {
                     const { type, name } = file
