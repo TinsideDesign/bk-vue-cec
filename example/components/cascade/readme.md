@@ -825,6 +825,7 @@
 | clearable | 是否允许清空 | Boolean | —— | false |
 | check-any-level | 是否允许选择任意一级 | Boolean | —— | false |
 | filterable | 是否允许快捷搜索 | Boolean | —— | false |
+| show-delete | 当为多选时生效，为true则可直接在输入框删除已选中的项，输入框会被撑开 | Boolean | —— | true |
 | show-complete-name | 输入框中是否显示选中值的完整路径 | Boolean | —— | true |
 | separator | 选项分隔符 | String | —— | ' / ' |
 | trigger | 触发子菜单模式 | String | 'click', 'hover' | 'click' |

@@ -60,6 +60,7 @@
             v-if="childrenList && childrenList.length"
             :list="childrenList"
             :trigger="trigger"
+            :scroll-width="scrollWidth"
             :disabled="disabled"
             :multiple="multiple"
             :check-any-level="checkAnyLevel"
