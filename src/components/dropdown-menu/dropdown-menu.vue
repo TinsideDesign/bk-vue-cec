@@ -54,7 +54,7 @@
 <script>
     import clickoutside from '@/directives/clickoutside'
     import Popper from 'popper.js'
-    import { dropdownMarginBottom } from '@/ui/variable.css'
+    import { dropdownMarginBottom } from '@/ui/variable'
 
     export default {
         name: 'bk-dropdown-menu',

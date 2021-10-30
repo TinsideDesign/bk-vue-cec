@@ -84,7 +84,7 @@
     import emitter from '@/mixins/emitter'
     import clickoutside from '@/directives/clickoutside.js'
     import SearchInputMenu from './search-select-menu'
-    import { dropdownMarginBottom } from '@/ui/variable.css'
+    import { dropdownMarginBottom } from '@/ui/variable'
 
     export default {
         name: 'bk-search-select',

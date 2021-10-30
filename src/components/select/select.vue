@@ -143,7 +143,8 @@
     import pinyin from '@/utils/pinyin'
     import bkVirtualScroll from '@/components/virtual-scroll'
     import virtualOption from './virtual-option'
-    import { dropdownMarginBottom } from '@/ui/variable.css'
+    import { dropdownMarginBottom } from '@/ui/variable'
+    
     export default {
         name: 'bk-select',
         components: {

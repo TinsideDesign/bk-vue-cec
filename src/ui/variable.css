@@ -200,11 +200,3 @@ $sideSliderZIndex: 2500;
 /* 对话框层 */
 /* $dialogZIndex: 2000; */
 $dialogZIndex: 2500;
-
-/********************** 间距 **********************/
-/* 下拉内容间距 */
-$dropdownMarginBottom: 4px;
-
-:export {
-  dropdownMarginBottom: $dropdownMarginBottom
-} 
