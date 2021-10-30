@@ -4,6 +4,15 @@
 
 <div class="changelog-wrapper">
 
+### 0.1.0-beta1 {page=#/changelog}
+###### 2021.10.24
+
+* **[fix]**:
+    - [Table 表格](#/table) 修复表格宽度计算部分调整场景下不符合实际的问题
+    - [Upload 文件上传](#/upload) 修复文字显示不全的问题; 修复button类型回填出现异常的问题
+
+---
+
 ### 0.0.9 {page=#/changelog}
 ###### 2021.10.17
 
@@ -20,6 +29,8 @@
 * **[update]**:
     - [Tree 树](#/tree) 节点边距优化
     - [VirtualScroll 虚拟滚动](#/virtual-scroll) 优化虚拟滚动折叠展开逻辑
+
+---
 
 ### 0.0.8 {page=#/changelog}
 ###### 2021.10.2
