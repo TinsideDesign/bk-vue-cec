@@ -84,6 +84,7 @@
     import emitter from '@/mixins/emitter'
     import clickoutside from '@/directives/clickoutside.js'
     import SearchInputMenu from './search-select-menu'
+    import { dropdownMarginBottom } from '@/ui/variable.css'
 
     export default {
         name: 'bk-search-select',
@@ -350,7 +351,7 @@
                         lazy: false,
                         ignoreAttributes: true,
                         boundary: 'window',
-                        distance: 15,
+                        distance: 10 + parseInt(dropdownMarginBottom),
                         zIndex: this.popoverZindex,
                         onHide: () => {
                             this.menuInstance && this.menuInstance.handleDestroy()

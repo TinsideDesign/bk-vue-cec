@@ -54,6 +54,7 @@
 <script>
     import clickoutside from '@/directives/clickoutside'
     import Popper from 'popper.js'
+    import { dropdownMarginBottom } from '@/ui/variable.css'
 
     export default {
         name: 'bk-dropdown-menu',
@@ -92,6 +93,20 @@
             extCls: {
                 type: String,
                 default: ''
+            },
+            /**
+             * 显示延迟时间，单位为毫秒
+             */
+            openDelay: {
+                type: Number,
+                default: 0
+            },
+            /**
+             * 隐藏延迟时间，单位为毫秒
+             */
+            closeDelay: {
+                type: Number,
+                default: 100
             }
         },
         data () {
@@ -118,7 +133,13 @@
             this.popInstance = new Popper(this.$refs.refDropTrigger, this.$refs.refDropContent, { placement })
             this.popInstance = new Popper(this.$refs.refDropTrigger, this.$refs.refDropContent, {
                 placement,
-                positionFixed: this.positionFixed
+                positionFixed: this.positionFixed,
+                modifiers: {
+                    offset: {
+                        offset: `0, ${dropdownMarginBottom}`
+                    },
+                    keepTogether: {}
+                }
             })
         },
         beforeDestroy () {
@@ -170,11 +191,19 @@
              * @returns {survival}
              */
             show () {
-                this.isShow = true
+                clearTimeout(this.openTimer)
+                clearTimeout(this.closeTimer)
+                this.openTimer = setTimeout(() => {
+                    this.isShow = true
+                }, this.openDelay)
                 this.popInstance.scheduleUpdate()
             },
             hide () {
-                this.isShow = false
+                clearTimeout(this.closeTimer)
+                clearTimeout(this.openTimer)
+                this.closeTimer = setTimeout(() => {
+                    this.isShow = false
+                }, this.closeDelay)
                 this.popInstance.scheduleUpdate()
             }
         }

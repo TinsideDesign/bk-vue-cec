@@ -63,7 +63,7 @@
             theme="light bk-select-dropdown"
             animation="slide-toggle"
             :offset="-1"
-            :distance="12"
+            :distance="popoverDistance"
             :on-show="handleDropdownShow"
             :on-hide="handleDropdownHide"
             :tippy-options="renderPopoverOptions">
@@ -143,6 +143,7 @@
     import pinyin from '@/utils/pinyin'
     import bkVirtualScroll from '@/components/virtual-scroll'
     import virtualOption from './virtual-option'
+    import { dropdownMarginBottom } from '@/ui/variable.css'
     export default {
         name: 'bk-select',
         components: {
@@ -301,7 +302,8 @@
                 searchLoading: false,
                 // 是否自动更新selectOptions（嵌套tree-select时需要在value变化时更新selectOptions）
                 autoUpdate: false,
-                renderPopoverOptions: {}
+                renderPopoverOptions: {},
+                popoverDistance: 10 + parseInt(dropdownMarginBottom)
             }
         },
         computed: {
