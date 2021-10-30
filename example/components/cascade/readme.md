@@ -834,6 +834,7 @@
 | remote-method | 远程搜索方法，具体配置看样例使用 | Function | —— | —— |
 | is-remote | 开启远程加载，搭配remote-method一起使用 | Boolean | —— | false |
 | popover-options | 透传至下拉列表所在的popover组件的tippyOptions选项 | Object | —— | —— |
+| ext-popover-cls | 配置自定义样式类名，传入的类会被加在下拉菜单的 DOM .bk-cascade-dropdown-content 上 | String | —— | —— |
 
 | 事件名称 | 说明 | 回调参数 |
 |---------|------|---------|

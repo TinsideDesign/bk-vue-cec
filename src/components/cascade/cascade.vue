@@ -94,7 +94,7 @@
                 <span v-else>{{selectedName}}</span>
             </div>
             <div slot="content"
-                class="bk-cascade-dropdown-content"
+                :class="['bk-cascade-dropdown-content',extPopoverCls]"
                 v-show="!disabled"
                 :style="{
                     width: (((filterable && !!searchContent && filterableStatus && !searchList.length) || !cascadeList.length) ? defaultWidth : (scrollWidth * popoverWidth + 2)) + 'px'
@@ -239,6 +239,10 @@
             options: {
                 type: Object,
                 default: () => ({})
+            },
+            extPopoverCls: {
+                type: String,
+                default: ''
             }
         },
         data () {
