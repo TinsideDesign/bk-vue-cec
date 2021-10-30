@@ -28,7 +28,8 @@
                 activeBar2: {
                     position: 'bottom',
                     height: '2px'
-                }
+                },
+                addShowNextRight: false
             }
         },
         methods: {
@@ -61,6 +62,9 @@
                 console.log('sortChange')
                 console.log(draggingIndex, dropIndex)
             },
+            handleScrollShowChange (v) {
+                this.addShowNextRight = v;
+            }
         }
     }
 </script>
@@ -90,6 +94,25 @@
         vertical-align: top;
         margin: 17px;
         cursor: pointer;
+    }
+    .add-btn {
+        cursor: pointer;
+        padding: 0 10px;
+        div {
+           color: #3a84ff;
+            font-size: 14px;
+        }
+        .range {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10); 
+        }
     }
 </style>
 
@@ -587,6 +610,95 @@ export default {
 ```
 :::
 
+### 自定义新增按钮 {page=#/tab}
+
+:::demo 通过插槽自定义新增按钮
+
+```html
+<template>
+    <bk-tab closable
+        :active.sync="active"
+        :type="'border-card'"
+        :add-show-next-right="addShowNextRight"
+        @close-panel="closePanel"
+        @scroll-show-change="handleScrollShowChange">
+        <template slot="add">
+            <div class="add-btn" @click="addPanel">
+                <div class="range" v-if="addShowNextRight">+</div>
+                <div v-else> +&nbsp;新增</div>
+            </div>
+        </template>
+        <bk-tab-panel
+            v-for="(panel, index) in panels"
+            v-bind="panel"
+            :key="index">
+        </bk-tab-panel>
+    </bk-tab>
+</template>
+<script>
+    import { bkTab, bkTabPanel } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkTab,
+            bkTabPanel
+        },
+        data () {
+            return {
+                panels: [
+                    { name: 'mission', label: '任务报表', count: 10 },
+                    { name: 'config', label: '加速配置', count: 20 },
+                    { name: 'hisitory', label: '历史版本', count: 30 },
+                    { name: 'deleted', label: '已归档加速任务', count: 40 }
+                ],
+                active: 'mission',
+                type: ['card', 'border-card', 'unborder-card', 'vertical-card'],
+                currentType: 'card',
+                addShowNextRight: false
+            }
+        },
+        methods: {
+            addPanel () {
+                const name = Math.random()
+                this.panels.push({
+                    name,
+                    label: '新标签页',
+                    count: 50
+                })
+                this.active = name
+            },
+            closePanel (index, panel) {
+                this.panels.splice(index, 1)
+            },
+            handleScrollShowChange (v) {
+                this.addShowNextRight = v;
+            }
+        }
+    }
+</script>
+<style lang="postcss">
+    .add-btn {
+        cursor: pointer;
+        padding: 0 10px;
+        div {
+            color: #3a84ff;
+            font-size: 14px; 
+        }
+        .range {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10); 
+        }
+    }
+</style>
+```
+:::
+
 :::exampleLink [更多示例](#/tabExample)
 
 ### bk-tab 选项卡属性 {page=#/tab}
@@ -608,6 +720,7 @@ export default {
 | change-on-hover | 鼠标悬停tab时进行切换 | Boolean | `true` / `false` | `false` |
 | change-on-hover-delay | 鼠标悬停切换tab的延时，单位为毫秒 | Number | —— | `1000` |
 | active-bar | 当前选中激活样式，暂时只支持横排样式 | Object | —— | `{ position: 'bottom', height: '2px' }` |
+| add-show-next-right | 添加按钮是否显示在右边滚动按钮左边 | Boolean | —— | `false` |
 
 ### bk-tab 选项卡事件 {page=#/tab}
 | 事件名称 | 说明 | 回调参数 |
@@ -617,11 +730,13 @@ export default {
 | add-panel | 新增选项卡时调用 | —— |
 | sort-change | 标签拖动交互位置后调用 | dragTabIndex（拖动的tab的index）,dropTabIndex |
 | on-drag-tab | 标签拖动时调用 | dragTabIndex,dragEvent|
+| scroll-show-change | 滚动按钮显隐时调用 | hasScroll |
 
 ### bk-tab 选项卡插槽 {page=#/tab}
 | name | 说明 |
 |---|---|
 | setting | 插入至选项卡右上角的扩展内容 |
+| add | 自定义新增按钮 |
 
 ### bk-tab-panel 选项卡面板属性 {page=#/tab}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

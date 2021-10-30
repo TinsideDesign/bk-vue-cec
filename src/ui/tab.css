@@ -228,9 +228,25 @@ $headerColor: $newBlackColor2;
             right: 0;
             border-bottom: $border;
             border-left: $border;
+            &.next-right {
+                right: 24px;
+                box-shadow: -10px 0 10px rgb(0 0 0 / .05);
+                border-right: 0;
+            }
         }
         .bk-tab-scroll-controller.next {
             right: 42px;
+        }
+        .bk-tab-add-custom {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-left: $border;
+            &.next-right {
+                right: 24px;
+                border-left: $border;
+                box-shadow: -10px 0 10px rgb(0 0 0 / .05);
+            }
         }
     }
     .bk-tab-add-controller {
@@ -252,6 +268,16 @@ $headerColor: $newBlackColor2;
         &.left-border {
             border-left: $border;
         }
+    }
+    .bk-tab-add-custom {
+        display: inline-block;
+        position: relative;
+        font-size: $iconNormalSize;
+        z-index: 2;
+        vertical-align: middle;
+        opacity: 1;
+        background-color: $headerBackgroundColor;
+        border-bottom: $border;
     }
     .bk-tab-scroll-controller {
         position: absolute;

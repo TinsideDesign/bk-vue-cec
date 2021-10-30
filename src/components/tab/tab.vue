@@ -44,7 +44,10 @@
                 ref="labelWrapper"
                 :class="{
                     'has-scroller': scrollState.show && !isSidePosition,
-                    'has-add': addable && !isSidePosition
+                    'has-add': (addable || hasAddBtnSlot) && !isSidePosition
+                }"
+                :style="{
+                    padding: scrollState.show && !isSidePosition ? `0 ${addCustomRect.width + 24}px 0 24px` : undefined
                 }">
                 <ul ref="labelList"
                     :class="['bk-tab-label-list', { 'bk-tab-label-list-has-bar': hasActiveBar }]"
@@ -80,12 +83,26 @@
                         @mouseleave.native.passive="handleClearHoverTimer(panel)">
                     </li>
                 </ul>
-                <i class="bk-tab-add-controller bk-icon icon-plus" :class="visiblePanels.length ? '' : 'left-border'"
+                <i class="bk-tab-add-controller bk-icon icon-plus"
+                    :class="{
+                        'left-border': !visiblePanels.length,
+                        'next-right': addShowNextRight
+                    }"
                     :style="{ height: `${labelHeight}px`, lineHeight: `${labelHeight}px` }"
-                    v-if="addable && !isSidePosition"
+                    v-if="addable && !isSidePosition && !hasAddBtnSlot"
                     ref="addController"
                     @click="handleAddPanel">
                 </i>
+                <div class="bk-tab-add-custom"
+                    :class="{ 'next-right': addShowNextRight }"
+                    ref="addCustom"
+                    :style="{
+                        height: `${(scrollState.show && !isSidePosition) ? labelHeight - 1 : labelHeight - 2}px`,
+                        lineHeight: `${labelHeight}px`
+                    }"
+                    v-if="hasAddBtnSlot">
+                    <slot name="add"></slot>
+                </div>
                 <template v-if="scrollState.show">
                     <i class="bk-tab-scroll-controller prev bk-icon icon-angle-left"
                         :style="{ height: `${labelHeight - 1}px`, lineHeight: `${labelHeight}px` }"
@@ -96,7 +113,13 @@
                         @click="stepToPrev">
                     </i>
                     <i class="bk-tab-scroll-controller next bk-icon icon-angle-right"
-                        :style="{ height: `${labelHeight - 1}px`, lineHeight: `${labelHeight}px` }"
+                        :style="{
+                            height: `${labelHeight - 1}px`,
+                            lineHeight: `${labelHeight}px`,
+                            right: (hasAddBtnSlot || addable)
+                                ? `${addShowNextRight ? 0 : (addCustomRect.width || 40)}px`
+                                : undefined
+                        }"
                         ref="nextController"
                         :class="{
                             'disabled': scrollState.position === 'right'
@@ -199,6 +222,11 @@
                     position: 'bottom',
                     height: '2px'
                 })
+            },
+            // 新增按钮是否显示在右边滚动按钮左边
+            addShowNextRight: {
+                type: Boolean,
+                default: false
             }
         },
         data () {
@@ -233,6 +261,10 @@
                     transform: '',
                     top: '',
                     bottom: ''
+                },
+                // 自定义新增按钮的宽度
+                addCustomRect: {
+                    width: 0
                 }
             }
         },
@@ -294,6 +326,10 @@
                     transform: `translateX(${this.scrollState.offset}px)`,
                     height: `${this.labelHeight}px`
                 }
+            },
+            // 是否存在自定义新增按钮
+            hasAddBtnSlot () {
+                return !!this.$slots && !!this.$slots.add
             }
         },
         watch: {
@@ -324,6 +360,12 @@
             },
             tabPosition () {
                 this.updateActiveBarPosition(this.localActive)
+            },
+            addShowNextRight () {
+                this.resizeHandler()
+            },
+            'scrollState.show' (isShow) {
+                this.$emit('scroll-show-change', isShow)
             }
         },
         created () {
@@ -421,7 +463,8 @@
                     const labelWrapperRect = labelWrapper.getBoundingClientRect()
                     const labelListRect = labelList.getBoundingClientRect()
                     const addControllerRect = addController ? addController.getBoundingClientRect() : { width: 0 }
-                    this.scrollState.show = (labelListRect.width + addControllerRect.width) > labelWrapperRect.width
+                    this.addCustomRect = this.hasAddBtnSlot ? this.$refs.addCustom.getBoundingClientRect() : { width: 0 }
+                    this.scrollState.show = (labelListRect.width + addControllerRect.width + this.addCustomRect.width) > labelWrapperRect.width
                     if (!this.scrollState.show) { // 如果不滚动，则恢复至原始位置
                         this.scrollState.offset = 0
                         this.scrollState.position = 'left'
@@ -466,6 +509,10 @@
                 controllers.forEach(controller => {
                     width += controller ? controller.offsetWidth : 0
                 })
+                if (this.hasAddBtnSlot) {
+                    this.addCustomRect = this.hasAddBtnSlot ? this.$refs.addCustom.getBoundingClientRect() : { width: 0 }
+                    width += this.addCustomRect.width
+                }
                 return width
             },
             updateActiveBarPosition (active) {
