@@ -30,7 +30,7 @@
 ```html
 <template>
     <div>
-        <bk-time-picker v-model="initTime" :placeholder="'选择时间'"></bk-time-picker>
+        <bk-time-picker v-model="initTime" :placeholder="'选择时间'" transfer :ext-popover-cls="'custom-popover-cls'"></bk-time-picker>
     </div>
 </template>
 <script>
@@ -251,6 +251,7 @@
 | format | 格式，不配置 ss 时即不显示秒 | String | —— | HH:mm:ss |
 | steps | 面板的时间间隔，数组的三项分别对应小时、分钟、秒。例如设置为 [1, 15, 20] 时，面板中分钟的备选项为：00、15、30、45，秒的备选项为：00、20、40。 | Array | -- | [] |
 | placement | 面板出现的位置  | String | top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end | bottom-start |
+| transfer | 控制日历面板是否出现在 body 内 | Boolean | true / false | false |
 | placeholder | 占位文案  | String | -- | '' |
 | open | 控制面板的显示与隐藏 | Boolean | true / false | false |
 | disabled | 是否禁用 | Boolean | true / false | false |
@@ -260,6 +261,7 @@
 | hide-disabled-options | 是否隐藏禁止选择的小时、分钟、秒 | Boolean | true / false | false |
 | font-size | 设置组件主体内容字体大小 | String | `normal`（12px），`medium`（14px），`large`（16px） | normal |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-date-picker` 上 | String | —— | —— |
+| ext-popover-cls | 配置自定义样式类名，传入的类会被加在弹出的日历面板 DOM `.bk-date-picker-dropdown` 上 | String | —— | —— |
 | behavior | 风格设置(simplicity:简约 normal:正常) | String | 'normal'/'simplicity' | normal |
 
 ### 事件 {page=#/time-picker}

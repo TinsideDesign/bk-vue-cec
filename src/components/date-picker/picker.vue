@@ -83,6 +83,7 @@
                 :class="transfer ? 'bk-date-picker-transfer' : ''"
                 :placement="placement"
                 ref="drop"
+                :ext-popover-cls="extPopoverCls"
                 :data-transfer="transfer"
                 :transfer="transfer"
                 v-transfer-dom>
@@ -181,6 +182,11 @@
         props: {
             // 外部设置的 class name
             extCls: {
+                type: String,
+                default: ''
+            },
+            // 外部设置的 popover class name
+            extPopoverCls: {
                 type: String,
                 default: ''
             },

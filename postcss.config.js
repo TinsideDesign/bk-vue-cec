@@ -81,6 +81,9 @@ const plugins = {
     'postcss-simple-vars': {
         unknown: function (node, name, result) {
             node.warn(result, 'Unknown variable ' + name)
+        },
+        variables: function () {
+            return require('./src/ui/variable.js')
         }
     },
     // @see https://github.com/MadLittleMods/postcss-css-variables#postcss-css-variables

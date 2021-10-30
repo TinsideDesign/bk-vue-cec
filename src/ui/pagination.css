@@ -129,6 +129,11 @@ $hoverBackground: #eaf3ff;
                 position: relative;
                 z-index: 1;
             }
+            &.disabled {
+                &:hover {
+                    z-index: 0;
+                }
+            }
             &:first-child {
                 border-radius: 2px 0 0 2px;
             }

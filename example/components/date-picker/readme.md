@@ -160,7 +160,7 @@
 ```html
 <template>
     <div>
-        <bk-date-picker class="mr15" v-model="initDateTime" :placeholder="'选择日期'"></bk-date-picker>
+        <bk-date-picker class="mr15" v-model="initDateTime" :placeholder="'选择日期'" :ext-popover-cls="'custom-popover-cls'"></bk-date-picker>
     </div>
 </template>
 <script>
@@ -600,6 +600,7 @@
 | options.disabledDate | 配置不可选的日期，参数为当前的日期，返回 true 禁用这天，否则不禁用 | Function | -- | -- |
 | font-size | 设置组件主体内容字体大小 | String | `normal`（12px），`medium`（14px），`large`（16px） | normal |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-date-picker` 上 | String | —— | —— |
+| ext-popover-cls | 配置自定义样式类名，传入的类会被加在弹出的日历面板 DOM `.bk-date-picker-dropdown` 上 | String | —— | —— |
 | up-to-now | 在日期范围选择器和日期时间范围选择器中（即 type 为 `daterange` 或者 `datetimerange`），设置 `up-to-now` 为 `true` 可使配置终止时间为“至今” | Boolean | —— | false |
 | use-shortcut-text | 开启后，点击选中配置的快捷项时，输入框显示的内容为选中的快捷文案，且不可编辑 | Boolean | true / false | false |
 | shortcut-selected-index | 选中的快捷项index | Number | -1 | —— |

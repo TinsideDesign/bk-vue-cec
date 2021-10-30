@@ -361,9 +361,6 @@
             tabPosition () {
                 this.updateActiveBarPosition(this.localActive)
             },
-            addShowNextRight () {
-                this.resizeHandler()
-            },
             'scrollState.show' (isShow) {
                 this.$emit('scroll-show-change', isShow)
             }

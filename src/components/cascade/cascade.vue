@@ -57,7 +57,7 @@
             :on-hide="handleDropdownHide"
             :tippy-options="popoverOptions">
             <template v-if="multiple">
-                <div class="bk-cascade-name" :title="selectedName" v-if="!showDelete">
+                <div class="bk-cascade-name" :title="selectedName" v-if="limitOneLine">
                     <span>{{selectedName}}</span>
                 </div>
                 <section v-else>
@@ -207,9 +207,9 @@
                 type: Boolean,
                 default: false
             },
-            showDelete: {
+            limitOneLine: {
                 type: Boolean,
-                default: true
+                default: false
             },
             separator: {
                 type: String,
