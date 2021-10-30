@@ -74,16 +74,20 @@
             <slider-button v-if="range" :vertical="vertical" v-model="secondValue" ref="secondbutton"></slider-button>
         </div>
         <div v-if="showInput && !vertical" class="bk-slider-input">
-            <div class="input-item">
+            <div class="input-item" :style="{ width: getInputWidth(firstInput) }">
                 <bk-input type="number" v-model="firstInput"
+                    :max="maxValue"
+                    :min="minValue"
                     @change="firstInputChange"
                     @enter="firstInputChange"
                     @blur="firstInputChange"></bk-input>
             </div>
             <template v-if="showSecondInput && secondValue">
                 <div class="input-center">～</div>
-                <div class="input-item">
+                <div class="input-item" :style="{ width: getInputWidth(secondInput) }">
                     <bk-input type="number" v-model="secondInput"
+                        :max="maxValue"
+                        :min="minValue"
                         @change="secondInputChange"
                         @enter="secondInputChange"
                         @blur="secondInputChange"></bk-input>
@@ -484,6 +488,10 @@
                 if (element && event) {
                     element.removeEventListener(event, handler, false)
                 }
+            },
+            getInputWidth (num) {
+                const len = `${num}`.length
+                return len > 2 ? `${56 + (len - 2) * 6}px` : '56px'
             }
         }
     }
