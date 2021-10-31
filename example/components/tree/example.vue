@@ -53,18 +53,32 @@
             </div>
         </div>
         <div class="example-item">
-            <div class="tree3">
-                <bk-tree
-                    ref="tree2"
-                    :is-delete-root="false"
-                    :data="treeData4"
-                    :has-border="true"
-                    :node-key="'id'"
-                    :draggable="true"
-                    @on-click="nodeClicked4"
-                    @on-expanded="nodeExpanded4"
-                    :multiple="false">
-                </bk-tree>
+            <div style="display: flex;">
+                <div class=" flex-1">
+                    <bk-tree
+                        ref="tree2"
+                        :is-delete-root="false"
+                        :data="treeData4"
+                        :has-border="true"
+                        :node-key="'id'"
+                        :draggable="true"
+                        @on-click="nodeClicked4"
+                        @on-expanded="nodeExpanded4"
+                        :multiple="false">
+                    </bk-tree>
+                </div>
+                <div class="">
+                    <bk-tree
+                        ref="tree2"
+                        :is-delete-root="false"
+                        :data="treeData4"
+                        :has-border="true"
+                        :node-key="'id'"
+                        @on-click="nodeClicked4"
+                        @on-expanded="nodeExpanded4"
+                        :multiple="false">
+                    </bk-tree>
+                </div>
             </div>
         </div>
         <div class="example-item">

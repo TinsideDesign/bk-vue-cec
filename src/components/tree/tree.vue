@@ -382,6 +382,9 @@
             drop (node, ev) {
                 ev.preventDefault()
                 ev.stopPropagation()
+                if (!this.draggable) {
+                    return
+                }
                 const gid = ev.dataTransfer.getData('gid')
                 const drag = this.getDragNode(gid)
                 // console.warn(drag)
