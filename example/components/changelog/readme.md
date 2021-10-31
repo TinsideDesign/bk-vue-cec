@@ -4,12 +4,21 @@
 
 <div class="changelog-wrapper">
 
-### 0.1.0-beta1 {page=#/changelog}
-###### 2021.10.24
+### 0.1.0 {page=#/changelog}
+###### 2021.10.31
 
+* **[add]**:
+    - [Tab 选项卡](#/tab) 新增[自定义新增按钮](#/tab?anchor=zi-ding-yi-xin-zeng-an-niu)
+    - [Cascade 级联选框](#/cascade) 新增 `limit-one-line` 属性，支持只显示一行
+    - [Cascade 级联选框](#/cascade), [DropdownMenu 下拉菜单](#/dropdown-menu), [Select 下拉选框](#/select), [DatePicker 日期选择器](#/date-picker),[TimePicker 时间选择器](#/time-picker) 新增 `ext-popover-cls` 属性，用于给下拉等状态下的popover弹窗框添加样式
 * **[fix]**:
+    - [Pagination 分页](#/pagination) 修复 Pagination 紧凑效果 鼠标移到最后一个出现显示异常的问题
+    - [Cascade 级联选框](#/cascade) 修复设置 scroll-width 在第二级以后不生效的问题
     - [Table 表格](#/table) 修复表格宽度计算部分调整场景下不符合实际的问题
     - [Upload 文件上传](#/upload) 修复文字显示不全的问题; 修复button类型回填出现异常的问题
+    - 修复 [DropdownMenu 下拉菜单](#/dropdown-menu), [Select 下拉选框](#/select), [DatePicker 日期选择器](#/date-picker), [TimePicker 时间选择器](#/time-picker) 下拉间距不统一的问题
+* **[update]**:
+    - [Slider 滑动选择器](#/slider) 滑动选择器输入框样式优化, 会自动根据输入数字长度调整输入框长短
 
 ---
 

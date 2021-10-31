@@ -592,6 +592,7 @@
             this.tableId = 'bk-table-' + tableIdSeed++
             this.debouncedUpdateLayout = debounce(50, () => this.doLayout())
         },
+        
         mounted () {
             this.bindEvents()
             this.store.updateColumns()
