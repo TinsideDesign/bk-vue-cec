@@ -104,7 +104,7 @@ describe('bkTab', () => {
                     panels: [
                         { name: 'mission', label: '任务报表', closable: true, visible: true, renderDirective: 'if' },
                         { name: 'config', label: '加速配置', closable: true, visible: false, renderDirective: 'if' },
-                        { name: 'hisitory', label: '历史版本', closable: true, visible: true, renderDirective: 'show' }
+                        { name: 'history', label: '历史版本', closable: true, visible: true, renderDirective: 'show' }
                     ]
                 }
             }

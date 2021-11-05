@@ -37,18 +37,18 @@
                 panels: [
                     { name: 'mission', label: '任务报表', count: 10 },
                     { name: 'config', label: '加速配置', count: 20, sortable: false },
-                    { name: 'hisitory', label: '历史版本', count: 30, visible: false },
-                    { name: 'hisitory1', label: '历史版本aa', count: 30, visible: true },
-                    { name: 'hisitory12', label: '历史版本aa1', count: 30, visible: true },
-                    { name: 'hisitory13', label: '历史版本aa2', count: 30, visible: true },
-                    { name: 'hisitory14', label: '历史版本aa4', count: 30, visible: true },
-                    { name: 'hisitory2', label: '历史版本bb', count: 30, visible: false },
+                    { name: 'history', label: '历史版本', count: 30, visible: false },
+                    { name: 'history1', label: '历史版本aa', count: 30, visible: true },
+                    { name: 'history12', label: '历史版本aa1', count: 30, visible: true },
+                    { name: 'history13', label: '历史版本aa2', count: 30, visible: true },
+                    { name: 'history14', label: '历史版本aa4', count: 30, visible: true },
+                    { name: 'history2', label: '历史版本bb', count: 30, visible: false },
                     { name: 'deleted', label: '已归档加速任务', count: 40 }
                 ],
                 panels2: [
                     { name: 'mission', label: '任务报表2', count: 10 },
                     { name: 'config', label: '加速配置2', count: 20 },
-                    { name: 'hisitory', label: '历史版本2', count: 30 },
+                    { name: 'history', label: '历史版本2', count: 30 },
                     { name: 'deleted', label: '已归档加速任务2', count: 40 }
                 ],
                 active: 'mission'
