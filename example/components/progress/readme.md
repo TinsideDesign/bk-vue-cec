@@ -188,3 +188,4 @@
 | show-text | 是否显示进度条文字内容 | Boolean | `true` / `false` | true |
 | title-style | 设置 title 的样式 | Object | —— | `{ fontSize: '16px', verticalAlign: 'middle' }` |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-progress` 上 | String | —— | —— |
+| fixed | 精确到小数点位数 | Number | 0 <= `fixed` <= 20 | 0 |

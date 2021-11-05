@@ -117,6 +117,12 @@
             extCls: {
                 type: String,
                 default: ''
+            },
+            // 精确到小数点位数
+            fixed: {
+                type: Number,
+                default: 0,
+                validator: val => val >= 0 && val <= 20
             }
         },
         data () {
@@ -141,7 +147,7 @@
                 return style
             },
             percentFixed () {
-                return Number((this.percent * 100).toFixed(0))
+                return Number(this.percent * 100).toFixed(this.fixed)
             },
             progressTextSize () {
                 return 12 + this.strokeWidth * 0.4
