@@ -12,32 +12,32 @@
         },
         data () {
             const list = [
-                { tag: '由pony上线到TInside市场 ', content: '<span class="timeline-update-time">2019-12-15 11:00</span>', size: 'large' },
+                { tag: '由pony上线到T-inside市场 ', content: '<span class="timeline-update-time">2019-12-15 11:00</span>', size: 'large' },
                 { tag: '由tony部署到生产环境并发布至应用市场', content: '<span class="timeline-update-time">2019-12-12 11:23</span>' },
                 { tag: '由allen部署到预发布环境', content: '<span class="timeline-update-time">2019-12-12 10:20</span>' },
-                { tag: '由allen上线到TInside市场', content: '<span class="timeline-update-time">2019-12-09 11:23</span>' }
+                { tag: '由allen上线到T-inside市场', content: '<span class="timeline-update-time">2019-12-09 11:23</span>' }
             ]
             return {
                 list,
                 lineList: [
-                    { tag: '一天前', content: '由pony上线到TInside市场', type: 'default' },
+                    { tag: '一天前', content: '由pony上线到T-inside市场', type: 'default' },
                     { tag: '16:59', content: '由tony部署到生产环境并发布至应用市场', type: 'primary' },
                     { tag: '一天前', content: '由allen部署到预发布环境', type: 'warning' },
-                    { tag: '2天前', content: '由allen上线到TInside市场', type: 'success' },
+                    { tag: '2天前', content: '由allen上线到T-inside市场', type: 'success' },
                     { tag: '一周前', content: '由tony部署到生产环境并发布至应用市场', type: 'danger' }
                 ],
                 dataList: [
-                    { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场' },
+                    { tag: '一天前', content: '由<strong>pony</strong>上线到T-inside市场' },
                     { tag: '16:59', content: '<div style="color: red;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
-                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
+                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">T-inside市场</span></div>' },
                     { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' }
                 ],
                 timelineList: [
-                    { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场' },
+                    { tag: '一天前', content: '由<strong>pony</strong>上线到T-inside市场' },
                     { tag: '16:59', content: '<div style="color: #FF5656;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
-                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
+                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">T-inside市场</span></div>' },
                     { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' },
                     {
                         tag: '10:56',
@@ -91,7 +91,7 @@
                 customIconList2: [
                     {
                         tag: '<b>管理员</b>',
-                        content: '<div class="timeline-content"><p style="color: #63656e;">由pony上线到TInside市场</p><p><span class="timeline-update-time">2019-12-12 11:23</span></p></div>',
+                        content: '<div class="timeline-content"><p style="color: #63656e;">由pony上线到T-inside市场</p><p><span class="timeline-update-time">2019-12-12 11:23</span></p></div>',
                         color: 'green',
                         filled: true
                     },
@@ -107,10 +107,10 @@
                         color: 'blue',
                         icon: 'image'
                     },
-                    { tag: '<b>总经理</b>', content: '由allen上线到TInside市场' },
+                    { tag: '<b>总经理</b>', content: '由allen上线到T-inside市场' },
                 ],
                 moreList: [
-                    { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场', color: 'green', filled: true },
+                    { tag: '一天前', content: '由<strong>pony</strong>上线到T-inside市场', color: 'green', filled: true },
                     {
                         tag: '10:56',
                         color: 'blue',
@@ -121,7 +121,7 @@
                             }
                         })
                     },
-                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
+                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">T-inside市场</span></div>' },
                     {
                         tag: '18:57',
                         content: this.getInputContent()
@@ -195,10 +195,10 @@
         data () {
             return {
                 list: [
-                    { tag: '由pony上线到TInside市场 ', content: '<span class="timeline-update-time">2019-12-15 11:00</span>', size: 'large' },
+                    { tag: '由pony上线到T-inside市场 ', content: '<span class="timeline-update-time">2019-12-15 11:00</span>', size: 'large' },
                     { tag: '由tony部署到生产环境并发布至应用市场', content: '<span class="timeline-update-time">2019-12-12 11:23</span>' },
                     { tag: '由allen部署到预发布环境', content: '<span class="timeline-update-time">2019-12-12 10:20</span>' },
-                    { tag: '由allen上线到TInside市场', content: '<span class="timeline-update-time">2019-12-09 11:23</span>' }
+                    { tag: '由allen上线到T-inside市场', content: '<span class="timeline-update-time">2019-12-09 11:23</span>' }
                 ]
             }
         },
@@ -333,7 +333,7 @@
                 customIconList2: [
                     {
                         tag: '<b>管理员</b>',
-                        content: '<div class="timeline-content"><p style="color: #63656e;">由pony上线到TInside市场</p><p><span class="timeline-update-time">2019-12-12 11:23</span></p></div>',
+                        content: '<div class="timeline-content"><p style="color: #63656e;">由pony上线到T-inside市场</p><p><span class="timeline-update-time">2019-12-12 11:23</span></p></div>',
                         color: 'green',
                         filled: true
                     },
@@ -349,7 +349,7 @@
                         color: 'blue',
                         icon: 'image'
                     },
-                    { tag: '<b>总经理</b>', content: '由allen上线到TInside市场' },
+                    { tag: '<b>总经理</b>', content: '由allen上线到T-inside市场' },
                 ]
             }
         }
@@ -389,10 +389,10 @@
         data() {
             return {
                 lineList: [
-                    { tag: '一天前', content: '由pony上线到TInside市场', type: 'default' },
+                    { tag: '一天前', content: '由pony上线到T-inside市场', type: 'default' },
                     { tag: '16:59', content: '由tony部署到生产环境并发布至应用市场', type: 'primary' },
                     { tag: '一天前', content: '由allen部署到预发布环境', type: 'warning' },
-                    { tag: '2天前', content: '由allen上线到TInside市场', type: 'success' },
+                    { tag: '2天前', content: '由allen上线到T-inside市场', type: 'success' },
                     { tag: '一周前', content: '由tony部署到生产环境并发布至应用市场', type: 'danger' }
                 ]
             }
@@ -426,10 +426,10 @@
         data() {
             return {
                 dataList: [
-                    { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场' },
+                    { tag: '一天前', content: '由<strong>pony</strong>上线到T-inside市场' },
                     { tag: '16:59', content: '<div style="color: red;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
-                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
+                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">T-inside市场</span></div>' },
                     { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' }
                 ]
             }
@@ -463,10 +463,10 @@
         data() {
             return {
                 timelineList: [
-                    { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场' },
+                    { tag: '一天前', content: '由<strong>pony</strong>上线到T-inside市场' },
                     { tag: '16:59', content: '<div style="color: #FF5656;">由<strong>tony</strong>部署到生产环境并发布至应用市场</div>' },
                     { tag: '一天前', content: '由<strong>allen</strong>部署到预发布环境' },
-                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
+                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">T-inside市场</span></div>' },
                     { tag: '一周前', content: '由<strong>tony</strong>部署到<p style="color: #FF5656">生产环境</p>并发布至<strong>应用市场</strong>' },
                     {
                         tag: '10:56',
@@ -517,15 +517,15 @@
         },
         data() {
             const list = [
-                { tag: '一天前', content: '由pony上线到TInside市场' },
+                { tag: '一天前', content: '由pony上线到T-inside市场' },
                 { tag: '16:59', content: '由tony部署到生产环境并发布至应用市场' },
                 { tag: '一天前', content: '由allen部署到预发布环境' },
-                { tag: '2天前', content: '由allen上线到TInside市场' },
+                { tag: '2天前', content: '由allen上线到T-inside市场' },
                 { tag: '一周前', content: '由tony部署到生产环境并发布至应用市场' }
             ]
             return {
                 moreList: [
-                    { tag: '一天前', content: '由<strong>pony</strong>上线到TInside市场', color: 'green', filled: true },
+                    { tag: '一天前', content: '由<strong>pony</strong>上线到T-inside市场', color: 'green', filled: true },
                     {
                         tag: '10:56',
                         color: 'blue',
@@ -536,7 +536,7 @@
                             }
                         })
                     },
-                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">TInside市场</span></div>' },
+                    { tag: '2天前', content: '<div>由<strong>allen</strong>上线到<span style="color: #3c96ff;">T-inside市场</span></div>' },
                     {
                         tag: '18:57',
                         content: this.getInputContent()
@@ -588,10 +588,10 @@
         data () {
             return {
                 list: [
-                    { tag: '由pony上线到TInside市场 ', content: '<span class="timeline-update-time">2019-12-15 11:00</span>', size: 'large' },
+                    { tag: '由pony上线到T-inside市场 ', content: '<span class="timeline-update-time">2019-12-15 11:00</span>', size: 'large' },
                     { tag: '由tony部署到生产环境并发布至应用市场', content: '<span class="timeline-update-time">2019-12-12 11:23</span>' },
                     { tag: '由allen部署到预发布环境', content: '<span class="timeline-update-time">2019-12-12 10:20</span>' },
-                    { tag: '由allen上线到TInside市场', content: '<span class="timeline-update-time">2019-12-09 11:23</span>' }
+                    { tag: '由allen上线到T-inside市场', content: '<span class="timeline-update-time">2019-12-09 11:23</span>' }
                 ]
             }
         },

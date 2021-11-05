@@ -63,9 +63,9 @@
             handleLongExtend () {
                 this.$bkNotify({
                     title: this.title,
-                    message: '测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下'
+                    message: '测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下'
                         + 'IP: 10.140.53.22/10.208.168.23/10.208.168.25/10.195.24.104/10.123.135.15/10.49.175.29/'
                         + '10.49.175.49/10.222.137.101/10.223.41.90/10.173.168.35 可用',
                     theme: 'error',
@@ -81,9 +81,9 @@
             handleLongJump () {
                 this.$bkNotify({
                     title: this.title,
-                    message: '测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下'
+                    message: '测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下'
                         + 'IP: 10.140.53.22/10.208.168.23/10.208.168.25/10.195.24.104/10.123.135.15/10.49.175.29/'
                         + '10.49.175.49/10.222.137.101/10.223.41.90/10.173.168.35 可用',
                     theme: 'error',
@@ -93,6 +93,14 @@
                     onViewMoreHandler () {
                         alert('跳转链接')
                     }
+                })
+            },
+            handleHtmlMessage () {
+                this.$bkNotify({
+                    title: '你好！欢迎你使用T-inside产品',
+                    message: '你好，你申请的功能权限现已<strong>开通</strong>，请及时登录查询。<br />如有疑问，请与运维平台管理人员联系或关注微信公众账号。',
+                    useHTMLString: true,
+                    limitLine: 0
                 })
             }
         }
@@ -384,9 +392,9 @@
         data () {
             return {
                 title: '你好！欢迎你使用TI运维平台产品',
-                message: '测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下'
+                message: '测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下'
                         + 'IP: 10.140.53.22/10.208.168.23/10.208.168.25/10.195.24.104/10.123.135.15/10.49.175.29/'
                         + '10.49.175.49/10.222.137.101/10.223.41.90/10.173.168.35 可用',
             }
@@ -395,9 +403,9 @@
             handleLongExtend () {
                 this.$bkNotify({
                     title: this.title,
-                    message: '测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下'
+                    message: '测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下'
                         + 'IP: 10.140.53.22/10.208.168.23/10.208.168.25/10.195.24.104/10.123.135.15/10.49.175.29/'
                         + '10.49.175.49/10.222.137.101/10.223.41.90/10.173.168.35 可用',
                     theme: 'error',
@@ -413,9 +421,9 @@
             handleLongJump () {
                 this.$bkNotify({
                     title: this.title,
-                    message: '测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下IP测试环境，'
-                        + '仅限制业务【TInside作业平台内部版】下IP测试环境，仅限制业务【TInside作业平台内部版】下'
+                    message: '测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下IP测试环境，'
+                        + '仅限制业务【T-inside作业平台内部版】下IP测试环境，仅限制业务【T-inside作业平台内部版】下'
                         + 'IP: 10.140.53.22/10.208.168.23/10.208.168.25/10.195.24.104/10.123.135.15/10.49.175.29/'
                         + '10.49.175.49/10.222.137.101/10.223.41.90/10.173.168.35 可用',
                     theme: 'error',
@@ -433,6 +441,35 @@
 ```
 :::
 
+### 使用HTML方式渲染Message内容
+
+:::demo 设置 `useHTMLString` 为 `true`，`message`属性会被当做HTML片段渲染。
+
+```html
+<template>
+    <bk-button type="primary" @click="handleHtmlMessage">使用HTML方式渲染Message</bk-button>
+</template>
+
+<script>
+    import { bkButton } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkButton
+        },
+        methods: {
+            handleHtmlMessage () {
+                this.$bkNotify({
+                    title: '你好！欢迎你使用T-inside产品',
+                    message: '你好，你申请的功能权限现已<strong>开通</strong>，请及时登录查询。<br />如有疑问，请与T-inside运维平台管理人员联系或关注微信公众账号。',
+                    useHTMLString: true,
+                    limitLine: 0
+                })
+            }
+        }
+    }
+</script>
+```
+:::
 
 ### 属性 {page=#/notify}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
@@ -452,6 +489,7 @@
 | onViewMoreHandler | `显示更多`按钮点击回调函数 | Function | —— | —— |
 | onClose | 关闭组件时的回调函数, 参数为组件实例 | Function | —— | —— |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-notify` 上 | String | —— | —— |
+| useHTMLString | 属性设置为 true，message 属性就会被当作 HTML 片段处理。请确保 message 的内容是可信的，不然容易导致 XSS攻击 | Boolean | -- | false |
 
 ### 方法 {page=#/notify}
 手动关闭组件时，可以调用 `this.$bkNotify` 返回实例的 `close` 方法

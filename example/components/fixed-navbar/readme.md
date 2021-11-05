@@ -14,7 +14,7 @@
                     {
                         icon: 'icon-weixin-shape',
                         text: '联系',
-                        tooltip: '可以通过TInsideQQ联系我们',
+                        tooltip: '可以通过T-insideQQ联系我们',
                         action: () => {
                             window.open('http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDgwMjAwMV80NDMwOTZfODAwODAyMDAxXzJf')
                         }
@@ -23,7 +23,7 @@
                         icon: 'icon-order-shape',
                         text: '反馈',
                         action: () => {
-                            window.open('https://bk.tencent.com/s-mart/community?page=1&keyword=%255BTInside%255D&sort=latest')
+                            window.open('https://bk.tencent.com/s-mart/community?page=1&keyword=%255BT-inside%255D&sort=latest')
                         }
                     }
                 ],
@@ -81,7 +81,7 @@
                     {
                         icon: 'icon-weixin-shape',
                         text: '联系',
-                        tooltip: '可以通过TInsideQQ联系我们',
+                        tooltip: '可以通过T-insideQQ联系我们',
                         action: () => {
                             window.open('http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDgwMjAwMV80NDMwOTZfODAwODAyMDAxXzJf')
                         }
@@ -90,7 +90,7 @@
                         icon: 'icon-order-shape',
                         text: '反馈',
                         action: () => {
-                            window.open('https://bk.tencent.com/s-mart/community?page=1&keyword=%255BTInside%255D&sort=latest')
+                            window.open('https://bk.tencent.com/s-mart/community?page=1&keyword=%255BT-inside%255D&sort=latest')
                         }
                     }
                 ],

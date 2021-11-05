@@ -46,7 +46,7 @@
 
 ## Transition 过渡动画
 
-TInside提供了一些通用动画，可配合`transition`直接使用
+T-inside提供了一些通用动画，可配合`transition`直接使用
 
 ### fade 淡入淡出 {page=#/transition}
 

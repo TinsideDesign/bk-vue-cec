@@ -45,7 +45,8 @@
                     <div
                         :class="['bk-notify-content-text', { limitLine: limitLine > 0 }]"
                         :style="contentStyle">
-                        {{message}}
+                        <template v-if="!useHTMLString">{{message}}</template>
+                        <span v-else v-html="message"></span>
                         <button
                             v-if="showViewMore"
                             class="showMoreBtn"
@@ -103,7 +104,8 @@
                 limit: 0,
                 countID: null,
                 onClose: function () {},
-                extCls: ''
+                extCls: '',
+                useHTMLString: false // 是否使用html方式渲染message（存在XSS攻击风险，因而默认是关闭）
             }
         },
         computed: {

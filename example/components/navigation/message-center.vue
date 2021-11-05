@@ -55,7 +55,7 @@
                             date: '12月14日'
                         },
                         {
-                            message: 'edwinwu 重新申请了“201812121108”内关于“TInside作业平台”“TInside作业平台”',
+                            message: 'edwinwu 重新申请了“201812121108”内关于“T-inside作业平台”“T-inside作业平台”',
                             date: '12月14日'
                         },
                         {
@@ -67,7 +67,7 @@
                             date: '12月14日'
                         },
                         {
-                            message: 'edwinwu 重新申请了“201812121108”内关于“TInside作业平台”的权限申请。',
+                            message: 'edwinwu 重新申请了“201812121108”内关于“T-inside作业平台”的权限申请。',
                             date: '12月14日'
                         }
                     ]

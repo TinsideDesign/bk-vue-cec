@@ -19,7 +19,7 @@
             },
 
             drawList () {
-                const item = { text: 'TInside', pic: magicBoxPng }
+                const item = { text: 'T-inside', pic: magicBoxPng }
                 const numberList = new Array(10000000)
                 if (this.$refs.numberVirtualScroll) {
                     this.$refs.numberVirtualScroll.setListData(numberList.fill(1))
@@ -183,7 +183,7 @@
 
         methods: {
             drawList () {
-                const item = { text: 'TInside', pic: magicBoxPng }
+                const item = { text: 'T-inside', pic: magicBoxPng }
                 const list = new Array(100000).fill(item)
                 this.$refs.domVirtualScroll.setListData(list)
             }

@@ -96,7 +96,7 @@
             </div>
         </bk-exception>
          <bk-exception class="exception-wrap-item" type="login">
-            <span>请登入TInside</span>
+            <span>请登入T-inside</span>
              <div class="text-wrap">
                 <bk-button theme="primary" class="text-btn">登入</bk-button>
             </div>

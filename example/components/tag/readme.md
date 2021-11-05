@@ -79,7 +79,7 @@
 ```html
 <template>
     <div class="tag-view">
-        <bk-tag>TInside</bk-tag>
+        <bk-tag>T-inside</bk-tag>
         <bk-tag theme="success">企业邮箱</bk-tag>
         <bk-tag theme="info">腾讯视频</bk-tag>
         <bk-tag theme="warning">TI运维平台</bk-tag>
@@ -112,7 +112,7 @@
 
 ```html
 <template>
-    <bk-tag>TInside</bk-tag>
+    <bk-tag>T-inside</bk-tag>
     <bk-tag theme="success" radius="5px">企业邮箱</bk-tag>
     <bk-tag theme="info" radius="10px">腾讯视频</bk-tag>
     <bk-tag theme="warning" radius="45px">TI运维平台</bk-tag>
@@ -137,7 +137,7 @@
 <template>
     <bk-tag icon="icon-weixin">微信</bk-tag>
     <bk-tag icon="icon-qq">QQ</bk-tag>
-    <bk-tag icon="icon-bk">TInside</bk-tag>
+    <bk-tag icon="icon-bk">T-inside</bk-tag>
     <bk-tag icon="icon-sina">新浪</bk-tag>
 </template>
 <script>
@@ -264,21 +264,21 @@
 ```html
 <template>
     <div class="tag-view">
-        <bk-tag>TInside</bk-tag>
+        <bk-tag>T-inside</bk-tag>
         <bk-tag theme="success">企业邮箱</bk-tag>
         <bk-tag theme="info">腾讯视频</bk-tag>
         <bk-tag theme="warning">TI运维平台</bk-tag>
         <bk-tag theme="danger">企业微信</bk-tag>
     </div>
     <div class="tag-view">
-        <bk-tag type="stroke">TInside</bk-tag>
+        <bk-tag type="stroke">T-inside</bk-tag>
         <bk-tag theme="success" type="stroke">企业邮箱</bk-tag>
         <bk-tag theme="info" type="stroke">腾讯视频</bk-tag>
         <bk-tag theme="warning" type="stroke">TI运维平台</bk-tag>
         <bk-tag theme="danger" type="stroke">企业微信</bk-tag>
     </div>
     <div class="tag-view">
-        <bk-tag type="filled">TInside</bk-tag>
+        <bk-tag type="filled">T-inside</bk-tag>
         <bk-tag theme="success" type="filled">企业邮箱</bk-tag>
         <bk-tag theme="info" type="filled">腾讯视频</bk-tag>
         <bk-tag theme="warning" type="filled">TI运维平台</bk-tag>
