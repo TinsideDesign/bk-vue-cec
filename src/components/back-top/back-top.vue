@@ -15,6 +15,7 @@
     import zIndexManager from '@/utils/z-index-manager.js'
     import { throttle } from 'throttle-debounce'
     export default {
+        name: 'bk-back-top',
         props: {
             bottom: {
                 type: Number,
