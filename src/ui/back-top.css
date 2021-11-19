@@ -1,0 +1,19 @@
+@import "./transition.css";
+
+.bk-back-to-top {
+    position: fixed;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #ffffff;
+    border-radius: 26px;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.10); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    .bk-icon {
+        font-size: 14px;
+        color: #979ba5;
+    }
+}

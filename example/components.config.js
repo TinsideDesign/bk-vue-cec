@@ -139,6 +139,10 @@ export default {
                     name: 'FixedNavbar 悬浮导航'
                 },
                 {
+                    id: 'backTop',
+                    name: 'BackTop 返回顶部'
+                },
+                {
                     id: 'affix',
                     name: 'Affix 图钉'
                 }
