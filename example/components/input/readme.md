@@ -98,6 +98,36 @@
 ```
 :::
 
+### hover 时才显示 clear 按钮{page=#/input}
+
+::: demo 配置`show-clear-only-hover`为true时，清除按钮在hover时才会显示
+``` html
+<template>
+    <div class="input-demo">
+        <bk-input :clearable="true" v-model="value" :show-clear-only-hover="true"></bk-input>
+    </div>
+</template>
+<script>
+    import { bkInput } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkInput
+        },
+        data () {
+            return {
+                value: ''
+            }
+        }
+    }
+</script>
+<style lang="postcss">
+    .input-demo {
+        width: 500px;
+    }
+</style>
+```
+:::
+
 ### 14px 字号 {page=#/input}
 
 ::: demo 通过配置 `font-size` 属性为 `medium` 来设置文本框的字号为 `14px`
@@ -656,6 +686,7 @@
 | native-attributes | Html input标签原生属性设置 | Object | —— | —— |
 | show-word-limit | 是否显示输入字数统计，只在 `type = "text"` 或 `type = "textarea"` 时有效 | Boolean | true / false | —— |
 | behavior | 简约风格设置(simplicity:简约 normal:正常 type=textarea时不生效) | String | 'normal'/'simplicity' | normal |
+| show-clear-only-hover | 是否在只有 hover 的时候才显示 clear 清除按钮 | Boolean | —— | false |
 
 ### 事件 {page=#/input}
 

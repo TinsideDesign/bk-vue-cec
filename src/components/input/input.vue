@@ -27,7 +27,7 @@
 -->
 
 <template>
-    <div :class="[wrapperClass, fontSizeCls, extCls]">
+    <div :class="[wrapperClass, fontSizeCls, extCls]" @mouseenter="hover = true" @mouseleave="hover = false">
         <div class="control-icon left-icon" v-if="leftIcon" @click="handlerLeftIcon">
             <i :class="['bk-icon', leftIcon]"></i>
         </div>
@@ -101,7 +101,7 @@
                     ? inputPasswordIcon[0]
                     : inputPasswordIcon[1]
             ]"></i>
-            <i @click.stop.prevent="handlerClear" class="bk-icon icon-close-circle-shape clear-icon ml5" v-if="clearable && curValue && !disabled"></i>
+            <i @click.stop.prevent="handlerClear" class="bk-icon icon-close-circle-shape clear-icon ml5" v-if="showClearIcon"></i>
             <i :class="['bk-icon', rightIcon]" v-else-if="rightIcon"></i>
             <template v-if="type === 'text'">
                 <p class="bk-limit-box ml5" style="position: static" v-show="showInputWordLimit">
@@ -261,10 +261,15 @@
                 validate (v) {
                     return ['simplicity', 'normal'].indexOf(v) > -1
                 }
+            },
+            showClearOnlyHover: {
+                type: Boolean,
+                default: false
             }
         },
         data () {
             return {
+                hover: false,
                 curValue: '',
                 prepend: false,
                 append: false,
@@ -284,6 +289,16 @@
             }
         },
         computed: {
+            /**
+             * 不显示条件：
+             * 1. 设置不可清除
+             * 2. 禁用时
+             * 3. input为空时
+             * 4. 设置了showClearOnlyHover，且没有hover的时候
+             */
+            showClearIcon () {
+                return this.clearable && this.curValue && !this.disabled && (this.showClearOnlyHover ? this.hover : true)
+            },
             showPwdVisable () {
                 return this.type === 'password'
                     && this.curValue
