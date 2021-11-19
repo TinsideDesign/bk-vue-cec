@@ -76,128 +76,76 @@
         display: inline-block;
         font-size: 14px;
     }
-    .mr5 {
-        margin-right: -6px !important;
-    }
-    .bk-form-half-checked {
-        margin-right: 30px;
-        display: inline-block;
-        line-height: 0;
-        color: #666;
-        .bk-checkbox-text {
-            font-style: normal;
-            font-weight: normal;
-            cursor: pointer;
-            vertical-align: middle;
-        }
-        input[type=checkbox] {
-            width: 18px;
-            height: 18px;
-            outline: none;
-            visibility: visible;
-            cursor: pointer;
-            vertical-align: middle;
-            background: #fff;
-            background-image: url(./images/bk_half_check.svg);
-            display: inline-block;
-            background-position: 0 -62px;
-            -webkit-appearance: none;
-            margin: 0 5px 0 0;
-            &:checked {
-                background-position: -33px -62px;
-                &[disabled] {
-                    color: #ccc;
-                    background-position: -99px -62px;
-                }
-            }
-            &[disabled] {
-                background-position: -66px -62px;
-                cursor: default;
-                & + .bk-checkbox-text {
-                    color: #ccc;
-                    cursor: default;
-                }
-            }
-        }
-        &.bk-checkbox-small {
-            input[type=checkbox] {
-                width: 14px;
-                height: 14px;
-                background-position: 0 -98px;
-                &:checked {
-                    background-position: -42px -98px;
-                    &[disabled] {
-                        background-position: -99px -98px;
-                    }
-                }
-                &[disabled] {
-                    background-position: -66px -98px;
-                    background-color: #ccc;
-                }
-            }
-        }
-    }
+    
+    /* checkbox */
     .bk-form-checkbox {
-        margin-right: 30px;
+        position: relative;
         display: inline-block;
-        line-height: 0;
-        color: #666;
-        .bk-checkbox-text {
-            font-style: normal;
-            font-weight: normal;
-            cursor: pointer;
-            vertical-align: middle;
-        }
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+        border: 1px solid $newBlackColor3;
+        border-radius: 2px;
 
         input[type=checkbox] {
-            width: 18px;
-            height: 18px;
-            outline: none;
-            visibility: visible;
-            cursor: pointer;
-            vertical-align: middle;
-            background: #fff;
-            background-image: url(./images/bk_check.png);
-            display: inline-block;
-            background-position: 0 -62px;
-            -webkit-appearance: none;
-            margin: 0 5px 0 0;
+            display: none;
+        }
 
-            &:checked {
-                background-position: -33px -62px;
-                &[disabled] {
-                    color: #ccc;
-                    background-position: -99px -62px;
-                }
-            }
-            &[disabled] {
-                background-position: -66px -62px;
-                cursor: default;
-                & + .bk-checkbox-text {
-                    color: #ccc;
-                    cursor: default;
-                }
+        &:focus {
+            border-color: $formBorderFocusColor;
+            outline: none;
+        }
+
+        &--indeterminate {
+            border-color: $newMainColor;
+            background-color: $newMainColor;
+            background-clip: content-box;
+            
+            &::after {
+                content: '';
+                display: block;
+                width: 8px;
+                height: 2px;
+                background-color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 2px;
             }
         }
 
-        &.bk-checkbox-small {
-            input[type=checkbox] {
-                width: 14px;
-                height: 14px;
-                background-position: 0 -95px;
+        &--checked {
+            border-color: $newMainColor;
+            background-color: $newMainColor;
+            background-clip: border-box;
 
-                &:checked {
-                    background-position: -33px -95px;
-                    &[disabled] {
-                        background-position: -99px -95px;
-                        cursor: not-allowed;
-                    }
-                }
-                &[disabled] {
-                    background-position: -66px -95px;
-                    background-color: #ccc;
-                    cursor: not-allowed;
-                }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 3px;
+                width: 4px;
+                height: 8px;
+                border: 2px solid #fff;
+                border-left: 0;
+                border-top: 0;
+                transform-origin: center;
+                transform: rotate(45deg) scaleY(1);
+            }
+        }
+
+        &--disabled {
+            border-color: $newGreyColor1;
+            background-color: $newGreyColor1;
+            cursor: not-allowed;
+
+            &&--indeterminate ::after{
+                background-color: $newGreyColor3;
+            }
+
+            &&--checked ::after{
+                border-color: $newGreyColor3;
             }
         }
     }
@@ -221,28 +169,28 @@
     }
     li:after {
         content: '';
-        left: -8px;
+        left: -10px;
         position: absolute;
         right: auto;
         border-width: 1px;
         border-top: 1px dashed $borderColor;
         height: 20px;
         top: 16px;
-        width: 16px;
+        width: 12px;
     }
     li:last-child::before {
         height: 26px;
     }
     li.leaf:after {
         content: '';
-        left: -7px;
+        left: -10px;
         position: absolute;
         right: auto;
         border-width: 1px;
         border-top: 1px dashed $borderColor;
         height: 20px;
         top: 15px;
-        width: 20px;
+        width: 24px;
     }
     li.single:before {
         top: -10px;

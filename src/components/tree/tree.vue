@@ -46,7 +46,7 @@
                     v-if="!item.parent || item.children && item.children.length || item.async"
                     :class="['bk-icon', 'tree-expanded-icon', item.expanded ? 'icon-down-shape' : 'icon-right-shape']">
                 </span>
-                <label :class="[item.halfcheck ? 'bk-form-half-checked' : 'bk-form-checkbox','bk-checkbox-small', 'mr5']" v-if="multiple">
+                <label :class="['bk-form-checkbox', { 'bk-form-checkbox--indeterminate': item.halfcheck }, { 'bk-form-checkbox--checked': item.checked }, { 'bk-form-checkbox--disabled': item.disabled }]" v-if="multiple">
                     <input type="checkbox"
                         v-if="multiple"
                         :disabled="item.disabled"

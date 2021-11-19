@@ -27,7 +27,7 @@
 -->
 
 <template>
-    <bk-table ref="filterTable" :data="tableData" style="width: 100%"
+    <bk-table class="my-table" ref="filterTable" :data="tableData" style="width: 100%"
         auto-scroll-to-top
         :max-height="400"
         :pagination="pagination"
@@ -142,3 +142,11 @@
         }
     }
 </script>
+<style lang="postcss">
+    .my-table {
+        th {
+            background-color: #f0f1f5;
+            /* background-color: #fafbfd; */
+        }
+    }
+</style>

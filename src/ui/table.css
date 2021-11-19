@@ -20,7 +20,8 @@ $tableInfoColor: #909399;
     width: 100%;
     max-width: 100%;
     font-size: 12px;
-    color: $fnMainColor;
+    /* color: $fnMainColor; */
+    color: #575961;
     .bk-button-text {
         font-size: 12px;
     }
@@ -446,7 +447,8 @@ $tableInfoColor: #909399;
 .bk-table-body {
     tr.bk-table-row.hover-row {
         > td {
-            background-color: $newGreyColor2;
+            /* background-color: $newGreyColor2; */
+            background-color: #f5f7fa;
         }
         &.bk-table-row-striped {
             &.current-row {
