@@ -441,7 +441,7 @@
 ```
 :::
 
-### 使用HTML方式渲染Message内容
+### 使用HTML方式渲染Message内容 {page=#/notify}
 
 :::demo 设置 `useHTMLString` 为 `true`，`message`属性会被当做HTML片段渲染。
 

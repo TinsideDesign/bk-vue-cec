@@ -111,7 +111,7 @@
             margin-top: 8px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10); 
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
         }
     }
 </style>
@@ -119,6 +119,8 @@
 [[toc]]
 
 ## Tab 选项卡
+
+<!-- :::exampleLink [更多示例](#/tabExample) -->
 
 ### 基础用法 {page=#/tab}
 
@@ -681,7 +683,7 @@ export default {
         padding: 0 10px;
         div {
             color: #3a84ff;
-            font-size: 14px; 
+            font-size: 14px;
         }
         .range {
             width: 30px;
@@ -692,14 +694,12 @@ export default {
             margin-top: 8px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10); 
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
         }
     }
 </style>
 ```
 :::
-
-:::exampleLink [更多示例](#/tabExample)
 
 ### bk-tab 选项卡属性 {page=#/tab}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
