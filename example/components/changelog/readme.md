@@ -4,6 +4,21 @@
 
 <div class="changelog-wrapper">
 
+### 0.1.1 {page=#/changelog}
+###### 2021.11.20
+
+* **[add]**:
+    - [BackTop 返回顶部](#/back-top) 新增返回顶部组件
+    - [Input 输入框](#/input) 新增 [hover 时才显示 clear 按钮](#/input?anchor=hover-shi-cai-xian-shi-clear-an-niu)
+    - [Progress 进度条](#/progress) 添加 fixed 小数点位数配置
+    - [Notify 通知提示](#/notify) 支持[使用HTML方式渲染Message内容](#/notify?anchor=shi-yonghtml-fang-shi-xuan-ranmessage-nei-rong)
+* **[fix]**:
+    - [Tab 选项卡](#/tab) 修复文档单词拼写错误
+* **[update]**:
+    - [Table 表格](#/table) 样式优化
+
+---
+
 ### 0.1.0 {page=#/changelog}
 ###### 2021.10.31
 
