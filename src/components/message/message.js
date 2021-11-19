@@ -50,8 +50,8 @@ const BkMessage = function (config) {
     }
 
     const instanceId = `messageInstance_${Date.now()}_${seed++}`
-    const offsetY = config.offsetY || 30 // 组件距视口顶部的偏移量
-    const spacing = config.spacing || 10 // 组件间的垂直间距
+    const offsetY = parseInt(config.offsetY) || 30 // 组件距视口顶部的偏移量
+    const spacing = parseInt(config.spacing) || 10 // 组件间的垂直间距
 
     if (config.ellipsisLine === null || config.ellipsisLine === undefined || config.ellipsisLine === ''
         || isNaN(config.ellipsisLine)
@@ -93,7 +93,7 @@ const BkMessage = function (config) {
     document.body.appendChild(instance.$el)
 
     messageList.forEach(item => {
-        verticalOffset += (item.$el.offsetHeight + spacing)
+        verticalOffset += parseInt(item.$el.offsetHeight) + parseInt(spacing)
     })
     instance.verticalOffset = verticalOffset
     instance.horizonOffset = spacing
