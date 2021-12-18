@@ -30,9 +30,10 @@
     <div class="magic-footer">
         <div class="magic-copyright">
             <p>
-                <a href="https://www.lanxin.cn/" id="contact-us" class="link magic-contact">
+                <!-- <a href="https://www.lanxin.cn/" id="contact-us" class="link magic-contact">
                     <img src="./img/lanxin.png" style="width:17px;">蓝信交谈
-                </a>
+                </a> -->
+                <a target="_blank" id="contact-us" class="link magic-contact" href="https://qm.qq.com/cgi-bin/qm/qr?k=NKxHctBbX0ctNJ-L4ZPZt9hKcC4Cw23j&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="ti.design交流群" title="ti.design组件交流群"></a>
                 Copyright © 2020-<span id="cur_year">{{year}}</span> T-inside design 版权所有
             </p>
         </div>
@@ -124,7 +125,7 @@
             display: inline-block;
             text-decoration: none;
             img {
-                width: 17px;
+                width: 80px;
                 vertical-align: middle;
                 margin-right: 5px;
             }

@@ -30,8 +30,9 @@
     <div class="side-nav">
         <div class="side-header">
             <div class="title">
-                <img src="./img/logo.png" class="vue-logo">
-                bk-vue-cec
+                <!-- <img src="./img/vue-logo-normal.svg" class="vue-logo"> -->
+                <div class="cpt-name">bk-vue-cec</div>
+                <div class="cpt-text">社区化的前端组件库</div>
             </div>
             <div class="placeholder"></div>
             <div class="search-wrapper" v-bk-clickoutside="searchClose">

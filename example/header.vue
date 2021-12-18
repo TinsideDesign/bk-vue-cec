@@ -29,7 +29,8 @@
 <template>
     <header class="magic-header">
         <a href="//cec.ti.design/" class="logo">
-            <img src="./img/ti-text.png" alt="" style="width:90px;">
+            <img src="./img/ti-text.svg" alt="" style="width:120px;">
+            <span class="text"> - 驱动斑斓白屏</span>
         </a>
         <ul class="clearfix">
             <!--<li class="dropdown nav-dropdown" id="nav_index" style="position: relative;">
@@ -126,20 +127,29 @@
         margin: auto;
         min-width: 1200px;
         /* background: #070d3a; */
-        background: #343153;
+        background: #FFFFFF;
         transition: all ease 0.3s;
         position: fixed;
         left: 0;
         top: 0;
         width: 100%;
         z-index: 1001;
+        box-shadow: 0 2px 8px #f0f1f2;
         a.logo {
+            display: flex;
             float: left;
             margin-top: 16px;
             margin-left: 20px;
             width: 270px;
+            text-decoration: none;
+            align-items: center;
             img {
                 float: left;
+            }
+            .text {
+                margin-left: 10px;
+                color: #000;
+                font-weight: bold;
             }
         }
         >ul {

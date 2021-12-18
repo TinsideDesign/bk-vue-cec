@@ -284,7 +284,7 @@
             <span>预览</span>
         </div>
         <div slot="dropdown-content">
-            <img src="../../img/logo.png" style="vertical-align: middle; padding: 5px; height: 168px;">
+            <img src="../../img/vue-logo-normal.svg" style="vertical-align: middle; padding: 5px; height: 168px;">
         </div>
     </bk-dropdown-menu>
 </template>
