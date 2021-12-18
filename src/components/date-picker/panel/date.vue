@@ -150,9 +150,9 @@
             },
             datePanelLabel () {
                 const locale = 'zh-CN'
-                const datePanelLabel = '[yyyy]-[mm]'
+                const datePanelLabelStr = '[yyyy]-[mm]'
                 const date = this.panelDate
-                const { labels, separator } = formatDateLabels(locale, datePanelLabel, date)
+                const { labels, separator } = formatDateLabels(locale, datePanelLabelStr, date)
 
                 const handler = type => {
                     return () => {

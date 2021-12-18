@@ -138,6 +138,120 @@
     }
 </script>
 ```
+
+:::
+
+### 树的尺寸 {page=#/big-tree}
+
+#### Normal
+
+:::demo 树的尺寸默认为 `normal`
+
+```html
+<template>
+    <section>
+        <bk-big-tree ref="tree"
+            :show-checkbox="isShowCheckbox"
+            :data="data"
+            :show-link-line="isShowLinkLine"
+            :default-expanded-nodes="[0,'0-2']"
+            node-icon="bk-icon icon-text-file">
+        </bk-big-tree>
+    </section>
+</template>
+<script>
+    import { bkBigTree, bkInput, bkButton } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkBigTree,
+            bkInput,
+            bkButton
+        },
+        data () {
+            return {
+                isShowCheckbox: false,
+                isShowLinkLine: false,
+                data: this.getNodes(null, 20, 2),
+                checkList: []
+            }
+        },
+        methods: {
+            getNodes (parent, childCount, deep) {
+                const nodes = []
+                for (let i = 0; i < childCount; i++) {
+                    const node = {
+                        id: parent ? `${parent.id}-${i}` : `${i}`,
+                        level: parent ? parent.level + 1 : 0,
+                        name: parent ? `${parent.name}-${i}` : `node-${i}`
+                    }
+                    if (node.level < deep) {
+                        node.children = this.getNodes(node, 3, deep)
+                    }
+                    nodes.push(node)
+                }
+                return nodes
+            }
+        }
+    }
+</script>
+```
+
+:::
+
+#### Small
+
+:::demo 设置 `size="small"` 时树会变小
+
+```html
+<template>
+    <section>
+        <bk-big-tree ref="tree"
+            :show-checkbox="isShowCheckbox"
+            :data="data"
+            size="small"
+            :show-link-line="isShowLinkLine"
+            :default-expanded-nodes="[0,'0-2']"
+            node-icon="bk-icon icon-text-file">
+        </bk-big-tree>
+    </section>
+</template>
+<script>
+    import { bkBigTree, bkInput, bkButton } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkBigTree,
+            bkInput,
+            bkButton
+        },
+        data () {
+            return {
+                isShowCheckbox: false,
+                isShowLinkLine: false,
+                data: this.getNodes(null, 20, 2),
+                checkList: []
+            }
+        },
+        methods: {
+            getNodes (parent, childCount, deep) {
+                const nodes = []
+                for (let i = 0; i < childCount; i++) {
+                    const node = {
+                        id: parent ? `${parent.id}-${i}` : `${i}`,
+                        level: parent ? parent.level + 1 : 0,
+                        name: parent ? `${parent.name}-${i}` : `node-${i}`
+                    }
+                    if (node.level < deep) {
+                        node.children = this.getNodes(node, 3, deep)
+                    }
+                    nodes.push(node)
+                }
+                return nodes
+            }
+        }
+    }
+</script>
+```
+
 :::
 
 ### 插槽 {page=#/big-tree}
@@ -359,6 +473,7 @@
 ### 属性 {page=#/big-tree}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
+| size | 树的尺寸 | String | `normal` `small` | `normal` |
 | data | 同步渲染数据，异步数据请使用组件实例的`setData`方法进行渲染 | Array | —— | —— |
 | options | 配置项 | Object | —— | —— |
 | options.idKey | 节点的id取值 | String, Function(data) | —— | `id` |

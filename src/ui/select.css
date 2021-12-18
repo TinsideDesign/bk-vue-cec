@@ -216,6 +216,7 @@ $disabledColor: #c4c6cc;
             font-size: var(--font-size);
             border-bottom: 1px solid $newGreyColor1;
             color: $newBlackColor3;
+            position: relative;
 
             &.is-collapse {
                 cursor: pointer;
@@ -230,6 +231,16 @@ $disabledColor: #c4c6cc;
 
                 &.readonly {
                     cursor: not-allowed;
+                }
+            }
+            
+            .btn-check-all {
+                position: absolute;
+                disabled: inline-block;
+                right: 14px;
+                top: 2px;
+                .bk-form-checkbox {
+                    margin-right: 0!important;
                 }
             }
         }

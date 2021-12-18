@@ -333,6 +333,62 @@
 ```
 :::
 
+### 分组-全选 {page=#/select}
+
+:::demo 嵌套 `bk-option-group` 进行分组展示， 设置 `show-select-all` 设置分组是否支持全选
+
+```html
+<template>
+    <bk-select multiple v-model="groupValue" style="width: 250px;">
+        <bk-option-group
+            :show-select-all="true"
+            v-for="(group, index) in groupList"
+            :name="group.name"
+            :key="index">
+            <bk-option v-for="option in group.children"
+                :key="option.id"
+                :id="option.id"
+                :name="option.name">
+            </bk-option>
+        </bk-option-group>
+    </bk-select>
+</template>
+<script>
+    import { bkSelect, bkOptionGroup, bkOption } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkSelect,
+            bkOptionGroup,
+            bkOption
+        },
+        data () {
+            return {
+                value: '',
+                groupList: [
+                    {
+                        id: 1,
+                        name: '爬山',
+                        children: [
+                            { id: '1-1', name: '爬山-1' },
+                            { id: '1-2', name: '爬山-2' }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        name: '跑步',
+                        children: [
+                            { id: '2-1', name: '跑步-1' },
+                            { id: '2-2', name: '跑步-2' }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+</script>
+```
+:::
+
 ### 分组-展开\收起功能 {page=#/select}
 
 :::demo 嵌套 `bk-option-group` 设置 `show-collapse` 进行分组展开\收起设置，通过设置`is-collapse`来控制每个分组的展开\收起,`is-collapse`支持`sync`数据同步设置. 如果想要设置单个分组只读，请使用`readonly`设置
@@ -347,6 +403,7 @@
                 :name="group.name"
                 :key="index"
                 :show-collapse="true"
+                :show-select-all="true"
                 :is-collapse.sync="group.isCollapse"
                 @collapse="handleGroupCollapse">
                 <bk-option v-for="option in group.children"
@@ -1043,6 +1100,7 @@
 | name | 当前分组名称，必填 | —— | —— | —— |
 | show-count | 是否显示分组子选项总数 | Boolean | —— | true |
 | show-collapse | 是否显示分组收起\展开 | Boolean | —— | false |
+| show-select-all | 是否支持支持分组全选 | Boolean | —— | false |
 | is-collapse | 分组子选项是否收起，必须设置了`show-collapse`为`true`此配置项才生效，此配置项支持`sync`同步操作 | Boolean | —— | false |
 | readonly | 分组展开收起功能是否只读，必须设置了`show-collapse`为`true`此配置项才生效 | Boolean | —— | false |
 

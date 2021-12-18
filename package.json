@@ -1,7 +1,7 @@
 {
   "name": "bk-vue-cec",
-  "version": "0.1.1",
-  "description": "一个为运维场景而生，好看易用的社区化Vue2组件库",
+  "version": "0.1.2",
+  "description": "一个为运维业务场景而生，好看易用的Vue2原创组件库，由T-inside Design进行托管社区化运作 ",
   "main": "dist/bk-magic-vue.min.js",
   "files": [
     "lib",

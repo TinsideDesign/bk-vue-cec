@@ -143,3 +143,10 @@
     color: #979ba5;
     font-size: 14px;
 }
+
+.bk-date-picker-top-wrapper {
+    margin-top: -5px;
+    clear: both;
+    color: #979ba5;
+    font-size: 14px;
+}

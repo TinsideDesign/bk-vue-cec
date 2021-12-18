@@ -28,10 +28,12 @@
 
 <template>
     <div style="position: absolute; top: -100000px; left: -100000px;" :data-transfer="transfer" v-transfer-dom>
-        <!-- <transition :name="maskTransitionName">
-            <div class="bk-dialog-mask" :style="wrapStyles" v-if="showMask && (shouldRender || visible)" v-show="visible" @click.stop="maskClickHandler"></div>
-        </transition> -->
-        <div ref="dialog_wrapper" class="bk-dialog-wrapper" :class="[showMask ? '' : 'bk-dialog-no-mask', wrapShow ? '' : 'bk-dialog-hidden', extCls]" :style="wrapStyles" @mousedown.stop="wrapClickHandler">
+        <div
+            ref="dialog_wrapper"
+            class="bk-dialog-wrapper"
+            :class="[showMask ? '' : 'bk-dialog-no-mask', wrapShow ? '' : 'bk-dialog-hidden', extCls]"
+            :style="wrapStyles"
+            @mousedown.stop="wrapClickHandler">
             <transition :name="contentTransitionName" @after-leave="animationFinish">
                 <!-- info-box -->
                 <template v-if="isInfoBox">
@@ -43,7 +45,6 @@
                         ]" ref="content" :style="[contentStyles]" @click="contentClickHandler">
                             <div class="bk-dialog-tool" @mousedown.left="moveStartHandler">
                                 <slot name="tools"></slot>
-                                <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                             </div>
                             <template v-if="type">
                                 <div class="bk-dialog-type-body" :class="type === 'loading' ? 'loading' : ''">
@@ -100,6 +101,7 @@
                                     </slot>
                                 </div>
                             </template>
+                            <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                         </div>
                     </div>
                 </template>
@@ -119,7 +121,6 @@
                         ]" ref="content" :style="[contentStyles]" @click="contentClickHandler">
                             <div class="bk-dialog-tool" @mousedown.left="moveStartHandler">
                                 <slot name="tools"></slot>
-                                <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                             </div>
                             <div :class="{ 'bk-dialog-header': true, 'header-on-left': headerPosition === 'left' }" v-if="showHead" :style="{ textAlign: headerPosition }">
                                 <slot name="header"><div :class="{ 'bk-dialog-header-inner': true, 'header-center': headerPosition === 'center' }">{{title}}</div></slot>
@@ -137,6 +138,7 @@
                                     </div>
                                 </slot>
                             </div>
+                            <i class="bk-dialog-close bk-icon icon-close" v-if="closeIcon" @click.stop="cancelHandler"></i>
                         </div>
                     </div>
                 </template>

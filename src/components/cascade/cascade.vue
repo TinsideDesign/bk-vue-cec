@@ -64,8 +64,8 @@
                     <div class="bk-cascade-tag-list" v-if="multipleSelectedList.length || !filterable">
                         <span v-for="(item, index) in multipleSelectedList"
                             :key="index"
-                            class="bk-cascade-tag-item">
-                            <span class="bk-cascade-item-name">{{item.name}}</span>
+                            class="bk-cascade-tag-item" style="padding-right: 18px;">
+                            <span class="bk-cascade-item-name" :title="item.name">{{item.name}}</span>
                             <a href="javascript:void(0)" class="remove-key" @click.stop="removeTag(item, index)" tabindex="-1">
                                 <i class="bk-icon icon-close"></i>
                             </a>
@@ -639,7 +639,11 @@
             },
             changeValueList () {
                 // 赋值操作
-                this.recursiveList(this.cascadeList, this.value, 'init')
+                if (this.isRemote) {
+                    this.recursiveList(this.cascadeList, this.value, 'search')
+                } else {
+                    this.recursiveList(this.cascadeList, this.value, 'init')
+                }
                 this.checkListStatus(this.value)
 
                 const newList = this.changeList()
@@ -750,7 +754,7 @@
                 // 同步数据的选中态
                 const changeCheckStatus = (arr) => {
                     arr.forEach(item => {
-                        if (itemId === item.id) {
+                        if (`${itemId}` === `${item.id}`) {
                             item.isSelected = false
                             item.isIndeterminate = false
                         }

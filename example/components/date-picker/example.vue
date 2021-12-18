@@ -173,6 +173,17 @@
                 }"></bk-date-picker>
             </div>
         </div>
+        <div class="example-item">
+            <div class="inner">
+                <p><span class="bk-text-minor">快捷选择区域插槽</span></p>
+                <bk-date-picker
+                    :value="value"
+                    :placement="'top-start'"
+                    :type="'datetimerange'">
+                    <div slot="shortcuts">自定义插槽</div>
+                </bk-date-picker>
+            </div>
+        </div>
     </section>
 </template>
 

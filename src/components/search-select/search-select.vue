@@ -36,12 +36,31 @@
                 <slot name="prefix"></slot>
             </div>
             <div class="search-input" :style="{ maxHeight: (shrink ? (input.focus ? maxHeight : minHeight) : maxHeight) + 'px' }">
-                <div v-for="(item,index) in chip.list" class="search-input-chip" :key="index">
-                    <span class="chip-name">
-                        {{item[displayKey] + (item.values && item.values.length ? explainCode + (item.condition ? item.condition[displayKey] : '') + item.values.map(v => v[displayKey]).join(splitCode) : '')}}
-                    </span>
-                    <span class="chip-clear bk-icon icon-close" @click="handleClear(index,item)"></span>
-                </div>
+                <template v-for="(item,index) in chip.list">
+                    <div
+                        class="search-input-chip"
+                        :key="`${index}_pre_key`"
+                        v-if="overflow.chipIndex >= 0 ? index < overflow.chipIndex : index >= 0">
+                        <span class="chip-name">
+                            {{item[displayKey] + (item.values && item.values.length ? explainCode + (item.condition ? item.condition[displayKey] : '') + item.values.map(v => v[displayKey]).join(splitCode) : '')}}
+                        </span>
+                        <span class="chip-clear bk-icon icon-close" @click="handleClear(index,item)"></span>
+                    </div>
+                </template>
+                <div v-if="chip.list.length && overflow.chipIndex >= 0" class="search-input-chip overflow-chip" style="padding-right: 8px;">+{{chip.list.length - overflow.chipIndex}}</div>
+                <template v-if="chip.list.length && overflow.chipIndex >= 0">
+                    <template v-for="(item,index) in chip.list">
+                        <div
+                            class="search-input-chip hidden-chip"
+                            :key="`${index}_next_key`"
+                            v-if="index >= overflow.chipIndex">
+                            <span class="chip-name">
+                                {{item[displayKey] + (item.values && item.values.length ? explainCode + (item.condition ? item.condition[displayKey] : '') + item.values.map(v => v[displayKey]).join(splitCode) : '')}}
+                            </span>
+                            <span class="chip-clear bk-icon icon-close" @click="handleClear(index,item)"></span>
+                        </div>
+                    </template>
+                </template>
                 <div class="search-input-input">
                     <div
                         ref="input"
@@ -78,13 +97,13 @@
 <script>
     import Vue from 'vue'
     import { debounce } from 'throttle-debounce'
-
     import locale from 'bk-magic-vue/lib/locale'
     import Tippy from '@/utils/tippy'
     import emitter from '@/mixins/emitter'
     import clickoutside from '@/directives/clickoutside.js'
     import SearchInputMenu from './search-select-menu'
     import { dropdownMarginBottom } from '@/ui/variable'
+    import { addResizeListener, removeResizeListener } from '@/utils/resize-events'
 
     export default {
         name: 'bk-search-select',
@@ -240,7 +259,13 @@
                     focus: false,
                     value: ''
                 },
+                overflow: {
+                    chipIndex: -1
+                },
                 handleInputSearchPlus () {
+
+                },
+                handleSearchSelectResize () {
 
                 },
                 defaultPlaceholder: '',
@@ -286,6 +311,20 @@
                     this.validateStr = v
                 },
                 immediate: true
+            },
+            'input.focus': {
+                handler (v) {
+                    if (v) {
+                        this.overflow.chipIndex = -1
+                    } else {
+                        this.$refs.wrap && this.$refs.wrap.scrollTo(0, 0)
+                        // 等待动画收起时间
+                        setTimeout(() => {
+                            this._isMounted && this.handleSearchInputResize()
+                        }, 300)
+                    }
+                },
+                immediate: true
             }
         },
         created () {
@@ -305,13 +344,39 @@
             if (this.input.focus) {
                 this.$refs.input.focus()
             }
+            this.handleSearchSelectResize = debounce(32, this.handleSearchInputResize)
+            addResizeListener(this.$el, this.handleSearchSelectResize)
         },
         beforeDestroy () {
             this.menuInstance = null
             this.menuChildInstance = null
             this.popperMenuInstance && this.popperMenuInstance.destroy(true)
+            removeResizeListener(this.$el, this.handleSearchSelectResize)
         },
         methods: {
+            handleSearchInputResize () {
+                if (this.input.focus || this.chip.list.length < 1) {
+                    this.overflow.chipIndex = -1
+                    return
+                }
+                const inputEl = this.$el.querySelector('.bk-search-select')
+                const maxWidth = this.$el.querySelector('.search-input').clientWidth - 8
+                const tagList = inputEl.querySelectorAll('.search-input-chip:not(.overflow-chip)')
+                let width = 0
+                let index = 0
+                let i = 0
+                while (width <= maxWidth - 40 && i <= tagList.length - 1) {
+                    const el = tagList[i]
+                    width += el ? el.clientWidth + 6 : 0
+                    i += 1
+                    if (width <= maxWidth - 40) index = i
+                }
+                if (index === tagList.length - 1 && width <= maxWidth) {
+                    this.overflow.chipIndex = -1
+                    return
+                }
+                this.overflow.chipIndex = width >= maxWidth - 40 ? index : -1
+            },
             initMenu () {
                 if (!this.menuInstance) {
                     this.menuInstance = new Vue(SearchInputMenu).$mount()
@@ -491,7 +556,8 @@
             handleInputOutSide (e) {
                 const parent = e.target.offsetParent
                 const classList = parent ? parent.classList : null
-                if (!parent || (classList && !(classList.contains('bk-search-list') || classList.contains('tippy-tooltip') || classList.contains('bk-form-checkbox') || classList.contains('search-input-list') || classList.contains('search-input-chip')))) {
+                const unFocus = !parent || (classList && !Array.from(classList.values()).some(key => ['bk-search-select', 'bk-search-list', 'tippy-tooltip', 'bk-form-checkbox', 'search-input-list', 'search-input-chip'].includes(key)))
+                if (unFocus) {
                     this.hidePopper()
                     this.input.focus = false
                 }

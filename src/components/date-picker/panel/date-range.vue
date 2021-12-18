@@ -27,7 +27,7 @@
 -->
 
 <template>
-    <div class="bk-picker-panel-body-wrapper bk-date-picker-with-range" :class="[shortcuts.length ? 'bk-picker-panel-with-sidebar' : '']" @mousedown.prevent>
+    <div class="bk-picker-panel-body-wrapper bk-date-picker-with-range" :class="[shortcuts.length || $slots.shortcuts ? 'bk-picker-panel-with-sidebar' : '']" @mousedown.prevent>
         <div class="bk-picker-panel-body" :class="showTime ? 'bk-picker-panel-body-time' : 'bk-picker-panel-body-date'">
             <!-- left panel -->
             <div class="bk-picker-panel-content bk-picker-panel-content-left" v-show="!isTime" style="width: 261px;">
@@ -129,8 +129,9 @@
                 @pick-clear="handlePickClear"
                 @pick-success="handlePickSuccess"></Confirm>
         </div>
-        <div class="bk-picker-panel-sidebar" v-if="shortcuts.length">
-            <div class="bk-picker-panel-shortcut" v-for="(shortcut, index) in shortcuts" :key="index" @click="handleShortcutClick(shortcut)">{{shortcut.text}}</div>
+        <div class="bk-picker-panel-sidebar" v-if="shortcuts.length || $slots.shortcuts">
+            <slot v-if="$slots.shortcuts" name="shortcuts"></slot>
+            <div v-else class="bk-picker-panel-shortcut" v-for="(shortcut, index) in shortcuts" :key="index" @click="handleShortcutClick(shortcut)">{{shortcut.text}}</div>
         </div>
     </div>
 </template>

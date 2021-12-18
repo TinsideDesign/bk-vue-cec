@@ -28,6 +28,12 @@
 
 <template>
     <div class="bk-breadcrumb" aria-label="Breadcrumb" role="navigation">
+        <div v-if="!$slots.prefix && backRouter" class="bk-breadcrumb-goback">
+            <i class="bk-icon icon-arrows-left icon-default" @click="goBack"></i>
+        </div>
+        <div v-if="$slots.prefix" class="bk-breadcrumb-goback">
+            <slot name="prefix"></slot>
+        </div>
         <slot></slot>
     </div>
 </template>
@@ -42,6 +48,14 @@
             separatorClass: {
                 type: String,
                 default: ''
+            },
+            backRouter: {
+                type: [Object, String],
+                default: () => null
+            },
+            replace: {
+                type: Boolean,
+                default: false
             }
         },
         provide () {
@@ -53,6 +67,13 @@
             const items = this.$el.querySelectorAll('.bk-breadcrumb__item')
             if (items.length) {
                 items[items.length - 1].setAttribute('aria-current', 'page')
+            }
+        },
+        methods: {
+            goBack () {
+                const { backRouter, $router } = this
+                if (!backRouter || !$router) return
+                this.replace ? $router.replace(backRouter) : $router.push(backRouter)
             }
         }
     }

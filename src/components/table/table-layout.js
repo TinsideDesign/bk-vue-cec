@@ -77,12 +77,11 @@ class TableLayout {
     }
 
     updateScrollY () {
-        const height = this.height
-        if (typeof height !== 'string' && typeof height !== 'number') return
+        if (!this.bodyHeight) return
         const bodyWrapper = this.table.bodyWrapper
         if (this.table.$el && bodyWrapper) {
             if (this.table.isVirtualRender) {
-                const body = bodyWrapper.querySelector('.bk-virtual-render')
+                const body = bodyWrapper.querySelector('.bk-virtual-section')
                 this.scrollY = body.offsetHeight > this.bodyHeight
             } else {
                 const body = bodyWrapper.querySelector('.bk-table-body')
@@ -133,10 +132,8 @@ class TableLayout {
             return Vue.nextTick(() => this.updateElsHeight())
         }
         const tableHeight = (this.tableHeight = this.table.$el.offsetHeight - this.paginationHeight)
-        if (this.height !== null && (!isNaN(this.height) || typeof this.height === 'string')) {
-            const footerHeight = (this.footerHeight = footerWrapper ? footerWrapper.offsetHeight : 0)
-            this.bodyHeight = tableHeight - headerHeight - footerHeight + (footerWrapper ? 1 : 0)
-        }
+        const footerHeight = (this.footerHeight = footerWrapper ? footerWrapper.offsetHeight : 0)
+        this.bodyHeight = tableHeight - headerHeight - footerHeight + (footerWrapper ? 1 : 0)
         this.fixedBodyHeight = this.scrollX ? this.bodyHeight - this.gutterWidth : this.bodyHeight
 
         const noData = !this.table.data || this.table.data.length === 0

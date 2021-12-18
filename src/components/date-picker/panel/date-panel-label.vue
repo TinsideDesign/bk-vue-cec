@@ -29,7 +29,9 @@
 <template>
     <span>
         <template v-if="datePanelLabel">
-            <span :class="cls" v-show="showLabelFirst" @click="datePanelLabel.labels[0].handler">{{datePanelLabel.labels[0].label}}</span><template v-if="currentView === 'date'">{{datePanelLabel.separator}}</template><span :class="cls" v-show="showLabelSecond" @click="datePanelLabel.labels[1].handler">{{datePanelLabel.labels[1].label}}</span>
+            <span :class="cls" v-show="showLabelFirst" @click="datePanelLabel.labels[0].handler">{{datePanelLabel.labels[0].label}}</span>
+            <template v-if="currentView === 'date'">{{datePanelLabel.separator}}</template>
+            <span :class="cls" v-show="showLabelSecond" @click="datePanelLabel.labels[1].handler">{{datePanelLabel.labels[1].label}}</span>
         </template>
     </span>
 </template>

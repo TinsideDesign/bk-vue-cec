@@ -18,13 +18,14 @@
         outline: none;
         resize: none;
         transition: border 0.2s linear;
-        overflow: auto;
+        overflow: hidden;
         color: #63656e;
         flex-wrap: wrap;
         &.is-focus {
             border-color: #3c96ff !important;
             background: #fff !important;
             color: #3c96ff;
+            overflow: auto;
         }
         .search-prefix {
             flex: 0 0 auto;
@@ -56,6 +57,9 @@
                 background: #f0f1f5;
                 border-radius: 2px;
                 line-height: 22px;
+                &.hidden-chip {
+                    visibility: hidden
+                }
                 &:hover {
                     background: #dcdee5;
                     .chip-clear {

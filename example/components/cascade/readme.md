@@ -747,6 +747,7 @@
 <template>
     <bk-cascade
         v-model="value"
+        :multiple="true"
         :list="remoteList"
         :is-remote="isRemote"
         :remote-method="remoteMethod"

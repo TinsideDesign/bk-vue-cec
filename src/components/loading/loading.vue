@@ -163,8 +163,7 @@
             },
             /** 堆叠顺序 */
             zIndex: {
-                type: Number,
-                default: 0
+                type: Number
             },
             /** 消失完毕回调函数 */
             afterLeave: {

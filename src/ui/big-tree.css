@@ -25,6 +25,11 @@
         font-size: 14px;
         color: #63656e;
     }
+    &--small {
+        .bk-big-tree-node .node-content {
+            font-size: 12px;
+        }
+    }
 }
 
 /* 树伸缩触发器 icon */

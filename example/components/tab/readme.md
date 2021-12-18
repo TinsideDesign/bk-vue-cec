@@ -182,7 +182,6 @@
             </bk-tab-panel>
         </bk-tab>
     </div>
-
 </template>
 <script>
     import { bkTab, bkTabPanel } from '{{BASE_LIB_NAME}}'

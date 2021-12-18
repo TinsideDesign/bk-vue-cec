@@ -315,14 +315,14 @@ $itemBackground: #F0F1F5;
         min-height: 21px;
         line-height: 19px;
         word-break: break-all;
-        max-width: 200px;
+        max-width: 150px;
         overflow: hidden;
         display: inline-block;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
     .remove-key {
-        position: relative;
+        position: absolute;
         width: 18px;
         height: 16px;
         top: 3px;

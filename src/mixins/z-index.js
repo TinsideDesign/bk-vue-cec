@@ -34,8 +34,8 @@ export default {
         }
     },
     methods: {
-        getLocalZIndex () {
-            return zIndexManager.nextTickIndex(2)
+        getLocalZIndex (zIndex) {
+            return zIndexManager.nextTickIndex(2, zIndex)
         }
     }
 }

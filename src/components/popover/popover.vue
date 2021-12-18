@@ -166,7 +166,7 @@
             const onShow = options.onShow
             const onHide = options.onHide
             options.onShow = tip => {
-                tip.set({ zIndex: this.getLocalZIndex() })
+                tip.set({ zIndex: this.getLocalZIndex(this.zIndex) })
                 onShow && onShow(tip)
                 this.$emit('show')
             }

@@ -7,6 +7,11 @@
         }
     }
 </script>
+<style lang="postcss">
+    .back-top-description {
+        font-size: 14px;
+    }
+</style>
 
 [[toc]]
 
@@ -19,7 +24,7 @@
 :::demo 当滑动页面高度超过200（默认值）时，右下角会显示回到顶部按钮，点击回到顶部
 ```html
 <template>
-    滑动页面至底部，可以看到右下角的返回顶部按钮
+    <span class="back-top-description">滑动页面至底部，可以看到右下角的返回顶部按钮</span>
     <bk-back-top></bk-back-top>
 </template>
 <script>
@@ -38,7 +43,7 @@
 :::demo 默认插槽可自定义其内容，传入`bottom`和`right`以控制其位置
 ```html
 <template>
-    滑动页面至底部，可以看到右下角的返回顶部按钮
+    <span class="back-top-description">滑动页面至底部，可以看到右下角的返回顶部按钮</span>
     <bk-back-top :bottom="100" :right="40">
       <span>顶</span>
     </bk-back-top>

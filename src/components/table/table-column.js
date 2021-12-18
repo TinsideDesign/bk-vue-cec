@@ -419,7 +419,7 @@ export default {
                 renderCell = DEFAULT_RENDER_CELL
             }
             if (_self.showOverflowTooltip) {
-                const config = typeof _self.showOverflowTooltip === 'object' ? _self.showOverflowTooltip : {}
+                const config = typeof _self.showOverflowTooltip === 'object' ? _self.showOverflowTooltip : { interactive: false }
                 return <div class="cell" v-bk-overflow-tips={ config }>{ renderCell(h, data) }</div>
             }
             return <div class="cell">{ renderCell(h, data) }</div>

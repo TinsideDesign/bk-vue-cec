@@ -29,7 +29,7 @@
 <template>
     <div
         :style="{ height: treeHeight }"
-        :class="['bk-big-tree', extCls, { 'with-virtual-scroll': !!height }]">
+        :class="['bk-big-tree', extCls, { 'with-virtual-scroll': !!height }, { 'bk-big-tree--small': size === 'small' }]">
         <!-- 虚拟滚动 -->
         <bk-virtual-scroll
             :item-height="nodeHeight"
@@ -167,6 +167,14 @@
             padding: {
                 type: Number,
                 default: 16
+            },
+            /**
+             * 树尺寸
+             * 可选项：normal/small
+             */
+            size: {
+                type: String,
+                default: 'normal'
             }
         },
         data () {

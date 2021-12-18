@@ -271,6 +271,7 @@
                 @limit-change="handlePageLimitChange">
             </bk-pagination>
         </div>
+        <div class="bk-table-bottom-loading" v-bkloading="scrollLoading" v-if="scrollLoading.isLoading"></div>
     </div>
 </template>
 
@@ -278,6 +279,7 @@
     import { debounce } from 'throttle-debounce'
     import { addResizeListener, removeResizeListener } from '@/utils/resize-events'
     import Mousewheel from '@/directives/mousewheel'
+    import Bkloading from '@/components/loading/directive'
     import TableStore from './table-store'
     import TableLayout from './table-layout'
     import TableBody from './table-body'
@@ -297,7 +299,8 @@
             BkPagination
         },
         directives: {
-            Mousewheel
+            Mousewheel,
+            Bkloading
         },
         mixins: [locale.mixin],
         props: {
@@ -396,6 +399,13 @@
             virtualRender: {
                 type: [Object, Boolean],
                 default: false
+            },
+            scrollLoading: {
+                type: Object,
+                default: () => ({
+                    size: 'mini',
+                    isLoading: false
+                })
             }
         },
         data () {
@@ -422,7 +432,8 @@
                 },
                 // 是否拥有多级表头
                 isGroup: false,
-                scrollPosition: 'left'
+                scrollPosition: 'left',
+                scrollThrottle: false // 滚动节流，是否进入
             }
         },
         computed: {
@@ -592,7 +603,6 @@
             this.tableId = 'bk-table-' + tableIdSeed++
             this.debouncedUpdateLayout = debounce(50, () => this.doLayout())
         },
-        
         mounted () {
             this.bindEvents()
             this.store.updateColumns()
@@ -684,7 +694,7 @@
                 })
             },
             bindEvents () {
-                const { headerWrapper, footerWrapper, tableHeader } = this.$refs
+                const { headerWrapper, footerWrapper, tableHeader, bodyWrapper } = this.$refs
                 const refs = this.$refs
                 const self = this
                 this.bodyWrapper.addEventListener('scroll', function () {
@@ -706,6 +716,15 @@
                     } else {
                         self.scrollPosition = 'middle'
                     }
+                    if (self.scrollLoading.isLoading) return
+                    if (this.scrollThrottle) return
+                    this.scrollThrottle = true
+                    setTimeout(() => {
+                        this.scrollThrottle = false
+                        if ((bodyWrapper.scrollHeight - bodyWrapper.offsetHeight - bodyWrapper.scrollTop) < 40) {
+                            self.$emit('scroll-end')
+                        }
+                    }, 500)
                 })
                 if (this.fit) {
                     addResizeListener(this.$el, this.resizeListener)
@@ -735,10 +754,10 @@
             },
             doLayout () {
                 if (this.$destroyed) return
-                this.layout.updateColumnsWidth()
                 if (this.shouldUpdateHeight) {
                     this.layout.updateElsHeight()
                 }
+                this.layout.updateColumnsWidth()
             },
             sort (prop, order) {
                 this.store.commit('sort', { prop, order })

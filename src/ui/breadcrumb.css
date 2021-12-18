@@ -41,4 +41,12 @@
       }
     }
   }
+  &-goback {
+    color: $primaryHoverColor;
+    margin-right: 12px;
+    cursor: pointer;
+    & .icon-default {
+      font-size: 26px;
+    }
+  }
 }

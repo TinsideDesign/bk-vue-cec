@@ -32,6 +32,10 @@
                 label: '描述'
             }]
             return {
+                bottomLoadingOptions: {
+                    size: 'small',
+                    isLoading: false
+                },
                 size: 'small',
                 sourceFilters: [{ text: 'QQ', value: 'QQ' }, { text: '微信', value: '微信' }],
                 statusFilters: [{ text: '正常', value: '正常' }, { text: '创建中', value: '创建中' }],
@@ -103,6 +107,68 @@
                         ]
                     }
                 ],
+                tableData: [
+                    {
+                        ip: '192.168.0.1',
+                        source: 'QQ',
+                        status: '创建中',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.3',
+                        source: 'QQ',
+                        status: '创建中',
+                        create_time: '2018-05-25 15:02:24'
+                    }
+                ],
                 longData: new Array(100).fill('').map((item, index) => ({
                     ip: '192.168.0.1',
                     source: 'QQ' + index,
@@ -124,6 +190,13 @@
             }
         },
         methods: {
+            handleScrollToBottom() {
+                this.bottomLoadingOptions.isLoading = true
+                    setTimeout(() => {
+                        this.tableData = this.tableData.concat(this.tableData)
+                        this.bottomLoadingOptions.isLoading = false
+                }, 2000)
+            },
             clearSort(){
                 this.$refs.table.clearSort()
             },
@@ -1034,6 +1107,120 @@ export default {
 ```
 :::
 
+### 底部加载 {page=#/table}
+
+:::demo 配置`scroll-loading`属性设置表格底部加载样式，结合`scroll-end`监听表格滚动至底部事件进行分页加载
+
+```html
+
+<template>
+    <div>
+        <bk-table
+            :data="tableData"
+            :max-height="220"
+            :scroll-loading="bottomLoadingOptions"
+            ref="table"
+            @scroll-end="handleScrollToBottom">
+            <bk-table-column label="名称/内网IP" prop="ip"></bk-table-column>
+            <bk-table-column label="来源" prop="source"></bk-table-column>
+            <bk-table-column label="状态" prop="status"></bk-table-column>
+            <bk-table-column label="创建时间" prop="create_time"></bk-table-column>
+        </bk-table>
+    </div>
+</template>
+<script>
+    import {
+        bkTable,
+        bkTableColumn
+    } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkTable,
+            bkTableColumn
+        },
+        data() {
+            return {
+                bottomLoadingOptions: {
+                    size: 'small',
+                    isLoading: false
+                },
+                tableData: [{
+                        ip: '192.168.0.1',
+                        source: 'QQ',
+                        status: '创建中',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.2',
+                        source: '微信',
+                        status: '正常',
+                        create_time: '2018-05-25 15:02:24'
+                    },
+                    {
+                        ip: '192.168.0.3',
+                        source: 'QQ',
+                        status: '创建中',
+                        create_time: '2018-05-25 15:02:24'
+                    }
+                ]
+            }
+        },
+        methods: {
+            handleScrollToBottom() {
+                this.bottomLoadingOptions.isLoading = true
+                setTimeout(() => {
+                    this.tableData = this.tableData.concat(this.tableData)
+                    this.bottomLoadingOptions.isLoading = false
+                }, 2000)
+            }
+        }
+    }
+</script>
+```
+:::
+
 ### bk-table 属性 {page=#/table}
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|------|------|------|------|
@@ -1072,6 +1259,7 @@ export default {
 | select-on-indeterminate | 在多选表格中，当仅有部分行被选中时，点击表头的多选框时的行为。若为 true，则选中所有行；若为 false，则取消选择所有行 | Boolean | —— | true |
 | pagination | Table 的分页。`current` 属性表示当前页码,`count` 属性表示数据总量 | Object | —— | —— |
 | auto-scroll-to-top | Table 分页变化时，表格是否自动滚动到顶部 | Boolean | —— | false |
+| scroll-loading | 表格底部loading加载效果，可以配合表格scroll-end事件使用，它的值同v-bkloading相同 | Object | —— | `{ isLoading: false }` |
 | ext-cls | 配置自定义样式类名，传入的类会被加在组件最外层的 DOM `.bk-table` 上 | String | —— | —— |
 | virtual-render | 内置的虚拟滚动配置 | Boolean, Object | false / true / { virtual-render 配置 } | false |
 
@@ -1112,7 +1300,7 @@ export default {
 | expand-change | 当用户对某一行展开或者关闭的时候会触发该事件 | row, expandedRows |
 | page-change | 当用户切换表格分页时会触发的事件 | newPage |
 | page-limit-change | 当用户切换表格每页显示条数时会出发的事件 | limit |
-
+| scroll-end | 当表格滚动到底部时触发该事件 | —— |
 
 ### bk-table 方法 {page=#/table}
 | 方法名 | 说明 | 参数 |

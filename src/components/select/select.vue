@@ -64,6 +64,7 @@
             animation="slide-toggle"
             :offset="-1"
             :distance="popoverDistance"
+            :z-index="zIndex"
             :on-show="handleDropdownShow"
             :on-hide="handleDropdownHide"
             :tippy-options="renderPopoverOptions">

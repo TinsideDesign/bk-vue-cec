@@ -91,24 +91,6 @@
     .bk-dialog-tool {
         min-height: 30px;
         position: relative;
-        .bk-dialog-close {
-            z-index: 1;
-            cursor: pointer;
-            position: absolute;
-            color: $newBlackColor3;
-            top: 5px;
-            right: 5px;
-            width: 26px;
-            height: 26px;
-            line-height: 26px;
-            text-align: center;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: $iconNormalSize;
-            &:hover {
-                background-color: $newGreyColor2;
-            }
-        }
     }
 
     .bk-dialog-header {
@@ -192,6 +174,25 @@
         }
     }
 
+    .bk-dialog-close {
+        z-index: 1;
+        cursor: pointer;
+        position: absolute;
+        color: $newBlackColor3;
+        top: 5px;
+        right: 5px;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: $iconNormalSize;
+        &:hover {
+            background-color: $newGreyColor2;
+        }
+    }
+    
     .bk-info-box {
         .bk-dialog-header {
             padding: 15px 30px 10px 30px;

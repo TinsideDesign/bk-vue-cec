@@ -1071,7 +1071,7 @@
                     this.tagListCache = [...this.tagList]
                     this.localTagListCache = [...this.localTagList]
 
-                    this.curInputValue = this.localTagListCache[0][this.searchKey]
+                    this.curInputValue = this.localTagListCache[0][this.saveKey]
                     this.removeTag(this.localTagList[0], 0)
 
                     this.handleInput({

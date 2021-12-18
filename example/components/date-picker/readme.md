@@ -280,6 +280,12 @@
             @open-change="openChangeTest"
             @shortcut-change="shortcutChange"
             @pick-success="pickSuccessTest"></bk-date-picker>
+        <p class="mb5">快捷选项插槽</p>
+        <bk-date-picker
+            :value="initDateTimeRange"
+            :type="'datetimerange'">
+            <div slot="shortcuts">自定义插槽</div>
+        </bk-date-picker>
     </div>
 </template>
 <script>
@@ -605,6 +611,7 @@
 | use-shortcut-text | 开启后，点击选中配置的快捷项时，输入框显示的内容为选中的快捷文案，且不可编辑 | Boolean | true / false | false |
 | shortcut-selected-index | 选中的快捷项index | Number | -1 | —— |
 | footer-slot-cls | 自定义 footer 的容器的样式，**只有存在自定义 footer 时才会生效** | string | -- | —— |
+| header-slot-cls | 自定义 header 的容器的样式，**只有存在自定义 header 时才会生效** | string | -- | —— |
 | behavior | 风格设置(simplicity:简约 normal:正常) | String | 'normal'/'simplicity' | normal |
 
 ### 事件 {page=#/date-picker}
@@ -621,3 +628,5 @@
 |------|------|
 | trigger | 可用该插槽配合`open`属性，自定义日期选择器的展示 |
 | footer | 可用该插槽，自定义日期选择器 footer 的展示 |
+| header | 可用该插槽，自定义日期选择器 header 的展示 |
+| shortcuts | datetimerange、daterange类型可用该插槽，自定义时间范围选择器快捷选项区域的展示 |

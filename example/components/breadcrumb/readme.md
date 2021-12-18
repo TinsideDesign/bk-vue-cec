@@ -1,11 +1,12 @@
 <script>
-    import { bkBreadcrumb, bkBreadcrumbItem, bkInput } from '@'
+    import { bkBreadcrumb, bkBreadcrumbItem, bkInput, bkIcon } from '@'
 
     export default {
         components: {
             bkBreadcrumb,
             bkBreadcrumbItem,
-            bkInput
+            bkInput,
+            bkIcon
         },
         data () {
             return {
@@ -16,6 +17,11 @@
                     { title: '面包屑', link: null }
                 ],
                 separator: '/'
+            }
+        },
+        methods: {
+            goBack() {
+                this.$router.push({ path: '/'})
             }
         }
     }
@@ -130,11 +136,61 @@
 ```
 :::
 
+### 支持返回配置以及前置插槽 {page=#/breadcrumb}
+
+:::demo 通过设置 `bk-breadcrumb` 的 `back-router` 属性（和router参数一样）添加返回跳转链接，也可以使用slot自定义返回区域的内容
+
+```html
+<template>
+    <bk-breadcrumb :back-router="{ path: '/' }">
+        <bk-breadcrumb-item v-for="(item,index) in list" :key="index" :to="item.link">{{item.title}}</bk-breadcrumb-item>
+    </bk-breadcrumb>
+    <bk-breadcrumb>
+        <bk-breadcrumb-item v-for="(item,index) in list" :key="index" :to="item.link">{{item.title}}</bk-breadcrumb-item>
+        <template slot="prefix">
+            <bk-icon type="back2" @click="goBack"></bk-icon>
+        </template>
+    </bk-breadcrumb>
+</template>
+<script>
+    import { bkBreadcrumb, bkBreadcrumbItem, bkIcon } from '{{BASE_LIB_NAME}}'
+    export default {
+        components: {
+            bkBreadcrumb,
+            bkBreadcrumbItem,
+            bkIcon
+        },
+        data () {
+            return {
+                list: [
+                    { title: '首页', link: { path: '/' } },
+                    { title: '更新日志', link: { path: 'changelog' } },
+                    { title: '快速上手', link: { path: 'start' } },
+                    { title: '面包屑', link: null }
+                ]
+            }
+        },
+        methods: {
+            goBack() {
+                this.$router.push({ path: '/'})
+            }
+        }
+    }
+</script>
+```
+:::
+
 ### Breadcrumb Attributes {page=#/breadcrumb}
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | separator | 分隔符 | string | — | 斜杠'/' |
 | separator-class | 图标分隔符 class | string | — | - |
+| back-router | 路由跳转对象，同 `vue-router` 的 `to` | string/object | — | — |
+
+### bk-breadcrumb 前置插槽 {page=#/breadcrumb}
+| name | 说明 |
+|---|---|
+| prefix | 用于面包屑返回区域的插槽 |
 
 ### Breadcrumb Item Attributes {page=#/breadcrumb}
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |

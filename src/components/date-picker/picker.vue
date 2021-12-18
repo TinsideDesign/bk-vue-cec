@@ -87,6 +87,12 @@
                 :data-transfer="transfer"
                 :transfer="transfer"
                 v-transfer-dom>
+                <template v-if="hasHeader">
+                    <div class="bk-date-picker-top-wrapper" :class="headerSlotCls">
+                        <slot name="header">
+                        </slot>
+                    </div>
+                </template>
                 <!-- eslint-disable-next-line vue/require-component-is -->
                 <component
                     :is="panel"
@@ -116,7 +122,11 @@
                     @pick-success="onPickSuccess"
                     @pick-click="disableClickOutSide = true"
                     @selection-mode-change="onSelectionModeChange"
-                ></component>
+                >
+                    <div slot="shortcuts" v-if="$slots.shortcuts || $scopedSlots.shortcuts">
+                        <slot name="shortcuts"></slot>
+                    </div>
+                </component>
                 <template v-if="hasFooter">
                     <div class="bk-date-picker-footer-wrapper" :class="footerSlotCls">
                         <slot name="footer">
@@ -290,6 +300,10 @@
                 type: Number,
                 default: -1
             },
+            headerSlotCls: {
+                type: String,
+                default: ''
+            },
             footerSlotCls: {
                 type: String,
                 default: ''
@@ -425,7 +439,11 @@
             },
 
             hasFooter () {
-                return !!this.$slots.footer
+                return !!this.$slots.footer || !!this.$scopedSlots.footer
+            },
+            
+            hasHeader () {
+                return !!this.$slots.header || !!this.$scopedSlots.header
             },
 
             allowCrossDayProp () {

@@ -29,7 +29,7 @@
 <template>
     <div>
         <bk-search-select
-            :data="data"
+            :data="demo7.data"
             v-model="values">
         </bk-search-select>
     </div>
